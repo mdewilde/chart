@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>be.ceau</groupId>
 	<artifactId>chart</artifactId>
-	<version>1.0.0</version>
+	<version>0.9</version>
 	<name>Chart</name>
 	<description>Java library for use with Chart.js javascript</description>
 	<url>http://www.ceau.be/chart</url>
@@ -20,9 +20,9 @@
 		</license>
 	</licenses>
 	<scm>
-		<connection>scm:git:git@github.com:mdewilde/chart.git</connection>
-		<developerConnection>scm:git:git@github.com:mdewilde/chart.git</developerConnection>
-		<url>git@github.com:mdewilde/chart.git</url>
+		<connection>scm:git:mdewilde@github.com:mdewilde/chart.git</connection>
+		<developerConnection>scm:git:mdewilde@github.com:mdewilde/chart.git</developerConnection>
+		<url>mdewilde@github.com:mdewilde/chart.git</url>
 	</scm>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
