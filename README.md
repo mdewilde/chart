@@ -6,7 +6,7 @@ Use the Chart.java library to generate Chart data and configurations from within
 
 All models are annotated to allow for easy JSON export.
 
-## Usage example
+### Usage example
 
 In Java:
 

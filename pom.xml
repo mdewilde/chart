@@ -1,12 +1,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+	<packaging>jar</packaging>
 	<groupId>be.ceau</groupId>
 	<artifactId>chart</artifactId>
 	<version>0.9</version>
 	<name>Chart</name>
 	<description>Java library for use with Chart.js javascript</description>
-	<url>http://www.ceau.be/chart</url>
+	<url>http://www.ceau.be/chart.html</url>
 	<developers>
 		<developer>
 			<name>Marceau Dewilde</name>
@@ -20,10 +21,13 @@
 		</license>
 	</licenses>
 	<scm>
-		<connection>scm:git:mdewilde@github.com:mdewilde/chart.git</connection>
-		<developerConnection>scm:git:mdewilde@github.com:mdewilde/chart.git</developerConnection>
-		<url>mdewilde@github.com:mdewilde/chart.git</url>
+		<connection>scm:git:git@github.com:mdewilde/chart.git</connection>
+		<url>scm:git:git@github.com:mdewilde/chart.git</url>
+		<developerConnection>scm:git:git@github.com:mdewilde/chart.git</developerConnection>
 	</scm>
+	<issueManagement>
+		<url>https://github.com/mdewilde/chart/issues</url>
+	</issueManagement>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<slf4j.version>1.7.12</slf4j.version>
