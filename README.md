@@ -1,10 +1,12 @@
-Chart is a Java library that can be used in combination with Chart.js.
+# Chart.java
 
-Use the Chart Java library to generate Chart data and configurations from within your Java application.
+Chart.java is a Java library for use in combination with the excellent [Chart.js](http://www.chartjs.org/) project.
+
+Use the Chart.java library to generate Chart data and configurations from within your Java application.
 
 All models are annotated to allow for easy JSON export.
 
-Usage example
+## Usage example
 
 In Java:
 
@@ -60,4 +62,4 @@ function render(canvas, json) {
 }
 ```
 
-Chart.java is licensed under the Apache 2.0 license.
+Chart.java is licensed under [the Apache 2.0 license](http://www.apache.org/licenses/LICENSE-2.0.txt/).
