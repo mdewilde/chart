@@ -20,7 +20,6 @@ import java.util.Collections;
 import java.util.List;
 
 import be.ceau.chart.Chart;
-import be.ceau.chart.enums.AnimationEasing;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
@@ -32,6 +31,34 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, isGetterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE, creatorVisibility = Visibility.NONE)
 public abstract class Options {
 
+	/**
+	 * Static factory for constructing a default Options instance of the desired type.
+	 * @param type the desired Chart.Type, not <code>null</code>
+	 * @return Options
+	 * @throws IllegalArgumentException if argument is <code>null</code>
+	 */
+	public static Options forType(Chart.Type type) {
+		if (type == null) {
+			throw new IllegalArgumentException("Chart.Type argument can not be null");
+		}
+		switch (type) {
+			case BAR:
+				return BarOptions.defaultInstance();
+			case DOUGHNUT:
+				return DoughnutOptions.defaultInstance();
+			case LINE:
+				return LineOptions.defaultInstance();
+			case PIE:
+				return PieOptions.defaultInstance();
+			case POLAR:
+				return PolarOptions.defaultInstance();
+			case RADAR:
+				return RadarOptions.defaultInstance();
+			default:
+				throw new UnsupportedOperationException("Chart.Type " + String.valueOf(type) + " is not supported");
+		}
+	}
+	
 	protected Boolean animation;
 	protected Integer animationSteps;
 	protected String animationEasing;

@@ -21,12 +21,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-import be.ceau.chart.data.BarData;
-import be.ceau.chart.data.DoughnutData;
-import be.ceau.chart.data.LineData;
-import be.ceau.chart.data.PieData;
-import be.ceau.chart.data.PolarData;
-import be.ceau.chart.data.RadarData;
+import be.ceau.chart.data.Data;
+import be.ceau.chart.data.DataPointData;
+import be.ceau.chart.data.DataSetData;
 import be.ceau.chart.options.BarOptions;
 import be.ceau.chart.options.DoughnutOptions;
 import be.ceau.chart.options.LineOptions;
@@ -49,6 +46,9 @@ public class Chart {
 	@JsonProperty private final Data data;
 	@JsonProperty private final Options options;
 
+	/**
+	 * Create a new ChartBuilder for building a Chart of the given type.
+	 */
 	public static ChartBuilder builder(Chart.Type chartType) {
 		if (chartType == null) {
 			throw new IllegalArgumentException("Chart.Type argument can not be null");
@@ -61,7 +61,10 @@ public class Chart {
 			throw new UnsupportedOperationException("no ChartBuilder implementation registered for Chart.Type " + chartType.toString());
 		}
 	}
-	
+
+	/**
+	 * Create a new ChartBuilder for building a chart with the given Options.
+	 */
 	public static ChartBuilder builder(Options options) {
 		if (options == null) {
 			throw new IllegalArgumentException("Options argument can not be null");
@@ -89,10 +92,10 @@ public class Chart {
 		if (options == null) {
 			throw new IllegalArgumentException("Options argument can not be null");
 		}
-		if (!type.isCorrectDataClass(data.getClass())) {
+		if (!type.isCompatible(data)) {
 			throw new IllegalArgumentException("Data object is not of proper class");
 		}
-		if (!type.isCorrectOptionsClass(options.getClass())) {
+		if (!type.isCompatible(options)) {
 			throw new IllegalArgumentException("Options object is not of proper class");
 		}
 		this.type = type;
@@ -102,12 +105,12 @@ public class Chart {
 
 	public static enum Type {
 		
-		BAR(BarData.class, BarOptions.class),
-		DOUGHNUT(DoughnutData.class, DoughnutOptions.class),
-		LINE(LineData.class, LineOptions.class),
-		PIE(PieData.class, PieOptions.class),
-		POLAR(PolarData.class, PolarOptions.class),
-		RADAR(RadarData.class, RadarOptions.class);
+		BAR(DataSetData.class, BarOptions.class),
+		DOUGHNUT(DataPointData.class, DoughnutOptions.class),
+		LINE(DataSetData.class, LineOptions.class),
+		PIE(DataPointData.class, PieOptions.class),
+		POLAR(DataPointData.class, PolarOptions.class),
+		RADAR(DataSetData.class, RadarOptions.class);
 
 		private final Class<? extends Data> dataClass;
 		private final Class<? extends Options> optionsClass;
@@ -116,12 +119,20 @@ public class Chart {
 			this.optionsClass = optionsClass;
 		}
 		
-		public boolean isCorrectDataClass(Class<? extends Data> dataClass) {
-			return this.dataClass.equals(dataClass);
+		public boolean isCompatible(Data data) {
+			if (data == null) {
+				return false;
+			} else {
+				return this.dataClass.isAssignableFrom(data.getClass());
+			}
 		}
-		
-		public boolean isCorrectOptionsClass(Class<? extends Options> optionsClass) {
-			return this.optionsClass.equals(optionsClass);
+
+		public boolean isCompatible(Options options) {
+			if (options == null) {
+				return false;
+			} else {
+				return this.optionsClass.isAssignableFrom(options.getClass());
+			}
 		}
 		
 		private static final Set<Chart.Type> DATA_SET_CHARTS;
@@ -148,14 +159,23 @@ public class Chart {
 		
 	}
 
+	/**
+	 * @return Type the enumType for this Chart
+	 */
 	public Type getType() {
 		return type;
 	}
 
+	/**
+	 * @return Data the Data object for this Chart
+	 */
 	public Data getData() {
 		return data;
 	}
 
+	/**
+	 * @return Options the Options object for this Chart
+	 */
 	public Options getOptions() {
 		return options;
 	}

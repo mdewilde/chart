@@ -12,13 +12,15 @@
 	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 	See the License for the specific language governing permissions and
 	limitations under the License.
-*/
-package be.ceau.chart.model;
+ */
+package be.ceau.chart.data;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
+import be.ceau.chart.color.Colors;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
@@ -38,9 +40,11 @@ public class DataSet {
 	private final String pointHighlightFill;
 	private final String pointHighlightStroke;
 	private final List<BigDecimal> data;
-	
-	@JsonIgnore private final BigDecimal min;
-	@JsonIgnore private final BigDecimal max;
+
+	@JsonIgnore
+	private final BigDecimal min;
+	@JsonIgnore
+	private final BigDecimal max;
 
 	public DataSet(String label, Colors colors, List<BigDecimal> data) {
 		this.label = label;
@@ -66,16 +70,16 @@ public class DataSet {
 	}
 
 	/**
-	 * @return the number of values in this dataset 
+	 * @return the number of values in this dataset
 	 */
 	public int getDataLength() {
 		return this.data.size();
 	}
-	
+
 	public BigDecimal getMin() {
 		return this.min;
 	}
-	
+
 	public BigDecimal getMax() {
 		return this.max;
 	}

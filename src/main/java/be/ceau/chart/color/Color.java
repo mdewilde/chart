@@ -12,8 +12,8 @@
 	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 	See the License for the specific language governing permissions and
 	limitations under the License.
-*/
-package be.ceau.chart.model;
+ */
+package be.ceau.chart.color;
 
 import java.util.Random;
 
@@ -30,10 +30,20 @@ public class Color {
 	private final float a;
 
 	/**
-	 * @param r value for Red color channel. Value between 0 and 255 (inclusive).
-	 * @param g value for Green color channel. Value between 0 and 255 (inclusive).
-	 * @param b value for Blue color channel. Value between 0 and 255 (inclusive).
-	 * @param alpha value for alpha transparency. Value between 0 and 1 (inclusive), with 0 fully transparent and 1 fully opaque.
+	 * Constructs a new Color instance
+	 * 
+	 * @param r
+	 *            value for Red color channel. Value between 0 and 255
+	 *            (inclusive).
+	 * @param g
+	 *            value for Green color channel. Value between 0 and 255
+	 *            (inclusive).
+	 * @param b
+	 *            value for Blue color channel. Value between 0 and 255
+	 *            (inclusive).
+	 * @param alpha
+	 *            value for alpha transparency. Value between 0 and 1
+	 *            (inclusive), with 0 fully transparent and 1 fully opaque.
 	 */
 	public Color(int r, int g, int b, float alpha) {
 		if (!Color.isChannelWithinBounds(r) || !Color.isChannelWithinBounds(g) || !Color.isChannelWithinBounds(b) || !Color.isAlphaWithinBounds(alpha)) {
@@ -46,7 +56,8 @@ public class Color {
 	}
 
 	/**
-	 * Constructs a new Color instance with the RGB values of the Color argument and the alpha transparency of the float argument.
+	 * Constructs a new Color instance with the RGB values of the Color argument
+	 * and the alpha transparency of the float argument.
 	 */
 	public Color(Color color, float alpha) {
 		if (color == null) {
@@ -60,15 +71,15 @@ public class Color {
 		this.b = color.getB();
 		this.a = alpha;
 	}
-	
+
 	public static Color random() {
 		int r = randomizer.nextInt(256);
 		int g = randomizer.nextInt(256);
 		int b = randomizer.nextInt(256);
 		float a = randomizer.nextFloat();
-		return new Color(r,g,b,a);
+		return new Color(r, g, b, a);
 	}
-	
+
 	public static boolean isChannelWithinBounds(int channel) {
 		return channel >= 0 && channel <= 255;
 	}
@@ -76,7 +87,7 @@ public class Color {
 	public static boolean isAlphaWithinBounds(float alpha) {
 		return Float.compare(0.0f, alpha) <= 0 && Float.compare(1.0f, alpha) >= 0;
 	}
-	
+
 	public int getR() {
 		return r;
 	}
@@ -94,9 +105,9 @@ public class Color {
 	}
 
 	public String rgba() {
-		return "rgba(" + r + "," + g + "," + b + "," + a +")";
+		return "rgba(" + r + "," + g + "," + b + "," + a + ")";
 	}
-	
+
 	@Override
 	public String toString() {
 		return rgba();

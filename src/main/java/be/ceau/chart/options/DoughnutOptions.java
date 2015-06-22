@@ -16,7 +16,6 @@
 package be.ceau.chart.options;
 
 import be.ceau.chart.Chart;
-import be.ceau.chart.enums.AnimationEasing;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;

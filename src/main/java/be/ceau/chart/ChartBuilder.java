@@ -17,9 +17,12 @@ package be.ceau.chart;
 
 import java.math.BigDecimal;
 
-import be.ceau.chart.model.Colors;
+import be.ceau.chart.color.Colors;
 import be.ceau.chart.options.Options;
 
+/**
+ * Builder for Chart instances.
+ */
 public interface ChartBuilder {
 
 	/**
@@ -28,6 +31,7 @@ public interface ChartBuilder {
 	public ChartBuilder addData(String label, BigDecimal value);
 
 	/**
+	 * Sets the Options for the target Chart
 	 * @throws IllegalArgumentException if Options argument is null or not of a type compatible with Chart.Type used to create this ChartBuilder
 	 */
 	public ChartBuilder setOptions(Options options);

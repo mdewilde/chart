@@ -12,45 +12,45 @@
 	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 	See the License for the specific language governing permissions and
 	limitations under the License.
-*/
+ */
 package be.ceau.chart;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-import be.ceau.chart.data.DoughnutData;
-import be.ceau.chart.data.PieData;
-import be.ceau.chart.data.PolarData;
-import be.ceau.chart.model.Color;
-import be.ceau.chart.model.Colors;
-import be.ceau.chart.model.DataPoint;
-import be.ceau.chart.options.DoughnutOptions;
+import be.ceau.chart.color.Color;
+import be.ceau.chart.color.Colors;
+import be.ceau.chart.data.Data;
+import be.ceau.chart.data.DataPoint;
+import be.ceau.chart.data.DataPointData;
 import be.ceau.chart.options.Options;
-import be.ceau.chart.options.PieOptions;
-import be.ceau.chart.options.PolarOptions;
 
 /**
- * ChartBuilder implementation for Chart objects consisting of data points.<br>
- * Supported types are PIE, DOUGHNUT and POLAR.
+ * {@link be.ceau.chart.ChartBuilder ChartBuilder} implementation for
+ * {@link be.ceau.chart.Chart Chart} objects consisting of
+ * {@link be.ceau.chart.data.DataPoint DataPoint} instances.<br>
+ * Supported types are {@link be.ceau.chart.Chart.Type#PIE PIE},
+ * {@link be.ceau.chart.Chart.Type#DOUGHNUT DOUGHNUT} and
+ * {@link be.ceau.chart.Chart.Type#POLAR POLAR}.
  */
 public final class DataPointChartBuilder implements ChartBuilder {
-	
+
 	private final Chart.Type targetType;
-	
+
 	private final List<String> labels;
 	private final List<Color> colors;
 	private final List<BigDecimal> values;
-	
+
 	private Options options;
-	
+
 	DataPointChartBuilder(Chart.Type targetType) {
 		this.targetType = targetType;
 		this.labels = new ArrayList<String>();
 		this.colors = new ArrayList<Color>();
 		this.values = new ArrayList<BigDecimal>();
 	}
-	
+
 	DataPointChartBuilder(Chart.Type targetType, Options options) {
 		this.targetType = targetType;
 		this.options = options;
@@ -64,13 +64,13 @@ public final class DataPointChartBuilder implements ChartBuilder {
 		if (options == null) {
 			throw new IllegalArgumentException("Options argument may not be null");
 		}
-		if (!targetType.isCorrectOptionsClass(options.getClass())) {
+		if (!targetType.isCompatible(options)) {
 			throw new IllegalArgumentException("Options argument is not of a type compatible with target Chart.Type " + targetType);
 		}
 		this.options = options;
 		return this;
 	}
-	
+
 	@Override
 	public ChartBuilder addData(String label, BigDecimal value) {
 		if (value == null) {
@@ -84,10 +84,11 @@ public final class DataPointChartBuilder implements ChartBuilder {
 		this.values.add(value);
 		return this;
 	}
-	
+
 	@Override
 	public ChartBuilder newSeries(String name, Colors colors) {
-		// as charts built by this chartbuilder do not use datasets, this method is a no-op
+		// as charts built by this chartbuilder do not use datasets, this method
+		// is a no-op
 		return this;
 	}
 
@@ -97,31 +98,9 @@ public final class DataPointChartBuilder implements ChartBuilder {
 		for (int i = 0; i < values.size(); i++) {
 			datapoints.add(new DataPoint(labels.get(i), colors.get(i).rgba(), new Color(colors.get(i), 0.2f).rgba(), values.get(i)));
 		}
-		Data data = null;
-		switch (targetType) {
-			case PIE: {
-				data = new PieData(datapoints);
-				if (options == null) {
-					options = PieOptions.defaultInstance();
-				}
-				break;
-			}
-			case DOUGHNUT: {
-				data = new DoughnutData(datapoints);
-				if (options == null) {
-					options = DoughnutOptions.defaultInstance();
-				}
-				break;
-			}
-			case POLAR: {
-				data = new PolarData(datapoints);
-				if (options == null) {
-					options = PolarOptions.defaultInstance();
-				}
-				break;
-			}
-			default:
-				throw new IllegalStateException("incorrect Chart.Type " + targetType.toString());
+		Data data = new DataPointData(datapoints);
+		if (options == null) {
+			options = Options.forType(targetType);
 		}
 		return new Chart(targetType, data, options);
 	}

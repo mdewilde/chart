@@ -13,38 +13,8 @@
 	See the License for the specific language governing permissions and
 	limitations under the License.
 */
-package be.ceau.chart.enums;
+package be.ceau.chart.data;
 
-public enum AnimationEasing {
-	linear,
-	easeInQuad,
-	easeOutQuad,
-	easeInOutQuad,
-	easeInCubic,
-	easeOutCubic,
-	easeInOutCubic,
-	easeInQuart,
-	easeOutQuart,
-	easeInOutQuart,
-	easeInQuint,
-	easeOutQuint,
-	easeInOutQuint,
-	easeInSine,
-	easeOutSine,
-	easeInOutSine,
-	easeInExpo,
-	easeOutExpo,
-	easeInOutExpo,
-	easeInCirc,
-	easeOutCirc,
-	easeInOutCirc,
-	easeInElastic,
-	easeOutElastic,
-	easeInOutElastic,
-	easeInBack,
-	easeOutBack,
-	easeInOutBack,
-	easeInBounce,
-	easeOutBounce,
-	easeInOutBounce;
+public interface Data {
+
 }

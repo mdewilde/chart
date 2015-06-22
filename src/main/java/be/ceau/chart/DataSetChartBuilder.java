@@ -20,24 +20,24 @@ import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
-import be.ceau.chart.data.BarData;
-import be.ceau.chart.data.LineData;
-import be.ceau.chart.data.RadarData;
-import be.ceau.chart.model.Colors;
-import be.ceau.chart.model.DataSet;
-import be.ceau.chart.options.BarOptions;
-import be.ceau.chart.options.LineOptions;
+import be.ceau.chart.color.Colors;
+import be.ceau.chart.data.Data;
+import be.ceau.chart.data.DataSet;
+import be.ceau.chart.data.DataSetData;
 import be.ceau.chart.options.Options;
-import be.ceau.chart.options.RadarOptions;
 
 /**
- * ChartBuilder implementation for Chart objects consisting of data sets.<br>
- * Supported types are BAR, LINE and RADAR.
+ * {@link be.ceau.chart.ChartBuilder ChartBuilder} implementation for
+ * {@link be.ceau.chart.Chart Chart} objects consisting of
+ * {@link be.ceau.chart.data.DataSet DataSet} instances.<br>
+ * Supported types are {@link be.ceau.chart.Chart.Type#BAR BAR},
+ * {@link be.ceau.chart.Chart.Type#LINE LINE} and
+ * {@link be.ceau.chart.Chart.Type#RADAR RADAR}.
  */
 public final class DataSetChartBuilder implements ChartBuilder {
 
 	private final Chart.Type targetType;
-	
+
 	private final List<String> labels;
 	private final List<List<BigDecimal>> datasetValues;
 	private final List<Colors> datasetColors;
@@ -67,7 +67,7 @@ public final class DataSetChartBuilder implements ChartBuilder {
 		if (options == null) {
 			throw new IllegalArgumentException("Options argument may not be null");
 		}
-		if (!targetType.isCorrectOptionsClass(options.getClass())) {
+		if (!targetType.isCompatible(options)) {
 			throw new IllegalArgumentException("Options argument is not of a type compatible with target Chart.Type " + targetType);
 		}
 		this.options = options;
@@ -124,38 +124,15 @@ public final class DataSetChartBuilder implements ChartBuilder {
 		return this;
 	}
 
-	// TODO: what with the builder after the build...
 	@Override
 	public Chart build() {
-		Data data = null;
 		List<DataSet> datasets = new ArrayList<DataSet>();
 		for (int i = 0; i < datasetValues.size(); i++) {
 			datasets.add(new DataSet(datasetNames.get(i), datasetColors.get(i), datasetValues.get(i)));
 		}
-		switch (targetType) {
-			case BAR: {
-				data = new BarData(labels, datasets);
-				if (options == null) {
-					options = BarOptions.defaultInstance();
-				}
-				break;
-			}
-			case LINE: {
-				data = new LineData(labels, datasets);
-				if (options == null) {
-					options = LineOptions.defaultInstance();
-				}
-				break;
-			}
-			case RADAR: {
-				data = new RadarData(labels, datasets);
-				if (options == null) {
-					options = RadarOptions.defaultInstance();
-				}
-				break;
-			}
-			default:
-				throw new IllegalStateException("incorrect Chart.Type " + targetType.toString());
+		Data data = new DataSetData(labels, datasets);
+		if (options == null) {
+			options = Options.forType(targetType);
 		}
 		BigDecimal tempMax = new BigDecimal(Long.MIN_VALUE);
 		for (DataSet dataset : datasets) {
