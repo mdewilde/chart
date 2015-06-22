@@ -11,12 +11,12 @@ All models are annotated to allow for easy JSON export.
 In Java:
 
 ```Java
-ChartBuilder builder = Chart.builder(Type.LINE);
-builder.newSeries(null, Colors.green());
-builder.addData("one", new BigDecimal(1));
-builder.addData("two", new BigDecimal(2));
-builder.addData("three", new BigDecimal(3));
-Chart chart = b.build();
+Chart chart = Chart.builder(Type.BAR)
+				.newSeries("First", Colors.green())
+				.addData("one", 1)
+				.addData("two", 2)
+				.addData("three", 3)
+				.build();
 
 ObjectWriter writer = new ObjectMapper().writer().forType(Chart.class);
 return writer.writeValueAsString(chart);

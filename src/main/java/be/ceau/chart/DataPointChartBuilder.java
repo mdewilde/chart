@@ -84,6 +84,16 @@ public final class DataPointChartBuilder implements ChartBuilder {
 		this.values.add(value);
 		return this;
 	}
+	
+	@Override
+	public ChartBuilder addData(String label, int value) {
+		return addData(label, new BigDecimal(value));
+	}
+
+	@Override
+	public ChartBuilder addData(String label, double value) {
+		return addData(label, new BigDecimal(String.valueOf(value)));
+	}
 
 	@Override
 	public ChartBuilder newSeries(String name, Colors colors) {

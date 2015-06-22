@@ -29,6 +29,16 @@ public interface ChartBuilder {
 	 * Add a single datapoint with corresponding label to the chart (in the current series, if applicable)
 	 */
 	public ChartBuilder addData(String label, BigDecimal value);
+	
+	/**
+	 * Add a single datapoint with corresponding label to the chart (in the current series, if applicable)
+	 */
+	public ChartBuilder addData(String label, int value);
+	
+	/**
+	 * Add a single datapoint with corresponding label to the chart (in the current series, if applicable)
+	 */
+	public ChartBuilder addData(String label, double value);
 
 	/**
 	 * Sets the Options for the target Chart
