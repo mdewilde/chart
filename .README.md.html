@@ -646,12 +646,12 @@ function setDocumentScrollTop(ypos)
 <h3> <a id="user-content-usage-example" class="anchor" href="#usage-example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage example</h3> 
 <p>In Java:</p> 
 <div class="highlight highlight-Java">
- <pre><span class="pl-smi">ChartBuilder</span> builder <span class="pl-k">=</span> <span class="pl-smi">Chart</span><span class="pl-k">.</span>builder(<span class="pl-smi">Type</span><span class="pl-c1"><span class="pl-k">.</span>LINE</span>);
-builder<span class="pl-k">.</span>newSeries(<span class="pl-c1">null</span>, <span class="pl-smi">Colors</span><span class="pl-k">.</span>green());
-builder<span class="pl-k">.</span>addData(<span class="pl-s"><span class="pl-pds">&quot;</span>one<span class="pl-pds">&quot;</span></span>, <span class="pl-k">new</span> <span class="pl-smi">BigDecimal</span>(<span class="pl-c1">1</span>));
-builder<span class="pl-k">.</span>addData(<span class="pl-s"><span class="pl-pds">&quot;</span>two<span class="pl-pds">&quot;</span></span>, <span class="pl-k">new</span> <span class="pl-smi">BigDecimal</span>(<span class="pl-c1">2</span>));
-builder<span class="pl-k">.</span>addData(<span class="pl-s"><span class="pl-pds">&quot;</span>three<span class="pl-pds">&quot;</span></span>, <span class="pl-k">new</span> <span class="pl-smi">BigDecimal</span>(<span class="pl-c1">3</span>));
-<span class="pl-smi">Chart</span> chart <span class="pl-k">=</span> b<span class="pl-k">.</span>build();
+ <pre><span class="pl-smi">Chart</span> chart <span class="pl-k">=</span> <span class="pl-smi">Chart</span><span class="pl-k">.</span>builder(<span class="pl-smi">Type</span><span class="pl-c1"><span class="pl-k">.</span>BAR</span>)
+                .newSeries(<span class="pl-s"><span class="pl-pds">&quot;</span>First<span class="pl-pds">&quot;</span></span>, <span class="pl-smi">Colors</span><span class="pl-k">.</span>green())
+                .addData(<span class="pl-s"><span class="pl-pds">&quot;</span>one<span class="pl-pds">&quot;</span></span>, <span class="pl-c1">1</span>)
+                .addData(<span class="pl-s"><span class="pl-pds">&quot;</span>two<span class="pl-pds">&quot;</span></span>, <span class="pl-c1">2</span>)
+                .addData(<span class="pl-s"><span class="pl-pds">&quot;</span>three<span class="pl-pds">&quot;</span></span>, <span class="pl-c1">3</span>)
+                .build();
 
 <span class="pl-smi">ObjectWriter</span> writer <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">ObjectMapper</span>()<span class="pl-k">.</span>writer()<span class="pl-k">.</span>forType(<span class="pl-smi">Chart</span><span class="pl-k">.</span>class);
 <span class="pl-k">return</span> writer<span class="pl-k">.</span>writeValueAsString(chart);</pre>
