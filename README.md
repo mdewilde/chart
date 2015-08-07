@@ -12,11 +12,11 @@ In Java:
 
 ```Java
 Chart chart = Chart.builder(Type.BAR)
-				.newSeries("First", Colors.green())
-				.addData("one", 1)
-				.addData("two", 2)
-				.addData("three", 3)
-				.build();
+		.newSeries("First", Colors.green())
+		.addData("one", 1)
+		.addData("two", 2)
+		.addData("three", 3)
+		.build();
 
 ObjectWriter writer = new ObjectMapper().writer().forType(Chart.class);
 return writer.writeValueAsString(chart);
@@ -62,4 +62,33 @@ function render(canvas, json) {
 }
 ```
 
-Chart.java is licensed under [the Apache 2.0 license](http://www.apache.org/licenses/LICENSE-2.0.txt/).
+### Maven Central
+Include this project directly from Maven Central
+```XML
+<groupId>be.ceau</groupId>
+<artifactId>chart</artifactId>
+<version>0.9</version>
+```
+
+###	Source code
+Source code is available on [GitHub](https://github.com/mdewilde/simplemail).
+
+### Javadoc
+Browse this project's [Javadoc](http://www.ceau.be/chart/apidocs/index.html).
+
+### Download
+Download this project
+* [chart-0.9-javadoc.jar](http://www.ceau.be/chart/chart-0.9-javadoc.jar)
+* [chart-0.9-javadoc.jar.asc](http://www.ceau.be/chart/chart-0.9-javadoc.jar.asc)
+* [chart-0.9-sources.jar](http://www.ceau.be/chart/chart-0.9-sources.jar)
+* [chart-0.9-sources.jar.asc](http://www.ceau.be/chart/chart-0.9-sources.jar.asc)
+* [chart-0.9.jar](http://www.ceau.be/chart/chart-0.9.jar)
+* [chart-0.9.jar.asc](http://www.ceau.be/chart/chart-0.9.jar.asc)
+* [chart-0.9.pom](http://www.ceau.be/chart/chart-0.9.pom)
+* [chart-0.9.pom.asc](http://www.ceau.be/chart/chart-0.9.pom.asc)
+
+### GnuPG public key
+Verify signature files with my [GnuPG public key](http://www.ceau.be/pubkey.gpg).
+
+### License
+SimpleMail is licensed under [the Apache 2.0 license](http://www.apache.org/licenses/LICENSE-2.0.txt).

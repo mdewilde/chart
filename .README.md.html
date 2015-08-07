@@ -647,11 +647,11 @@ function setDocumentScrollTop(ypos)
 <p>In Java:</p> 
 <div class="highlight highlight-Java">
  <pre><span class="pl-smi">Chart</span> chart <span class="pl-k">=</span> <span class="pl-smi">Chart</span><span class="pl-k">.</span>builder(<span class="pl-smi">Type</span><span class="pl-c1"><span class="pl-k">.</span>BAR</span>)
-                .newSeries(<span class="pl-s"><span class="pl-pds">&quot;</span>First<span class="pl-pds">&quot;</span></span>, <span class="pl-smi">Colors</span><span class="pl-k">.</span>green())
-                .addData(<span class="pl-s"><span class="pl-pds">&quot;</span>one<span class="pl-pds">&quot;</span></span>, <span class="pl-c1">1</span>)
-                .addData(<span class="pl-s"><span class="pl-pds">&quot;</span>two<span class="pl-pds">&quot;</span></span>, <span class="pl-c1">2</span>)
-                .addData(<span class="pl-s"><span class="pl-pds">&quot;</span>three<span class="pl-pds">&quot;</span></span>, <span class="pl-c1">3</span>)
-                .build();
+        .newSeries(<span class="pl-s"><span class="pl-pds">&quot;</span>First<span class="pl-pds">&quot;</span></span>, <span class="pl-smi">Colors</span><span class="pl-k">.</span>green())
+        .addData(<span class="pl-s"><span class="pl-pds">&quot;</span>one<span class="pl-pds">&quot;</span></span>, <span class="pl-c1">1</span>)
+        .addData(<span class="pl-s"><span class="pl-pds">&quot;</span>two<span class="pl-pds">&quot;</span></span>, <span class="pl-c1">2</span>)
+        .addData(<span class="pl-s"><span class="pl-pds">&quot;</span>three<span class="pl-pds">&quot;</span></span>, <span class="pl-c1">3</span>)
+        .build();
 
 <span class="pl-smi">ObjectWriter</span> writer <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">ObjectMapper</span>()<span class="pl-k">.</span>writer()<span class="pl-k">.</span>forType(<span class="pl-smi">Chart</span><span class="pl-k">.</span>class);
 <span class="pl-k">return</span> writer<span class="pl-k">.</span>writeValueAsString(chart);</pre>
@@ -694,6 +694,32 @@ function setDocumentScrollTop(ypos)
     }
 }</pre>
 </div> 
-<p>Chart.java is licensed under <a href="http://www.apache.org/licenses/LICENSE-2.0.txt/">the Apache 2.0 license</a>.</p>
+<h3> <a id="user-content-maven-central" class="anchor" href="#maven-central" aria-hidden="true"><span class="octicon octicon-link"></span></a>Maven Central</h3> 
+<p>Include this project directly from Maven Central</p> 
+<div class="highlight highlight-XML">
+ <pre>&lt;<span class="pl-ent">groupId</span>&gt;be.ceau&lt;/<span class="pl-ent">groupId</span>&gt;
+&lt;<span class="pl-ent">artifactId</span>&gt;chart&lt;/<span class="pl-ent">artifactId</span>&gt;
+&lt;<span class="pl-ent">version</span>&gt;0.9&lt;/<span class="pl-ent">version</span>&gt;</pre>
+</div> 
+<h3> <a id="user-content-source-code" class="anchor" href="#source-code" aria-hidden="true"><span class="octicon octicon-link"></span></a>Source code</h3> 
+<p>Source code is available on <a href="https://github.com/mdewilde/simplemail">GitHub</a>.</p> 
+<h3> <a id="user-content-javadoc" class="anchor" href="#javadoc" aria-hidden="true"><span class="octicon octicon-link"></span></a>Javadoc</h3> 
+<p>Browse this project's <a href="http://www.ceau.be/chart/apidocs/index.html">Javadoc</a>.</p> 
+<h3> <a id="user-content-download" class="anchor" href="#download" aria-hidden="true"><span class="octicon octicon-link"></span></a>Download</h3> 
+<p>Download this project</p> 
+<ul> 
+ <li><a href="http://www.ceau.be/chart/chart-0.9-javadoc.jar">chart-0.9-javadoc.jar</a></li> 
+ <li><a href="http://www.ceau.be/chart/chart-0.9-javadoc.jar.asc">chart-0.9-javadoc.jar.asc</a></li> 
+ <li><a href="http://www.ceau.be/chart/chart-0.9-sources.jar">chart-0.9-sources.jar</a></li> 
+ <li><a href="http://www.ceau.be/chart/chart-0.9-sources.jar.asc">chart-0.9-sources.jar.asc</a></li> 
+ <li><a href="http://www.ceau.be/chart/chart-0.9.jar">chart-0.9.jar</a></li> 
+ <li><a href="http://www.ceau.be/chart/chart-0.9.jar.asc">chart-0.9.jar.asc</a></li> 
+ <li><a href="http://www.ceau.be/chart/chart-0.9.pom">chart-0.9.pom</a></li> 
+ <li><a href="http://www.ceau.be/chart/chart-0.9.pom.asc">chart-0.9.pom.asc</a></li> 
+</ul> 
+<h3> <a id="user-content-gnupg-public-key" class="anchor" href="#gnupg-public-key" aria-hidden="true"><span class="octicon octicon-link"></span></a>GnuPG public key</h3> 
+<p>Verify signature files with my <a href="http://www.ceau.be/pubkey.gpg">GnuPG public key</a>.</p> 
+<h3> <a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h3> 
+<p>SimpleMail is licensed under <a href="http://www.apache.org/licenses/LICENSE-2.0.txt">the Apache 2.0 license</a>.</p>
 </body>
 </html>
