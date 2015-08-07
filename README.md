@@ -71,7 +71,7 @@ Include this project directly from Maven Central
 ```
 
 ###	Source code
-Source code is available on [GitHub](https://github.com/mdewilde/simplemail).
+Source code is available on [GitHub](https://github.com/mdewilde/chart).
 
 ### Javadoc
 Browse this project's [Javadoc](http://www.ceau.be/chart/apidocs/index.html).
