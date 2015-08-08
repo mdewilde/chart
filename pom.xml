@@ -7,7 +7,7 @@
 	<version>0.9</version>
 	<name>Chart</name>
 	<description>Java library for use with Chart.js javascript</description>
-	<url>http://www.ceau.be/chart.html</url>
+	<url>https://www.ceau.be/chart.html</url>
 	<developers>
 		<developer>
 			<name>Marceau Dewilde</name>

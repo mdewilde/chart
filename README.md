@@ -74,21 +74,21 @@ Include this project directly from Maven Central
 Source code is available on [GitHub](https://github.com/mdewilde/chart).
 
 ### Javadoc
-Browse this project's [Javadoc](http://www.ceau.be/chart/apidocs/index.html).
+Browse this project's [Javadoc](https://www.ceau.be/chart/apidocs/index.html).
 
 ### Download
 Download this project
-* [chart-0.9-javadoc.jar](http://www.ceau.be/chart/chart-0.9-javadoc.jar)
-* [chart-0.9-javadoc.jar.asc](http://www.ceau.be/chart/chart-0.9-javadoc.jar.asc)
-* [chart-0.9-sources.jar](http://www.ceau.be/chart/chart-0.9-sources.jar)
-* [chart-0.9-sources.jar.asc](http://www.ceau.be/chart/chart-0.9-sources.jar.asc)
-* [chart-0.9.jar](http://www.ceau.be/chart/chart-0.9.jar)
-* [chart-0.9.jar.asc](http://www.ceau.be/chart/chart-0.9.jar.asc)
-* [chart-0.9.pom](http://www.ceau.be/chart/chart-0.9.pom)
-* [chart-0.9.pom.asc](http://www.ceau.be/chart/chart-0.9.pom.asc)
+* [chart-0.9-javadoc.jar](https://www.ceau.be/chart/chart-0.9-javadoc.jar)
+* [chart-0.9-javadoc.jar.asc](https://www.ceau.be/chart/chart-0.9-javadoc.jar.asc)
+* [chart-0.9-sources.jar](https://www.ceau.be/chart/chart-0.9-sources.jar)
+* [chart-0.9-sources.jar.asc](https://www.ceau.be/chart/chart-0.9-sources.jar.asc)
+* [chart-0.9.jar](https://www.ceau.be/chart/chart-0.9.jar)
+* [chart-0.9.jar.asc](https://www.ceau.be/chart/chart-0.9.jar.asc)
+* [chart-0.9.pom](https://www.ceau.be/chart/chart-0.9.pom)
+* [chart-0.9.pom.asc](https://www.ceau.be/chart/chart-0.9.pom.asc)
 
 ### GnuPG public key
-Verify signature files with my [GnuPG public key](http://www.ceau.be/pubkey.gpg).
+Verify signature files with my [GnuPG public key](https://www.ceau.be/pubkey.gpg).
 
 ### License
 SimpleMail is licensed under [the Apache 2.0 license](http://www.apache.org/licenses/LICENSE-2.0.txt).
