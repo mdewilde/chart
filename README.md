@@ -91,4 +91,4 @@ Download this project
 Verify signature files with my [GnuPG public key](https://www.ceau.be/pubkey.gpg).
 
 ### License
-SimpleMail is licensed under [the Apache 2.0 license](http://www.apache.org/licenses/LICENSE-2.0.txt).
+Chart.java is licensed under [the Apache 2.0 license](http://www.apache.org/licenses/LICENSE-2.0.txt).
