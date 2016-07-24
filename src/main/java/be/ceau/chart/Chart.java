@@ -1,5 +1,5 @@
 /*
-	Copyright 2015 Marceau Dewilde <m@ceau.be>
+	Copyright 2016 Marceau Dewilde <m@ceau.be>
 
 	Licensed under the Apache License, Version 2.0 (the "License");
 	you may not use this file except in compliance with the License.
@@ -21,6 +21,16 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+import com.fasterxml.jackson.annotation.JsonGetter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
+
 import be.ceau.chart.data.Data;
 import be.ceau.chart.data.DataPointData;
 import be.ceau.chart.data.DataSetData;
@@ -32,19 +42,20 @@ import be.ceau.chart.options.PieOptions;
 import be.ceau.chart.options.PolarOptions;
 import be.ceau.chart.options.RadarOptions;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 @JsonInclude(Include.NON_NULL)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, isGetterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE, creatorVisibility = Visibility.NONE)
 public class Chart {
 
-	@JsonProperty private final Type type;
-	@JsonProperty private final Data data;
-	@JsonProperty private final Options options;
+	private static final ObjectWriter CHART_WRITER = new ObjectMapper().writerWithDefaultPrettyPrinter().forType(Chart.class);
+
+	@JsonProperty
+	private final Type type;
+	
+	@JsonProperty
+	private final Data data;
+	
+	@JsonProperty
+	private final Options options;
 
 	/**
 	 * Create a new ChartBuilder for building a Chart of the given type.
@@ -56,7 +67,7 @@ public class Chart {
 		if (Chart.Type.DATA_POINT_CHARTS.contains(chartType)) {
 			return new DataPointChartBuilder(chartType);
 		} else if (Chart.Type.DATA_SET_CHARTS.contains(chartType)) {
-			return new DataSetChartBuilder(chartType);			
+			return new DataSetChartBuilder(chartType);
 		} else {
 			throw new UnsupportedOperationException("no ChartBuilder implementation registered for Chart.Type " + chartType.toString());
 		}
@@ -76,12 +87,12 @@ public class Chart {
 		if (Chart.Type.DATA_POINT_CHARTS.contains(type)) {
 			return new DataPointChartBuilder(type, options);
 		} else if (Chart.Type.DATA_SET_CHARTS.contains(type)) {
-			return new DataSetChartBuilder(type, options);			
+			return new DataSetChartBuilder(type, options);
 		} else {
 			throw new UnsupportedOperationException("no ChartBuilder implementation registered for Chart.Type " + type.toString());
 		}
 	}
-	
+
 	Chart(Chart.Type type, Data data, Options options) {
 		if (type == null) {
 			throw new IllegalArgumentException("Chart.Type argument can not be null");
@@ -104,21 +115,17 @@ public class Chart {
 	}
 
 	public static enum Type {
-		
-		BAR(DataSetData.class, BarOptions.class),
-		DOUGHNUT(DataPointData.class, DoughnutOptions.class),
-		LINE(DataSetData.class, LineOptions.class),
-		PIE(DataPointData.class, PieOptions.class),
-		POLAR(DataPointData.class, PolarOptions.class),
-		RADAR(DataSetData.class, RadarOptions.class);
+
+		BAR(DataSetData.class, BarOptions.class), DOUGHNUT(DataPointData.class, DoughnutOptions.class), LINE(DataSetData.class, LineOptions.class), PIE(DataPointData.class, PieOptions.class), POLAR(DataPointData.class, PolarOptions.class), RADAR(DataSetData.class, RadarOptions.class);
 
 		private final Class<? extends Data> dataClass;
 		private final Class<? extends Options> optionsClass;
+
 		private Type(Class<? extends Data> dataClass, Class<? extends Options> optionsClass) {
 			this.dataClass = dataClass;
 			this.optionsClass = optionsClass;
 		}
-		
+
 		public boolean isCompatible(Data data) {
 			if (data == null) {
 				return false;
@@ -134,9 +141,9 @@ public class Chart {
 				return this.optionsClass.isAssignableFrom(options.getClass());
 			}
 		}
-		
+
 		private static final Set<Chart.Type> DATA_SET_CHARTS;
-		private static final Set<Chart.Type> DATA_POINT_CHARTS; 
+		private static final Set<Chart.Type> DATA_POINT_CHARTS;
 
 		private static final Map<Class<? extends Options>, Chart.Type> OPTIONS_CLASSES;
 
@@ -156,7 +163,7 @@ public class Chart {
 			}
 			return OPTIONS_CLASSES.get(options.getClass());
 		}
-		
+
 	}
 
 	/**
@@ -164,6 +171,14 @@ public class Chart {
 	 */
 	public Type getType() {
 		return type;
+	}
+
+	/**
+	 * @return String serialized type of this Chart
+	 */
+	@JsonGetter("type")
+	public String getSerializedType() {
+		return type.name().toLowerCase();
 	}
 
 	/**
@@ -179,5 +194,18 @@ public class Chart {
 	public Options getOptions() {
 		return options;
 	}
-	
+
+	@Override
+	public String toString() {
+		return toJSON();
+	}
+
+	public String toJSON() {
+		try {
+			return CHART_WRITER.writeValueAsString(this);
+		} catch (JsonProcessingException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
 }

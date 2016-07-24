@@ -18,8 +18,7 @@ Chart chart = Chart.builder(Type.BAR)
 		.addData("three", 3)
 		.build();
 
-ObjectWriter writer = new ObjectMapper().writer().forType(Chart.class);
-return writer.writeValueAsString(chart);
+return chart.toJSON();
 ```
 
 In JavaScript:

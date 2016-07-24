@@ -1,5 +1,5 @@
 /*
-	Copyright 2015 Marceau Dewilde <m@ceau.be>
+	Copyright 2016 Marceau Dewilde <m@ceau.be>
 
 	Licensed under the Apache License, Version 2.0 (the "License");
 	you may not use this file except in compliance with the License.
@@ -36,10 +36,11 @@ public class BarOptions extends Options {
 
     public static final BarOptions defaultInstance() {
     	BarOptions options = new BarOptions();
-		options.setResponsive(true);
+//		options.setResponsive(true);
+//		options.setResponsiveAnimationDuration(1000);
 		options.setMaintainAspectRatio(true);
-		options.setAnimation(true);
-		options.setAnimationEasing(AnimationEasing.easeOutBounce);
+//		options.setAnimation(true);
+//		options.setAnimationEasing(AnimationEasing.easeOutBounce);
 		options.setScaleIntegersOnly(true);
 		return options;
     }

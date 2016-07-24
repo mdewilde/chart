@@ -1,5 +1,5 @@
 /*
-	Copyright 2015 Marceau Dewilde <m@ceau.be>
+	Copyright 2016 Marceau Dewilde <m@ceau.be>
 
 	Licensed under the Apache License, Version 2.0 (the "License");
 	you may not use this file except in compliance with the License.
@@ -36,6 +36,7 @@ public class DoughnutOptions extends Options {
 	public static DoughnutOptions defaultInstance() {
 		DoughnutOptions options = new DoughnutOptions();
 		options.setResponsive(true);
+		options.setResponsiveAnimationDuration(1000);
 		options.setMaintainAspectRatio(true);
 		options.setAnimation(true);
 		options.setAnimationEasing(AnimationEasing.easeOutBounce);

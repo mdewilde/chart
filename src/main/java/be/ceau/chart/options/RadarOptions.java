@@ -1,5 +1,5 @@
 /*
-	Copyright 2015 Marceau Dewilde <m@ceau.be>
+	Copyright 2016 Marceau Dewilde <m@ceau.be>
 
 	Licensed under the Apache License, Version 2.0 (the "License");
 	you may not use this file except in compliance with the License.
@@ -47,6 +47,7 @@ public class RadarOptions extends Options {
 	public static RadarOptions defaultInstance() {
 		RadarOptions options = new RadarOptions();
 		options.setResponsive(true);
+		options.setResponsiveAnimationDuration(1000);
 		options.setAnimation(true);
 		options.setAnimationEasing(AnimationEasing.easeOutBounce);
 		options.setScaleBeginAtZero(true);

@@ -1,5 +1,5 @@
 /*
-	Copyright 2015 Marceau Dewilde <m@ceau.be>
+	Copyright 2016 Marceau Dewilde <m@ceau.be>
 
 	Licensed under the Apache License, Version 2.0 (the "License");
 	you may not use this file except in compliance with the License.
@@ -40,6 +40,7 @@ public class PolarOptions extends Options {
     public static final PolarOptions defaultInstance() {
     	PolarOptions options = new PolarOptions();
 		options.setResponsive(true);
+		options.setResponsiveAnimationDuration(1000);
 		options.setMaintainAspectRatio(true);
 		options.setAnimation(true);
 		options.setAnimationEasing(AnimationEasing.easeOutBounce);

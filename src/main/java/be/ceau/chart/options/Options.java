@@ -1,5 +1,5 @@
 /*
-	Copyright 2015 Marceau Dewilde <m@ceau.be>
+	Copyright 2016 Marceau Dewilde <m@ceau.be>
 
 	Licensed under the Apache License, Version 2.0 (the "License");
 	you may not use this file except in compliance with the License.
@@ -19,12 +19,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import be.ceau.chart.Chart;
-
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
+import be.ceau.chart.Chart;
 
 
 @JsonInclude(Include.NON_NULL)
@@ -78,6 +78,7 @@ public abstract class Options {
 	protected String scaleFontStyle;
 	protected String scaleFontColor;
 	protected Boolean responsive;
+    protected Integer responsiveAnimationDuration;
 	protected Boolean maintainAspectRatio;
 	protected Boolean showTooltips;
 	protected List<String> tooltipEvents;
@@ -316,6 +317,14 @@ public abstract class Options {
 	 */
 	public void setResponsive(Boolean responsive) {
 		this.responsive = responsive;
+	}
+
+	public Integer getResponsiveAnimationDuration() {
+		return responsiveAnimationDuration;
+	}
+
+	public void setResponsiveAnimationDuration(Integer responsiveAnimationDuration) {
+		this.responsiveAnimationDuration = responsiveAnimationDuration;
 	}
 
 	public Boolean getMaintainAspectRatio() {
