@@ -69,6 +69,7 @@ Include this project directly from Maven Central
 <artifactId>chart</artifactId>
 <version>0.9</version>
 ```
+![Maven Central badge](https://maven-badges.herokuapp.com/maven-central/be.ceau/chart/badge.svg)
 
 ###	Source code
 Source code is available on [GitHub](https://github.com/mdewilde/chart).
