@@ -13,7 +13,7 @@
 	See the License for the specific language governing permissions and
 	limitations under the License.
 */
-package be.ceau.chart.options;
+package be.ceau.chart.v1.options;
 
 import be.ceau.chart.Chart;
 
@@ -24,83 +24,25 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 @JsonInclude(Include.NON_NULL)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, isGetterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE, creatorVisibility = Visibility.NONE)
-public class PolarOptions extends Options {
+public class DoughnutOptions extends Options {
 
-	private Boolean scaleShowLabelBackdrop;
-	private String scaleBackdropColor;
-	private Integer scaleBackdropPaddingY;
-	private Integer scaleBackdropPaddingX;
-	private Boolean scaleShowLine;
 	private Boolean segmentShowStroke;
 	private String segmentStrokeColor;
 	private Integer segmentStrokeWidth;
+	private Integer percentageInnerCutout;
 	private Boolean animateRotate;
 	private Boolean animateScale;
 
-    public static final PolarOptions defaultInstance() {
-    	PolarOptions options = new PolarOptions();
+	public static DoughnutOptions defaultInstance() {
+		DoughnutOptions options = new DoughnutOptions();
 		options.setResponsive(true);
 		options.setResponsiveAnimationDuration(1000);
 		options.setMaintainAspectRatio(true);
 		options.setAnimation(true);
 		options.setAnimationEasing(AnimationEasing.easeOutBounce);
 		options.setScaleIntegersOnly(true);
+		options.setAnimateRotate(true);
 		return options;
-    }
-
-	public Boolean getScaleShowLabelBackdrop() {
-		return scaleShowLabelBackdrop;
-	}
-
-	/**
-	 * Show a backdrop to the scale label
-	 */
-	public void setScaleShowLabelBackdrop(Boolean scaleShowLabelBackdrop) {
-		this.scaleShowLabelBackdrop = scaleShowLabelBackdrop;
-	}
-
-	public String getScaleBackdropColor() {
-		return scaleBackdropColor;
-	}
-
-	/**
-	 * The colour of the label backdrop
-	 */
-	public void setScaleBackdropColor(String scaleBackdropColor) {
-		this.scaleBackdropColor = scaleBackdropColor;
-	}
-
-	public Integer getScaleBackdropPaddingY() {
-		return scaleBackdropPaddingY;
-	}
-
-	/**
-	 * The backdrop padding above & below the label in pixels
-	 */
-	public void setScaleBackdropPaddingY(Integer scaleBackdropPaddingY) {
-		this.scaleBackdropPaddingY = scaleBackdropPaddingY;
-	}
-
-	public Integer getScaleBackdropPaddingX() {
-		return scaleBackdropPaddingX;
-	}
-
-	/**
-	 * The backdrop padding to the side of the label in pixels
-	 */
-	public void setScaleBackdropPaddingX(Integer scaleBackdropPaddingX) {
-		this.scaleBackdropPaddingX = scaleBackdropPaddingX;
-	}
-
-	public Boolean getScaleShowLine() {
-		return scaleShowLine;
-	}
-
-	/**
-	 * Show line for each value in the scale
-	 */
-	public void setScaleShowLine(Boolean scaleShowLine) {
-		this.scaleShowLine = scaleShowLine;
 	}
 
 	public Boolean getSegmentShowStroke() {
@@ -108,7 +50,7 @@ public class PolarOptions extends Options {
 	}
 
 	/**
-	 * Stroke a line around each segment in the chart
+	 * Whether we should show a stroke on each segment
 	 */
 	public void setSegmentShowStroke(Boolean segmentShowStroke) {
 		this.segmentShowStroke = segmentShowStroke;
@@ -119,7 +61,7 @@ public class PolarOptions extends Options {
 	}
 
 	/**
-	 * The colour of the stroke on each segement.
+	 * The colour of each segment stroke
 	 */
 	public void setSegmentStrokeColor(String segmentStrokeColor) {
 		this.segmentStrokeColor = segmentStrokeColor;
@@ -130,10 +72,21 @@ public class PolarOptions extends Options {
 	}
 
 	/**
-	 * The width of the stroke value in pixels
+	 * The width of each segment stroke
 	 */
 	public void setSegmentStrokeWidth(Integer segmentStrokeWidth) {
 		this.segmentStrokeWidth = segmentStrokeWidth;
+	}
+
+	public Integer getPercentageInnerCutout() {
+		return percentageInnerCutout;
+	}
+
+	/**
+	 * The percentage of the chart that we cut out of the middle
+	 */
+	public void setPercentageInnerCutout(Integer percentageInnerCutout) {
+		this.percentageInnerCutout = percentageInnerCutout;
 	}
 
 	public Boolean getAnimateRotate() {
@@ -141,7 +94,7 @@ public class PolarOptions extends Options {
 	}
 
 	/**
-	 * Whether to animate the rotation of the chart
+	 * Whether we animate the rotation of the Doughnut
 	 */
 	public void setAnimateRotate(Boolean animateRotate) {
 		this.animateRotate = animateRotate;
@@ -152,14 +105,14 @@ public class PolarOptions extends Options {
 	}
 
 	/**
-	 * Whether to animate scaling the chart from the centre
+	 * Whether we animate scaling the Doughnut from the centre
 	 */
 	public void setAnimateScale(Boolean animateScale) {
 		this.animateScale = animateScale;
 	}
 
 	public Chart.Type getChartType() {
-		return Chart.Type.POLAR;
+		return Chart.Type.DOUGHNUT;
 	}
 
 }

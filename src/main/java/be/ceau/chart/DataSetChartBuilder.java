@@ -21,15 +21,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import be.ceau.chart.color.Colors;
-import be.ceau.chart.data.Data;
-import be.ceau.chart.data.DataSet;
-import be.ceau.chart.data.DataSetData;
-import be.ceau.chart.options.Options;
+import be.ceau.chart.v1.data.Data;
+import be.ceau.chart.v1.data.Dataset;
+import be.ceau.chart.v1.data.DataSetData;
+import be.ceau.chart.v1.options.Options;
 
 /**
  * {@link be.ceau.chart.ChartBuilder ChartBuilder} implementation for
  * {@link be.ceau.chart.Chart Chart} objects consisting of
- * {@link be.ceau.chart.data.DataSet DataSet} instances.<br>
+ * {@link be.ceau.chart.v1.data.Dataset DataSet} instances.<br>
  * Supported types are {@link be.ceau.chart.Chart.Type#BAR BAR},
  * {@link be.ceau.chart.Chart.Type#LINE LINE} and
  * {@link be.ceau.chart.Chart.Type#RADAR RADAR}.
@@ -38,28 +38,20 @@ public final class DataSetChartBuilder implements ChartBuilder {
 
 	private final Chart.Type targetType;
 
-	private final List<String> labels;
-	private final List<List<BigDecimal>> datasetValues;
-	private final List<Colors> datasetColors;
-	private final List<String> datasetNames;
+	private final List<String> labels = new ArrayList<String>();
+	private final List<List<BigDecimal>> datasetValues = new ArrayList<List<BigDecimal>>();
+	private final List<Colors> datasetColors = new ArrayList<Colors>();
+	private final List<String> datasetNames = new ArrayList<String>();
 	
 	private Options options;
 	
 	DataSetChartBuilder(Chart.Type targetType) {
 		this.targetType = targetType;
-		this.labels = new ArrayList<String>();
-		this.datasetValues = new ArrayList<List<BigDecimal>>();
-		this.datasetColors = new ArrayList<Colors>();
-		this.datasetNames = new ArrayList<String>();
 	}
 	
 	DataSetChartBuilder(Chart.Type targetType, Options options) {
 		this.targetType = targetType;
 		this.options = options;
-		this.labels = new ArrayList<String>();
-		this.datasetValues = new ArrayList<List<BigDecimal>>();
-		this.datasetColors = new ArrayList<Colors>();
-		this.datasetNames = new ArrayList<String>();
 	}
 
 	@Override
@@ -136,16 +128,16 @@ public final class DataSetChartBuilder implements ChartBuilder {
 
 	@Override
 	public Chart build() {
-		List<DataSet> datasets = new ArrayList<DataSet>();
-		for (int i = 0; i < datasetValues.size(); i++) {
-			datasets.add(new DataSet(datasetNames.get(i), datasetColors.get(i), datasetValues.get(i)));
-		}
+		List<Dataset> datasets = new ArrayList<Dataset>();
+//		for (int i = 0; i < datasetValues.size(); i++) {
+//			datasets.add(new DataSet(datasetNames.get(i), datasetColors.get(i), datasetValues.get(i)));
+//		}
 		Data data = new DataSetData(labels, datasets);
 		if (options == null) {
 			options = Options.forType(targetType);
 		}
 		BigDecimal tempMax = new BigDecimal(Long.MIN_VALUE);
-		for (DataSet dataset : datasets) {
+		for (Dataset dataset : datasets) {
 			if (dataset.getMax().compareTo(tempMax) > 0) {
 				tempMax = dataset.getMax();
 			}

@@ -13,7 +13,7 @@
 	See the License for the specific language governing permissions and
 	limitations under the License.
 */
-package be.ceau.chart.options;
+package be.ceau.chart.v1.options;
 
 import be.ceau.chart.Chart;
 
@@ -24,32 +24,91 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 @JsonInclude(Include.NON_NULL)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, isGetterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE, creatorVisibility = Visibility.NONE)
-public class PieOptions extends Options {
+public class PolarOptions extends Options {
 
+	private Boolean scaleShowLabelBackdrop;
+	private String scaleBackdropColor;
+	private Integer scaleBackdropPaddingY;
+	private Integer scaleBackdropPaddingX;
+	private Boolean scaleShowLine;
 	private Boolean segmentShowStroke;
 	private String segmentStrokeColor;
 	private Integer segmentStrokeWidth;
 	private Boolean animateRotate;
 	private Boolean animateScale;
 
-	public static PieOptions defaultInstance() {
-		PieOptions options = new PieOptions();
+    public static final PolarOptions defaultInstance() {
+    	PolarOptions options = new PolarOptions();
 		options.setResponsive(true);
 		options.setResponsiveAnimationDuration(1000);
 		options.setMaintainAspectRatio(true);
 		options.setAnimation(true);
 		options.setAnimationEasing(AnimationEasing.easeOutBounce);
 		options.setScaleIntegersOnly(true);
-		options.setAnimateRotate(true);
 		return options;
+    }
+
+	public Boolean getScaleShowLabelBackdrop() {
+		return scaleShowLabelBackdrop;
 	}
-	
+
+	/**
+	 * Show a backdrop to the scale label
+	 */
+	public void setScaleShowLabelBackdrop(Boolean scaleShowLabelBackdrop) {
+		this.scaleShowLabelBackdrop = scaleShowLabelBackdrop;
+	}
+
+	public String getScaleBackdropColor() {
+		return scaleBackdropColor;
+	}
+
+	/**
+	 * The colour of the label backdrop
+	 */
+	public void setScaleBackdropColor(String scaleBackdropColor) {
+		this.scaleBackdropColor = scaleBackdropColor;
+	}
+
+	public Integer getScaleBackdropPaddingY() {
+		return scaleBackdropPaddingY;
+	}
+
+	/**
+	 * The backdrop padding above & below the label in pixels
+	 */
+	public void setScaleBackdropPaddingY(Integer scaleBackdropPaddingY) {
+		this.scaleBackdropPaddingY = scaleBackdropPaddingY;
+	}
+
+	public Integer getScaleBackdropPaddingX() {
+		return scaleBackdropPaddingX;
+	}
+
+	/**
+	 * The backdrop padding to the side of the label in pixels
+	 */
+	public void setScaleBackdropPaddingX(Integer scaleBackdropPaddingX) {
+		this.scaleBackdropPaddingX = scaleBackdropPaddingX;
+	}
+
+	public Boolean getScaleShowLine() {
+		return scaleShowLine;
+	}
+
+	/**
+	 * Show line for each value in the scale
+	 */
+	public void setScaleShowLine(Boolean scaleShowLine) {
+		this.scaleShowLine = scaleShowLine;
+	}
+
 	public Boolean getSegmentShowStroke() {
 		return segmentShowStroke;
 	}
 
 	/**
-	 * Whether we should show a stroke on each segment
+	 * Stroke a line around each segment in the chart
 	 */
 	public void setSegmentShowStroke(Boolean segmentShowStroke) {
 		this.segmentShowStroke = segmentShowStroke;
@@ -60,7 +119,7 @@ public class PieOptions extends Options {
 	}
 
 	/**
-	 * The colour of each segment stroke
+	 * The colour of the stroke on each segement.
 	 */
 	public void setSegmentStrokeColor(String segmentStrokeColor) {
 		this.segmentStrokeColor = segmentStrokeColor;
@@ -70,8 +129,8 @@ public class PieOptions extends Options {
 		return segmentStrokeWidth;
 	}
 
-	/** 
-	 * The width of each segment stroke
+	/**
+	 * The width of the stroke value in pixels
 	 */
 	public void setSegmentStrokeWidth(Integer segmentStrokeWidth) {
 		this.segmentStrokeWidth = segmentStrokeWidth;
@@ -82,7 +141,7 @@ public class PieOptions extends Options {
 	}
 
 	/**
-	 * Whether we animate the rotation of the Pie
+	 * Whether to animate the rotation of the chart
 	 */
 	public void setAnimateRotate(Boolean animateRotate) {
 		this.animateRotate = animateRotate;
@@ -93,14 +152,14 @@ public class PieOptions extends Options {
 	}
 
 	/**
-	 * Whether we animate scaling the Pie from the centre
+	 * Whether to animate scaling the chart from the centre
 	 */
 	public void setAnimateScale(Boolean animateScale) {
 		this.animateScale = animateScale;
 	}
 
 	public Chart.Type getChartType() {
-		return Chart.Type.PIE;
+		return Chart.Type.POLAR;
 	}
 
 }

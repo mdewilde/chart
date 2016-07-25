@@ -21,15 +21,15 @@ import java.util.List;
 
 import be.ceau.chart.color.Color;
 import be.ceau.chart.color.Colors;
-import be.ceau.chart.data.Data;
-import be.ceau.chart.data.DataPoint;
-import be.ceau.chart.data.DataPointData;
-import be.ceau.chart.options.Options;
+import be.ceau.chart.v1.data.Data;
+import be.ceau.chart.v1.data.DataPoint;
+import be.ceau.chart.v1.data.DataPointData;
+import be.ceau.chart.v1.options.Options;
 
 /**
  * {@link be.ceau.chart.ChartBuilder ChartBuilder} implementation for
  * {@link be.ceau.chart.Chart Chart} objects consisting of
- * {@link be.ceau.chart.data.DataPoint DataPoint} instances.<br>
+ * {@link be.ceau.chart.v1.data.DataPoint DataPoint} instances.<br>
  * Supported types are {@link be.ceau.chart.Chart.Type#PIE PIE},
  * {@link be.ceau.chart.Chart.Type#DOUGHNUT DOUGHNUT} and
  * {@link be.ceau.chart.Chart.Type#POLAR POLAR}.

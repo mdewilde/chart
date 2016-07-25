@@ -13,7 +13,7 @@
 	See the License for the specific language governing permissions and
 	limitations under the License.
  */
-package be.ceau.chart.data;
+package be.ceau.chart.v1.data;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -22,8 +22,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * {@link be.ceau.chart.data.Data Data} implementation for
- * {@link be.ceau.chart.Chart Chart} objects backed by {@link be.ceau.chart.data.DataSet DataSet} instances.<br>
+ * {@link be.ceau.chart.v1.data.Data Data} implementation for
+ * {@link be.ceau.chart.Chart Chart} objects backed by
+ * {@link be.ceau.chart.v1.data.Dataset DataSet} instances.<br>
  * Instances of this class are immutable.
  */
 public class DataSetData implements Data {
@@ -32,7 +33,7 @@ public class DataSetData implements Data {
 	private final List<String> labels;
 
 	@JsonProperty
-	private final List<DataSet> datasets;
+	private final List<Dataset> datasets;
 
 	/**
 	 * Constructs a new DataSetData instance.
@@ -46,17 +47,17 @@ public class DataSetData implements Data {
 	 *             DataSet has a different number of elements than the
 	 *             collection of labels.
 	 */
-	public DataSetData(List<String> labels, List<DataSet> datasets) {
+	public DataSetData(List<String> labels, List<Dataset> datasets) {
 		if (labels == null || datasets == null) {
 			throw new IllegalArgumentException("neither argument can not be null");
 		}
-		for (DataSet dataset : datasets) {
+		for (Dataset dataset : datasets) {
 			if (dataset.getDataLength() != labels.size()) {
 				throw new IllegalArgumentException("number of X-axis labels does not match number of datapoints in at least one dataset");
 			}
 		}
 		this.labels = Collections.unmodifiableList(new ArrayList<String>(labels));
-		this.datasets = Collections.unmodifiableList(new ArrayList<DataSet>(datasets));
+		this.datasets = Collections.unmodifiableList(new ArrayList<Dataset>(datasets));
 	}
 
 }

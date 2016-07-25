@@ -31,16 +31,16 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 
-import be.ceau.chart.data.Data;
-import be.ceau.chart.data.DataPointData;
-import be.ceau.chart.data.DataSetData;
-import be.ceau.chart.options.BarOptions;
-import be.ceau.chart.options.DoughnutOptions;
-import be.ceau.chart.options.LineOptions;
-import be.ceau.chart.options.Options;
-import be.ceau.chart.options.PieOptions;
-import be.ceau.chart.options.PolarOptions;
-import be.ceau.chart.options.RadarOptions;
+import be.ceau.chart.v1.data.Data;
+import be.ceau.chart.v1.data.DataPointData;
+import be.ceau.chart.v1.data.DataSetData;
+import be.ceau.chart.v1.options.BarOptions;
+import be.ceau.chart.v1.options.DoughnutOptions;
+import be.ceau.chart.v1.options.LineOptions;
+import be.ceau.chart.v1.options.Options;
+import be.ceau.chart.v1.options.PieOptions;
+import be.ceau.chart.v1.options.PolarOptions;
+import be.ceau.chart.v1.options.RadarOptions;
 
 @JsonInclude(Include.NON_NULL)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, isGetterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE, creatorVisibility = Visibility.NONE)

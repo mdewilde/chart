@@ -13,7 +13,7 @@
 	See the License for the specific language governing permissions and
 	limitations under the License.
 */
-package be.ceau.chart.options;
+package be.ceau.chart.v1.options;
 
 import be.ceau.chart.Chart;
 
@@ -24,17 +24,16 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 @JsonInclude(Include.NON_NULL)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, isGetterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE, creatorVisibility = Visibility.NONE)
-public class DoughnutOptions extends Options {
+public class PieOptions extends Options {
 
 	private Boolean segmentShowStroke;
 	private String segmentStrokeColor;
 	private Integer segmentStrokeWidth;
-	private Integer percentageInnerCutout;
 	private Boolean animateRotate;
 	private Boolean animateScale;
 
-	public static DoughnutOptions defaultInstance() {
-		DoughnutOptions options = new DoughnutOptions();
+	public static PieOptions defaultInstance() {
+		PieOptions options = new PieOptions();
 		options.setResponsive(true);
 		options.setResponsiveAnimationDuration(1000);
 		options.setMaintainAspectRatio(true);
@@ -44,7 +43,7 @@ public class DoughnutOptions extends Options {
 		options.setAnimateRotate(true);
 		return options;
 	}
-
+	
 	public Boolean getSegmentShowStroke() {
 		return segmentShowStroke;
 	}
@@ -71,22 +70,11 @@ public class DoughnutOptions extends Options {
 		return segmentStrokeWidth;
 	}
 
-	/**
+	/** 
 	 * The width of each segment stroke
 	 */
 	public void setSegmentStrokeWidth(Integer segmentStrokeWidth) {
 		this.segmentStrokeWidth = segmentStrokeWidth;
-	}
-
-	public Integer getPercentageInnerCutout() {
-		return percentageInnerCutout;
-	}
-
-	/**
-	 * The percentage of the chart that we cut out of the middle
-	 */
-	public void setPercentageInnerCutout(Integer percentageInnerCutout) {
-		this.percentageInnerCutout = percentageInnerCutout;
 	}
 
 	public Boolean getAnimateRotate() {
@@ -94,7 +82,7 @@ public class DoughnutOptions extends Options {
 	}
 
 	/**
-	 * Whether we animate the rotation of the Doughnut
+	 * Whether we animate the rotation of the Pie
 	 */
 	public void setAnimateRotate(Boolean animateRotate) {
 		this.animateRotate = animateRotate;
@@ -105,14 +93,14 @@ public class DoughnutOptions extends Options {
 	}
 
 	/**
-	 * Whether we animate scaling the Doughnut from the centre
+	 * Whether we animate scaling the Pie from the centre
 	 */
 	public void setAnimateScale(Boolean animateScale) {
 		this.animateScale = animateScale;
 	}
 
 	public Chart.Type getChartType() {
-		return Chart.Type.DOUGHNUT;
+		return Chart.Type.PIE;
 	}
 
 }

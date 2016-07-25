@@ -13,7 +13,7 @@
 	See the License for the specific language governing permissions and
 	limitations under the License.
  */
-package be.ceau.chart.data;
+package be.ceau.chart.v1.data;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -22,8 +22,8 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * {@link be.ceau.chart.data.Data Data} implementation for
- * {@link be.ceau.chart.Chart Chart} objects backed by {@link be.ceau.chart.data.DataPoint DataPoint} instances.<br>
+ * {@link be.ceau.chart.v1.data.Data Data} implementation for
+ * {@link be.ceau.chart.Chart Chart} objects backed by {@link be.ceau.chart.v1.data.DataPoint DataPoint} instances.<br>
  * Instances of this class are immutable.
  */
 public class DataPointData implements Data {

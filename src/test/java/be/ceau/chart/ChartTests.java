@@ -4,35 +4,79 @@ import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.net.URISyntaxException;
+import java.math.BigDecimal;
+import java.util.Random;
 
 import org.junit.Test;
 
-import be.ceau.chart.Chart.Type;
-import be.ceau.chart.color.Colors;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
+
+import be.ceau.chart.color.Color;
+import be.ceau.chart.data.LineData;
+import be.ceau.chart.data.LineDataset;
+import be.ceau.chart.options.LineOptions;
 
 public class ChartTests {
 
-	@Test
-	public void testBarChart() throws IOException, URISyntaxException {
-		
-		String json = Chart.builder(Type.BAR)
-						.newSeries("First", Colors.green())
-						.addData("one", 1)
-						.addData("two", 2)
-						.addData("three", 3)
-						.build()
-						.toJSON();
+	private static final Random RANDOM = new Random(System.nanoTime());
+	
+//	@Test
+//	public void testBarChart() throws IOException {
+//		
+//		String json = Chart.builder(Type.BAR)
+//						.newSeries("First", Colors.green())
+//						.addData("one", 1)
+//						.addData("two", 2)
+//						.addData("three", 3)
+//						.build()
+//						.toJSON();
+//
+//
+//	}
 
+	@Test
+	public void lineChart() throws IOException {
+		LineData data = new LineData();
+		LineOptions options = new LineOptions();
+		LineDataset dataset = new LineDataset();
+		data.addDataset(dataset);
+		
+		dataset.addData(25);
+		dataset.addData(32);
+		dataset.addData(14);
+		dataset.addData(16);
+		dataset.addData(23);
+		dataset.setLabel("dataset");
+		data.addLabel("Monday");
+		data.addLabel("Tuesday");
+		data.addLabel("Wednesday");
+		data.addLabel("Thursday");
+		data.addLabel("Friday");
+		
+		dataset.setLineTension(new BigDecimal("0.02"));
+
+		dataset.setBackgroundColor(new Color(Color.BLANCHED_ALMOND, 0.45f));
+		dataset.setBorderColor(Color.random());
+		dataset.setFill(true);
+		
+		LineChart chart = new LineChart(data, options);
+		
+		ObjectWriter CHART_WRITER = new ObjectMapper().writerWithDefaultPrettyPrinter().forType(LineChart.class);
+
+		openInBrowser(CHART_WRITER.writeValueAsString(chart));
+
+	}
+	
+	private void openInBrowser(String json) throws IOException {
+		
 		File tmp = File.createTempFile("chart_test_", ".html");
 		PrintWriter out = new PrintWriter(tmp);
 		out.write(createWebPage(json));
 		out.close();
 		
 		Desktop.getDesktop().browse(tmp.toURI());
-
 	}
-
 	
 	private String createWebPage(String json) {
 		String line = System.getProperty("line.separator");
@@ -49,7 +93,7 @@ public class ChartTests {
 				.append(line)
 				.append("<meta name='author' content='Marceau Dewilde'>")
 				.append(line)
-				.append("<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.js'></script>")
+				.append("<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.min.js'></script>")
 				.append(line)
 				.append("<script>")
 				.append("function r(e,t){new Chart(document.getElementById(e).getContext('2d'),t)}")

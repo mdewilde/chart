@@ -18,7 +18,7 @@ package be.ceau.chart;
 import java.math.BigDecimal;
 
 import be.ceau.chart.color.Colors;
-import be.ceau.chart.options.Options;
+import be.ceau.chart.v1.options.Options;
 
 /**
  * Builder for Chart instances.
