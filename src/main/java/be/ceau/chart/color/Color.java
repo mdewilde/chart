@@ -24,15 +24,14 @@ import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
-@JsonSerialize(using = Color.ColorSerializer.class)
+@JsonSerialize(using = Color.Serializer.class)
 public class Color {
 
 	private static final Random RANDOMIZER = new Random(System.nanoTime());
 
+	public static final Color TRANSPARENT = new Color(0, 0, 0, 0f);
 	public static final Color BLACK = new Color(0, 0, 0);
 	public static final Color WHITE = new Color(255, 255, 255);
-	public static final Color TRANSPARENT = new Color(0, 0, 0);
-
 	public static final Color RED = new Color(255, 0, 0);
 	public static final Color LIME = new Color(0, 255, 0);
 	public static final Color BLUE = new Color(0, 0, 255);
@@ -308,7 +307,7 @@ public class Color {
 		return true;
 	}
 
-	private static final class ColorSerializer extends JsonSerializer<Color> {
+	private static final class Serializer extends JsonSerializer<Color> {
 
 		@Override
 		public void serialize(Color value, JsonGenerator gen, SerializerProvider serializers) throws IOException, JsonProcessingException {

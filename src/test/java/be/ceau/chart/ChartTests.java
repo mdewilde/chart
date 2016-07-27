@@ -9,6 +9,7 @@ import java.util.Random;
 
 import org.junit.Test;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 
@@ -16,6 +17,7 @@ import be.ceau.chart.color.Color;
 import be.ceau.chart.data.LineData;
 import be.ceau.chart.data.LineDataset;
 import be.ceau.chart.options.LineOptions;
+import be.ceau.chart.options.Options;
 
 public class ChartTests {
 
@@ -36,6 +38,18 @@ public class ChartTests {
 //	}
 
 	@Test
+	public void options() throws JsonProcessingException, IOException {
+		
+		LineOptions options = new LineOptions();
+		options.setSpanGaps(true);
+		
+		ObjectWriter CHART_WRITER = new ObjectMapper().writerWithDefaultPrettyPrinter().forType(LineOptions.class);
+
+		openInBrowser(CHART_WRITER.writeValueAsString(options));
+
+	}
+	
+//	@Test
 	public void lineChart() throws IOException {
 		LineData data = new LineData();
 		LineOptions options = new LineOptions();
@@ -104,6 +118,10 @@ public class ChartTests {
 				.append("<body>")
 				.append(line)
 				.append("<canvas id='test'></canvas>")
+				.append(line)
+				.append("<div><pre>")
+				.append(json)
+				.append("</div></pre>")
 				.append(line)
 				.append("<script>")
 				.append(line)

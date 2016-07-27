@@ -10,30 +10,18 @@ public class Elements {
 	public static class Arc {
 
 		/**
-		 * <p>
 		 * Color 'rgba(0,0,0,0.1)' Default fill color for arcs. Inherited from
 		 * the global default
-		 * </p>
-		 * <p>
-		 * </p>
 		 */
 		private Color backgroundColor;
 
 		/**
-		 * <p>
 		 * Color '#fff' Default stroke color for arcs
-		 * </p>
-		 * <p>
-		 * </p>
 		 */
 		private Color borderColor;
 
 		/**
-		 * <p>
 		 * borderWidth Number 2 Default stroke width for arcs
-		 * </p>
-		 * <p>
-		 * </p>
 		 */
 		private Integer borderWidth;
 
@@ -66,49 +54,29 @@ public class Elements {
 	public static class Line {
 
 		/**
-		 * <p>
-		 * <p>
 		 * Default bezier curve tension. Set to 0 for no bezier curves.
-		 * </p>
-		 * <p>
-		 * </p>
+		 * 
 		 * 
 		 * Default 0.4
-		 * </p>
-		 * <p>
-		 * </p>
 		 */
 		private BigDecimal tension;
 
 		/**
-		 * <p>
 		 * Color 'rgba(0,0,0,0.1)' Default line fill color
-		 * </p>
-		 * <p>
-		 * </p>
 		 */
 		private Color backgroundColor;
 
 		/**
-		 * <p>
 		 * Number 3 Default line stroke width
-		 * </p>
-		 * <p>
-		 * </p>
 		 */
 		private BigDecimal borderWidth;
 
 		/**
-		 * <p>
 		 * Color 'rgba(0,0,0,0.1)' Default line stroke color
-		 * </p>
-		 * <p>
-		 * </p>
 		 */
 		private Color borderColor;
 
 		/**
-		 * <p>
 		 * String 'butt' Default line cap style.
 		 * <ul>
 		 * <li>butt The ends of lines are squared off at the endpoints.
@@ -116,37 +84,25 @@ public class Elements {
 		 * <li>square The ends of lines are squared off by adding a box with an
 		 * equal width and half the height of the line's thickness.
 		 * </ul>
-		 * </p>
-		 * <p>
-		 * </p>
 		 */
 		private String borderCapStyle;
 
 		/**
-		 * <p>
 		 * Array [] Default line dash: An Array. A list of numbers that
 		 * specifies distances to alternately draw a line and a gap (in
 		 * coordinate space units). If the number of elements in the array is
 		 * odd, the elements of the array get copied and concatenated. For
 		 * example, [5, 15, 25] will become [5, 15, 25, 5, 15, 25].
-		 * </p>
-		 * <p>
-		 * </p>
 		 */
 		private List<Integer> borderDash;
 
 		/**
-		 * <p>
 		 * Number 0.0 Default line dash offset. A float specifying the amount of
 		 * the offset. Initially 0.0.
-		 * </p>
-		 * <p>
-		 * </p>
 		 */
 		private BigDecimal borderDashOffset;
 
 		/**
-		 * <p>
 		 * String 'miter' Default line join style. round Rounds off the corners
 		 * of a shape by filling an additional sector of disc centered at the
 		 * common endpoint of connected segments. The radius for these rounded
@@ -157,38 +113,23 @@ public class Elements {
 		 * connect at a single point, with the effect of filling an additional
 		 * lozenge-shaped area. This setting is effected by the miterLimit
 		 * property.
-		 * </p>
-		 * <p>
-		 * </p>
 		 */
 		private String borderJoinStyle;
 
 		/**
-		 * <p>
 		 * If true, bezier control points are kept inside the chart. If false,
 		 * no restriction is enforced. Default true
-		 * </p>
-		 * <p>
-		 * </p>
 		 */
 		private Boolean capBezierPoints;
 
 		/**
-		 * <p>
 		 * If true, the line is filled. Default true
-		 * </p>
-		 * <p>
-		 * </p>
 		 */
 		private Boolean fill;
 
 		/**
-		 * <p>
 		 * If true, the line is shown as a steeped line and 'tension' will be
 		 * ignored Default false
-		 * </p>
-		 * <p>
-		 * </p>
 		 */
 		private Boolean stepped;
 
@@ -285,79 +226,45 @@ public class Elements {
 	public static class Point {
 
 		/**
-		 * <p>
 		 * Number 3 Default point radius
-		 * </p>
-		 * <p>
-		 * </p>
 		 */
 		private Integer radius;
 
 		/**
-		 * <p>
 		 * String 'circle' Default point style
-		 * </p>
-		 * <p>
-		 * </p>
-		 * <p>
+		 * 
+		 * 
 		 * Default {@code circle}
-		 * </p>
-		 * <p>
-		 * </p>
 		 */
 		private String pointStyle;
 
 		/**
-		 * <p>
 		 * Color 'rgba(0,0,0,0.1)' Default point fill color
-		 * </p>
-		 * <p>
-		 * </p>
 		 */
 		private Color backgroundColor;
 
 		/**
-		 * <p>
 		 * Number 1 Default point stroke width
-		 * </p>
-		 * <p>
-		 * </p>
 		 */
 		private Integer borderWidth;
 
 		/**
-		 * <p>
 		 * Color 'rgba(0,0,0,0.1)' Default point stroke color
-		 * </p>
-		 * <p>
-		 * </p>
 		 */
 		private Color borderColor;
 
 		/**
-		 * <p>
 		 * Number 1 Extra radius added to point radius for hit detection
-		 * </p>
-		 * <p>
-		 * </p>
 		 */
 		private Integer hitRadius;
 
 		/**
-		 * <p>
 		 * Number 4 Default point radius when hovered
-		 * </p>
-		 * <p>
-		 * </p>
 		 */
 		private Integer hoverRadius;
 
 		/**
-		 * <p>
 		 * Number 1 Default stroke width when hovered
-		 * </p>
-		 * <p>
-		 * </p>
 		 */
 		private Integer hoverBorderWidth;
 
@@ -430,40 +337,25 @@ public class Elements {
 	public static class Rectangle {
 
 		/**
-		 * <p>
 		 * Default bar fill color
-		 * </p>
-		 * <p>
+		 * 
 		 * Default {@code 'rgba(0,0,0,0.1)'}
-		 * </p>
 		 */
 		private Color backgroundColor;
 
 		/**
-		 * <p>
 		 * Number 0 Default bar stroke width
-		 * </p>
-		 * <p>
-		 * </p>
 		 */
 		private Integer borderWidth;
 
 		/**
-		 * <p>
 		 * Color 'rgba(0,0,0,0.1)' Default bar stroke color
-		 * </p>
-		 * <p>
-		 * </p>
 		 */
 		private Color borderColor;
 
 		/**
-		 * <p>
 		 * String 'bottom' Default skipped (excluded) border for rectangle. Can
 		 * be one of bottom, left, top, right
-		 * </p>
-		 * <p>
-		 * </p>
 		 */
 		private String borderSkipped;
 

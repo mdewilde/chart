@@ -5,10 +5,10 @@ import java.util.List;
 
 import be.ceau.chart.color.Color;
 
-public class DoughnutData {
+public class BarDataset {
 
 	/**
-	 * The data to plot as arcs
+	 * The data to plot as bars
 	 */
 	private List<BigDecimal> data;
 
@@ -18,32 +18,48 @@ public class DoughnutData {
 	private String label;
 
 	/**
-	 * The fill color of the arcs. See Colors
+	 * The ID of the x axis to plot this dataset on
+	 */
+	private String xAxisID;
+
+	/**
+	 * The ID of the y axis to plot this dataset on
+	 */
+	private String yAxisID;
+
+	/**
+	 * The fill color of the bars. See Colors
 	 */
 	private List<Color> backgroundColor;
 
 	/**
-	 * Arc border color
+	 * Bar border color
 	 */
 	private List<Color> borderColor;
 
 	/**
-	 * Border width of arcs in pixels
+	 * Border width of bar in pixels
 	 */
 	private List<BigDecimal> borderWidth;
 
 	/**
-	 * Arc background color when hovered
+	 * Which edge to skip drawing the border for. Options are 'bottom', 'left',
+	 * 'top', and 'right'
+	 */
+	private List<String> borderSkipped;
+
+	/**
+	 * Bar background color when hovered
 	 */
 	private List<Color> hoverBackgroundColor;
 
 	/**
-	 * Arc border color when hovered
+	 * Bar border color when hovered
 	 */
 	private List<Color> hoverBorderColor;
 
 	/**
-	 * Border width of arc when hovered
+	 * Border width of bar when hovered
 	 */
 	private List<BigDecimal> hoverBorderWidth;
 
@@ -61,6 +77,22 @@ public class DoughnutData {
 
 	public void setLabel(String label) {
 		this.label = label;
+	}
+
+	public String getxAxisID() {
+		return xAxisID;
+	}
+
+	public void setxAxisID(String xAxisID) {
+		this.xAxisID = xAxisID;
+	}
+
+	public String getyAxisID() {
+		return yAxisID;
+	}
+
+	public void setyAxisID(String yAxisID) {
+		this.yAxisID = yAxisID;
 	}
 
 	public List<Color> getBackgroundColor() {
@@ -85,6 +117,14 @@ public class DoughnutData {
 
 	public void setBorderWidth(List<BigDecimal> borderWidth) {
 		this.borderWidth = borderWidth;
+	}
+
+	public List<String> getBorderSkipped() {
+		return borderSkipped;
+	}
+
+	public void setBorderSkipped(List<String> borderSkipped) {
+		this.borderSkipped = borderSkipped;
 	}
 
 	public List<Color> getHoverBackgroundColor() {
