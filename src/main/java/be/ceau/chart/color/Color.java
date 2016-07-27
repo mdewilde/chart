@@ -307,7 +307,7 @@ public class Color {
 		return true;
 	}
 
-	private static final class Serializer extends JsonSerializer<Color> {
+	public static final class Serializer extends JsonSerializer<Color> {
 
 		@Override
 		public void serialize(Color value, JsonGenerator gen, SerializerProvider serializers) throws IOException, JsonProcessingException {

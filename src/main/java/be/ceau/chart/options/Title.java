@@ -133,22 +133,4 @@ public class Title {
 		this.text = text;
 	}
 	
-	boolean isEmpty() {
-		for (Field field : this.getClass().getDeclaredFields()) {
-			field.setAccessible(true);
-			try {
-				if (field.get(this) != null) {
-					return false;
-				}
-			} catch (IllegalArgumentException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IllegalAccessException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		return true;
-	}
-	
 }

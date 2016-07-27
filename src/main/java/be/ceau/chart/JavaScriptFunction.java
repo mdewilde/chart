@@ -22,7 +22,7 @@ public class JavaScriptFunction {
 		return function;
 	}
 
-	private static class Serializer extends JsonSerializer<JavaScriptFunction> {
+	public static class Serializer extends JsonSerializer<JavaScriptFunction> {
 
 		@Override
 		public void serialize(JavaScriptFunction value, JsonGenerator gen, SerializerProvider serializers) throws IOException, JsonProcessingException {
