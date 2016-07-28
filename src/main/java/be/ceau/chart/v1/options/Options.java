@@ -24,7 +24,7 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
-import be.ceau.chart.Chart;
+import be.ceau.chart.v1.Chart;
 
 
 @JsonInclude(Include.NON_NULL)

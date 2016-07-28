@@ -8,120 +8,174 @@ import be.ceau.chart.color.Color;
 public class BubbleData {
 
 	/**
-	 * The data to plot as bubbles. See Data format
+	 * @see #setData(Array data)
 	 */
-	private List<BigDecimal> data;
+	private List<BubbleDataPoint> data;
 
 	/**
-	 * The label for the dataset which appears in the legend and tooltips
+	 * @see #setLabel(String label)
 	 */
 	private String label;
 
 	/**
-	 * The fill color of the bubbles. See Colors
+	 * @see #setBackgroundColor(Color Array backgroundColor)
 	 */
 	private List<Color> backgroundColor;
 
 	/**
-	 * The stroke color of the bubbles.
+	 * @see #setBorderColor(List<Color> borderColor)
 	 */
 	private List<Color> borderColor;
 
 	/**
-	 * The stroke width of bubble in pixels.
+	 * @see #setBorderWidth(List<BigDecimal> borderWidth)
 	 */
 	private List<BigDecimal> borderWidth;
 
 	/**
-	 * The fill color of the bubbles when hovered.
+	 * @see #setHoverBackgroundColor(List<Color> hoverBackgroundColor)
 	 */
 	private List<Color> hoverBackgroundColor;
 
 	/**
-	 * The stroke color of the bubbles when hovered.
+	 * @see #setHoverBorderColor(List<Color> hoverBorderColor)
 	 */
 	private List<Color> hoverBorderColor;
 
 	/**
-	 * The stroke width of the bubbles when hovered.
+	 * @see #setHoverBorderWidth(List<BigDecimal> hoverBorderWidth)
 	 */
 	private List<BigDecimal> hoverBorderWidth;
 
 	/**
-	 * Additional radius to add to data radius on hover.
+	 * @see #setHoverRadius(List<BigDecimal> hoverRadius)
 	 */
 	private List<BigDecimal> hoverRadius;
 
-	public List<BigDecimal> getData() {
-		return data;
+	/**
+	 * @see #setData(Array data)
+	 */
+	public List<BubbleDataPoint> getData() {
+	    return this.data;
 	}
 
-	public void setData(List<BigDecimal> data) {
-		this.data = data;
+	/**
+	 * The data to plot as bubbles. See Data format
+	 */
+	public void setData(List<BubbleDataPoint> data) {
+	    this.data = data;
 	}
 
+	/**
+	 * @see #setLabel(String label)
+	 */
 	public String getLabel() {
-		return label;
+	    return this.label;
 	}
 
+	/**
+	 * The label for the dataset which appears in the legend and tooltips
+	 */
 	public void setLabel(String label) {
-		this.label = label;
+	    this.label = label;
 	}
 
+	/**
+	 * @see #setBackgroundColor(List backgroundColor)
+	 */
 	public List<Color> getBackgroundColor() {
-		return backgroundColor;
+	    return this.backgroundColor;
 	}
 
+	/**
+	 * The fill color of the bubbles. See Colors
+	 */
 	public void setBackgroundColor(List<Color> backgroundColor) {
-		this.backgroundColor = backgroundColor;
+	    this.backgroundColor = backgroundColor;
 	}
 
+	/**
+	 * @see #setBorderColor(List<Color> borderColor)
+	 */
 	public List<Color> getBorderColor() {
-		return borderColor;
+	    return this.borderColor;
 	}
 
+	/**
+	 * The stroke color of the bubbles.
+	 */
 	public void setBorderColor(List<Color> borderColor) {
-		this.borderColor = borderColor;
+	    this.borderColor = borderColor;
 	}
 
+	/**
+	 * @see #setBorderWidth(List<BigDecimal> borderWidth)
+	 */
 	public List<BigDecimal> getBorderWidth() {
-		return borderWidth;
+	    return this.borderWidth;
 	}
 
+	/**
+	 * The stroke width of bubble in pixels.
+	 */
 	public void setBorderWidth(List<BigDecimal> borderWidth) {
-		this.borderWidth = borderWidth;
+	    this.borderWidth = borderWidth;
 	}
 
+	/**
+	 * @see #setHoverBackgroundColor(List<Color> hoverBackgroundColor)
+	 */
 	public List<Color> getHoverBackgroundColor() {
-		return hoverBackgroundColor;
+	    return this.hoverBackgroundColor;
 	}
 
+	/**
+	 * The fill color of the bubbles when hovered.
+	 */
 	public void setHoverBackgroundColor(List<Color> hoverBackgroundColor) {
-		this.hoverBackgroundColor = hoverBackgroundColor;
+	    this.hoverBackgroundColor = hoverBackgroundColor;
 	}
 
+	/**
+	 * @see #setHoverBorderColor(List<Color> hoverBorderColor)
+	 */
 	public List<Color> getHoverBorderColor() {
-		return hoverBorderColor;
+	    return this.hoverBorderColor;
 	}
 
+	/**
+	 * The stroke color of the bubbles when hovered.
+	 */
 	public void setHoverBorderColor(List<Color> hoverBorderColor) {
-		this.hoverBorderColor = hoverBorderColor;
+	    this.hoverBorderColor = hoverBorderColor;
 	}
 
+	/**
+	 * @see #setHoverBorderWidth(List<BigDecimal> hoverBorderWidth)
+	 */
 	public List<BigDecimal> getHoverBorderWidth() {
-		return hoverBorderWidth;
+	    return this.hoverBorderWidth;
 	}
 
+	/**
+	 * The stroke width of the bubbles when hovered.
+	 */
 	public void setHoverBorderWidth(List<BigDecimal> hoverBorderWidth) {
-		this.hoverBorderWidth = hoverBorderWidth;
+	    this.hoverBorderWidth = hoverBorderWidth;
 	}
 
+	/**
+	 * @see #setHoverRadius(List<BigDecimal> hoverRadius)
+	 */
 	public List<BigDecimal> getHoverRadius() {
-		return hoverRadius;
+	    return this.hoverRadius;
 	}
 
+	/**
+	 * Additional radius to add to data radius on hover.
+	 */
 	public void setHoverRadius(List<BigDecimal> hoverRadius) {
-		this.hoverRadius = hoverRadius;
+	    this.hoverRadius = hoverRadius;
 	}
-	
+
 }

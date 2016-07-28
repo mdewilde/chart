@@ -8,147 +8,212 @@ import be.ceau.chart.color.Color;
 public class BarDataset {
 
 	/**
-	 * The data to plot as bars
+	 * @see #setData(List<BigDecimal> data)
 	 */
 	private List<BigDecimal> data;
 
 	/**
-	 * The label for the dataset which appears in the legend and tooltips
+	 * @see #setLabel(String label)
 	 */
 	private String label;
 
 	/**
-	 * The ID of the x axis to plot this dataset on
+	 * @see #setXAxisID(String xAxisID)
 	 */
 	private String xAxisID;
 
 	/**
-	 * The ID of the y axis to plot this dataset on
+	 * @see #setYAxisID(String yAxisID)
 	 */
 	private String yAxisID;
 
 	/**
-	 * The fill color of the bars. See Colors
+	 * @see #setBackgroundColor(List<Color> backgroundColor)
 	 */
 	private List<Color> backgroundColor;
 
 	/**
-	 * Bar border color
+	 * @see #setBorderColor(List<Color> borderColor)
 	 */
 	private List<Color> borderColor;
 
 	/**
-	 * Border width of bar in pixels
+	 * @see #setBorderWidth(List<BigDecimal> borderWidth)
 	 */
 	private List<BigDecimal> borderWidth;
 
 	/**
-	 * Which edge to skip drawing the border for. Options are 'bottom', 'left',
-	 * 'top', and 'right'
+	 * @see #setBorderSkipped(List<String> borderSkipped)
 	 */
 	private List<String> borderSkipped;
 
 	/**
-	 * Bar background color when hovered
+	 * @see #setHoverBackgroundColor(List<Color> hoverBackgroundColor)
 	 */
 	private List<Color> hoverBackgroundColor;
 
 	/**
-	 * Bar border color when hovered
+	 * @see #setHoverBorderColor(List<Color> hoverBorderColor)
 	 */
 	private List<Color> hoverBorderColor;
 
 	/**
-	 * Border width of bar when hovered
+	 * @see #setHoverBorderWidth(List<BigDecimal> hoverBorderWidth)
 	 */
 	private List<BigDecimal> hoverBorderWidth;
 
+	/**
+	 * @see #setData(List<BigDecimal> data)
+	 */
 	public List<BigDecimal> getData() {
-		return data;
+	    return this.data;
 	}
 
+	/**
+	 * The data to plot as bars
+	 */
 	public void setData(List<BigDecimal> data) {
-		this.data = data;
+	    this.data = data;
 	}
 
+	/**
+	 * @see #setLabel(String label)
+	 */
 	public String getLabel() {
-		return label;
+	    return this.label;
 	}
 
+	/**
+	 * The label for the dataset which appears in the legend and tooltips
+	 */
 	public void setLabel(String label) {
-		this.label = label;
+	    this.label = label;
 	}
 
-	public String getxAxisID() {
-		return xAxisID;
+	/**
+	 * @see #setXAxisID(String xAxisID)
+	 */
+	public String getXAxisID() {
+	    return this.xAxisID;
 	}
 
-	public void setxAxisID(String xAxisID) {
-		this.xAxisID = xAxisID;
+	/**
+	 * The ID of the x axis to plot this dataset on
+	 */
+	public void setXAxisID(String xAxisID) {
+	    this.xAxisID = xAxisID;
 	}
 
-	public String getyAxisID() {
-		return yAxisID;
+	/**
+	 * @see #setYAxisID(String yAxisID)
+	 */
+	public String getYAxisID() {
+	    return this.yAxisID;
 	}
 
-	public void setyAxisID(String yAxisID) {
-		this.yAxisID = yAxisID;
+	/**
+	 * The ID of the y axis to plot this dataset on
+	 */
+	public void setYAxisID(String yAxisID) {
+	    this.yAxisID = yAxisID;
 	}
 
+	/**
+	 * @see #setBackgroundColor(List<Color> backgroundColor)
+	 */
 	public List<Color> getBackgroundColor() {
-		return backgroundColor;
+	    return this.backgroundColor;
 	}
 
+	/**
+	 * The fill color of the bars. See Colors
+	 */
 	public void setBackgroundColor(List<Color> backgroundColor) {
-		this.backgroundColor = backgroundColor;
+	    this.backgroundColor = backgroundColor;
 	}
 
+	/**
+	 * @see #setBorderColor(List<Color> borderColor)
+	 */
 	public List<Color> getBorderColor() {
-		return borderColor;
+	    return this.borderColor;
 	}
 
+	/**
+	 * Bar border color
+	 */
 	public void setBorderColor(List<Color> borderColor) {
-		this.borderColor = borderColor;
+	    this.borderColor = borderColor;
 	}
 
+	/**
+	 * @see #setBorderWidth(List<BigDecimal> borderWidth)
+	 */
 	public List<BigDecimal> getBorderWidth() {
-		return borderWidth;
+	    return this.borderWidth;
 	}
 
+	/**
+	 * Border width of bar in pixels
+	 */
 	public void setBorderWidth(List<BigDecimal> borderWidth) {
-		this.borderWidth = borderWidth;
+	    this.borderWidth = borderWidth;
 	}
 
+	/**
+	 * @see #setBorderSkipped(List<String> borderSkipped)
+	 */
 	public List<String> getBorderSkipped() {
-		return borderSkipped;
+	    return this.borderSkipped;
 	}
 
+	/**
+	 * Which edge to skip drawing the border for. Options are 'bottom', 'left', 'top', and 'right'
+	 */
 	public void setBorderSkipped(List<String> borderSkipped) {
-		this.borderSkipped = borderSkipped;
+	    this.borderSkipped = borderSkipped;
 	}
 
+	/**
+	 * @see #setHoverBackgroundColor(List<Color> hoverBackgroundColor)
+	 */
 	public List<Color> getHoverBackgroundColor() {
-		return hoverBackgroundColor;
+	    return this.hoverBackgroundColor;
 	}
 
+	/**
+	 * Bar background color when hovered
+	 */
 	public void setHoverBackgroundColor(List<Color> hoverBackgroundColor) {
-		this.hoverBackgroundColor = hoverBackgroundColor;
+	    this.hoverBackgroundColor = hoverBackgroundColor;
 	}
 
+	/**
+	 * @see #setHoverBorderColor(List<Color> hoverBorderColor)
+	 */
 	public List<Color> getHoverBorderColor() {
-		return hoverBorderColor;
+	    return this.hoverBorderColor;
 	}
 
+	/**
+	 * Bar border color when hovered
+	 */
 	public void setHoverBorderColor(List<Color> hoverBorderColor) {
-		this.hoverBorderColor = hoverBorderColor;
+	    this.hoverBorderColor = hoverBorderColor;
 	}
 
+	/**
+	 * @see #setHoverBorderWidth(List<BigDecimal> hoverBorderWidth)
+	 */
 	public List<BigDecimal> getHoverBorderWidth() {
-		return hoverBorderWidth;
+	    return this.hoverBorderWidth;
 	}
 
+	/**
+	 * Border width of bar when hovered
+	 */
 	public void setHoverBorderWidth(List<BigDecimal> hoverBorderWidth) {
-		this.hoverBorderWidth = hoverBorderWidth;
+	    this.hoverBorderWidth = hoverBorderWidth;
 	}
 	
 }

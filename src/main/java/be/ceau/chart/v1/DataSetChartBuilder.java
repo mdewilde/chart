@@ -13,26 +13,26 @@
 	See the License for the specific language governing permissions and
 	limitations under the License.
 */
-package be.ceau.chart;
+package be.ceau.chart.v1;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
-import be.ceau.chart.color.Colors;
+import be.ceau.chart.v1.Chart.Type;
 import be.ceau.chart.v1.data.Data;
 import be.ceau.chart.v1.data.Dataset;
 import be.ceau.chart.v1.data.DataSetData;
 import be.ceau.chart.v1.options.Options;
 
 /**
- * {@link be.ceau.chart.ChartBuilder ChartBuilder} implementation for
- * {@link be.ceau.chart.Chart Chart} objects consisting of
+ * {@link be.ceau.chart.v1.ChartBuilder ChartBuilder} implementation for
+ * {@link be.ceau.chart.v1.Chart Chart} objects consisting of
  * {@link be.ceau.chart.v1.data.Dataset DataSet} instances.<br>
- * Supported types are {@link be.ceau.chart.Chart.Type#BAR BAR},
- * {@link be.ceau.chart.Chart.Type#LINE LINE} and
- * {@link be.ceau.chart.Chart.Type#RADAR RADAR}.
+ * Supported types are {@link be.ceau.chart.v1.Chart.Type#BAR BAR},
+ * {@link be.ceau.chart.v1.Chart.Type#LINE LINE} and
+ * {@link be.ceau.chart.v1.Chart.Type#RADAR RADAR}.
  */
 public final class DataSetChartBuilder implements ChartBuilder {
 

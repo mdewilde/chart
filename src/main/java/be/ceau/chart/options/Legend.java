@@ -1,197 +1,119 @@
 package be.ceau.chart.options;
 
-import java.lang.reflect.Field;
-import java.math.BigDecimal;
-
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
-import be.ceau.chart.JavaScriptFunction;
-import be.ceau.chart.color.Color;
+import be.ceau.chart.data.JavaScriptFunction;
 
 @JsonInclude(Include.NON_EMPTY)
-@JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, isGetterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE, creatorVisibility = Visibility.NONE)
+@JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 public class Legend {
 
 	/**
-	 * Is the legend displayed true
+	 * Default {@code true}
+	 * 
+	 * @see #setDisplay(Boolean display)
 	 */
 	private Boolean display;
 
 	/**
-	 * Position of the legend. Options are 'top' or 'bottom' 'top'
+	 * Default {@code 'top'}
+	 * 
+	 * @see #setPosition(String position)
 	 */
 	private String position;
 
 	/**
-	 * Marks that this box should take the full width of the canvas (pushing
-	 * down other boxes) true
+	 * Default {@code true}
+	 * 
+	 * @see #setFullWidth(Boolean fullWidth)
 	 */
 	private Boolean fullWidth;
 
 	/**
-	 * A callback that is called when a click is registered on top of a label
-	 * item function(event, legendItem) {}
+	 * Default {@code function(event, legendItem) {}}
+	 * 
+	 * @see #setOnClick(JavaScriptFunction onClick)
 	 */
 	private JavaScriptFunction onClick;
 
 	/**
-	 * See the Legend Label Configuration section below. -
+	 * Default {@code -}
+	 * 
+	 * @see #setLabels(LegendLabels labels)
 	 */
-	private Labels labels;
+	private LegendLabels labels;
 
+	/**
+	 * @see #setDisplay(Boolean display)
+	 */
 	public Boolean getDisplay() {
-		return display;
+	    return this.display;
 	}
 
+	/**
+	 * Is the legend displayed
+	 */
 	public void setDisplay(Boolean display) {
-		this.display = display;
+	    this.display = display;
 	}
 
+	/**
+	 * @see #setPosition(String position)
+	 */
 	public String getPosition() {
-		return position;
+	    return this.position;
 	}
 
+	/**
+	 * Position of the legend. Options are 'top' or 'bottom'
+	 */
 	public void setPosition(String position) {
-		this.position = position;
+	    this.position = position;
 	}
 
+	/**
+	 * @see #setFullWidth(Boolean fullWidth)
+	 */
 	public Boolean getFullWidth() {
-		return fullWidth;
+	    return this.fullWidth;
 	}
 
+	/**
+	 * Marks that this box should take the full width of the canvas (pushing down other boxes)
+	 */
 	public void setFullWidth(Boolean fullWidth) {
-		this.fullWidth = fullWidth;
+	    this.fullWidth = fullWidth;
 	}
 
+	/**
+	 * @see #setOnClick(JavaScriptFunction onClick)
+	 */
 	public JavaScriptFunction getOnClick() {
-		return onClick;
+	    return this.onClick;
 	}
 
+	/**
+	 * A callback that is called when a click is registered on top of a label item
+	 */
 	public void setOnClick(JavaScriptFunction onClick) {
-		this.onClick = onClick;
+	    this.onClick = onClick;
 	}
 
-	public Labels getLabels() {
-		return labels;
+	/**
+	 * @see #setLabels(Labels labels)
+	 */
+	public LegendLabels getLabels() {
+	    return this.labels;
 	}
 
-	public void setLabels(Labels labels) {
-		this.labels = labels;
-	}
-
-	public static class Labels {
-
-		/**
-		 * Width of coloured box 40
-		 */
-		private BigDecimal boxWidth;
-
-		/**
-		 * Font size inherited from global configuration 12
-		 */
-		private BigDecimal fontSize;
-
-		/**
-		 * Font style inherited from global configuration "normal"
-		 */
-		private String fontStyle;
-
-		/**
-		 * Font color inherited from global configuration "#666"
-		 */
-		private Color fontColor;
-
-		/**
-		 * Font family inherited from global configuration
-		 * "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif"
-		 */
-		private String fontFamily;
-
-		/**
-		 * Padding between rows of colored boxes 10
-		 */
-		private BigDecimal padding;
-
-		/**
-		 * Generates legend items for each thing in the legend. Default
-		 * implementation returns the text + styling for the color box. See
-		 * Legend Item for details. function(chart) { }
-		 */
-		private JavaScriptFunction generateLabels;
-
-		/**
-		 * Label style will match corresponding point style (size is based on
-		 * fontSize, boxWidth is not used in this case). false
-		 */
-		private Boolean usePointStyle;
-
-		public BigDecimal getBoxWidth() {
-			return boxWidth;
-		}
-
-		public void setBoxWidth(BigDecimal boxWidth) {
-			this.boxWidth = boxWidth;
-		}
-
-		public BigDecimal getFontSize() {
-			return fontSize;
-		}
-
-		public void setFontSize(BigDecimal fontSize) {
-			this.fontSize = fontSize;
-		}
-
-		public String getFontStyle() {
-			return fontStyle;
-		}
-
-		public void setFontStyle(String fontStyle) {
-			this.fontStyle = fontStyle;
-		}
-
-		public Color getFontColor() {
-			return fontColor;
-		}
-
-		public void setFontColor(Color fontColor) {
-			this.fontColor = fontColor;
-		}
-
-		public String getFontFamily() {
-			return fontFamily;
-		}
-
-		public void setFontFamily(String fontFamily) {
-			this.fontFamily = fontFamily;
-		}
-
-		public BigDecimal getPadding() {
-			return padding;
-		}
-
-		public void setPadding(BigDecimal padding) {
-			this.padding = padding;
-		}
-
-		public JavaScriptFunction getGenerateLabels() {
-			return generateLabels;
-		}
-
-		public void setGenerateLabels(JavaScriptFunction generateLabels) {
-			this.generateLabels = generateLabels;
-		}
-
-		public Boolean getUsePointStyle() {
-			return usePointStyle;
-		}
-
-		public void setUsePointStyle(Boolean usePointStyle) {
-			this.usePointStyle = usePointStyle;
-		}
-
+	/**
+	 * See the Legend Label Configuration section below.
+	 */
+	public void setLabels(LegendLabels labels) {
+	    this.labels = labels;
 	}
 	
 }

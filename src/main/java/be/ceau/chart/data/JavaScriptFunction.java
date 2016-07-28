@@ -1,4 +1,4 @@
-package be.ceau.chart;
+package be.ceau.chart.data;
 
 import java.io.IOException;
 

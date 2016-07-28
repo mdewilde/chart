@@ -14,6 +14,6 @@
 	limitations under the License.
 */
 /**
- * Package contains models and logic for setting {@link be.ceau.chart.Chart Chart} options.
+ * Package contains models and logic for setting {@link be.ceau.chart.v1.Chart Chart} options.
  */
 package be.ceau.chart.v1.options;

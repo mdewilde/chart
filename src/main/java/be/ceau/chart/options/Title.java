@@ -1,6 +1,5 @@
 package be.ceau.chart.options;
 
-import java.lang.reflect.Field;
 import java.math.BigDecimal;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
@@ -11,126 +10,196 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import be.ceau.chart.color.Color;
 
 @JsonInclude(Include.NON_EMPTY)
-@JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, isGetterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE, creatorVisibility = Visibility.NONE)
+@JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 public class Title {
 
 	/**
-	 * Display the title block false
+	 * Default {@code false}
+	 * 
+	 * @see #setDisplay(Boolean display)
 	 */
 	private Boolean display;
 
 	/**
-	 * Position of the title. Only 'top' or 'bottom' are currently allowed 'top'
+	 * Default {@code 'top'}
+	 * 
+	 * @see #setPosition(String position)
 	 */
 	private String position;
 
 	/**
-	 * Marks that this box should take the full width of the canvas (pushing
-	 * down other boxes) true
+	 * Default {@code true}
+	 * 
+	 * @see #setFullWidth(Boolean fullWidth)
 	 */
 	private Boolean fullWidth;
 
 	/**
-	 * Font size inherited from global configuration 12
+	 * Default {@code 12}
+	 * 
+	 * @see #setFontSize(BigDecimal fontSize)
 	 */
 	private BigDecimal fontSize;
 
 	/**
-	 * Font family inherited from global configuration
-	 * "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif"
+	 * Default {@code "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif"}
+	 * 
+	 * @see #setFontFamily(String fontFamily)
 	 */
 	private String fontFamily;
 
 	/**
-	 * Font color inherited from global configuration "#666"
+	 * Default {@code "#666"}
+	 * 
+	 * @see #setFontColor(Color fontColor)
 	 */
 	private Color fontColor;
 
 	/**
-	 * Font styling of the title. 'bold'
+	 * Default {@code 'bold'}
+	 * 
+	 * @see #setFontStyle(String fontStyle)
 	 */
 	private String fontStyle;
 
 	/**
-	 * BigDecimal of pixels to add above and below the title text 10
+	 * Default {@code 10}
+	 * 
+	 * @see #setPadding(BigDecimal padding)
 	 */
 	private BigDecimal padding;
 
 	/**
-	 * Title text ''
+	 * Default {@code ''}
+	 * 
+	 * @see #setText(String text)
 	 */
 	private String text;
 
+	/**
+	 * @see #setDisplay(Boolean display)
+	 */
 	public Boolean getDisplay() {
-		return display;
+	    return this.display;
 	}
 
+	/**
+	 * Display the title block
+	 */
 	public void setDisplay(Boolean display) {
-		this.display = display;
+	    this.display = display;
 	}
 
+	/**
+	 * @see #setPosition(String position)
+	 */
 	public String getPosition() {
-		return position;
+	    return this.position;
 	}
 
+	/**
+	 * Position of the title. Only 'top' or 'bottom' are currently allowed
+	 */
 	public void setPosition(String position) {
-		this.position = position;
+	    this.position = position;
 	}
 
+	/**
+	 * @see #setFullWidth(Boolean fullWidth)
+	 */
 	public Boolean getFullWidth() {
-		return fullWidth;
+	    return this.fullWidth;
 	}
 
+	/**
+	 * Marks that this box should take the full width of the canvas (pushing down other boxes)
+	 */
 	public void setFullWidth(Boolean fullWidth) {
-		this.fullWidth = fullWidth;
+	    this.fullWidth = fullWidth;
 	}
 
+	/**
+	 * @see #setFontSize(BigDecimal fontSize)
+	 */
 	public BigDecimal getFontSize() {
-		return fontSize;
+	    return this.fontSize;
 	}
 
+	/**
+	 * Font size inherited from global configuration
+	 */
 	public void setFontSize(BigDecimal fontSize) {
-		this.fontSize = fontSize;
+	    this.fontSize = fontSize;
 	}
 
+	/**
+	 * @see #setFontFamily(String fontFamily)
+	 */
 	public String getFontFamily() {
-		return fontFamily;
+	    return this.fontFamily;
 	}
 
+	/**
+	 * Font family inherited from global configuration
+	 */
 	public void setFontFamily(String fontFamily) {
-		this.fontFamily = fontFamily;
+	    this.fontFamily = fontFamily;
 	}
 
+	/**
+	 * @see #setFontColor(Color fontColor)
+	 */
 	public Color getFontColor() {
-		return fontColor;
+	    return this.fontColor;
 	}
 
+	/**
+	 * Font color inherited from global configuration
+	 */
 	public void setFontColor(Color fontColor) {
-		this.fontColor = fontColor;
+	    this.fontColor = fontColor;
 	}
 
+	/**
+	 * @see #setFontStyle(String fontStyle)
+	 */
 	public String getFontStyle() {
-		return fontStyle;
+	    return this.fontStyle;
 	}
 
+	/**
+	 * Font styling of the title.
+	 */
 	public void setFontStyle(String fontStyle) {
-		this.fontStyle = fontStyle;
+	    this.fontStyle = fontStyle;
 	}
 
+	/**
+	 * @see #setPadding(BigDecimal padding)
+	 */
 	public BigDecimal getPadding() {
-		return padding;
+	    return this.padding;
 	}
 
+	/**
+	 * Number of pixels to add above and below the title text
+	 */
 	public void setPadding(BigDecimal padding) {
-		this.padding = padding;
+	    this.padding = padding;
 	}
 
+	/**
+	 * @see #setText(String text)
+	 */
 	public String getText() {
-		return text;
+	    return this.text;
 	}
 
+	/**
+	 * Title text
+	 */
 	public void setText(String text) {
-		this.text = text;
+	    this.text = text;
 	}
-	
+
 }

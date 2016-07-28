@@ -6,45 +6,49 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 @JsonInclude(Include.NON_EMPTY)
-@JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, isGetterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE, creatorVisibility = Visibility.NONE)
+@JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 public class LineOptions extends Options {
 
 	/**
-	 * @see #setShowLines(Boolean)
+	 * Default {@code true}
+	 * 
+	 * @see #setShowLines(Boolean showLines)
 	 */
 	private Boolean showLines;
 
 	/**
-	 * @see #setSpanGaps(Boolean)
+	 * Default {@code false}
+	 * 
+	 * @see #setSpanGaps(Boolean spanGaps)
 	 */
 	private Boolean spanGaps;
 
 	/**
-	 * @see #setShowLines(Boolean)
+	 * @see #setShowLines(Boolean showLines)
 	 */
 	public Boolean getShowLines() {
-		return showLines;
+	    return this.showLines;
 	}
 
 	/**
 	 * If false, the lines between points are not drawn
 	 */
 	public void setShowLines(Boolean showLines) {
-		this.showLines = showLines;
+	    this.showLines = showLines;
 	}
 
 	/**
-	 * @see #setSpanGaps(Boolean)
+	 * @see #setSpanGaps(Boolean spanGaps)
 	 */
 	public Boolean getSpanGaps() {
-		return spanGaps;
+	    return this.spanGaps;
 	}
 
 	/**
-	 * If true, NaN data does not break the line
+	 * If true, NaN data does not break the line 
 	 */
 	public void setSpanGaps(Boolean spanGaps) {
-		this.spanGaps = spanGaps;
+	    this.spanGaps = spanGaps;
 	}
 
 }

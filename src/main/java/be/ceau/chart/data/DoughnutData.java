@@ -8,107 +8,155 @@ import be.ceau.chart.color.Color;
 public class DoughnutData {
 
 	/**
-	 * The data to plot as arcs
+	 * @see #setData(List<BigDecimal> data)
 	 */
 	private List<BigDecimal> data;
 
 	/**
-	 * The label for the dataset which appears in the legend and tooltips
+	 * @see #setLabel(String label)
 	 */
 	private String label;
 
 	/**
-	 * The fill color of the arcs. See Colors
+	 * @see #setBackgroundColor(List<Color> backgroundColor)
 	 */
 	private List<Color> backgroundColor;
 
 	/**
-	 * Arc border color
+	 * @see #setBorderColor(List<Color> borderColor)
 	 */
 	private List<Color> borderColor;
 
 	/**
-	 * Border width of arcs in pixels
+	 * @see #setBorderWidth(List<BigDecimal> borderWidth)
 	 */
 	private List<BigDecimal> borderWidth;
 
 	/**
-	 * Arc background color when hovered
+	 * @see #setHoverBackgroundColor(List<Color> hoverBackgroundColor)
 	 */
 	private List<Color> hoverBackgroundColor;
 
 	/**
-	 * Arc border color when hovered
+	 * @see #setHoverBorderColor(List<Color> hoverBorderColor)
 	 */
 	private List<Color> hoverBorderColor;
 
 	/**
-	 * Border width of arc when hovered
+	 * @see #setHoverBorderWidth(List<BigDecimal> hoverBorderWidth)
 	 */
 	private List<BigDecimal> hoverBorderWidth;
 
+	/**
+	 * @see #setData(List<BigDecimal> data)
+	 */
 	public List<BigDecimal> getData() {
-		return data;
+	    return this.data;
 	}
 
+	/**
+	 * The data to plot as arcs
+	 */
 	public void setData(List<BigDecimal> data) {
-		this.data = data;
+	    this.data = data;
 	}
 
+	/**
+	 * @see #setLabel(String label)
+	 */
 	public String getLabel() {
-		return label;
+	    return this.label;
 	}
 
+	/**
+	 * The label for the dataset which appears in the legend and tooltips
+	 */
 	public void setLabel(String label) {
-		this.label = label;
+	    this.label = label;
 	}
 
+	/**
+	 * @see #setBackgroundColor(List<Color> backgroundColor)
+	 */
 	public List<Color> getBackgroundColor() {
-		return backgroundColor;
+	    return this.backgroundColor;
 	}
 
+	/**
+	 * The fill color of the arcs. See Colors
+	 */
 	public void setBackgroundColor(List<Color> backgroundColor) {
-		this.backgroundColor = backgroundColor;
+	    this.backgroundColor = backgroundColor;
 	}
 
+	/**
+	 * @see #setBorderColor(List<Color> borderColor)
+	 */
 	public List<Color> getBorderColor() {
-		return borderColor;
+	    return this.borderColor;
 	}
 
+	/**
+	 * Arc border color
+	 */
 	public void setBorderColor(List<Color> borderColor) {
-		this.borderColor = borderColor;
+	    this.borderColor = borderColor;
 	}
 
+	/**
+	 * @see #setBorderWidth(List<BigDecimal> borderWidth)
+	 */
 	public List<BigDecimal> getBorderWidth() {
-		return borderWidth;
+	    return this.borderWidth;
 	}
 
+	/**
+	 * Border width of arcs in pixels
+	 */
 	public void setBorderWidth(List<BigDecimal> borderWidth) {
-		this.borderWidth = borderWidth;
+	    this.borderWidth = borderWidth;
 	}
 
+	/**
+	 * @see #setHoverBackgroundColor(List<Color> hoverBackgroundColor)
+	 */
 	public List<Color> getHoverBackgroundColor() {
-		return hoverBackgroundColor;
+	    return this.hoverBackgroundColor;
 	}
 
+	/**
+	 * Arc background color when hovered
+	 */
 	public void setHoverBackgroundColor(List<Color> hoverBackgroundColor) {
-		this.hoverBackgroundColor = hoverBackgroundColor;
+	    this.hoverBackgroundColor = hoverBackgroundColor;
 	}
 
+	/**
+	 * @see #setHoverBorderColor(List<Color> hoverBorderColor)
+	 */
 	public List<Color> getHoverBorderColor() {
-		return hoverBorderColor;
+	    return this.hoverBorderColor;
 	}
 
+	/**
+	 * Arc border color when hovered
+	 */
 	public void setHoverBorderColor(List<Color> hoverBorderColor) {
-		this.hoverBorderColor = hoverBorderColor;
+	    this.hoverBorderColor = hoverBorderColor;
 	}
 
+	/**
+	 * @see #setHoverBorderWidth(List<BigDecimal> hoverBorderWidth)
+	 */
 	public List<BigDecimal> getHoverBorderWidth() {
-		return hoverBorderWidth;
+	    return this.hoverBorderWidth;
 	}
 
+	/**
+	 * Border width of arc when hovered
+	 */
 	public void setHoverBorderWidth(List<BigDecimal> hoverBorderWidth) {
-		this.hoverBorderWidth = hoverBorderWidth;
+	    this.hoverBorderWidth = hoverBorderWidth;
 	}
 	
 }

@@ -23,7 +23,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * {@link be.ceau.chart.v1.data.Data Data} implementation for
- * {@link be.ceau.chart.Chart Chart} objects backed by
+ * {@link be.ceau.chart.v1.Chart Chart} objects backed by
  * {@link be.ceau.chart.v1.data.Dataset DataSet} instances.<br>
  * Instances of this class are immutable.
  */

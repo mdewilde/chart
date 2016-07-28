@@ -13,26 +13,26 @@
 	See the License for the specific language governing permissions and
 	limitations under the License.
  */
-package be.ceau.chart;
+package be.ceau.chart.v1;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
 import be.ceau.chart.color.Color;
-import be.ceau.chart.color.Colors;
+import be.ceau.chart.v1.Chart.Type;
 import be.ceau.chart.v1.data.Data;
 import be.ceau.chart.v1.data.DataPoint;
 import be.ceau.chart.v1.data.DataPointData;
 import be.ceau.chart.v1.options.Options;
 
 /**
- * {@link be.ceau.chart.ChartBuilder ChartBuilder} implementation for
- * {@link be.ceau.chart.Chart Chart} objects consisting of
+ * {@link be.ceau.chart.v1.ChartBuilder ChartBuilder} implementation for
+ * {@link be.ceau.chart.v1.Chart Chart} objects consisting of
  * {@link be.ceau.chart.v1.data.DataPoint DataPoint} instances.<br>
- * Supported types are {@link be.ceau.chart.Chart.Type#PIE PIE},
- * {@link be.ceau.chart.Chart.Type#DOUGHNUT DOUGHNUT} and
- * {@link be.ceau.chart.Chart.Type#POLAR POLAR}.
+ * Supported types are {@link be.ceau.chart.v1.Chart.Type#PIE PIE},
+ * {@link be.ceau.chart.v1.Chart.Type#DOUGHNUT DOUGHNUT} and
+ * {@link be.ceau.chart.v1.Chart.Type#POLAR POLAR}.
  */
 public final class DataPointChartBuilder implements ChartBuilder {
 

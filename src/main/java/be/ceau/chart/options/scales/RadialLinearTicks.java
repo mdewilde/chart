@@ -2,85 +2,106 @@ package be.ceau.chart.options.scales;
 
 import java.math.BigDecimal;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
 import be.ceau.chart.color.Color;
 
+@JsonInclude(Include.NON_EMPTY)
+@JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 public class RadialLinearTicks extends Ticks {
 
 	/**
-	 * Default {@code rgba(255, 255, 255, 0.75)}
+	 * Default {@code 'rgba(255, 255, 255, 0.75)'}
 	 * 
-	 * @see #setBackdropColor(Color)
+	 * @see #setBackdropColor(Color backdropColor)
 	 */
 	private Color backdropColor;
 
 	/**
-	 * Default {@code 2} Horizontal padding of label backdrop 2
+	 * Default {@code 2}
 	 * 
-	 * @see #setBackdropPaddingX(BigDecimal)
+	 * @see #setBackdropPaddingX(BigDecimal backdropPaddingX)
 	 */
 	private BigDecimal backdropPaddingX;
 
 	/**
-	 * Default {@code 2} Vertical padding of label backdrop 2
+	 * Default {@code 2}
 	 * 
-	 * @see #setBackdropPaddingY(BigDecimal)
+	 * @see #setBackdropPaddingY(BigDecimal backdropPaddingY)
 	 */
 	private BigDecimal backdropPaddingY;
 
 	/**
-	 * @see #setBeginAtZero(Boolean)
+	 * Default {@code -}
+	 * 
+	 * @see #setBeginAtZero(Boolean beginAtZero)
 	 */
 	private Boolean beginAtZero;
 
 	/**
-	 * @see #setMin(BigDecimal)
+	 * Default {@code -}
+	 * 
+	 * @see #setMin(BigDecimal min)
 	 */
 	private BigDecimal min;
 
 	/**
-	 * @see #setMax(BigDecimal)
+	 * Default {@code -}
+	 * 
+	 * @see #setMax(BigDecimal max)
 	 */
 	private BigDecimal max;
 
 	/**
 	 * Default {@code 11}
 	 * 
-	 * @see #setMaxTicksLimit(BigDecimal)
+	 * @see #setMaxTicksLimit(BigDecimal maxTicksLimit)
 	 */
 	private BigDecimal maxTicksLimit;
 
 	/**
 	 * Default {@code true}
 	 * 
-	 * @see #setShowLabelBackdrop(Boolean)
+	 * @see #setShowLabelBackdrop(Boolean showLabelBackdrop)
 	 */
 	private Boolean showLabelBackdrop;
 
 	/**
-	 * @see #setFixedStepSize(BigDecimal)
+	 * Default {@code -}
+	 * 
+	 * @see #setStepSize(BigDecimal fixedStepSize)
 	 */
 	private BigDecimal fixedStepSize;
 
 	/**
-	 * @see #setStepSize(BigDecimal)
+	 * Default {@code -}
+	 * 
+	 * @see #setStepSize(BigDecimal stepSize)
 	 */
 	private BigDecimal stepSize;
 
 	/**
-	 * @see #setSuggestedMax(BigDecimal)
+	 * Default {@code -}
+	 * 
+	 * @see #setSuggestedMax(BigDecimal suggestedMax)
 	 */
 	private BigDecimal suggestedMax;
 
 	/**
-	 * @see #setSuggestedMin(BigDecimal)
+	 * Default {@code -}
+	 * 
+	 * @see #setSuggestedMin(BigDecimal suggestedMin)
 	 */
 	private BigDecimal suggestedMin;
 
 	/**
-	 * @see #setBackdropColor(Color)
+	 * @see #setBackdropColor(Color backdropColor)
 	 */
 	public Color getBackdropColor() {
-		return backdropColor;
+		return this.backdropColor;
 	}
 
 	/**
@@ -91,10 +112,10 @@ public class RadialLinearTicks extends Ticks {
 	}
 
 	/**
-	 * @see #setBackdropPaddingX(BigDecimal)
+	 * @see #setBackdropPaddingX(BigDecimal backdropPaddingX)
 	 */
 	public BigDecimal getBackdropPaddingX() {
-		return backdropPaddingX;
+		return this.backdropPaddingX;
 	}
 
 	/**
@@ -105,10 +126,10 @@ public class RadialLinearTicks extends Ticks {
 	}
 
 	/**
-	 * @see #setBackdropPaddingY(BigDecimal)
+	 * @see #setBackdropPaddingY(BigDecimal backdropPaddingY)
 	 */
 	public BigDecimal getBackdropPaddingY() {
-		return backdropPaddingY;
+		return this.backdropPaddingY;
 	}
 
 	/**
@@ -119,28 +140,27 @@ public class RadialLinearTicks extends Ticks {
 	}
 
 	/**
-	 * @see #setBeginAtZero(Boolean)
+	 * @see #setBeginAtZero(Boolean beginAtZero)
 	 */
 	public Boolean getBeginAtZero() {
-		return beginAtZero;
+		return this.beginAtZero;
 	}
 
 	/**
-	 * If true, scale will include 0 if it is not already included.
+	 * if true, scale will inclulde 0 if it is not already included.
 	 */
 	public void setBeginAtZero(Boolean beginAtZero) {
 		this.beginAtZero = beginAtZero;
 	}
 
 	/**
-	 * @see #setMin(BigDecimal)
+	 * @see #setMin(BigDecimal min)
 	 */
 	public BigDecimal getMin() {
-		return min;
+		return this.min;
 	}
 
 	/**
-	 * 
 	 * User defined minimum number for the scale, overrides minimum value from
 	 * data.
 	 */
@@ -149,10 +169,10 @@ public class RadialLinearTicks extends Ticks {
 	}
 
 	/**
-	 * @see #setMax(BigDecimal)
+	 * @see #setMax(BigDecimal max)
 	 */
 	public BigDecimal getMax() {
-		return max;
+		return this.max;
 	}
 
 	/**
@@ -164,39 +184,39 @@ public class RadialLinearTicks extends Ticks {
 	}
 
 	/**
-	 * @see #setMaxTicksLimit(BigDecimal)
+	 * @see #setMaxTicksLimit(BigDecimal maxTicksLimit)
 	 */
 	public BigDecimal getMaxTicksLimit() {
-		return maxTicksLimit;
+		return this.maxTicksLimit;
 	}
 
 	/**
 	 * Maximum number of ticks and gridlines to show. If not defined, it will
-	 * limit to 11 ticks but will show all gridlines. 11
+	 * limit to 11 ticks but will show all gridlines.
 	 */
 	public void setMaxTicksLimit(BigDecimal maxTicksLimit) {
 		this.maxTicksLimit = maxTicksLimit;
 	}
 
 	/**
-	 * @see #setShowLabelBackdrop(Boolean)
+	 * @see #setShowLabelBackdrop(Boolean showLabelBackdrop)
 	 */
 	public Boolean getShowLabelBackdrop() {
-		return showLabelBackdrop;
+		return this.showLabelBackdrop;
 	}
 
 	/**
-	 * If true, draw a background behind the tick labels true
+	 * If true, draw a background behind the tick labels
 	 */
 	public void setShowLabelBackdrop(Boolean showLabelBackdrop) {
 		this.showLabelBackdrop = showLabelBackdrop;
 	}
 
 	/**
-	 * @see #setFixedStepSize(BigDecimal)
+	 * @see #setStepSize(BigDecimal fixedStepSize)
 	 */
 	public BigDecimal getFixedStepSize() {
-		return fixedStepSize;
+		return this.fixedStepSize;
 	}
 
 	/**
@@ -210,25 +230,25 @@ public class RadialLinearTicks extends Ticks {
 	}
 
 	/**
-	 * @see #setStepSize(BigDecimal)
+	 * @see #setStepSize(BigDecimal stepSize)
 	 */
 	public BigDecimal getStepSize() {
-		return stepSize;
+		return this.stepSize;
 	}
 
 	/**
-	 * If defined, it can be used along with the min and the max to give a
-	 * custom number of steps.
+	 * if defined, it can be used along with the min and the max to give a
+	 * custom number of steps. See the example below.
 	 */
 	public void setStepSize(BigDecimal stepSize) {
 		this.stepSize = stepSize;
 	}
 
 	/**
-	 * @see #setSuggestedMax(BigDecimal)
+	 * @see #setSuggestedMax(BigDecimal suggestedMax)
 	 */
 	public BigDecimal getSuggestedMax() {
-		return suggestedMax;
+		return this.suggestedMax;
 	}
 
 	/**
@@ -240,10 +260,10 @@ public class RadialLinearTicks extends Ticks {
 	}
 
 	/**
-	 * @see #setSuggestedMin(BigDecimal)
+	 * @see #setSuggestedMin(BigDecimal suggestedMin)
 	 */
 	public BigDecimal getSuggestedMin() {
-		return suggestedMin;
+		return this.suggestedMin;
 	}
 
 	/**

@@ -13,11 +13,10 @@
 	See the License for the specific language governing permissions and
 	limitations under the License.
 */
-package be.ceau.chart;
+package be.ceau.chart.v1;
 
 import java.math.BigDecimal;
 
-import be.ceau.chart.color.Colors;
 import be.ceau.chart.v1.options.Options;
 
 /**

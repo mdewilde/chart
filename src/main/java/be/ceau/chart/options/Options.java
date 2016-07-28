@@ -1,7 +1,6 @@
 package be.ceau.chart.options;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
@@ -9,257 +8,157 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
-import be.ceau.chart.JavaScriptFunction;
+import be.ceau.chart.data.JavaScriptFunction;
 
 @JsonInclude(Include.NON_EMPTY)
-@JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, isGetterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE, creatorVisibility = Visibility.NONE)
+@JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 public class Options {
 
 	/**
-	 * default {@code true}
+	 * Default {@code true}
 	 * 
-	 * @see #setResponsive(Boolean)
+	 * @see #setResponsive(Boolean responsive)
 	 */
 	private Boolean responsive;
 
 	/**
-	 * default {@code 0}
+	 * Default {@code 0}
 	 * 
-	 * @see #setResponsiveAnimationDuration(BigDecimal)
+	 * @see #setResponsiveAnimationDuration(BigDecimal responsiveAnimationDuration)
 	 */
 	private BigDecimal responsiveAnimationDuration;
 
 	/**
-	 * default {@code true}
+	 * Default {@code true}
 	 * 
-	 * @see #setMaintainAspectRatio()
+	 * @see #setMaintainAspectRatio(Boolean maintainAspectRatio)
 	 */
 	private Boolean maintainAspectRatio;
 
 	/**
-	 * default {@code ["mousemove", "mouseout", "click", "touchstart",
-	 * "touchmove", "touchend"]}
+	 * Default {@code ["mousemove", "mouseout", "click", "touchstart", "touchmove", "touchend"]}
 	 * 
-	 * @see #setEvents(List)
+	 * @see #setEvents(List<String> events)
 	 */
-	private final List<String> events = new ArrayList<String>();
+	private List<String> events;
 
 	/**
-	 * default {@code null}
+	 * Default {@code null}
 	 * 
-	 * @see #setOnClick(JavaScriptFunction)
+	 * @see #setOnClick(JavaScriptFunction onClick)
 	 */
 	private JavaScriptFunction onClick;
 
 	/**
-	 * default <code>function (chart) { }</code>
-	 *
-	 * @see #setLegendCallback(JavaScriptFunction)
+	 * Default {@code function (chart) { }}
+	 * 
+	 * @see #setLegendCallback(JavaScriptFunction legendCallback)
 	 */
 	private JavaScriptFunction legendCallback;
 
 	/**
-	 * default {@code null}
-	 *
-	 * @see #setOnResize(JavaScriptFunction)
+	 * Default {@code null}
+	 * 
+	 * @see #setOnResize(JavaScriptFunction onResize)
 	 */
 	private JavaScriptFunction onResize;
 
 	/**
-	 * @see #getTitle()
-	 */
-	private Title title;
-
-	/**
-	 * @see #getLegend()
-	 */
-	private Legend legend;
-
-	/**
-	 * @see #getTooltips()
-	 */
-	private Tooltips tooltips;
-
-	/**
-	 * @see #getHover()
-	 */
-	private Hover hover;
-
-	/**
-	 * @see #getAnimation()
-	 */
-	private Animation animation;
-
-	/**
-	 * @see #setResponsive(Boolean)
+	 * @see #setResponsive(Boolean responsive)
 	 */
 	public Boolean getResponsive() {
-		return responsive;
+	    return this.responsive;
 	}
 
 	/**
 	 * Resizes when the canvas container does.
 	 */
 	public void setResponsive(Boolean responsive) {
-		this.responsive = responsive;
+	    this.responsive = responsive;
 	}
 
 	/**
-	 * @see #setResponsiveAnimationDuration(BigDecimal)
+	 * @see #setResponsiveAnimationDuration(BigDecimal responsiveAnimationDuration)
 	 */
 	public BigDecimal getResponsiveAnimationDuration() {
-		return responsiveAnimationDuration;
+	    return this.responsiveAnimationDuration;
 	}
 
 	/**
-	 * Duration in milliseconds it takes to animate to new size after a resize
-	 * event.
+	 * Duration in milliseconds it takes to animate to new size after a resize event.
 	 */
 	public void setResponsiveAnimationDuration(BigDecimal responsiveAnimationDuration) {
-		this.responsiveAnimationDuration = responsiveAnimationDuration;
+	    this.responsiveAnimationDuration = responsiveAnimationDuration;
 	}
 
 	/**
-	 * @see #setMaintainAspectRatio(Boolean)
+	 * @see #setMaintainAspectRatio(Boolean maintainAspectRatio)
 	 */
 	public Boolean getMaintainAspectRatio() {
-		return maintainAspectRatio;
+	    return this.maintainAspectRatio;
 	}
 
 	/**
 	 * Maintain the original canvas aspect ratio (width / height) when resizing
 	 */
 	public void setMaintainAspectRatio(Boolean maintainAspectRatio) {
-		this.maintainAspectRatio = maintainAspectRatio;
+	    this.maintainAspectRatio = maintainAspectRatio;
 	}
 
 	/**
-	 * @see #setEvents(List)
+	 * @see #setEvents(List<String> events)
 	 */
 	public List<String> getEvents() {
-		return events;
+	    return this.events;
 	}
 
 	/**
 	 * Events that the chart should listen to for tooltips and hovering
 	 */
 	public void setEvents(List<String> events) {
-		this.events.clear();
-		if (events != null) {
-			this.events.addAll(events);
-		}
+	    this.events = events;
 	}
 
 	/**
-	 * @see #setOnClick(JavaScriptFunction)
+	 * @see #setOnClick(JavaScriptFunction onClick)
 	 */
 	public JavaScriptFunction getOnClick() {
-		return onClick;
+	    return this.onClick;
 	}
 
 	/**
-	 * Called if the event is of type 'mouseup' or 'click'. Called in the
-	 * context of the chart and passed an array of active elements
+	 * Called if the event is of type 'mouseup' or 'click'. Called in the context of the chart and passed an array of active elements
 	 */
 	public void setOnClick(JavaScriptFunction onClick) {
-		this.onClick = onClick;
+	    this.onClick = onClick;
 	}
 
 	/**
-	 * @see #setLegendCallback(JavaScriptFunction)
+	 * @see #setLegendCallback(JavaScriptFunction legendCallback)
 	 */
 	public JavaScriptFunction getLegendCallback() {
-		return legendCallback;
+	    return this.legendCallback;
 	}
 
 	/**
-	 * Function to generate a legend. Receives the chart object to generate a
-	 * legend from. Default implementation returns an HTML string.
+	 * Function to generate a legend. Receives the chart object to generate a legend from. Default implementation returns an HTML string.
 	 */
 	public void setLegendCallback(JavaScriptFunction legendCallback) {
-		this.legendCallback = legendCallback;
+	    this.legendCallback = legendCallback;
 	}
 
 	/**
-	 * @see #setOnResize(JavaScriptFunction)
+	 * @see #setOnResize(JavaScriptFunction onResize)
 	 */
 	public JavaScriptFunction getOnResize() {
-		return onResize;
+	    return this.onResize;
 	}
 
 	/**
-	 * Called when a resize occurs. Gets passed two arguments: the chart
-	 * instance and the new size.
+	 * Called when a resize occurs. Gets passed two arguemnts: the chart instance and the new size.
 	 */
 	public void setOnResize(JavaScriptFunction onResize) {
-		this.onResize = onResize;
-	}
-
-	/**
-	 * @see #setTitle(Title)
-	 */
-	public Title getTitle() {
-		return title;
-	}
-
-	public void setTitle(Title title) {
-		this.title = title;
-	}
-
-	/**
-	 * @see #setLegend(Legend)
-	 */
-	public Legend getLegend() {
-		return legend;
-	}
-
-	/**
-	 * Options for chart legends
-	 */
-	public void setLegend(Legend legend) {
-		this.legend = legend;
-	}
-
-	/**
-	 * @see #setTooltips(Tooltips)
-	 */
-	public Tooltips getTooltips() {
-		return tooltips;
-	}
-
-	/**
-	 * Options for chart tooltips
-	 */
-	public void setTooltips(Tooltips tooltips) {
-		this.tooltips = tooltips;
-	}
-
-	/**
-	 * @see #setHover(Hover)
-	 */
-	public Hover getHover() {
-		return hover;
-	}
-
-	/**
-	 * Options for chart hover behavior
-	 */
-	public void setHover(Hover hover) {
-		this.hover = hover;
-	}
-
-	/**
-	 * @see #setAnimation(Animation)
-	 */
-	public Animation getAnimation() {
-		return animation;
-	}
-
-	/**
-	 * Options for chart animation
-	 */
-	public void setAnimation(Animation animation) {
-		this.animation = animation;
+	    this.onResize = onResize;
 	}
 
 }

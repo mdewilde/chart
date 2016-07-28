@@ -1,169 +1,207 @@
 package be.ceau.chart.options.scales;
 
+import java.math.BigDecimal;
+
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
+@JsonInclude(Include.NON_EMPTY)
+@JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 public class Time {
 
 	/**
-	 * See Display Formats section below. -
+	 * Default {@code -}
+	 * 
+	 * @see #setDisplayFormats(DisplayFormats displayFormats)
 	 */
-	private Object displayFormats;
+	private DisplayFormats displayFormats;
 
 	/**
-	 * If true and the unit is set to 'week', iso weekdays will be used. false
+	 * Default {@code false}
+	 * 
+	 * @see #setIsoWeekday(Boolean isoWeekday)
 	 */
 	private Boolean isoWeekday;
 
 	/**
-	 * If defined, this will override the data maximum -
+	 * Default {@code -}
+	 * 
+	 * @see #setMax(Time max)
 	 */
 	private Time max;
 
 	/**
-	 * If defined, this will override the data minimum -
+	 * Default {@code -}
+	 * 
+	 * @see #setMin(Time min)
 	 */
 	private Time min;
 
 	/**
-	*If defined as a string, it is interpreted as a custom format to be used by moment to parse the date. If this is a function, it must return a moment.js object given the appropriate data value.
-	*/
+	 * Default {@code -}
+	 * 
+	 * @see #setParser(String or Function parser)
+	 */
 	private String parser;
 
 	/**
-	 * If defined, dates will be rounded to the start of this unit. See Time
-	 * Units below for the allowed units. -
+	 * Default {@code -}
+	 * 
+	 * @see #setRound(String round)
 	 */
 	private String round;
 
 	/**
-	 * The moment js format string to use for the tooltip. ''
+	 * Default {@code ''}
+	 * 
+	 * @see #setTooltipFormat(String tooltipFormat)
 	 */
 	private String tooltipFormat;
 
 	/**
-	 * If defined, will force the unit to be a certain type. See Time Units
-	 * section below for details. -
+	 * Default {@code -}
+	 * 
+	 * @see #setUnit(String unit)
 	 */
 	private String unit;
 
 	/**
-	 * The number of units between grid lines. 1
+	 * Default {@code 1}
+	 * 
+	 * @see #setUnitStepSize(BigDecimal unitStepSize)
 	 */
-	private Number unitStepSize;
+	private BigDecimal unitStepSize;
 
-	public Object getDisplayFormats() {
-		return displayFormats;
+	/**
+	 * @see #setDisplayFormats(DisplayFormats displayFormats)
+	 */
+	public DisplayFormats getDisplayFormats() {
+		return this.displayFormats;
 	}
 
-	public void setDisplayFormats(Object displayFormats) {
+	/**
+	 * See Display Formats section below.
+	 */
+	public void setDisplayFormats(DisplayFormats displayFormats) {
 		this.displayFormats = displayFormats;
 	}
 
+	/**
+	 * @see #setIsoWeekday(Boolean isoWeekday)
+	 */
 	public Boolean getIsoWeekday() {
-		return isoWeekday;
+		return this.isoWeekday;
 	}
 
+	/**
+	 * If true and the unit is set to 'week', iso weekdays will be used.
+	 */
 	public void setIsoWeekday(Boolean isoWeekday) {
 		this.isoWeekday = isoWeekday;
 	}
 
+	/**
+	 * @see #setMax(Time max)
+	 */
 	public Time getMax() {
-		return max;
+		return this.max;
 	}
 
+	/**
+	 * If defined, this will override the data maximum
+	 */
 	public void setMax(Time max) {
 		this.max = max;
 	}
 
+	/**
+	 * @see #setMin(Time min)
+	 */
 	public Time getMin() {
-		return min;
+		return this.min;
 	}
 
+	/**
+	 * If defined, this will override the data minimum
+	 */
 	public void setMin(Time min) {
 		this.min = min;
 	}
 
+	/**
+	 * @see #setParser(String or Function parser)
+	 */
 	public String getParser() {
-		return parser;
+		return this.parser;
 	}
 
+	/**
+	 * If defined as a string, it is interpreted as a custom format to be used
+	 * by moment to parse the date. If this is a function, it must return a
+	 * moment.js object given the appropriate data value.
+	 */
 	public void setParser(String parser) {
 		this.parser = parser;
 	}
 
+	/**
+	 * @see #setRound(String round)
+	 */
 	public String getRound() {
-		return round;
+		return this.round;
 	}
 
+	/**
+	 * If defined, dates will be rounded to the start of this unit. See Time
+	 * Units below for the allowed units.
+	 */
 	public void setRound(String round) {
 		this.round = round;
 	}
 
+	/**
+	 * @see #setTooltipFormat(String tooltipFormat)
+	 */
 	public String getTooltipFormat() {
-		return tooltipFormat;
+		return this.tooltipFormat;
 	}
 
+	/**
+	 * The moment js format string to use for the tooltip.
+	 */
 	public void setTooltipFormat(String tooltipFormat) {
 		this.tooltipFormat = tooltipFormat;
 	}
 
+	/**
+	 * @see #setUnit(String unit)
+	 */
 	public String getUnit() {
-		return unit;
+		return this.unit;
 	}
 
+	/**
+	 * If defined, will force the unit to be a certain type. See Time Units
+	 * section below for details.
+	 */
 	public void setUnit(String unit) {
 		this.unit = unit;
 	}
 
-	public Number getUnitStepSize() {
-		return unitStepSize;
+	/**
+	 * @see #setUnitStepSize(BigDecimal unitStepSize)
+	 */
+	public BigDecimal getUnitStepSize() {
+		return this.unitStepSize;
 	}
 
-	public void setUnitStepSize(Number unitStepSize) {
+	/**
+	 * The number of units between grid lines.
+	 */
+	public void setUnitStepSize(BigDecimal unitStepSize) {
 		this.unitStepSize = unitStepSize;
 	}
 
-//
-//	When providing data for the time scale, Chart.js supports all of the formats that Moment.js accepts. See Moment.js docs for details.
-//	Display Formats
-//
-//	The following display formats are used to configure how different time units are formed into strings for the axis tick marks. See moment.js for the allowable format strings.
-//	Name 	Default
-//	millisecond 	'SSS [ms]'
-//	second 	'h:mm:ss a'
-//	minute 	'h:mm:ss a'
-//	hour 	'MMM D, hA'
-//	day 	'll'
-//	week 	'll'
-//	month 	'MMM YYYY'
-//	quarter 	'[Q]Q - YYYY'
-//	year 	'YYYY'
-//	
-//	Time Units
-//
-//	The following time measurements are supported. The names can be passed as strings to the time.unit config option to force a certain unit.
-//
-//	    millisecond
-//	    second
-//	    minute
-//	    hour
-//	    day
-//	    week
-//	    month
-//	    quarter
-//	    year
-//
-//	For example, to create a chart with a time scale that always displayed units per month, the following config could be used.
-//
-//	var chartInstance = new Chart(ctx, {
-//	    type: 'line',
-//	    data: data,
-//	    options: {
-//	        scales: {
-//	            xAxes: [{
-//	                time: {
-//	                    unit: 'month'
-//	                }
-//	            }]
-//	        }
-//	    }
-//	})
 }

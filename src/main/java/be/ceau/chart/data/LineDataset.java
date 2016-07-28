@@ -1,9 +1,6 @@
 package be.ceau.chart.data;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
@@ -18,393 +15,497 @@ import be.ceau.chart.color.Color;
 public class LineDataset {
 
 	/**
-	 * var data = { labels: ["January", "February", "March", "April", "May",
-	 * "June", "July"], datasets: [ { label: "My First dataset", fill: false,
-	 * lineTension: 0.1, backgroundColor: "rgba(75,192,192,0.4)", borderColor:
-	 * "rgba(75,192,192,1)", borderCapStyle: 'butt', borderDash: [],
-	 * borderDashOffset: 0.0, borderJoinStyle: 'miter', pointBorderColor:
-	 * "rgba(75,192,192,1)", pointBackgroundColor: "#fff", pointBorderWidth: 1,
-	 * pointHoverRadius: 5, pointHoverBackgroundColor: "rgba(75,192,192,1)",
-	 * pointHoverBorderColor: "rgba(220,220,220,1)", pointHoverBorderWidth: 2,
-	 * pointRadius: 1, pointHitRadius: 10, data: [65, 59, 80, 81, 56, 55, 40],
-	 * spanGaps: false, } ] };
+	 * @see #setData(BigDecimal)
 	 */
+	private List<BigDecimal> data;
 
 	/**
-	 * The data to plot in a line
-	 */
-	private final List<BigDecimal> data = new ArrayList<BigDecimal>();
-
-	/**
-	 * The label for the dataset which appears in the legend and tooltips
+	 * @see #setLabel(String label)
 	 */
 	private String label;
 
 	/**
-	 * The ID of the x axis to plot this dataset on
+	 * @see #setXAxisID(String xAxisID)
 	 */
 	private String xAxisID;
 
 	/**
-	 * The ID of the y axis to plot this dataset on
+	 * @see #setYAxisID(String yAxisID)
 	 */
 	private String yAxisID;
 
 	/**
-	 * If true, fill the area under the line
+	 * @see #setFill(Boolean fill)
 	 */
 	private Boolean fill;
 
 	/**
-	 * Bezier curve tension of the line. Set to 0 to draw straight lines
+	 * @see #setLineTension(BigDecimal lineTension)
 	 */
 	private BigDecimal lineTension;
 
 	/**
-	 * The fill color under the line
+	 * @see #setBackgroundColor(Color backgroundColor)
 	 */
 	private Color backgroundColor;
 
 	/**
-	 * The width of the line in pixels
+	 * @see #setBorderWidth(BigDecimal borderWidth)
 	 */
 	private BigDecimal borderWidth;
 
 	/**
-	 * The color of the line.
+	 * @see #setBorderColor(Color borderColor)
 	 */
 	private Color borderColor;
 
 	/**
-	 * Cap style of the line. See MDN
+	 * @see #setBorderCapStyle(String borderCapStyle)
 	 */
 	private String borderCapStyle;
 
 	/**
-	 * Length and spacing of dashes. See MDN
+	 * @see #setBorderDash(List borderDash)
 	 */
 	private List<BigDecimal> borderDash;
 
 	/**
-	 * Offset for line dashes. See MDN
+	 * @see #setBorderDashOffset(BigDecimal borderDashOffset)
 	 */
 	private BigDecimal borderDashOffset;
 
 	/**
-	 * Line joint style. See MDN
+	 * @see #setBorderJoinStyle(String borderJoinStyle)
 	 */
 	private String borderJoinStyle;
 
 	/**
-	 * The border color for points.
+	 * @see #setPointBorderColor(List pointBorderColor)
 	 */
 	private List<Color> pointBorderColor;
 
 	/**
-	 * The fill color for points
+	 * @see #setPointBackgroundColor(List pointBackgroundColor)
 	 */
 	private List<Color> pointBackgroundColor;
 
 	/**
-	 * The width of the point border in pixels
+	 * @see #setPointBorderWidth(List pointBorderWidth)
 	 */
 	private List<BigDecimal> pointBorderWidth;
 
 	/**
-	 * The radius of the point shape. If set to 0, nothing is rendered.
+	 * @see #setPointRadius(List pointRadius)
 	 */
 	private List<BigDecimal> pointRadius;
 
 	/**
-	 * The radius of the point when hovered
+	 * @see #setPointHoverRadius(List pointHoverRadius)
 	 */
 	private List<BigDecimal> pointHoverRadius;
 
 	/**
-	 * The pixel size of the non-displayed point that reacts to mouse events
+	 * @see #setPointHitRadius(List pointHitRadius)
 	 */
 	private List<BigDecimal> pointHitRadius;
 
 	/**
-	 * Point background color when hovered
+	 * @see #setPointHoverBackgroundColor(List pointHoverBackgroundColor)
 	 */
 	private List<Color> pointHoverBackgroundColor;
 
 	/**
-	 * Point border color when hovered
+	 * @see #setPointHoverBorderColor(List pointHoverBorderColor)
 	 */
 	private List<Color> pointHoverBorderColor;
 
 	/**
-	 * Border width of point when hovered
+	 * @see #setPointHoverBorderWidth(List pointHoverBorderWidth)
 	 */
 	private List<BigDecimal> pointHoverBorderWidth;
 
 	/**
-	 * String, Array<String>, Image, Array<Image> The style of point. Options
-	 * are 'circle', 'triangle', 'rect', 'rectRot', 'cross', 'crossRot', 'star',
-	 * 'line', and 'dash'. If the option is an image, that image is drawn on the
-	 * canvas using drawImage.
+	 * @see #setPointStyle(List pointStyle)
 	 */
 	private List<String> pointStyle;
 
 	/**
-	 * If false, the line is not drawn for this dataset
+	 * @see #setShowLine(Boolean showLine)
 	 */
 	private Boolean showLine;
 
 	/**
-	 * If true, lines will be drawn between points with no or null data
+	 * @see #setSpanGaps(Boolean spanGaps)
 	 */
 	private Boolean spanGaps;
 
 	/**
-	 * If true, the line is shown as a steeped line and 'lineTension' will be
-	 * ignored
+	 * @see #setSteppedLine(Boolean steppedLine)
 	 */
 	private Boolean steppedLine;
 
-	public List<BigDecimal> getData() {
-		return Collections.unmodifiableList(data);
-	}
-
-	public void setData(Collection<BigDecimal> data) {
-		this.data.clear();
-		if (data != null) {
-			this.data.addAll(data);
-		}
-	}
-
 	/**
-	 * Add the given data point to the dataset.
-	 * 
-	 * @param data
-	 *            a BigDecimal, if {@code null} is passed,
-	 *            {@link BigDecimal#ZERO} will be added to the underlying
-	 *            collection.
+	 * @see #setData(List data)
 	 */
-	public void addData(BigDecimal data) {
-		if (data == null) {
-			this.data.add(BigDecimal.ZERO);
-		} else {
-			this.data.add(data);
-		}
-	}
-
-	public void addData(int data) {
-		this.data.add(new BigDecimal(data));
-	}
-
-	public void addData(double data) {
-		this.data.add(new BigDecimal(String.valueOf(data)));
-	}
-
-	public String getLabel() {
-		return label;
-	}
-
-	public void setLabel(String label) {
-		this.label = label;
-	}
-
-	public String getxAxisID() {
-		return xAxisID;
-	}
-
-	public void setxAxisID(String xAxisID) {
-		this.xAxisID = xAxisID;
-	}
-
-	public String getyAxisID() {
-		return yAxisID;
-	}
-
-	public void setyAxisID(String yAxisID) {
-		this.yAxisID = yAxisID;
-	}
-
-	public Boolean getFill() {
-		return fill;
-	}
-
-	public void setFill(Boolean fill) {
-		this.fill = fill;
+	public List<BigDecimal> getData() {
+	    return this.data;
 	}
 
 	/**
-	 * @see #setLineTension(BigDecimal)
+	 * The data to plot in a line
+	 */
+	public void setData(List<BigDecimal> data) {
+	    this.data = data;
+	}
+
+	/**
+	 * @see #setLabel(String label)
+	 */
+	public String getLabel() {
+	    return this.label;
+	}
+
+	/**
+	 * The label for the dataset which appears in the legend and tooltips
+	 */
+	public void setLabel(String label) {
+	    this.label = label;
+	}
+
+	/**
+	 * @see #setXAxisID(String xAxisID)
+	 */
+	public String getXAxisID() {
+	    return this.xAxisID;
+	}
+
+	/**
+	 * The ID of the x axis to plot this dataset on
+	 */
+	public void setXAxisID(String xAxisID) {
+	    this.xAxisID = xAxisID;
+	}
+
+	/**
+	 * @see #setYAxisID(String yAxisID)
+	 */
+	public String getYAxisID() {
+	    return this.yAxisID;
+	}
+
+	/**
+	 * The ID of the y axis to plot this dataset on
+	 */
+	public void setYAxisID(String yAxisID) {
+	    this.yAxisID = yAxisID;
+	}
+
+	/**
+	 * @see #setFill(Boolean fill)
+	 */
+	public Boolean getFill() {
+	    return this.fill;
+	}
+
+	/**
+	 * If true, fill the area under the line
+	 */
+	public void setFill(Boolean fill) {
+	    this.fill = fill;
+	}
+
+	/**
+	 * @see #setLineTension(BigDecimal lineTension)
 	 */
 	public BigDecimal getLineTension() {
-		return lineTension;
+	    return this.lineTension;
 	}
 
 	/**
-	 * Bezier curve tension of the line. Set to 0 to draw straight lines
-	 *
-	 * @param lineTension
+	 * Bezier curve tension of the line. Set to 0 to draw straightlines. Note This was renamed from 'tension' but the old name still works.
 	 */
 	public void setLineTension(BigDecimal lineTension) {
-		this.lineTension = lineTension;
+	    this.lineTension = lineTension;
 	}
 
+	/**
+	 * @see #setBackgroundColor(Color backgroundColor)
+	 */
 	public Color getBackgroundColor() {
-		return backgroundColor;
+	    return this.backgroundColor;
 	}
 
+	/**
+	 * The fill color under the line. See Colors
+	 */
 	public void setBackgroundColor(Color backgroundColor) {
-		this.backgroundColor = backgroundColor;
+	    this.backgroundColor = backgroundColor;
 	}
 
+	/**
+	 * @see #setBorderWidth(BigDecimal borderWidth)
+	 */
 	public BigDecimal getBorderWidth() {
-		return borderWidth;
+	    return this.borderWidth;
 	}
 
+	/**
+	 * The width of the line in pixels
+	 */
 	public void setBorderWidth(BigDecimal borderWidth) {
-		this.borderWidth = borderWidth;
+	    this.borderWidth = borderWidth;
 	}
 
+	/**
+	 * @see #setBorderColor(Color borderColor)
+	 */
 	public Color getBorderColor() {
-		return borderColor;
+	    return this.borderColor;
 	}
 
+	/**
+	 * The color of the line.
+	 */
 	public void setBorderColor(Color borderColor) {
-		this.borderColor = borderColor;
+	    this.borderColor = borderColor;
 	}
 
+	/**
+	 * @see #setBorderCapStyle(String borderCapStyle)
+	 */
 	public String getBorderCapStyle() {
-		return borderCapStyle;
+	    return this.borderCapStyle;
 	}
 
+	/**
+	 * Cap style of the line. See MDN
+	 */
 	public void setBorderCapStyle(String borderCapStyle) {
-		this.borderCapStyle = borderCapStyle;
+	    this.borderCapStyle = borderCapStyle;
 	}
 
+	/**
+	 * @see #setBorderDash(List borderDash)
+	 */
 	public List<BigDecimal> getBorderDash() {
-		return borderDash;
+	    return this.borderDash;
 	}
 
+	/**
+	 * Length and spacing of dashes. See MDN
+	 */
 	public void setBorderDash(List<BigDecimal> borderDash) {
-		this.borderDash = borderDash;
+	    this.borderDash = borderDash;
 	}
 
+	/**
+	 * @see #setBorderDashOffset(BigDecimal borderDashOffset)
+	 */
 	public BigDecimal getBorderDashOffset() {
-		return borderDashOffset;
+	    return this.borderDashOffset;
 	}
 
+	/**
+	 * Offset for line dashes. See MDN
+	 */
 	public void setBorderDashOffset(BigDecimal borderDashOffset) {
-		this.borderDashOffset = borderDashOffset;
+	    this.borderDashOffset = borderDashOffset;
 	}
 
+	/**
+	 * @see #setBorderJoinStyle(String borderJoinStyle)
+	 */
 	public String getBorderJoinStyle() {
-		return borderJoinStyle;
+	    return this.borderJoinStyle;
 	}
 
+	/**
+	 * Line joint style. See MDN
+	 */
 	public void setBorderJoinStyle(String borderJoinStyle) {
-		this.borderJoinStyle = borderJoinStyle;
+	    this.borderJoinStyle = borderJoinStyle;
 	}
 
+	/**
+	 * @see #setPointBorderColor(List<Color> pointBorderColor)
+	 */
 	public List<Color> getPointBorderColor() {
-		return pointBorderColor;
+	    return this.pointBorderColor;
 	}
 
+	/**
+	 * The border color for points.
+	 */
 	public void setPointBorderColor(List<Color> pointBorderColor) {
-		this.pointBorderColor = pointBorderColor;
+	    this.pointBorderColor = pointBorderColor;
 	}
 
+	/**
+	 * @see #setPointBackgroundColor(List<Color> pointBackgroundColor)
+	 */
 	public List<Color> getPointBackgroundColor() {
-		return pointBackgroundColor;
+	    return this.pointBackgroundColor;
 	}
 
+	/**
+	 * The fill color for points
+	 */
 	public void setPointBackgroundColor(List<Color> pointBackgroundColor) {
-		this.pointBackgroundColor = pointBackgroundColor;
+	    this.pointBackgroundColor = pointBackgroundColor;
 	}
 
+	/**
+	 * @see #setPointBorderWidth(List<BigDecimal> pointBorderWidth)
+	 */
 	public List<BigDecimal> getPointBorderWidth() {
-		return pointBorderWidth;
+	    return this.pointBorderWidth;
 	}
 
+	/**
+	 * The width of the point border in pixels
+	 */
 	public void setPointBorderWidth(List<BigDecimal> pointBorderWidth) {
-		this.pointBorderWidth = pointBorderWidth;
+	    this.pointBorderWidth = pointBorderWidth;
 	}
 
+	/**
+	 * @see #setPointRadius(List<BigDecimal> pointRadius)
+	 */
 	public List<BigDecimal> getPointRadius() {
-		return pointRadius;
+	    return this.pointRadius;
 	}
 
+	/**
+	 * The radius of the point shape. If set to 0, nothing is rendered. 
+	 */
 	public void setPointRadius(List<BigDecimal> pointRadius) {
-		this.pointRadius = pointRadius;
+	    this.pointRadius = pointRadius;
 	}
 
+	/**
+	 * @see #setPointHoverRadius(List<BigDecimal> pointHoverRadius)
+	 */
 	public List<BigDecimal> getPointHoverRadius() {
-		return pointHoverRadius;
+	    return this.pointHoverRadius;
 	}
 
+	/**
+	 * The radius of the point when hovered
+	 */
 	public void setPointHoverRadius(List<BigDecimal> pointHoverRadius) {
-		this.pointHoverRadius = pointHoverRadius;
+	    this.pointHoverRadius = pointHoverRadius;
 	}
 
+	/**
+	 * @see #setPointHitRadius(List<BigDecimal> pointHitRadius)
+	 */
 	public List<BigDecimal> getPointHitRadius() {
-		return pointHitRadius;
+	    return this.pointHitRadius;
 	}
 
+	/**
+	 * The pixel size of the non-displayed point that reacts to mouse events
+	 */
 	public void setPointHitRadius(List<BigDecimal> pointHitRadius) {
-		this.pointHitRadius = pointHitRadius;
+	    this.pointHitRadius = pointHitRadius;
 	}
 
+	/**
+	 * @see #setPointHoverBackgroundColor(List<Color> pointHoverBackgroundColor)
+	 */
 	public List<Color> getPointHoverBackgroundColor() {
-		return pointHoverBackgroundColor;
+	    return this.pointHoverBackgroundColor;
 	}
 
+	/**
+	 * Point background color when hovered
+	 */
 	public void setPointHoverBackgroundColor(List<Color> pointHoverBackgroundColor) {
-		this.pointHoverBackgroundColor = pointHoverBackgroundColor;
+	    this.pointHoverBackgroundColor = pointHoverBackgroundColor;
 	}
 
+	/**
+	 * @see #setPointHoverBorderColor(List<Color> pointHoverBorderColor)
+	 */
 	public List<Color> getPointHoverBorderColor() {
-		return pointHoverBorderColor;
+	    return this.pointHoverBorderColor;
 	}
 
+	/**
+	 * Point border color when hovered
+	 */
 	public void setPointHoverBorderColor(List<Color> pointHoverBorderColor) {
-		this.pointHoverBorderColor = pointHoverBorderColor;
+	    this.pointHoverBorderColor = pointHoverBorderColor;
 	}
 
+	/**
+	 * @see #setPointHoverBorderWidth(List<BigDecimal> pointHoverBorderWidth)
+	 */
 	public List<BigDecimal> getPointHoverBorderWidth() {
-		return pointHoverBorderWidth;
+	    return this.pointHoverBorderWidth;
 	}
 
+	/**
+	 * Border width of point when hovered
+	 */
 	public void setPointHoverBorderWidth(List<BigDecimal> pointHoverBorderWidth) {
-		this.pointHoverBorderWidth = pointHoverBorderWidth;
+	    this.pointHoverBorderWidth = pointHoverBorderWidth;
 	}
 
+	/**
+	 * @see #setPointStyle(List pointStyle)
+	 */
 	public List<String> getPointStyle() {
-		return pointStyle;
+	    return this.pointStyle;
 	}
 
+	/**
+	 * The style of point. Options are 'circle', 'triangle', 'rect', 'rectRot', 'cross', 'crossRot', 'star', 'line', and 'dash'. If the option is an image, that image is drawn on the canvas using drawImage. 
+	 */
 	public void setPointStyle(List<String> pointStyle) {
-		this.pointStyle = pointStyle;
+	    this.pointStyle = pointStyle;
 	}
 
+	/**
+	 * @see #setShowLine(Boolean showLine)
+	 */
 	public Boolean getShowLine() {
-		return showLine;
+	    return this.showLine;
 	}
 
+	/**
+	 * If false, the line is not drawn for this dataset
+	 */
 	public void setShowLine(Boolean showLine) {
-		this.showLine = showLine;
+	    this.showLine = showLine;
 	}
 
+	/**
+	 * @see #setSpanGaps(Boolean spanGaps)
+	 */
 	public Boolean getSpanGaps() {
-		return spanGaps;
+	    return this.spanGaps;
 	}
 
+	/**
+	 * If true, lines will be drawn between points with no or null data
+	 */
 	public void setSpanGaps(Boolean spanGaps) {
-		this.spanGaps = spanGaps;
+	    this.spanGaps = spanGaps;
 	}
 
+	/**
+	 * @see #setSteppedLine(Boolean steppedLine)
+	 */
 	public Boolean getSteppedLine() {
-		return steppedLine;
+	    return this.steppedLine;
 	}
 
+	/**
+	 * If true, the line is shown as a steeped line and 'lineTension' will be ignored
+	 */
 	public void setSteppedLine(Boolean steppedLine) {
-		this.steppedLine = steppedLine;
+	    this.steppedLine = steppedLine;
 	}
 
 }
