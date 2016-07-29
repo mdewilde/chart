@@ -56,11 +56,11 @@ public class ChartTests {
 		LineDataset dataset = new LineDataset();
 		data.addDataset(dataset);
 		
-		dataset.addData(25);
-		dataset.addData(32);
-		dataset.addData(14);
-		dataset.addData(16);
-		dataset.addData(23);
+//		dataset.addData(25);
+//		dataset.addData(32);
+//		dataset.addData(14);
+//		dataset.addData(16);
+//		dataset.addData(23);
 		dataset.setLabel("dataset");
 		data.addLabel("Monday");
 		data.addLabel("Tuesday");
