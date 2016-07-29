@@ -9,7 +9,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
-public class PieOptions {
+public class PieOptions extends Options {
 
 	/**
 	 * Default {@code 50 - for doughnut, 0 - for pie}

@@ -10,7 +10,7 @@ import be.ceau.chart.options.scales.RadialLinearScales;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
-public class PolarOptions {
+public class PolarOptions extends Options {
 
 	/**
 	 * @see #setScale(RadialLinearScales scale)

@@ -13,7 +13,7 @@
 	See the License for the specific language governing permissions and
 	limitations under the License.
  */
-package be.ceau.chart.data;
+package be.ceau.chart.v1;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -29,8 +29,8 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import be.ceau.chart.color.Color;
 
-@JsonInclude(Include.NON_NULL)
-@JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, isGetterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE, creatorVisibility = Visibility.NONE)
+@JsonInclude(Include.NON_EMPTY)
+@JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 public class Dataset {
 
 	/**

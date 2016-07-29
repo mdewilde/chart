@@ -9,7 +9,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
-public class DoughnutOptions {
+public class DoughnutOptions extends Options {
 
 	/**
 	 * Default {@code 50}

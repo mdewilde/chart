@@ -9,7 +9,7 @@ import be.ceau.chart.options.scales.BarScales;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
-public class BarOptions {
+public class BarOptions extends Options {
 
 	/**
 	 * Default {@code "label"}
