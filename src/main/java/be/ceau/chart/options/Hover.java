@@ -1,80 +1,92 @@
 package be.ceau.chart.options;
 
-import java.math.BigDecimal;
-
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import be.ceau.chart.data.JavaScriptFunction;
+import be.ceau.chart.enums.HoverMode;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 public class Hover {
 
 	/**
-	 * Default {@code 'single'}
-	 * 
-	 * @see #setMode(String mode)
+	 * @see #setMode(HoverMode)
 	 */
-	private String mode;
+	private HoverMode mode;
 
 	/**
-	 * Default {@code 400}
-	 * 
-	 * @see #setAnimationDuration(BigDecimal animationDuration)
+	 * @see #setAnimationDuration(Integer)
 	 */
-	private BigDecimal animationDuration;
+	private Integer animationDuration;
 
 	/**
-	 * Default {@code null}
-	 * 
-	 * @see #setOnHover(JavaScriptFunction onHover)
+	 * @see #setOnHover(JavaScriptFunction)
 	 */
 	private JavaScriptFunction onHover;
 
 	/**
-	 * @see #setMode(String mode)
+	 * @see #setMode(HoverMode)
 	 */
-	public String getMode() {
-	    return this.mode;
+	public HoverMode getMode() {
+		return this.mode;
 	}
 
 	/**
-	 * Sets which elements hover. Acceptable options are 'single', 'label', 'x-axis', or 'dataset'.  single highlights the closest element.  label highlights elements in all datasets at the same X value.  'x-axis' also highlights elements in all datasets at the same X value, but activates when hovering anywhere within the vertical slice of the x-axis representing that X value.   dataset highlights the closest dataset.
+	 * <p>
+	 * Default {@code single}
+	 * </p>
+	 * 
+	 * <p>
+	 * Sets which elements hover. Acceptable options are 'single', 'label',
+	 * 'x-axis', or 'dataset'.
+	 * </p>
+	 * <ul>
+	 * <li>{@code single} highlights the closest element.
+	 * <li>{@code label} highlights elements in all datasets at the same X value.
+	 * <li>{@code x-axis} also highlights elements in all datasets at the same X
+	 * value, but activates when hovering anywhere within the vertical slice of
+	 * the x-axis representing that X value.
+	 * <li>{@code dataset} highlights the closest dataset.
+	 * </ul>
 	 */
-	public void setMode(String mode) {
-	    this.mode = mode;
+	public void setMode(HoverMode mode) {
+		this.mode = mode;
 	}
 
 	/**
-	 * @see #setAnimationDuration(BigDecimal animationDuration)
+	 * @see #setAnimationDuration(Integer)
 	 */
-	public BigDecimal getAnimationDuration() {
-	    return this.animationDuration;
+	public Integer getAnimationDuration() {
+		return this.animationDuration;
 	}
 
 	/**
+	 * Default {@code 400}<br>
+	 * 
 	 * Duration in milliseconds it takes to animate hover style changes
 	 */
-	public void setAnimationDuration(BigDecimal animationDuration) {
-	    this.animationDuration = animationDuration;
+	public void setAnimationDuration(Integer animationDuration) {
+		this.animationDuration = animationDuration;
 	}
 
 	/**
-	 * @see #setOnHover(JavaScriptFunction onHover)
+	 * @see #setOnHover(JavaScriptFunction)
 	 */
 	public JavaScriptFunction getOnHover() {
-	    return this.onHover;
+		return this.onHover;
 	}
 
 	/**
-	 * Called when any of the events fire. Called in the context of the chart and passed an array of active elements (bars, points, etc)
+	 * Default {@code null}<br>
+	 * 
+	 * Called when any of the events fire. Called in the context of the chart
+	 * and passed an array of active elements (bars, points, etc)
 	 */
 	public void setOnHover(JavaScriptFunction onHover) {
-	    this.onHover = onHover;
+		this.onHover = onHover;
 	}
-
 
 }

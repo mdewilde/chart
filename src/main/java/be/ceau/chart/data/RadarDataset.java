@@ -1,39 +1,28 @@
 package be.ceau.chart.data;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import be.ceau.chart.color.Color;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
-public class LineDataset {
+public class RadarDataset {
 
 	/**
-	 * @see #setData(BigDecimal)
+	 * @see #setData(List)
 	 */
-	private final List<BigDecimal> data = new ArrayList<BigDecimal>();
+	private List<BigDecimal> data;
 
 	/**
 	 * @see #setLabel(String)
 	 */
 	private String label;
-
-	/**
-	 * @see #setXAxisID(String)
-	 */
-	private String xAxisID;
-
-	/**
-	 * @see #setYAxisID(String)
-	 */
-	private String yAxisID;
 
 	/**
 	 * @see #setFill(Boolean)
@@ -106,9 +95,9 @@ public class LineDataset {
 	private List<BigDecimal> pointHoverRadius;
 
 	/**
-	 * @see #setPointHitRadius(List)
+	 * @see #setHitRadius(List)
 	 */
-	private List<BigDecimal> pointHitRadius;
+	private List<BigDecimal> hitRadius;
 
 	/**
 	 * @see #setPointHoverBackgroundColor(List)
@@ -131,21 +120,6 @@ public class LineDataset {
 	private List<String> pointStyle;
 
 	/**
-	 * @see #setShowLine(Boolean)
-	 */
-	private Boolean showLine;
-
-	/**
-	 * @see #setSpanGaps(Boolean)
-	 */
-	private Boolean spanGaps;
-
-	/**
-	 * @see #setSteppedLine(Boolean)
-	 */
-	private Boolean steppedLine;
-
-	/**
 	 * @see #setData(List)
 	 */
 	public List<BigDecimal> getData() {
@@ -156,31 +130,7 @@ public class LineDataset {
 	 * The data to plot in a line
 	 */
 	public void setData(List<BigDecimal> data) {
-		this.data.clear();
-		if (data != null) {
-			this.data.addAll(data);
-		}
-	}
-
-	/**
-	 * The data to plot in a line
-	 */
-	public void addData(int data) {
-		this.data.add(new BigDecimal(data));
-	}
-
-	/**
-	 * The data to plot in a line
-	 */
-	public void addData(double data) {
-		this.data.add(new BigDecimal(String.valueOf(data)));
-	}
-
-	/**
-	 * The data to plot in a line
-	 */
-	public void addData(BigDecimal data) {
-		this.data.add(data);
+		this.data = data;
 	}
 
 	/**
@@ -195,34 +145,6 @@ public class LineDataset {
 	 */
 	public void setLabel(String label) {
 		this.label = label;
-	}
-
-	/**
-	 * @see #setXAxisID(String)
-	 */
-	public String getXAxisID() {
-		return this.xAxisID;
-	}
-
-	/**
-	 * The ID of the x axis to plot this dataset on
-	 */
-	public void setXAxisID(String xAxisID) {
-		this.xAxisID = xAxisID;
-	}
-
-	/**
-	 * @see #setYAxisID(String)
-	 */
-	public String getYAxisID() {
-		return this.yAxisID;
-	}
-
-	/**
-	 * The ID of the y axis to plot this dataset on
-	 */
-	public void setYAxisID(String yAxisID) {
-		this.yAxisID = yAxisID;
 	}
 
 	/**
@@ -447,17 +369,17 @@ public class LineDataset {
 	}
 
 	/**
-	 * @see #setPointHitRadius(List)
+	 * @see #setHitRadius(List)
 	 */
-	public List<BigDecimal> getPointHitRadius() {
-		return this.pointHitRadius;
+	public List<BigDecimal> getHitRadius() {
+		return this.hitRadius;
 	}
 
 	/**
 	 * The pixel size of the non-displayed point that reacts to mouse events
 	 */
-	public void setPointHitRadius(List<BigDecimal> pointHitRadius) {
-		this.pointHitRadius = pointHitRadius;
+	public void setHitRadius(List<BigDecimal> hitRadius) {
+		this.hitRadius = hitRadius;
 	}
 
 	/**
@@ -510,55 +432,11 @@ public class LineDataset {
 	}
 
 	/**
-	 * The style of point. Options are 'circle', 'triangle', 'rect', 'rectRot',
-	 * 'cross', 'crossRot', 'star', 'line', and 'dash'. If the option is an
-	 * image, that image is drawn on the canvas using drawImage.
+	 * The style of point. Options include 'circle', 'triangle', 'rect',
+	 * 'rectRot', 'cross', 'crossRot', 'star', 'line', and 'dash'
 	 */
 	public void setPointStyle(List<String> pointStyle) {
 		this.pointStyle = pointStyle;
-	}
-
-	/**
-	 * @see #setShowLine(Boolean)
-	 */
-	public Boolean getShowLine() {
-		return this.showLine;
-	}
-
-	/**
-	 * If false, the line is not drawn for this dataset
-	 */
-	public void setShowLine(Boolean showLine) {
-		this.showLine = showLine;
-	}
-
-	/**
-	 * @see #setSpanGaps(Boolean)
-	 */
-	public Boolean getSpanGaps() {
-		return this.spanGaps;
-	}
-
-	/**
-	 * If true, lines will be drawn between points with no or null data
-	 */
-	public void setSpanGaps(Boolean spanGaps) {
-		this.spanGaps = spanGaps;
-	}
-
-	/**
-	 * @see #setSteppedLine(Boolean)
-	 */
-	public Boolean getSteppedLine() {
-		return this.steppedLine;
-	}
-
-	/**
-	 * If true, the line is shown as a steeped line and 'lineTension' will be
-	 * ignored
-	 */
-	public void setSteppedLine(Boolean steppedLine) {
-		this.steppedLine = steppedLine;
 	}
 
 }

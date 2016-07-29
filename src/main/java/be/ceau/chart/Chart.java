@@ -5,4 +5,6 @@ public interface Chart {
 
 	public String getType();
 
+	public String toJson();
+
 }

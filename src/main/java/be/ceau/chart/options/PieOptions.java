@@ -82,7 +82,7 @@ public class PieOptions extends Options {
 	}
 
 	/**
-	 * @see #setAnimation.animateRotate(Boolean animation.animateRotate)
+	 * @see #setAnimation(PieAnimation)
 	 */
 	public PieAnimation getAnimation() {
 	    return this.animation;

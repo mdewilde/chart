@@ -12,7 +12,7 @@ import be.ceau.chart.color.Color;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
-public class BarDataset {
+public class DoughnutDataset {
 
 	/**
 	 * @see #setData(List)
@@ -23,16 +23,6 @@ public class BarDataset {
 	 * @see #setLabel(String)
 	 */
 	private String label;
-
-	/**
-	 * @see #setXAxisID(String)
-	 */
-	private String xAxisID;
-
-	/**
-	 * @see #setYAxisID(String)
-	 */
-	private String yAxisID;
 
 	/**
 	 * @see #setBackgroundColor(List)
@@ -48,11 +38,6 @@ public class BarDataset {
 	 * @see #setBorderWidth(List)
 	 */
 	private List<BigDecimal> borderWidth;
-
-	/**
-	 * @see #setBorderSkipped(List)
-	 */
-	private List<String> borderSkipped;
 
 	/**
 	 * @see #setHoverBackgroundColor(List)
@@ -77,7 +62,7 @@ public class BarDataset {
 	}
 
 	/**
-	 * The data to plot as bars
+	 * The data to plot as arcs
 	 */
 	public void setData(List<BigDecimal> data) {
 	    this.data = data;
@@ -98,34 +83,6 @@ public class BarDataset {
 	}
 
 	/**
-	 * @see #setXAxisID(String)
-	 */
-	public String getXAxisID() {
-	    return this.xAxisID;
-	}
-
-	/**
-	 * The ID of the x axis to plot this dataset on
-	 */
-	public void setXAxisID(String xAxisID) {
-	    this.xAxisID = xAxisID;
-	}
-
-	/**
-	 * @see #setYAxisID(String)
-	 */
-	public String getYAxisID() {
-	    return this.yAxisID;
-	}
-
-	/**
-	 * The ID of the y axis to plot this dataset on
-	 */
-	public void setYAxisID(String yAxisID) {
-	    this.yAxisID = yAxisID;
-	}
-
-	/**
 	 * @see #setBackgroundColor(List)
 	 */
 	public List<Color> getBackgroundColor() {
@@ -133,7 +90,7 @@ public class BarDataset {
 	}
 
 	/**
-	 * The fill color of the bars. See Colors
+	 * The fill color of the arcs. See Colors
 	 */
 	public void setBackgroundColor(List<Color> backgroundColor) {
 	    this.backgroundColor = backgroundColor;
@@ -147,7 +104,7 @@ public class BarDataset {
 	}
 
 	/**
-	 * Bar border color
+	 * Arc border color
 	 */
 	public void setBorderColor(List<Color> borderColor) {
 	    this.borderColor = borderColor;
@@ -161,24 +118,10 @@ public class BarDataset {
 	}
 
 	/**
-	 * Border width of bar in pixels
+	 * Border width of arcs in pixels
 	 */
 	public void setBorderWidth(List<BigDecimal> borderWidth) {
 	    this.borderWidth = borderWidth;
-	}
-
-	/**
-	 * @see #setBorderSkipped(List)
-	 */
-	public List<String> getBorderSkipped() {
-	    return this.borderSkipped;
-	}
-
-	/**
-	 * Which edge to skip drawing the border for. Options are 'bottom', 'left', 'top', and 'right'
-	 */
-	public void setBorderSkipped(List<String> borderSkipped) {
-	    this.borderSkipped = borderSkipped;
 	}
 
 	/**
@@ -189,7 +132,7 @@ public class BarDataset {
 	}
 
 	/**
-	 * Bar background color when hovered
+	 * Arc background color when hovered
 	 */
 	public void setHoverBackgroundColor(List<Color> hoverBackgroundColor) {
 	    this.hoverBackgroundColor = hoverBackgroundColor;
@@ -203,7 +146,7 @@ public class BarDataset {
 	}
 
 	/**
-	 * Bar border color when hovered
+	 * Arc border color when hovered
 	 */
 	public void setHoverBorderColor(List<Color> hoverBorderColor) {
 	    this.hoverBorderColor = hoverBorderColor;
@@ -217,7 +160,7 @@ public class BarDataset {
 	}
 
 	/**
-	 * Border width of bar when hovered
+	 * Border width of arc when hovered
 	 */
 	public void setHoverBorderWidth(List<BigDecimal> hoverBorderWidth) {
 	    this.hoverBorderWidth = hoverBorderWidth;

@@ -47,7 +47,7 @@ public class PolarOptions extends Options {
 	}
 
 	/**
-	 * @see #setAnimation.animateRotate(Boolean animation.animateRotate)
+	 * @see #setAnimation(PolarAnimation)
 	 */
 	public PolarAnimation getAnimation() {
 		return this.animation;

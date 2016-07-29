@@ -12,171 +12,212 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 public class LinearTicks extends Ticks {
 
 	/**
-	 * Default {@code -}
-	 * 
-	 * @see #setBeginAtZero(Boolean beginAtZero)
+	 * @see #setBeginAtZero(Boolean)
 	 */
 	private Boolean beginAtZero;
 
 	/**
-	 * Default {@code -}
-	 * 
-	 * @see #setMin(BigDecimal min)
+	 * @see #setMin(BigDecimal)
 	 */
 	private BigDecimal min;
 
 	/**
-	 * Default {@code -}
-	 * 
-	 * @see #setMax(BigDecimal max)
+	 * @see #setMax(BigDecimal)
 	 */
 	private BigDecimal max;
 
 	/**
-	 * Default {@code 11}
-	 * 
-	 * @see #setMaxTicksLimit(BigDecimal maxTicksLimit)
+	 * @see #setMaxTicksLimit(BigDecimal)
 	 */
 	private BigDecimal maxTicksLimit;
 
 	/**
-	 * Default {@code -}
-	 * 
-	 * @see #setFixedStepSize(BigDecimal fixedStepSize)
+	 * @see #setFixedStepSize(BigDecimal)
 	 */
 	private BigDecimal fixedStepSize;
 
 	/**
-	 * Default {@code -}
-	 * 
-	 * @see #setStepSize(BigDecimal stepSize)
+	 * @see #setStepSize(BigDecimal)
 	 */
 	private BigDecimal stepSize;
 
 	/**
-	 * Default {@code -}
-	 * 
-	 * @see #setSuggestedMax(BigDecimal suggestedMax)
+	 * @see #setSuggestedMax(BigDecimal)
 	 */
 	private BigDecimal suggestedMax;
 
 	/**
-	 * Default {@code -}
-	 * 
-	 * @see #setSuggestedMin(BigDecimal suggestedMin)
+	 * @see #setSuggestedMin(BigDecimal)
 	 */
 	private BigDecimal suggestedMin;
 
 	/**
-	 * @see #setBeginAtZero(Boolean beginAtZero)
+	 * @see #setBeginAtZero(Boolean)
 	 */
 	public Boolean getBeginAtZero() {
-	    return this.beginAtZero;
+		return this.beginAtZero;
 	}
 
 	/**
+	 * <p>
 	 * if true, scale will inclulde 0 if it is not already included.
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code -}
+	 * </p>
 	 */
 	public void setBeginAtZero(Boolean beginAtZero) {
-	    this.beginAtZero = beginAtZero;
+		this.beginAtZero = beginAtZero;
 	}
 
 	/**
-	 * @see #setMin(BigDecimal min)
+	 * @see #setMin(BigDecimal)
 	 */
 	public BigDecimal getMin() {
-	    return this.min;
+		return this.min;
 	}
 
 	/**
-	 * User defined minimum number for the scale, overrides minimum value from data.
+	 * <p>
+	 * User defined minimum number for the scale, overrides minimum value from
+	 * data.
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code -}
+	 * </p>
 	 */
 	public void setMin(BigDecimal min) {
-	    this.min = min;
+		this.min = min;
 	}
 
 	/**
-	 * @see #setMax(BigDecimal max)
+	 * @see #setMax(BigDecimal)
 	 */
 	public BigDecimal getMax() {
-	    return this.max;
+		return this.max;
 	}
 
 	/**
-	 * User defined maximum number for the scale, overrides maximum value from data.
+	 * <p>
+	 * User defined maximum number for the scale, overrides maximum value from
+	 * data.
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code -}
+	 * </p>
 	 */
 	public void setMax(BigDecimal max) {
-	    this.max = max;
+		this.max = max;
 	}
 
 	/**
-	 * @see #setMaxTicksLimit(BigDecimal maxTicksLimit)
+	 * @see #setMaxTicksLimit(BigDecimal)
 	 */
 	public BigDecimal getMaxTicksLimit() {
-	    return this.maxTicksLimit;
+		return this.maxTicksLimit;
 	}
 
 	/**
-	 * Maximum number of ticks and gridlines to show. If not defined, it will limit to 11 ticks but will show all gridlines.
+	 * <p>
+	 * Maximum number of ticks and gridlines to show. If not defined, it will
+	 * limit to 11 ticks but will show all gridlines.
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code 11}
+	 * </p>
 	 */
 	public void setMaxTicksLimit(BigDecimal maxTicksLimit) {
-	    this.maxTicksLimit = maxTicksLimit;
+		this.maxTicksLimit = maxTicksLimit;
 	}
 
 	/**
-	 * @see #setFixedStepSize(BigDecimal fixedStepSize)
+	 * @see #setFixedStepSize(BigDecimal)
 	 */
 	public BigDecimal getFixedStepSize() {
-	    return this.fixedStepSize;
+		return this.fixedStepSize;
 	}
 
 	/**
-	 * User defined fixed step size for the scale. If set, the scale ticks will be enumerated by multiple of stepSize, having one tick per increment. If not set, the ticks are labeled automatically using the nice numbers algorithm.
+	 * <p>
+	 * User defined fixed step size for the scale. If set, the scale ticks will
+	 * be enumerated by multiple of stepSize, having one tick per increment. If
+	 * not set, the ticks are labeled automatically using the nice numbers
+	 * algorithm.
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code -}
+	 * </p>
 	 */
 	public void setFixedStepSize(BigDecimal fixedStepSize) {
-	    this.fixedStepSize = fixedStepSize;
+		this.fixedStepSize = fixedStepSize;
 	}
 
 	/**
-	 * @see #setStepSize(BigDecimal stepSize)
+	 * @see #setStepSize(BigDecimal)
 	 */
 	public BigDecimal getStepSize() {
-	    return this.stepSize;
+		return this.stepSize;
 	}
 
 	/**
-	 * if defined, it can be used along with the min and the max to give a custom number of steps. See the example below.
+	 * <p>
+	 * if defined, it can be used along with the min and the max to give a
+	 * custom number of steps. See the example below.
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code -}
+	 * </p>
 	 */
 	public void setStepSize(BigDecimal stepSize) {
-	    this.stepSize = stepSize;
+		this.stepSize = stepSize;
 	}
 
 	/**
-	 * @see #setSuggestedMax(BigDecimal suggestedMax)
+	 * @see #setSuggestedMax(BigDecimal)
 	 */
 	public BigDecimal getSuggestedMax() {
-	    return this.suggestedMax;
+		return this.suggestedMax;
 	}
 
 	/**
-	 * User defined maximum number for the scale, overrides maximum value except for if it is lower than the maximum value.
+	 * <p>
+	 * User defined maximum number for the scale, overrides maximum value except
+	 * for if it is lower than the maximum value.
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code -}
+	 * </p>
 	 */
 	public void setSuggestedMax(BigDecimal suggestedMax) {
-	    this.suggestedMax = suggestedMax;
+		this.suggestedMax = suggestedMax;
 	}
 
 	/**
-	 * @see #setSuggestedMin(BigDecimal suggestedMin)
+	 * @see #setSuggestedMin(BigDecimal)
 	 */
 	public BigDecimal getSuggestedMin() {
-	    return this.suggestedMin;
+		return this.suggestedMin;
 	}
 
 	/**
-	 * User defined minimum number for the scale, overrides minimum value except for if it is higher than the minimum value.
+	 * <p>
+	 * User defined minimum number for the scale, overrides minimum value except
+	 * for if it is higher than the minimum value.
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code -}
+	 * </p>
 	 */
 	public void setSuggestedMin(BigDecimal suggestedMin) {
-	    this.suggestedMin = suggestedMin;
+		this.suggestedMin = suggestedMin;
 	}
 
 }

@@ -15,47 +15,47 @@ import be.ceau.chart.color.Color;
 public class PieData {
 
 	/**
-	 * @see #setData(List<BigDecimal> data)
+	 * @see #setData(List)
 	 */
 	private List<BigDecimal> data;
 
 	/**
-	 * @see #setLabel(String label)
+	 * @see #setLabel(String)
 	 */
 	private String label;
 
 	/**
-	 * @see #setBackgroundColor(List<Color> backgroundColor)
+	 * @see #setBackgroundColor(List)
 	 */
 	private List<Color> backgroundColor;
 
 	/**
-	 * @see #setBorderColor(List<Color> borderColor)
+	 * @see #setBorderColor(List)
 	 */
 	private List<Color> borderColor;
 
 	/**
-	 * @see #setBorderWidth(List<BigDecimal> borderWidth)
+	 * @see #setBorderWidth(List)
 	 */
 	private List<BigDecimal> borderWidth;
 
 	/**
-	 * @see #setHoverBackgroundColor(List<Color> hoverBackgroundColor)
+	 * @see #setHoverBackgroundColor(List)
 	 */
 	private List<Color> hoverBackgroundColor;
 
 	/**
-	 * @see #setHoverBorderColor(List<Color> hoverBorderColor)
+	 * @see #setHoverBorderColor(List)
 	 */
 	private List<Color> hoverBorderColor;
 
 	/**
-	 * @see #setHoverBorderWidth(List<BigDecimal> hoverBorderWidth)
+	 * @see #setHoverBorderWidth(List)
 	 */
 	private List<BigDecimal> hoverBorderWidth;
 
 	/**
-	 * @see #setData(List<BigDecimal> data)
+	 * @see #setData(List)
 	 */
 	public List<BigDecimal> getData() {
 	    return this.data;
@@ -83,7 +83,7 @@ public class PieData {
 	}
 
 	/**
-	 * @see #setBackgroundColor(List<Color> backgroundColor)
+	 * @see #setBackgroundColor(List)
 	 */
 	public List<Color> getBackgroundColor() {
 	    return this.backgroundColor;
@@ -97,7 +97,7 @@ public class PieData {
 	}
 
 	/**
-	 * @see #setBorderColor(List<Color> borderColor)
+	 * @see #setBorderColor(List)
 	 */
 	public List<Color> getBorderColor() {
 	    return this.borderColor;
@@ -111,7 +111,7 @@ public class PieData {
 	}
 
 	/**
-	 * @see #setBorderWidth(List<BigDecimal> borderWidth)
+	 * @see #setBorderWidth(List)
 	 */
 	public List<BigDecimal> getBorderWidth() {
 	    return this.borderWidth;
@@ -125,7 +125,7 @@ public class PieData {
 	}
 
 	/**
-	 * @see #setHoverBackgroundColor(List<Color> hoverBackgroundColor)
+	 * @see #setHoverBackgroundColor(List)
 	 */
 	public List<Color> getHoverBackgroundColor() {
 	    return this.hoverBackgroundColor;
@@ -139,7 +139,7 @@ public class PieData {
 	}
 
 	/**
-	 * @see #setHoverBorderColor(List<Color> hoverBorderColor)
+	 * @see #setHoverBorderColor(List)
 	 */
 	public List<Color> getHoverBorderColor() {
 	    return this.hoverBorderColor;
@@ -153,7 +153,7 @@ public class PieData {
 	}
 
 	/**
-	 * @see #setHoverBorderWidth(List<BigDecimal> hoverBorderWidth)
+	 * @see #setHoverBorderWidth(List)
 	 */
 	public List<BigDecimal> getHoverBorderWidth() {
 	    return this.hoverBorderWidth;

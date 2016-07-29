@@ -13,7 +13,7 @@ import be.ceau.chart.options.scales.RadialLinearScales;
 public class RadarOptions extends Options {
 
 	/**
-	 * @see #setScale(Scale scale)
+	 * @see #setScale(RadialLinearScales)
 	 */
 	private RadialLinearScales scale;
 
@@ -23,7 +23,7 @@ public class RadarOptions extends Options {
 	private RadarElements elements;
 
 	/**
-	 * @see #setScale(Scale scale)
+	 * @see #setScale(RadialLinearScales)
 	 */
 	public RadialLinearScales getScale() {
 		return this.scale;

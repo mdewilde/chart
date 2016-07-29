@@ -22,75 +22,75 @@ public class GridLines {
 	/**
 	 * Default {@code true}
 	 * 
-	 * @see #setDisplay(Boolean display)
+	 * @see #setDisplay(Boolean)
 	 */
 	private Boolean display;
 
 	/**
 	 * Default {@code "rgba(0, 0, 0, 0.1)"}
 	 * 
-	 * @see #setColor(List<Color> color)
+	 * @see #setColor(List)
 	 */
 	private List<Color> color;
 
 	/**
 	 * Default {@code 1}
 	 * 
-	 * @see #setLineWidth(List<BigDecimal> lineWidth)
+	 * @see #setLineWidth(List)
 	 */
 	private List<BigDecimal> lineWidth;
 
 	/**
 	 * Default {@code true}
 	 * 
-	 * @see #setDrawBorder(Boolean drawBorder)
+	 * @see #setDrawBorder(Boolean)
 	 */
 	private Boolean drawBorder;
 
 	/**
 	 * Default {@code true}
 	 * 
-	 * @see #setDrawOnChartArea(Boolean drawOnChartArea)
+	 * @see #setDrawOnChartArea(Boolean)
 	 */
 	private Boolean drawOnChartArea;
 
 	/**
 	 * Default {@code true}
 	 * 
-	 * @see #setDrawTicks(Boolean drawTicks)
+	 * @see #setDrawTicks(Boolean)
 	 */
 	private Boolean drawTicks;
 
 	/**
 	 * Default {@code 10}
 	 * 
-	 * @see #setTickMarkLength(BigDecimal tickMarkLength)
+	 * @see #setTickMarkLength(BigDecimal)
 	 */
 	private BigDecimal tickMarkLength;
 
 	/**
 	 * Default {@code 1}
 	 * 
-	 * @see #setZeroLineWidth(BigDecimal zeroLineWidth)
+	 * @see #setZeroLineWidth(BigDecimal)
 	 */
 	private BigDecimal zeroLineWidth;
 
 	/**
 	 * Default {@code "rgba(0, 0, 0, 0.25)"}
 	 * 
-	 * @see #setZeroLineColor(Color zeroLineColor)
+	 * @see #setZeroLineColor(Color)
 	 */
 	private Color zeroLineColor;
 
 	/**
 	 * Default {@code false}
 	 * 
-	 * @see #setOffsetGridLines(Boolean offsetGridLines)
+	 * @see #setOffsetGridLines(Boolean)
 	 */
 	private Boolean offsetGridLines;
 
 	/**
-	 * @see #setDisplay(Boolean display)
+	 * @see #setDisplay(Boolean)
 	 */
 	public Boolean getDisplay() {
 	    return this.display;
@@ -104,7 +104,7 @@ public class GridLines {
 	}
 
 	/**
-	 * @see #setColor(List<Color> color)
+	 * @see #setColor(List)
 	 */
 	public List<Color> getColor() {
 	    return this.color;
@@ -118,7 +118,7 @@ public class GridLines {
 	}
 
 	/**
-	 * @see #setLineWidth(List<BigDecimal> lineWidth)
+	 * @see #setLineWidth(List)
 	 */
 	public List<BigDecimal> getLineWidth() {
 	    return this.lineWidth;
@@ -132,7 +132,7 @@ public class GridLines {
 	}
 
 	/**
-	 * @see #setDrawBorder(Boolean drawBorder)
+	 * @see #setDrawBorder(Boolean)
 	 */
 	public Boolean getDrawBorder() {
 	    return this.drawBorder;
@@ -146,7 +146,7 @@ public class GridLines {
 	}
 
 	/**
-	 * @see #setDrawOnChartArea(Boolean drawOnChartArea)
+	 * @see #setDrawOnChartArea(Boolean)
 	 */
 	public Boolean getDrawOnChartArea() {
 	    return this.drawOnChartArea;
@@ -160,7 +160,7 @@ public class GridLines {
 	}
 
 	/**
-	 * @see #setDrawTicks(Boolean drawTicks)
+	 * @see #setDrawTicks(Boolean)
 	 */
 	public Boolean getDrawTicks() {
 	    return this.drawTicks;
@@ -174,7 +174,7 @@ public class GridLines {
 	}
 
 	/**
-	 * @see #setTickMarkLength(BigDecimal tickMarkLength)
+	 * @see #setTickMarkLength(BigDecimal)
 	 */
 	public BigDecimal getTickMarkLength() {
 	    return this.tickMarkLength;
@@ -188,7 +188,7 @@ public class GridLines {
 	}
 
 	/**
-	 * @see #setZeroLineWidth(BigDecimal zeroLineWidth)
+	 * @see #setZeroLineWidth(BigDecimal)
 	 */
 	public BigDecimal getZeroLineWidth() {
 	    return this.zeroLineWidth;
@@ -202,7 +202,7 @@ public class GridLines {
 	}
 
 	/**
-	 * @see #setZeroLineColor(Color zeroLineColor)
+	 * @see #setZeroLineColor(Color)
 	 */
 	public Color getZeroLineColor() {
 	    return this.zeroLineColor;
@@ -216,7 +216,7 @@ public class GridLines {
 	}
 
 	/**
-	 * @see #setOffsetGridLines(Boolean offsetGridLines)
+	 * @see #setOffsetGridLines(Boolean)
 	 */
 	public Boolean getOffsetGridLines() {
 	    return this.offsetGridLines;

@@ -4,8 +4,8 @@ import java.math.BigDecimal;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import be.ceau.chart.color.Color;
@@ -15,52 +15,52 @@ import be.ceau.chart.color.Color;
 public class BubbleData {
 
 	/**
-	 * @see #setData(Array data)
+	 * @see #setData(List)
 	 */
 	private List<BubbleDataPoint> data;
 
 	/**
-	 * @see #setLabel(String label)
+	 * @see #setLabel(String)
 	 */
 	private String label;
 
 	/**
-	 * @see #setBackgroundColor(Color Array backgroundColor)
+	 * @see #setBackgroundColor(List)
 	 */
 	private List<Color> backgroundColor;
 
 	/**
-	 * @see #setBorderColor(List<Color> borderColor)
+	 * @see #setBorderColor(List)
 	 */
 	private List<Color> borderColor;
 
 	/**
-	 * @see #setBorderWidth(List<BigDecimal> borderWidth)
+	 * @see #setBorderWidth(List)
 	 */
 	private List<BigDecimal> borderWidth;
 
 	/**
-	 * @see #setHoverBackgroundColor(List<Color> hoverBackgroundColor)
+	 * @see #setHoverBackgroundColor(List)
 	 */
 	private List<Color> hoverBackgroundColor;
 
 	/**
-	 * @see #setHoverBorderColor(List<Color> hoverBorderColor)
+	 * @see #setHoverBorderColor(List)
 	 */
 	private List<Color> hoverBorderColor;
 
 	/**
-	 * @see #setHoverBorderWidth(List<BigDecimal> hoverBorderWidth)
+	 * @see #setHoverBorderWidth(List)
 	 */
 	private List<BigDecimal> hoverBorderWidth;
 
 	/**
-	 * @see #setHoverRadius(List<BigDecimal> hoverRadius)
+	 * @see #setHoverRadius(List)
 	 */
 	private List<BigDecimal> hoverRadius;
 
 	/**
-	 * @see #setData(Array data)
+	 * @see #setData(List)
 	 */
 	public List<BubbleDataPoint> getData() {
 	    return this.data;
@@ -74,7 +74,7 @@ public class BubbleData {
 	}
 
 	/**
-	 * @see #setLabel(String label)
+	 * @see #setLabel(String)
 	 */
 	public String getLabel() {
 	    return this.label;
@@ -88,7 +88,7 @@ public class BubbleData {
 	}
 
 	/**
-	 * @see #setBackgroundColor(List backgroundColor)
+	 * @see #setBackgroundColor(List)
 	 */
 	public List<Color> getBackgroundColor() {
 	    return this.backgroundColor;
@@ -102,7 +102,7 @@ public class BubbleData {
 	}
 
 	/**
-	 * @see #setBorderColor(List<Color> borderColor)
+	 * @see #setBorderColor(List)
 	 */
 	public List<Color> getBorderColor() {
 	    return this.borderColor;
@@ -116,7 +116,7 @@ public class BubbleData {
 	}
 
 	/**
-	 * @see #setBorderWidth(List<BigDecimal> borderWidth)
+	 * @see #setBorderWidth(List)
 	 */
 	public List<BigDecimal> getBorderWidth() {
 	    return this.borderWidth;
@@ -130,7 +130,7 @@ public class BubbleData {
 	}
 
 	/**
-	 * @see #setHoverBackgroundColor(List<Color> hoverBackgroundColor)
+	 * @see #setHoverBackgroundColor(List)
 	 */
 	public List<Color> getHoverBackgroundColor() {
 	    return this.hoverBackgroundColor;
@@ -144,7 +144,7 @@ public class BubbleData {
 	}
 
 	/**
-	 * @see #setHoverBorderColor(List<Color> hoverBorderColor)
+	 * @see #setHoverBorderColor(List)
 	 */
 	public List<Color> getHoverBorderColor() {
 	    return this.hoverBorderColor;
@@ -158,7 +158,7 @@ public class BubbleData {
 	}
 
 	/**
-	 * @see #setHoverBorderWidth(List<BigDecimal> hoverBorderWidth)
+	 * @see #setHoverBorderWidth(List)
 	 */
 	public List<BigDecimal> getHoverBorderWidth() {
 	    return this.hoverBorderWidth;
@@ -172,7 +172,7 @@ public class BubbleData {
 	}
 
 	/**
-	 * @see #setHoverRadius(List<BigDecimal> hoverRadius)
+	 * @see #setHoverRadius(List)
 	 */
 	public List<BigDecimal> getHoverRadius() {
 	    return this.hoverRadius;

@@ -14,40 +14,40 @@ public class Legend {
 	/**
 	 * Default {@code true}
 	 * 
-	 * @see #setDisplay(Boolean display)
+	 * @see #setDisplay(Boolean)
 	 */
 	private Boolean display;
 
 	/**
 	 * Default {@code 'top'}
 	 * 
-	 * @see #setPosition(String position)
+	 * @see #setPosition(String)
 	 */
 	private String position;
 
 	/**
 	 * Default {@code true}
 	 * 
-	 * @see #setFullWidth(Boolean fullWidth)
+	 * @see #setFullWidth(Boolean)
 	 */
 	private Boolean fullWidth;
 
 	/**
 	 * Default {@code function(event, legendItem) {}}
 	 * 
-	 * @see #setOnClick(JavaScriptFunction onClick)
+	 * @see #setOnClick(JavaScriptFunction)
 	 */
 	private JavaScriptFunction onClick;
 
 	/**
 	 * Default {@code -}
 	 * 
-	 * @see #setLabels(LegendLabels labels)
+	 * @see #setLabels(LegendLabels)
 	 */
 	private LegendLabels labels;
 
 	/**
-	 * @see #setDisplay(Boolean display)
+	 * @see #setDisplay(Boolean)
 	 */
 	public Boolean getDisplay() {
 	    return this.display;
@@ -61,7 +61,7 @@ public class Legend {
 	}
 
 	/**
-	 * @see #setPosition(String position)
+	 * @see #setPosition(String)
 	 */
 	public String getPosition() {
 	    return this.position;
@@ -75,7 +75,7 @@ public class Legend {
 	}
 
 	/**
-	 * @see #setFullWidth(Boolean fullWidth)
+	 * @see #setFullWidth(Boolean)
 	 */
 	public Boolean getFullWidth() {
 	    return this.fullWidth;
@@ -89,7 +89,7 @@ public class Legend {
 	}
 
 	/**
-	 * @see #setOnClick(JavaScriptFunction onClick)
+	 * @see #setOnClick(JavaScriptFunction)
 	 */
 	public JavaScriptFunction getOnClick() {
 	    return this.onClick;
@@ -103,7 +103,7 @@ public class Legend {
 	}
 
 	/**
-	 * @see #setLabels(Labels labels)
+	 * @see #setLabels(LegendLabels)
 	 */
 	public LegendLabels getLabels() {
 	    return this.labels;

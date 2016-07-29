@@ -15,112 +15,112 @@ import be.ceau.chart.color.Color;
 public class RadarData {
 
 	/**
-	 * @see #setData(List<BigDecimal> data)
+	 * @see #setData(List)
 	 */
 	private List<BigDecimal> data;
 
 	/**
-	 * @see #setLabel(String label)
+	 * @see #setLabel(String)
 	 */
 	private String label;
 
 	/**
-	 * @see #setFill(Boolean fill)
+	 * @see #setFill(Boolean)
 	 */
 	private Boolean fill;
 
 	/**
-	 * @see #setLineTension(BigDecimal lineTension)
+	 * @see #setLineTension(BigDecimal)
 	 */
 	private BigDecimal lineTension;
 
 	/**
-	 * @see #setBackgroundColor(Color backgroundColor)
+	 * @see #setBackgroundColor(Color)
 	 */
 	private Color backgroundColor;
 
 	/**
-	 * @see #setBorderWidth(BigDecimal borderWidth)
+	 * @see #setBorderWidth(BigDecimal)
 	 */
 	private BigDecimal borderWidth;
 
 	/**
-	 * @see #setBorderColor(Color borderColor)
+	 * @see #setBorderColor(Color)
 	 */
 	private Color borderColor;
 
 	/**
-	 * @see #setBorderCapStyle(String borderCapStyle)
+	 * @see #setBorderCapStyle(String)
 	 */
 	private String borderCapStyle;
 
 	/**
-	 * @see #setBorderDash(List<BigDecimal> borderDash)
+	 * @see #setBorderDash(List)
 	 */
 	private List<BigDecimal> borderDash;
 
 	/**
-	 * @see #setBorderDashOffset(BigDecimal borderDashOffset)
+	 * @see #setBorderDashOffset(BigDecimal)
 	 */
 	private BigDecimal borderDashOffset;
 
 	/**
-	 * @see #setBorderJoinStyle(String borderJoinStyle)
+	 * @see #setBorderJoinStyle(String)
 	 */
 	private String borderJoinStyle;
 
 	/**
-	 * @see #setPointBorderColor(List<Color> pointBorderColor)
+	 * @see #setPointBorderColor(List)
 	 */
 	private List<Color> pointBorderColor;
 
 	/**
-	 * @see #setPointBackgroundColor(List<Color> pointBackgroundColor)
+	 * @see #setPointBackgroundColor(List)
 	 */
 	private List<Color> pointBackgroundColor;
 
 	/**
-	 * @see #setPointBorderWidth(List<BigDecimal> pointBorderWidth)
+	 * @see #setPointBorderWidth(List)
 	 */
 	private List<BigDecimal> pointBorderWidth;
 
 	/**
-	 * @see #setPointRadius(List<BigDecimal> pointRadius)
+	 * @see #setPointRadius(List)
 	 */
 	private List<BigDecimal> pointRadius;
 
 	/**
-	 * @see #setPointHoverRadius(List<BigDecimal> pointHoverRadius)
+	 * @see #setPointHoverRadius(List)
 	 */
 	private List<BigDecimal> pointHoverRadius;
 
 	/**
-	 * @see #setHitRadius(List<BigDecimal> hitRadius)
+	 * @see #setHitRadius(List)
 	 */
 	private List<BigDecimal> hitRadius;
 
 	/**
-	 * @see #setPointHoverBackgroundColor(List<Color> pointHoverBackgroundColor)
+	 * @see #setPointHoverBackgroundColor(List)
 	 */
 	private List<Color> pointHoverBackgroundColor;
 
 	/**
-	 * @see #setPointHoverBorderColor(List<Color> pointHoverBorderColor)
+	 * @see #setPointHoverBorderColor(List)
 	 */
 	private List<Color> pointHoverBorderColor;
 
 	/**
-	 * @see #setPointHoverBorderWidth(List<BigDecimal> pointHoverBorderWidth)
+	 * @see #setPointHoverBorderWidth(List)
 	 */
 	private List<BigDecimal> pointHoverBorderWidth;
 
 	/**
-	 * @see #setPointStyle(List<String> pointStyle)
+	 * @see #setPointStyle(List)
 	 */
 	private List<String> pointStyle;
 
 	/**
-	 * @see #setData(List<BigDecimal> data)
+	 * @see #setData(List)
 	 */
 	public List<BigDecimal> getData() {
 		return this.data;
@@ -134,7 +134,7 @@ public class RadarData {
 	}
 
 	/**
-	 * @see #setLabel(String label)
+	 * @see #setLabel(String)
 	 */
 	public String getLabel() {
 		return this.label;
@@ -148,7 +148,7 @@ public class RadarData {
 	}
 
 	/**
-	 * @see #setFill(Boolean fill)
+	 * @see #setFill(Boolean)
 	 */
 	public Boolean getFill() {
 		return this.fill;
@@ -162,7 +162,7 @@ public class RadarData {
 	}
 
 	/**
-	 * @see #setLineTension(BigDecimal lineTension)
+	 * @see #setLineTension(BigDecimal)
 	 */
 	public BigDecimal getLineTension() {
 		return this.lineTension;
@@ -177,7 +177,7 @@ public class RadarData {
 	}
 
 	/**
-	 * @see #setBackgroundColor(Color backgroundColor)
+	 * @see #setBackgroundColor(Color)
 	 */
 	public Color getBackgroundColor() {
 		return this.backgroundColor;
@@ -191,7 +191,7 @@ public class RadarData {
 	}
 
 	/**
-	 * @see #setBorderWidth(BigDecimal borderWidth)
+	 * @see #setBorderWidth(BigDecimal)
 	 */
 	public BigDecimal getBorderWidth() {
 		return this.borderWidth;
@@ -205,7 +205,7 @@ public class RadarData {
 	}
 
 	/**
-	 * @see #setBorderColor(Color borderColor)
+	 * @see #setBorderColor(Color)
 	 */
 	public Color getBorderColor() {
 		return this.borderColor;
@@ -219,63 +219,87 @@ public class RadarData {
 	}
 
 	/**
-	 * @see #setBorderCapStyle(String borderCapStyle)
+	 * @see #setBorderCapStyle(String)
 	 */
 	public String getBorderCapStyle() {
 		return this.borderCapStyle;
 	}
 
 	/**
-	 * Cap style of the line. See MDN
+	 * Default line cap style.
+	 * <ul>
+	 * <li>{@code butt} The ends of lines are squared off at the endpoints.
+	 * <li>{@code round} The ends of lines are rounded.
+	 * <li>{@code square} The ends of lines are squared off by adding a box with an
+	 * equal width and half the height of the line's thickness.
+	 * </ul>
 	 */
 	public void setBorderCapStyle(String borderCapStyle) {
 		this.borderCapStyle = borderCapStyle;
 	}
 
 	/**
-	 * @see #setBorderDash(List<BigDecimal> borderDash)
+	 * @see #setBorderDash(List)
 	 */
 	public List<BigDecimal> getBorderDash() {
 		return this.borderDash;
 	}
 
 	/**
-	 * Length and spacing of dashes. See MDN
+	 * Default line dash. A list of numbers that specifies distances to
+	 * alternately draw a line and a gap (in coordinate space units). If the
+	 * number of elements in the array is odd, the elements of the array get
+	 * copied and concatenated. For example, [5, 15, 25] will become [5, 15, 25,
+	 * 5, 15, 25].
 	 */
 	public void setBorderDash(List<BigDecimal> borderDash) {
 		this.borderDash = borderDash;
 	}
 
 	/**
-	 * @see #setBorderDashOffset(BigDecimal borderDashOffset)
+	 * @see #setBorderDashOffset(BigDecimal)
 	 */
 	public BigDecimal getBorderDashOffset() {
 		return this.borderDashOffset;
 	}
 
 	/**
-	 * Offset for line dashes. See MDN
+	 * Default line dash offset. A float specifying the amount of
+	 * the offset. Initially 0.0.
 	 */
 	public void setBorderDashOffset(BigDecimal borderDashOffset) {
 		this.borderDashOffset = borderDashOffset;
 	}
 
 	/**
-	 * @see #setBorderJoinStyle(String borderJoinStyle)
+	 * @see #setBorderJoinStyle(String)
 	 */
 	public String getBorderJoinStyle() {
 		return this.borderJoinStyle;
 	}
 
 	/**
-	 * Line joint style. See MDN
+	 * <p>
+	 * Default line join style.
+	 * </p>
+	 * <ul>
+	 * <li>{@code round} Rounds off the corners of a shape by filling an additional
+	 * sector of disc centered at the common endpoint of connected segments. The
+	 * radius for these rounded corners is equal to the line width.
+	 * <li>{@code bevel} Fills an additional triangular area between the common endpoint
+	 * of connected segments, and the separate outside rectangular corners of
+	 * each segment.
+	 * <li>{@code miter} Connected segments are joined by extending their outside edges
+	 * to connect at a single point, with the effect of filling an additional
+	 * lozenge-shaped area. This setting is effected by the miterLimit property.
+	 * </ul>
 	 */
 	public void setBorderJoinStyle(String borderJoinStyle) {
 		this.borderJoinStyle = borderJoinStyle;
 	}
 
 	/**
-	 * @see #setPointBorderColor(List<Color> pointBorderColor)
+	 * @see #setPointBorderColor(List)
 	 */
 	public List<Color> getPointBorderColor() {
 		return this.pointBorderColor;
@@ -289,7 +313,7 @@ public class RadarData {
 	}
 
 	/**
-	 * @see #setPointBackgroundColor(List<Color> pointBackgroundColor)
+	 * @see #setPointBackgroundColor(List)
 	 */
 	public List<Color> getPointBackgroundColor() {
 		return this.pointBackgroundColor;
@@ -303,7 +327,7 @@ public class RadarData {
 	}
 
 	/**
-	 * @see #setPointBorderWidth(List<BigDecimal> pointBorderWidth)
+	 * @see #setPointBorderWidth(List)
 	 */
 	public List<BigDecimal> getPointBorderWidth() {
 		return this.pointBorderWidth;
@@ -317,7 +341,7 @@ public class RadarData {
 	}
 
 	/**
-	 * @see #setPointRadius(List<BigDecimal> pointRadius)
+	 * @see #setPointRadius(List)
 	 */
 	public List<BigDecimal> getPointRadius() {
 		return this.pointRadius;
@@ -331,7 +355,7 @@ public class RadarData {
 	}
 
 	/**
-	 * @see #setPointHoverRadius(List<BigDecimal> pointHoverRadius)
+	 * @see #setPointHoverRadius(List)
 	 */
 	public List<BigDecimal> getPointHoverRadius() {
 		return this.pointHoverRadius;
@@ -345,7 +369,7 @@ public class RadarData {
 	}
 
 	/**
-	 * @see #setHitRadius(List<BigDecimal> hitRadius)
+	 * @see #setHitRadius(List)
 	 */
 	public List<BigDecimal> getHitRadius() {
 		return this.hitRadius;
@@ -359,7 +383,7 @@ public class RadarData {
 	}
 
 	/**
-	 * @see #setPointHoverBackgroundColor(List<Color> pointHoverBackgroundColor)
+	 * @see #setPointHoverBackgroundColor(List)
 	 */
 	public List<Color> getPointHoverBackgroundColor() {
 		return this.pointHoverBackgroundColor;
@@ -373,7 +397,7 @@ public class RadarData {
 	}
 
 	/**
-	 * @see #setPointHoverBorderColor(List<Color> pointHoverBorderColor)
+	 * @see #setPointHoverBorderColor(List)
 	 */
 	public List<Color> getPointHoverBorderColor() {
 		return this.pointHoverBorderColor;
@@ -387,7 +411,7 @@ public class RadarData {
 	}
 
 	/**
-	 * @see #setPointHoverBorderWidth(List<BigDecimal> pointHoverBorderWidth)
+	 * @see #setPointHoverBorderWidth(List)
 	 */
 	public List<BigDecimal> getPointHoverBorderWidth() {
 		return this.pointHoverBorderWidth;
@@ -401,7 +425,7 @@ public class RadarData {
 	}
 
 	/**
-	 * @see #setPointStyle(List<String> pointStyle)
+	 * @see #setPointStyle(List)
 	 */
 	public List<String> getPointStyle() {
 		return this.pointStyle;

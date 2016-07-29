@@ -4,8 +4,8 @@ import java.math.BigDecimal;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import be.ceau.chart.color.Color;
@@ -95,83 +95,83 @@ public class Line {
 	 * @see #setTension(BigDecimal tension)
 	 */
 	public BigDecimal getTension() {
-	    return this.tension;
+		return this.tension;
 	}
 
 	/**
 	 * Default bezier curve tension. Set to 0 for no bezier curves.
 	 */
 	public void setTension(BigDecimal tension) {
-	    this.tension = tension;
+		this.tension = tension;
 	}
 
 	/**
 	 * @see #setBackgroundColor(Color backgroundColor)
 	 */
 	public Color getBackgroundColor() {
-	    return this.backgroundColor;
+		return this.backgroundColor;
 	}
 
 	/**
 	 * Default line fill color
 	 */
 	public void setBackgroundColor(Color backgroundColor) {
-	    this.backgroundColor = backgroundColor;
+		this.backgroundColor = backgroundColor;
 	}
 
 	/**
 	 * @see #setBorderWidth(BigDecimal borderWidth)
 	 */
 	public BigDecimal getBorderWidth() {
-	    return this.borderWidth;
+		return this.borderWidth;
 	}
 
 	/**
 	 * Default line stroke width
 	 */
 	public void setBorderWidth(BigDecimal borderWidth) {
-	    this.borderWidth = borderWidth;
+		this.borderWidth = borderWidth;
 	}
 
 	/**
 	 * @see #setBorderColor(Color borderColor)
 	 */
 	public Color getBorderColor() {
-	    return this.borderColor;
+		return this.borderColor;
 	}
 
 	/**
 	 * Default line stroke color
 	 */
 	public void setBorderColor(Color borderColor) {
-	    this.borderColor = borderColor;
+		this.borderColor = borderColor;
 	}
 
 	/**
 	 * @see #setBorderCapStyle(String borderCapStyle)
 	 */
 	public String getBorderCapStyle() {
-	    return this.borderCapStyle;
+		return this.borderCapStyle;
 	}
 
 	/**
 	 * Default line cap style.
 	 * <ul>
-	 * <li>butt The ends of lines are squared off at the endpoints.
-	 * <li>round The ends of lines are rounded.
-	 * <li>square The ends of lines are squared off by adding a box with an
+	 * <li>{@code butt} The ends of lines are squared off at the endpoints.
+	 * <li>{@code round} The ends of lines are rounded.
+	 * <li>{@code square} The ends of lines are squared off by adding a box with an
 	 * equal width and half the height of the line's thickness.
 	 * </ul>
 	 */
 	public void setBorderCapStyle(String borderCapStyle) {
-	    this.borderCapStyle = borderCapStyle;
+		this.borderCapStyle = borderCapStyle;
 	}
 
 	/**
 	 * @see #setBorderDash(List)
 	 */
 	public List<BigDecimal> getBorderDash() {
-	    return this.borderDash;
+		return this.borderDash;
 	}
 
 	/**
@@ -182,86 +182,93 @@ public class Line {
 	 * 5, 15, 25].
 	 */
 	public void setBorderDash(List<BigDecimal> borderDash) {
-	    this.borderDash = borderDash;
+		this.borderDash = borderDash;
 	}
 
 	/**
 	 * @see #setBorderDashOffset(BigDecimal borderDashOffset)
 	 */
 	public BigDecimal getBorderDashOffset() {
-	    return this.borderDashOffset;
+		return this.borderDashOffset;
 	}
 
 	/**
-	 * Default line dash offset. A float specifying the amount of
-	 * the offset. Initially 0.0.
+	 * Default line dash offset. A float specifying the amount of the offset.
+	 * Initially 0.0.
 	 */
 	public void setBorderDashOffset(BigDecimal borderDashOffset) {
-	    this.borderDashOffset = borderDashOffset;
+		this.borderDashOffset = borderDashOffset;
 	}
 
 	/**
 	 * @see #setBorderJoinStyle(String borderJoinStyle)
 	 */
 	public String getBorderJoinStyle() {
-	    return this.borderJoinStyle;
+		return this.borderJoinStyle;
 	}
 
 	/**
-	 * Default line join style. Default line join style. round Rounds off the
-	 * corners of a shape by filling an additional sector of disc centered at
-	 * the common endpoint of connected segments. The radius for these rounded
-	 * corners is equal to the line width. bevel Fills an additional triangular
-	 * area between the common endpoint of connected segments, and the separate
-	 * outside rectangular corners of each segment. miter Connected segments are
-	 * joined by extending their outside edges to connect at a single point,
-	 * with the effect of filling an additional lozenge-shaped area. This
-	 * setting is effected by the miterLimit property.
+	 * <p>
+	 * Default line join style.
+	 * </p>
+	 * <ul>
+	 * <li>{@code round} Rounds off the corners of a shape by filling an additional
+	 * sector of disc centered at the common endpoint of connected segments. The
+	 * radius for these rounded corners is equal to the line width.
+	 * <li>{@code bevel} Fills an additional triangular area between the common endpoint
+	 * of connected segments, and the separate outside rectangular corners of
+	 * each segment.
+	 * <li>{@code miter} Connected segments are joined by extending their outside edges
+	 * to connect at a single point, with the effect of filling an additional
+	 * lozenge-shaped area. This setting is effected by the miterLimit property.
+	 * </ul>
 	 */
 	public void setBorderJoinStyle(String borderJoinStyle) {
-	    this.borderJoinStyle = borderJoinStyle;
+		this.borderJoinStyle = borderJoinStyle;
 	}
 
 	/**
 	 * @see #setCapBezierPoints(Boolean capBezierPoints)
 	 */
 	public Boolean getCapBezierPoints() {
-	    return this.capBezierPoints;
+		return this.capBezierPoints;
 	}
 
 	/**
-	 * If true, bezier control points are kept inside the chart. If false, no restriction is enforced.
+	 * If true, bezier control points are kept inside the chart. If false, no
+	 * restriction is enforced.
 	 */
 	public void setCapBezierPoints(Boolean capBezierPoints) {
-	    this.capBezierPoints = capBezierPoints;
+		this.capBezierPoints = capBezierPoints;
 	}
 
 	/**
 	 * @see #setFill(Boolean fill)
 	 */
 	public Boolean getFill() {
-	    return this.fill;
+		return this.fill;
 	}
 
 	/**
 	 * If true, the line is filled.
 	 */
 	public void setFill(Boolean fill) {
-	    this.fill = fill;
+		this.fill = fill;
 	}
 
 	/**
 	 * @see #setStepped(Boolean stepped)
 	 */
 	public Boolean getStepped() {
-	    return this.stepped;
+		return this.stepped;
 	}
 
 	/**
-	 * If true, the line is shown as a steeped line and 'tension' will be ignored
+	 * If true, the line is shown as a steeped line and 'tension' will be
+	 * ignored
 	 */
 	public void setStepped(Boolean stepped) {
-	    this.stepped = stepped;
+		this.stepped = stepped;
 	}
 
 }

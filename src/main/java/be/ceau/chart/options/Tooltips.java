@@ -15,591 +15,598 @@ import be.ceau.chart.data.JavaScriptFunction;
 public class Tooltips {
 
 	/**
-	 * Default {@code true}
+	 * <p>Default {@code true}</p>
 	 * 
-	 * @see #setEnabled(Boolean enabled)
+	 * @see #setEnabled(Boolean)
 	 */
 	private Boolean enabled;
 
 	/**
-	 * Default {@code null}
+	 * <p>Default {@code null}</p>
 	 * 
-	 * @see #setCustom(JavaScriptFunction custom)
+	 * @see #setCustom(JavaScriptFunction)
 	 */
 	private JavaScriptFunction custom;
 
 	/**
-	 * Default {@code 'single'}
+	 * <p>Default {@code 'single'}</p>
 	 * 
-	 * @see #setMode(String mode)
+	 * @see #setMode(String)
 	 */
 	private String mode;
 
 	/**
-	 * Default {@code undefined}
+	 * <p>Default {@code undefined}</p>
 	 * 
-	 * @see #setItemSort(JavaScriptFunction itemSort)
+	 * @see #setItemSort(JavaScriptFunction)
 	 */
 	private JavaScriptFunction itemSort;
 
 	/**
-	 * Default {@code 'rgba(0,0,0,0.8)'}
+	 * <p>Default {@code 'rgba(0,0,0,0.8)'}</p>
 	 * 
-	 * @see #setBackgroundColor(Color backgroundColor)
+	 * @see #setBackgroundColor(Color)
 	 */
 	private Color backgroundColor;
 
 	/**
-	 * Default {@code "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif"}
+	 * <p>Default {@code "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif"}</p>
 	 * 
-	 * @see #setTitleFontFamily(String titleFontFamily)
+	 * @see #setTitleFontFamily(String)
 	 */
 	private String titleFontFamily;
 
 	/**
-	 * Default {@code 12}
+	 * <p>Default {@code 12}</p>
 	 * 
-	 * @see #setTitleFontSize(BigDecimal titleFontSize)
+	 * @see #setTitleFontSize(BigDecimal)
 	 */
 	private BigDecimal titleFontSize;
 
 	/**
-	 * Default {@code "bold"}
+	 * <p>Default {@code "bold"}</p>
 	 * 
-	 * @see #setTitleFontStyle(String titleFontStyle)
+	 * @see #setTitleFontStyle(String)
 	 */
 	private String titleFontStyle;
 
 	/**
-	 * Default {@code "#fff"}
+	 * <p>Default {@code "#fff"}</p>
 	 * 
-	 * @see #setTitleFontColor(Color titleFontColor)
+	 * @see #setTitleFontColor(Color)
 	 */
 	private Color titleFontColor;
 
 	/**
-	 * Default {@code 2}
+	 * <p>Default {@code 2}</p>
 	 * 
-	 * @see #setTitleSpacing(BigDecimal titleSpacing)
+	 * @see #setTitleSpacing(BigDecimal)
 	 */
 	private BigDecimal titleSpacing;
 
 	/**
-	 * Default {@code 6}
+	 * <p>Default {@code 6}</p>
 	 * 
-	 * @see #setTitleMarginBottom(BigDecimal titleMarginBottom)
+	 * @see #setTitleMarginBottom(BigDecimal)
 	 */
 	private BigDecimal titleMarginBottom;
 
 	/**
-	 * Default {@code "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif"}
+	 * <p>Default {@code "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif"}</p>
 	 * 
-	 * @see #setBodyFontFamily(String bodyFontFamily)
+	 * @see #setBodyFontFamily(String)
 	 */
 	private String bodyFontFamily;
 
 	/**
-	 * Default {@code 12}
+	 * <p>Default {@code 12}</p>
 	 * 
-	 * @see #setBodyFontSize(BigDecimal bodyFontSize)
+	 * @see #setBodyFontSize(BigDecimal)
 	 */
 	private BigDecimal bodyFontSize;
 
 	/**
-	 * Default {@code "normal"}
+	 * <p>Default {@code "normal"}</p>
 	 * 
-	 * @see #setBodyFontStyle(String bodyFontStyle)
+	 * @see #setBodyFontStyle(String)
 	 */
 	private String bodyFontStyle;
 
 	/**
-	 * Default {@code "#fff"}
+	 * <p>Default {@code "#fff"}</p>
 	 * 
-	 * @see #setBodyFontColor(Color bodyFontColor)
+	 * @see #setBodyFontColor(Color)
 	 */
 	private Color bodyFontColor;
 
 	/**
-	 * Default {@code 2}
+	 * <p>Default {@code 2}</p>
 	 * 
-	 * @see #setBodySpacing(BigDecimal bodySpacing)
+	 * @see #setBodySpacing(BigDecimal)
 	 */
 	private BigDecimal bodySpacing;
 
 	/**
-	 * Default {@code "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif"}
+	 * <p>Default {@code "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif"}</p>
 	 * 
-	 * @see #setFooterFontFamily(String footerFontFamily)
+	 * @see #setFooterFontFamily(String)
 	 */
 	private String footerFontFamily;
 
 	/**
-	 * Default {@code 12}
+	 * <p>Default {@code 12}</p>
 	 * 
-	 * @see #setFooterFontSize(BigDecimal footerFontSize)
+	 * @see #setFooterFontSize(BigDecimal)
 	 */
 	private BigDecimal footerFontSize;
 
 	/**
-	 * Default {@code "bold"}
+	 * <p>Default {@code "bold"}</p>
 	 * 
-	 * @see #setFooterFontStyle(String footerFontStyle)
+	 * @see #setFooterFontStyle(String)
 	 */
 	private String footerFontStyle;
 
 	/**
-	 * Default {@code "#fff"}
+	 * <p>Default {@code "#fff"}</p>
 	 * 
-	 * @see #setFooterFontColor(Color footerFontColor)
+	 * @see #setFooterFontColor(Color)
 	 */
 	private Color footerFontColor;
 
 	/**
-	 * Default {@code 2}
+	 * <p>Default {@code 2}</p>
 	 * 
-	 * @see #setFooterSpacing(BigDecimal footerSpacing)
+	 * @see #setFooterSpacing(BigDecimal)
 	 */
 	private BigDecimal footerSpacing;
 
 	/**
-	 * Default {@code 6}
+	 * <p>Default {@code 6}</p>
 	 * 
-	 * @see #setFooterMarginTop(BigDecimal footerMarginTop)
+	 * @see #setFooterMarginTop(BigDecimal)
 	 */
 	private BigDecimal footerMarginTop;
 
 	/**
-	 * Default {@code 6}
+	 * <p>Default {@code 6}</p>
 	 * 
-	 * @see #setXPadding(BigDecimal xPadding)
+	 * @see #setXPadding(BigDecimal)
 	 */
 	private BigDecimal xPadding;
 
 	/**
-	 * Default {@code 6}
+	 * <p>Default {@code 6}</p>
 	 * 
-	 * @see #setYPadding(BigDecimal yPadding)
+	 * @see #setYPadding(BigDecimal)
 	 */
 	private BigDecimal yPadding;
 
 	/**
-	 * Default {@code 5}
+	 * <p>Default {@code 5}</p>
 	 * 
-	 * @see #setCaretSize(BigDecimal caretSize)
+	 * @see #setCaretSize(BigDecimal)
 	 */
 	private BigDecimal caretSize;
 
 	/**
-	 * Default {@code 6}
+	 * <p>Default {@code 6}</p>
 	 * 
-	 * @see #setCornerRadius(BigDecimal cornerRadius)
+	 * @see #setCornerRadius(BigDecimal)
 	 */
 	private BigDecimal cornerRadius;
 
 	/**
-	 * Default {@code "#fff"}
+	 * <p>Default {@code "#fff"}</p>
 	 * 
-	 * @see #setMultiKeyBackground(Color multiKeyBackground)
+	 * @see #setMultiKeyBackground(Color)
 	 */
 	private Color multiKeyBackground;
 
-//	/**
-//	 * Default {@code }
-//	 * 
-//	 * @see #setCallbacks(Callbacks callbacks)
-//	 */
-//	private Callbacks callbacks;
+	// /**
+	// * <p>Default {@code }
+	// *
+	// * @see #setCallbacks(Callbacks callbacks)
+	// */
+	// private Callbacks callbacks;
 
 	/**
-	 * @see #setEnabled(Boolean enabled)
+	 * @see #setEnabled(Boolean)
 	 */
 	public Boolean getEnabled() {
-	    return this.enabled;
+		return this.enabled;
 	}
 
 	/**
 	 * Are tooltips enabled
 	 */
 	public void setEnabled(Boolean enabled) {
-	    this.enabled = enabled;
+		this.enabled = enabled;
 	}
 
 	/**
-	 * @see #setCustom(JavaScriptFunction custom)
+	 * @see #setCustom(JavaScriptFunction)
 	 */
 	public JavaScriptFunction getCustom() {
-	    return this.custom;
+		return this.custom;
 	}
 
 	/**
 	 * See section below
 	 */
 	public void setCustom(JavaScriptFunction custom) {
-	    this.custom = custom;
+		this.custom = custom;
 	}
 
 	/**
-	 * @see #setMode(String mode)
+	 * @see #setMode(String)
 	 */
 	public String getMode() {
-	    return this.mode;
+		return this.mode;
 	}
 
 	/**
-	 * Sets which elements appear in the tooltip. Acceptable options are 'single', 'label' or 'x-axis'.  single highlights the closest element.  label highlights elements in all datasets at the same X value.  'x-axis' also highlights elements in all datasets at the same X value, but activates when hovering anywhere within the vertical slice of the x-axis representing that X value.
+	 * Sets which elements appear in the tooltip. Acceptable options are
+	 * 'single', 'label' or 'x-axis'. single highlights the closest element.
+	 * label highlights elements in all datasets at the same X value. 'x-axis'
+	 * also highlights elements in all datasets at the same X value, but
+	 * activates when hovering anywhere within the vertical slice of the x-axis
+	 * representing that X value.
 	 */
 	public void setMode(String mode) {
-	    this.mode = mode;
+		this.mode = mode;
 	}
 
 	/**
-	 * @see #setItemSort(JavaScriptFunction itemSort)
+	 * @see #setItemSort(JavaScriptFunction)
 	 */
 	public JavaScriptFunction getItemSort() {
-	    return this.itemSort;
+		return this.itemSort;
 	}
 
 	/**
-	 * Allows sorting of tooltip items. Must implement a function that can be passed to Array.prototype.sort
+	 * Allows sorting of tooltip items. Must implement a function that can be
+	 * passed to Array.prototype.sort
 	 */
 	public void setItemSort(JavaScriptFunction itemSort) {
-	    this.itemSort = itemSort;
+		this.itemSort = itemSort;
 	}
 
 	/**
-	 * @see #setBackgroundColor(Color backgroundColor)
+	 * @see #setBackgroundColor(Color)
 	 */
 	public Color getBackgroundColor() {
-	    return this.backgroundColor;
+		return this.backgroundColor;
 	}
 
 	/**
 	 * Background color of the tooltip
 	 */
 	public void setBackgroundColor(Color backgroundColor) {
-	    this.backgroundColor = backgroundColor;
+		this.backgroundColor = backgroundColor;
 	}
 
 	/**
-	 * @see #setTitleFontFamily(String titleFontFamily)
+	 * @see #setTitleFontFamily(String)
 	 */
 	public String getTitleFontFamily() {
-	    return this.titleFontFamily;
+		return this.titleFontFamily;
 	}
 
 	/**
 	 * Font family for tooltip title inherited from global font family
 	 */
 	public void setTitleFontFamily(String titleFontFamily) {
-	    this.titleFontFamily = titleFontFamily;
+		this.titleFontFamily = titleFontFamily;
 	}
 
 	/**
-	 * @see #setTitleFontSize(BigDecimal titleFontSize)
+	 * @see #setTitleFontSize(BigDecimal)
 	 */
 	public BigDecimal getTitleFontSize() {
-	    return this.titleFontSize;
+		return this.titleFontSize;
 	}
 
 	/**
 	 * Font size for tooltip title inherited from global font size
 	 */
 	public void setTitleFontSize(BigDecimal titleFontSize) {
-	    this.titleFontSize = titleFontSize;
+		this.titleFontSize = titleFontSize;
 	}
 
 	/**
-	 * @see #setTitleFontStyle(String titleFontStyle)
+	 * @see #setTitleFontStyle(String)
 	 */
 	public String getTitleFontStyle() {
-	    return this.titleFontStyle;
+		return this.titleFontStyle;
 	}
 
 	/**
 	 * 
 	 */
 	public void setTitleFontStyle(String titleFontStyle) {
-	    this.titleFontStyle = titleFontStyle;
+		this.titleFontStyle = titleFontStyle;
 	}
 
 	/**
-	 * @see #setTitleFontColor(Color titleFontColor)
+	 * @see #setTitleFontColor(Color)
 	 */
 	public Color getTitleFontColor() {
-	    return this.titleFontColor;
+		return this.titleFontColor;
 	}
 
 	/**
 	 * Font color for tooltip title
 	 */
 	public void setTitleFontColor(Color titleFontColor) {
-	    this.titleFontColor = titleFontColor;
+		this.titleFontColor = titleFontColor;
 	}
 
 	/**
-	 * @see #setTitleSpacing(BigDecimal titleSpacing)
+	 * @see #setTitleSpacing(BigDecimal)
 	 */
 	public BigDecimal getTitleSpacing() {
-	    return this.titleSpacing;
+		return this.titleSpacing;
 	}
 
 	/**
 	 * Spacing to add to top and bottom of each title line.
 	 */
 	public void setTitleSpacing(BigDecimal titleSpacing) {
-	    this.titleSpacing = titleSpacing;
+		this.titleSpacing = titleSpacing;
 	}
 
 	/**
-	 * @see #setTitleMarginBottom(BigDecimal titleMarginBottom)
+	 * @see #setTitleMarginBottom(BigDecimal)
 	 */
 	public BigDecimal getTitleMarginBottom() {
-	    return this.titleMarginBottom;
+		return this.titleMarginBottom;
 	}
 
 	/**
 	 * Margin to add on bottom of title section
 	 */
 	public void setTitleMarginBottom(BigDecimal titleMarginBottom) {
-	    this.titleMarginBottom = titleMarginBottom;
+		this.titleMarginBottom = titleMarginBottom;
 	}
 
 	/**
-	 * @see #setBodyFontFamily(String bodyFontFamily)
+	 * @see #setBodyFontFamily(String)
 	 */
 	public String getBodyFontFamily() {
-	    return this.bodyFontFamily;
+		return this.bodyFontFamily;
 	}
 
 	/**
 	 * Font family for tooltip items inherited from global font family
 	 */
 	public void setBodyFontFamily(String bodyFontFamily) {
-	    this.bodyFontFamily = bodyFontFamily;
+		this.bodyFontFamily = bodyFontFamily;
 	}
 
 	/**
-	 * @see #setBodyFontSize(BigDecimal bodyFontSize)
+	 * @see #setBodyFontSize(BigDecimal)
 	 */
 	public BigDecimal getBodyFontSize() {
-	    return this.bodyFontSize;
+		return this.bodyFontSize;
 	}
 
 	/**
 	 * Font size for tooltip items inherited from global font size
 	 */
 	public void setBodyFontSize(BigDecimal bodyFontSize) {
-	    this.bodyFontSize = bodyFontSize;
+		this.bodyFontSize = bodyFontSize;
 	}
 
 	/**
-	 * @see #setBodyFontStyle(String bodyFontStyle)
+	 * @see #setBodyFontStyle(String)
 	 */
 	public String getBodyFontStyle() {
-	    return this.bodyFontStyle;
+		return this.bodyFontStyle;
 	}
 
 	/**
 	 * 
 	 */
 	public void setBodyFontStyle(String bodyFontStyle) {
-	    this.bodyFontStyle = bodyFontStyle;
+		this.bodyFontStyle = bodyFontStyle;
 	}
 
 	/**
-	 * @see #setBodyFontColor(Color bodyFontColor)
+	 * @see #setBodyFontColor(Color)
 	 */
 	public Color getBodyFontColor() {
-	    return this.bodyFontColor;
+		return this.bodyFontColor;
 	}
 
 	/**
 	 * Font color for tooltip items.
 	 */
 	public void setBodyFontColor(Color bodyFontColor) {
-	    this.bodyFontColor = bodyFontColor;
+		this.bodyFontColor = bodyFontColor;
 	}
 
 	/**
-	 * @see #setBodySpacing(BigDecimal bodySpacing)
+	 * @see #setBodySpacing(BigDecimal)
 	 */
 	public BigDecimal getBodySpacing() {
-	    return this.bodySpacing;
+		return this.bodySpacing;
 	}
 
 	/**
 	 * Spacing to add to top and bottom of each tooltip item
 	 */
 	public void setBodySpacing(BigDecimal bodySpacing) {
-	    this.bodySpacing = bodySpacing;
+		this.bodySpacing = bodySpacing;
 	}
 
 	/**
-	 * @see #setFooterFontFamily(String footerFontFamily)
+	 * @see #setFooterFontFamily(String)
 	 */
 	public String getFooterFontFamily() {
-	    return this.footerFontFamily;
+		return this.footerFontFamily;
 	}
 
 	/**
 	 * Font family for tooltip footer inherited from global font family.
 	 */
 	public void setFooterFontFamily(String footerFontFamily) {
-	    this.footerFontFamily = footerFontFamily;
+		this.footerFontFamily = footerFontFamily;
 	}
 
 	/**
-	 * @see #setFooterFontSize(BigDecimal footerFontSize)
+	 * @see #setFooterFontSize(BigDecimal)
 	 */
 	public BigDecimal getFooterFontSize() {
-	    return this.footerFontSize;
+		return this.footerFontSize;
 	}
 
 	/**
 	 * Font size for tooltip footer inherited from global font size.
 	 */
 	public void setFooterFontSize(BigDecimal footerFontSize) {
-	    this.footerFontSize = footerFontSize;
+		this.footerFontSize = footerFontSize;
 	}
 
 	/**
-	 * @see #setFooterFontStyle(String footerFontStyle)
+	 * @see #setFooterFontStyle(String)
 	 */
 	public String getFooterFontStyle() {
-	    return this.footerFontStyle;
+		return this.footerFontStyle;
 	}
 
 	/**
 	 * Font style for tooltip footer.
 	 */
 	public void setFooterFontStyle(String footerFontStyle) {
-	    this.footerFontStyle = footerFontStyle;
+		this.footerFontStyle = footerFontStyle;
 	}
 
 	/**
-	 * @see #setFooterFontColor(Color footerFontColor)
+	 * @see #setFooterFontColor(Color)
 	 */
 	public Color getFooterFontColor() {
-	    return this.footerFontColor;
+		return this.footerFontColor;
 	}
 
 	/**
 	 * Font color for tooltip footer.
 	 */
 	public void setFooterFontColor(Color footerFontColor) {
-	    this.footerFontColor = footerFontColor;
+		this.footerFontColor = footerFontColor;
 	}
 
 	/**
-	 * @see #setFooterSpacing(BigDecimal footerSpacing)
+	 * @see #setFooterSpacing(BigDecimal)
 	 */
 	public BigDecimal getFooterSpacing() {
-	    return this.footerSpacing;
+		return this.footerSpacing;
 	}
 
 	/**
 	 * Spacing to add to top and bottom of each footer line.
 	 */
 	public void setFooterSpacing(BigDecimal footerSpacing) {
-	    this.footerSpacing = footerSpacing;
+		this.footerSpacing = footerSpacing;
 	}
 
 	/**
-	 * @see #setFooterMarginTop(BigDecimal footerMarginTop)
+	 * @see #setFooterMarginTop(BigDecimal)
 	 */
 	public BigDecimal getFooterMarginTop() {
-	    return this.footerMarginTop;
+		return this.footerMarginTop;
 	}
 
 	/**
 	 * Margin to add before drawing the footer
 	 */
 	public void setFooterMarginTop(BigDecimal footerMarginTop) {
-	    this.footerMarginTop = footerMarginTop;
+		this.footerMarginTop = footerMarginTop;
 	}
 
 	/**
-	 * @see #setXPadding(BigDecimal xPadding)
+	 * @see #setXPadding(BigDecimal)
 	 */
 	public BigDecimal getXPadding() {
-	    return this.xPadding;
+		return this.xPadding;
 	}
 
 	/**
 	 * Padding to add on left and right of tooltip
 	 */
 	public void setXPadding(BigDecimal xPadding) {
-	    this.xPadding = xPadding;
+		this.xPadding = xPadding;
 	}
 
 	/**
-	 * @see #setYPadding(BigDecimal yPadding)
+	 * @see #setYPadding(BigDecimal)
 	 */
 	public BigDecimal getYPadding() {
-	    return this.yPadding;
+		return this.yPadding;
 	}
 
 	/**
 	 * Padding to add on top and bottom of tooltip
 	 */
 	public void setYPadding(BigDecimal yPadding) {
-	    this.yPadding = yPadding;
+		this.yPadding = yPadding;
 	}
 
 	/**
-	 * @see #setCaretSize(BigDecimal caretSize)
+	 * @see #setCaretSize(BigDecimal)
 	 */
 	public BigDecimal getCaretSize() {
-	    return this.caretSize;
+		return this.caretSize;
 	}
 
 	/**
 	 * Size, in px, of the tooltip arrow
 	 */
 	public void setCaretSize(BigDecimal caretSize) {
-	    this.caretSize = caretSize;
+		this.caretSize = caretSize;
 	}
 
 	/**
-	 * @see #setCornerRadius(BigDecimal cornerRadius)
+	 * @see #setCornerRadius(BigDecimal)
 	 */
 	public BigDecimal getCornerRadius() {
-	    return this.cornerRadius;
+		return this.cornerRadius;
 	}
 
 	/**
 	 * Radius of tooltip corner curves
 	 */
 	public void setCornerRadius(BigDecimal cornerRadius) {
-	    this.cornerRadius = cornerRadius;
+		this.cornerRadius = cornerRadius;
 	}
 
 	/**
-	 * @see #setMultiKeyBackground(Color multiKeyBackground)
+	 * @see #setMultiKeyBackground(Color)
 	 */
 	public Color getMultiKeyBackground() {
-	    return this.multiKeyBackground;
+		return this.multiKeyBackground;
 	}
 
 	/**
-	 * Color to draw behind the colored boxes when multiple items are in the tooltip
+	 * Color to draw behind the colored boxes when multiple items are in the
+	 * tooltip
 	 */
 	public void setMultiKeyBackground(Color multiKeyBackground) {
-	    this.multiKeyBackground = multiKeyBackground;
+		this.multiKeyBackground = multiKeyBackground;
 	}
 
-//	/**
-//	 * @see #setCallbacks(Callbacks callbacks)
-//	 */
-//	public Callbacks getCallbacks() {
-//	    return this.callbacks;
-//	}
-//
-//	/**
-//	 * See the callbacks section below
-//	 */
-//	public void setCallbacks(Callbacks callbacks) {
-//	    this.callbacks = callbacks;
-//	}
+	// /**
+	// * @see #setCallbacks(Callbacks callbacks)
+	// */
+	// public Callbacks getCallbacks() {
+	// return this.callbacks;
+	// }
+	//
+	// /**
+	// * See the callbacks section below
+	// */
+	// public void setCallbacks(Callbacks callbacks) {
+	// this.callbacks = callbacks;
+	// }
 
 }

@@ -1,136 +1,104 @@
 package be.ceau.chart.options.scales;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import be.ceau.chart.data.JavaScriptFunction;
+import be.ceau.chart.enums.ScalesPosition;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 public abstract class Scales {
 
 	/**
-	 * Default {@code true}
-	 * 
-	 * 
-	 * If true, show the scale including gridlines, ticks, and labels. Overrides
-	 * gridLines.display, scaleLabel.display, and ticks.display. true
+	 * @see #setType(String)
+	 */
+	private String type;
+
+	/**
+	 * @see #setDisplay(Boolean)
 	 */
 	private Boolean display;
 
 	/**
-	 * 
-	 * Position of the scale. Possible values are 'top', 'left', 'bottom' and
-	 * 'right'. "left"
+	 * @see #setPosition(ScalesPosition)
 	 */
-	private String position;
+	private ScalesPosition position;
 
 	/**
-	 * 
-	 * The ID is used to link datasets and scale axes together. The properties
-	 * datasets.xAxisID or datasets.yAxisID have to match the scale properties
-	 * scales.xAxes.id or scales.yAxes.id. This is especially needed if
-	 * multi-axes charts are used.
-	 *
+	 * @see #setId(String)
 	 */
 	private String id;
 
 	/**
-	 * 
-	 * Callback called before the update process starts. Passed a single
-	 * argument, the scale instance. undefined
+	 * @see #setBeforeUpdate(JavaScriptFunction)
 	 */
 	private JavaScriptFunction beforeUpdate;
 
 	/**
-	 * 
-	 * Callback that runs before dimensions are set. Passed a single argument,
-	 * the scale instance. undefined
+	 * @see #setBeforeSetDimensions(JavaScriptFunction)
 	 */
 	private JavaScriptFunction beforeSetDimensions;
 
 	/**
-	 * 
-	 * Callback that runs after dimensions are set. Passed a single argument,
-	 * the scale instance. undefined
+	 * @see #setAfterSetDimensions(JavaScriptFunction)
 	 */
 	private JavaScriptFunction afterSetDimensions;
 
 	/**
-	 * 
-	 * Callback that runs before data limits are determined. Passed a single
-	 * argument, the scale instance. undefined
+	 * @see #setBeforeDataLimits(JavaScriptFunction)
 	 */
 	private JavaScriptFunction beforeDataLimits;
 
 	/**
-	 * 
-	 * Callback that runs after data limits are determined. Passed a single
-	 * argument, the scale instance. undefined
+	 * @see #setAfterDataLimits(JavaScriptFunction)
 	 */
 	private JavaScriptFunction afterDataLimits;
 
 	/**
-	 * 
-	 * Callback that runs before ticks are created. Passed a single argument,
-	 * the scale instance. undefined
+	 * @see #setBeforeBuildTicks(JavaScriptFunction)
 	 */
 	private JavaScriptFunction beforeBuildTicks;
 
 	/**
-	 * 
-	 * Callback that runs after ticks are created. Useful for filtering ticks.
-	 * Passed a single argument, the scale instance. undefined
+	 * @see #setAfterBuildTicks(JavaScriptFunction)
 	 */
 	private JavaScriptFunction afterBuildTicks;
 
 	/**
-	 * 
-	 * Callback that runs before ticks are converted into strings. Passed a
-	 * single argument, the scale instance. undefined
+	 * @see #setBeforeTickToLabelConversion(JavaScriptFunction)
 	 */
 	private JavaScriptFunction beforeTickToLabelConversion;
 
 	/**
-	 * 
-	 * Callback that runs after ticks are converted into strings. Passed a
-	 * single argument, the scale instance. undefined
+	 * @see #setAfterTickToLabelConversion(JavaScriptFunction)
 	 */
 	private JavaScriptFunction afterTickToLabelConversion;
 
 	/**
-	 * 
-	 * Callback that runs before tick rotation is determined. Passed a single
-	 * argument, the scale instance. undefined
+	 * @see #setBeforeCalculateTickRotation(JavaScriptFunction)
 	 */
 	private JavaScriptFunction beforeCalculateTickRotation;
 
 	/**
-	 * 
-	 * Callback that runs after tick rotation is determined. Passed a single
-	 * argument, the scale instance. undefined
+	 * @see #setAfterCalculateTickRotation(JavaScriptFunction)
 	 */
 	private JavaScriptFunction afterCalculateTickRotation;
 
 	/**
-	 * 
-	 * Callback that runs before the scale fits to the canvas. Passed a single
-	 * argument, the scale instance. undefined
+	 * @see #setBeforeFit(JavaScriptFunction)
 	 */
 	private JavaScriptFunction beforeFit;
 
 	/**
-	 * 
-	 * Callback that runs after the scale fits to the canvas. Passed a single
-	 * argument, the scale instance. undefined
+	 * @see #setAfterFit(JavaScriptFunction)
 	 */
 	private JavaScriptFunction afterFit;
 
 	/**
-	 * Callback that runs at the end of the update process. Passed a single
-	 * argument, the scale instance. undefined
+	 * @see #setAfterUpdate(JavaScriptFunction)
 	 */
 	private JavaScriptFunction afterUpdate;
 
@@ -145,143 +113,387 @@ public abstract class Scales {
 	private ScaleLabel scaleLabel;
 
 	/**
-	 * Type of scale being employed. Custom scales can be created and registered
-	 * with a string key.
+	 * @see #setTicks(Ticks)
 	 */
-	public abstract String getType();
+	private Ticks ticks;
 
-	public Boolean getDisplay() {
-		return display;
+	/**
+	 * @see #setType(String)
+	 */
+	public String getType() {
+		return this.type;
 	}
 
+	/**
+	 * <p>
+	 * Type of scale being employed. Custom scales can be created and registered
+	 * with a string key. Options: "category", "linear", "logarithmic", "time",
+	 * "radialLinear"
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code Chart specific.}
+	 * </p>
+	 */
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	/**
+	 * @see #setDisplay(Boolean)
+	 */
+	public Boolean getDisplay() {
+		return this.display;
+	}
+
+	/**
+	 * <p>
+	 * If true, show the scale including gridlines, ticks, and labels. Overrides
+	 * gridLines.display, scaleLabel.display, and ticks.display.
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code true}
+	 * </p>
+	 */
 	public void setDisplay(Boolean display) {
 		this.display = display;
 	}
 
-	public String getPosition() {
-		return position;
+	/**
+	 * @see #setPosition(ScalesPosition)
+	 */
+	public ScalesPosition getPosition() {
+		return this.position;
 	}
 
-	public void setPosition(String position) {
+	/**
+	 * <p>
+	 * Position of the scale. Possible values are 'top', 'left', 'bottom' and
+	 * 'right'.
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code "left"}
+	 * </p>
+	 */
+	public void setPosition(ScalesPosition position) {
 		this.position = position;
 	}
 
+	/**
+	 * @see #setId(String)
+	 */
 	public String getId() {
-		return id;
+		return this.id;
 	}
 
+	/**
+	 * <p>
+	 * The ID is used to link datasets and scale axes together. The properties
+	 * datasets.xAxisID or datasets.yAxisID have to match the scale properties
+	 * scales.xAxes.id or scales.yAxes.id. This is especially needed if
+	 * multi-axes charts are used.
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code }
+	 * </p>
+	 */
 	public void setId(String id) {
 		this.id = id;
 	}
 
+	/**
+	 * @see #setBeforeUpdate(JavaScriptFunction)
+	 */
 	public JavaScriptFunction getBeforeUpdate() {
-		return beforeUpdate;
+		return this.beforeUpdate;
 	}
 
+	/**
+	 * <p>
+	 * Callback called before the update process starts. Passed a single
+	 * argument, the scale instance.
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code undefined}
+	 * </p>
+	 */
 	public void setBeforeUpdate(JavaScriptFunction beforeUpdate) {
 		this.beforeUpdate = beforeUpdate;
 	}
 
+	/**
+	 * @see #setBeforeSetDimensions(JavaScriptFunction)
+	 */
 	public JavaScriptFunction getBeforeSetDimensions() {
-		return beforeSetDimensions;
+		return this.beforeSetDimensions;
 	}
 
+	/**
+	 * <p>
+	 * Callback that runs before dimensions are set. Passed a single argument,
+	 * the scale instance.
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code undefined}
+	 * </p>
+	 */
 	public void setBeforeSetDimensions(JavaScriptFunction beforeSetDimensions) {
 		this.beforeSetDimensions = beforeSetDimensions;
 	}
 
+	/**
+	 * @see #setAfterSetDimensions(JavaScriptFunction)
+	 */
 	public JavaScriptFunction getAfterSetDimensions() {
-		return afterSetDimensions;
+		return this.afterSetDimensions;
 	}
 
+	/**
+	 * <p>
+	 * Callback that runs after dimensions are set. Passed a single argument,
+	 * the scale instance.
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code undefined}
+	 * </p>
+	 */
 	public void setAfterSetDimensions(JavaScriptFunction afterSetDimensions) {
 		this.afterSetDimensions = afterSetDimensions;
 	}
 
+	/**
+	 * @see #setBeforeDataLimits(JavaScriptFunction)
+	 */
 	public JavaScriptFunction getBeforeDataLimits() {
-		return beforeDataLimits;
+		return this.beforeDataLimits;
 	}
 
+	/**
+	 * <p>
+	 * Callback that runs before data limits are determined. Passed a single
+	 * argument, the scale instance.
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code undefined}
+	 * </p>
+	 */
 	public void setBeforeDataLimits(JavaScriptFunction beforeDataLimits) {
 		this.beforeDataLimits = beforeDataLimits;
 	}
 
+	/**
+	 * @see #setAfterDataLimits(JavaScriptFunction)
+	 */
 	public JavaScriptFunction getAfterDataLimits() {
-		return afterDataLimits;
+		return this.afterDataLimits;
 	}
 
+	/**
+	 * <p>
+	 * Callback that runs after data limits are determined. Passed a single
+	 * argument, the scale instance.
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code undefined}
+	 * </p>
+	 */
 	public void setAfterDataLimits(JavaScriptFunction afterDataLimits) {
 		this.afterDataLimits = afterDataLimits;
 	}
 
+	/**
+	 * @see #setBeforeBuildTicks(JavaScriptFunction)
+	 */
 	public JavaScriptFunction getBeforeBuildTicks() {
-		return beforeBuildTicks;
+		return this.beforeBuildTicks;
 	}
 
+	/**
+	 * <p>
+	 * Callback that runs before ticks are created. Passed a single argument,
+	 * the scale instance.
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code undefined}
+	 * </p>
+	 */
 	public void setBeforeBuildTicks(JavaScriptFunction beforeBuildTicks) {
 		this.beforeBuildTicks = beforeBuildTicks;
 	}
 
+	/**
+	 * @see #setAfterBuildTicks(JavaScriptFunction)
+	 */
 	public JavaScriptFunction getAfterBuildTicks() {
-		return afterBuildTicks;
+		return this.afterBuildTicks;
 	}
 
+	/**
+	 * <p>
+	 * Callback that runs after ticks are created. Useful for filtering ticks.
+	 * Passed a single argument, the scale instance.
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code undefined}
+	 * </p>
+	 */
 	public void setAfterBuildTicks(JavaScriptFunction afterBuildTicks) {
 		this.afterBuildTicks = afterBuildTicks;
 	}
 
+	/**
+	 * @see #setBeforeTickToLabelConversion(JavaScriptFunction)
+	 */
 	public JavaScriptFunction getBeforeTickToLabelConversion() {
-		return beforeTickToLabelConversion;
+		return this.beforeTickToLabelConversion;
 	}
 
+	/**
+	 * <p>
+	 * Callback that runs before ticks are converted into strings. Passed a
+	 * single argument, the scale instance.
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code undefined}
+	 * </p>
+	 */
 	public void setBeforeTickToLabelConversion(JavaScriptFunction beforeTickToLabelConversion) {
 		this.beforeTickToLabelConversion = beforeTickToLabelConversion;
 	}
 
+	/**
+	 * @see #setAfterTickToLabelConversion(JavaScriptFunction)
+	 */
 	public JavaScriptFunction getAfterTickToLabelConversion() {
-		return afterTickToLabelConversion;
+		return this.afterTickToLabelConversion;
 	}
 
+	/**
+	 * <p>
+	 * Callback that runs after ticks are converted into strings. Passed a
+	 * single argument, the scale instance.
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code undefined}
+	 * </p>
+	 */
 	public void setAfterTickToLabelConversion(JavaScriptFunction afterTickToLabelConversion) {
 		this.afterTickToLabelConversion = afterTickToLabelConversion;
 	}
 
+	/**
+	 * @see #setBeforeCalculateTickRotation(JavaScriptFunction)
+	 */
 	public JavaScriptFunction getBeforeCalculateTickRotation() {
-		return beforeCalculateTickRotation;
+		return this.beforeCalculateTickRotation;
 	}
 
+	/**
+	 * <p>
+	 * Callback that runs before tick rotation is determined. Passed a single
+	 * argument, the scale instance.
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code undefined}
+	 * </p>
+	 */
 	public void setBeforeCalculateTickRotation(JavaScriptFunction beforeCalculateTickRotation) {
 		this.beforeCalculateTickRotation = beforeCalculateTickRotation;
 	}
 
+	/**
+	 * @see #setAfterCalculateTickRotation(JavaScriptFunction)
+	 */
 	public JavaScriptFunction getAfterCalculateTickRotation() {
-		return afterCalculateTickRotation;
+		return this.afterCalculateTickRotation;
 	}
 
+	/**
+	 * <p>
+	 * Callback that runs after tick rotation is determined. Passed a single
+	 * argument, the scale instance.
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code undefined}
+	 * </p>
+	 */
 	public void setAfterCalculateTickRotation(JavaScriptFunction afterCalculateTickRotation) {
 		this.afterCalculateTickRotation = afterCalculateTickRotation;
 	}
 
+	/**
+	 * @see #setBeforeFit(JavaScriptFunction)
+	 */
 	public JavaScriptFunction getBeforeFit() {
-		return beforeFit;
+		return this.beforeFit;
 	}
 
+	/**
+	 * <p>
+	 * Callback that runs before the scale fits to the canvas. Passed a single
+	 * argument, the scale instance.
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code undefined}
+	 * </p>
+	 */
 	public void setBeforeFit(JavaScriptFunction beforeFit) {
 		this.beforeFit = beforeFit;
 	}
 
+	/**
+	 * @see #setAfterFit(JavaScriptFunction)
+	 */
 	public JavaScriptFunction getAfterFit() {
-		return afterFit;
+		return this.afterFit;
 	}
 
+	/**
+	 * <p>
+	 * Callback that runs after the scale fits to the canvas. Passed a single
+	 * argument, the scale instance.
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code undefined}
+	 * </p>
+	 */
 	public void setAfterFit(JavaScriptFunction afterFit) {
 		this.afterFit = afterFit;
 	}
 
+	/**
+	 * @see #setAfterUpdate(JavaScriptFunction)
+	 */
 	public JavaScriptFunction getAfterUpdate() {
-		return afterUpdate;
+		return this.afterUpdate;
 	}
 
+	/**
+	 * <p>
+	 * Callback that runs at the end of the update process. Passed a single
+	 * argument, the scale instance.
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code undefined}
+	 * </p>
+	 */
 	public void setAfterUpdate(JavaScriptFunction afterUpdate) {
 		this.afterUpdate = afterUpdate;
 	}
@@ -290,9 +502,18 @@ public abstract class Scales {
 	 * @see #setGridLines(GridLines)
 	 */
 	public GridLines getGridLines() {
-		return gridLines;
+		return this.gridLines;
 	}
 
+	/**
+	 * <p>
+	 * See grid line configuration section.
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code -}
+	 * </p>
+	 */
 	public void setGridLines(GridLines gridLines) {
 		this.gridLines = gridLines;
 	}
@@ -301,16 +522,42 @@ public abstract class Scales {
 	 * @see #setScaleLabel(ScaleLabel)
 	 */
 	public ScaleLabel getScaleLabel() {
-		return scaleLabel;
+		return this.scaleLabel;
 	}
 
+	/**
+	 * <p>
+	 * See scale title configuration section.
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code }
+	 * </p>
+	 */
 	public void setScaleLabel(ScaleLabel scaleLabel) {
 		this.scaleLabel = scaleLabel;
 	}
 
-	/**
-	 * @see #setTicks(Ticks)
-	 */
+//	/**
+//	 * @see #setTicks(Ticks)
+//	 */
+//	public Ticks getTicks() {
+//		return this.ticks;
+//	}
+//
+//	/**
+//	 * <p>
+//	 * See ticks configuration section.
+//	 * </p>
+//	 * 
+//	 * <p>
+//	 * Default {@code }
+//	 * </p>
+//	 */
+//	public void setTicks(Ticks ticks) {
+//		this.ticks = ticks;
+//	}
+
 	public abstract Ticks getTicks();
 
 }

@@ -4,8 +4,8 @@ import java.math.BigDecimal;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import be.ceau.chart.color.Color;
@@ -15,47 +15,47 @@ import be.ceau.chart.color.Color;
 public class PolarData {
 
 	/**
-	 * @see #setData(List<BigDecimal> data)
+	 * @see #setData(List)
 	 */
 	private List<BigDecimal> data;
 
 	/**
-	 * @see #setLabel(String label)
+	 * @see #setLabel(String)
 	 */
 	private String label;
 
 	/**
-	 * @see #setBackgroundColor(List<Color> backgroundColor)
+	 * @see #setBackgroundColor(List)
 	 */
 	private List<Color> backgroundColor;
 
 	/**
-	 * @see #setBorderColor(List<Color> borderColor)
+	 * @see #setBorderColor(List)
 	 */
 	private List<Color> borderColor;
 
 	/**
-	 * @see #setBorderWidth(List<BigDecimal> borderWidth)
+	 * @see #setBorderWidth(List)
 	 */
 	private List<BigDecimal> borderWidth;
 
 	/**
-	 * @see #setHoverBackgroundColor(List<Color> hoverBackgroundColor)
+	 * @see #setHoverBackgroundColor(List)
 	 */
 	private List<Color> hoverBackgroundColor;
 
 	/**
-	 * @see #setHoverBorderColor(List<Color> hoverBorderColor)
+	 * @see #setHoverBorderColor(List)
 	 */
 	private List<Color> hoverBorderColor;
 
 	/**
-	 * @see #setHoverBorderWidth(List<BigDecimal> hoverBorderWidth)
+	 * @see #setHoverBorderWidth(List)
 	 */
 	private List<BigDecimal> hoverBorderWidth;
 
 	/**
-	 * @see #setData(List<BigDecimal> data)
+	 * @see #setData(List)
 	 */
 	public List<BigDecimal> getData() {
 	    return this.data;
@@ -69,7 +69,7 @@ public class PolarData {
 	}
 
 	/**
-	 * @see #setLabel(String label)
+	 * @see #setLabel(String)
 	 */
 	public String getLabel() {
 	    return this.label;
@@ -83,7 +83,7 @@ public class PolarData {
 	}
 
 	/**
-	 * @see #setBackgroundColor(List<Color> backgroundColor)
+	 * @see #setBackgroundColor(List)
 	 */
 	public List<Color> getBackgroundColor() {
 	    return this.backgroundColor;
@@ -97,7 +97,7 @@ public class PolarData {
 	}
 
 	/**
-	 * @see #setBorderColor(List<Color> borderColor)
+	 * @see #setBorderColor(List)
 	 */
 	public List<Color> getBorderColor() {
 	    return this.borderColor;
@@ -111,7 +111,7 @@ public class PolarData {
 	}
 
 	/**
-	 * @see #setBorderWidth(List<BigDecimal> borderWidth)
+	 * @see #setBorderWidth(List)
 	 */
 	public List<BigDecimal> getBorderWidth() {
 	    return this.borderWidth;
@@ -125,7 +125,7 @@ public class PolarData {
 	}
 
 	/**
-	 * @see #setHoverBackgroundColor(List<Color> hoverBackgroundColor)
+	 * @see #setHoverBackgroundColor(List)
 	 */
 	public List<Color> getHoverBackgroundColor() {
 	    return this.hoverBackgroundColor;
@@ -139,7 +139,7 @@ public class PolarData {
 	}
 
 	/**
-	 * @see #setHoverBorderColor(List<Color> hoverBorderColor)
+	 * @see #setHoverBorderColor(List)
 	 */
 	public List<Color> getHoverBorderColor() {
 	    return this.hoverBorderColor;
@@ -153,7 +153,7 @@ public class PolarData {
 	}
 
 	/**
-	 * @see #setHoverBorderWidth(List<BigDecimal> hoverBorderWidth)
+	 * @see #setHoverBorderWidth(List)
 	 */
 	public List<BigDecimal> getHoverBorderWidth() {
 	    return this.hoverBorderWidth;

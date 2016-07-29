@@ -4,6 +4,9 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
 
 import be.ceau.chart.data.BarData;
 import be.ceau.chart.options.BarOptions;
@@ -52,6 +55,8 @@ import be.ceau.chart.options.BarOptions;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 public class BarChart implements Chart {
 
+	private static final ObjectWriter WRITER = new ObjectMapper().writerWithDefaultPrettyPrinter().forType(BarChart.class);
+
 	private final String type = "bar";
 
 	private BarData data;
@@ -77,6 +82,15 @@ public class BarChart implements Chart {
 
 	public void setOptions(BarOptions options) {
 		this.options = options;
+	}
+
+	@Override
+	public String toJson() {
+		try {
+			return WRITER.writeValueAsString(this);
+		} catch (JsonProcessingException e) {
+			throw new RuntimeException(e);
+		}
 	}
 
 }

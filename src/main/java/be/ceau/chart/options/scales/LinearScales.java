@@ -1,8 +1,8 @@
 package be.ceau.chart.options.scales;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 /**
@@ -16,7 +16,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 public class LinearScales extends Scales {
 
 	private LinearTicks ticks;
-
+	
 	@Override
 	public String getType() {
 		return "linear";

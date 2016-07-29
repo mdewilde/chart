@@ -14,27 +14,27 @@ import be.ceau.chart.v1.Dataset;
 public class Data {
 
 	/**
-	 * @see #setDatasets(List<Dataset> datasets)
+	 * @see #setDatasets(List)
 	 */
 	private List<Dataset> datasets;
 
 	/**
-	 * @see #setLabels(List<String> labels)
+	 * @see #setLabels(List)
 	 */
 	private List<String> labels;
 
 	/**
-	 * @see #setXLabels(List<String> xLabels)
+	 * @see #setXLabels(List)
 	 */
 	private List<String> xLabels;
 
 	/**
-	 * @see #setYLabels(List<String> yLabels)
+	 * @see #setYLabels(List)
 	 */
 	private List<String> yLabels;
 
 	/**
-	 * @see #setDatasets(List<Datasets> datasets)
+	 * @see #setDatasets(List)
 	 */
 	public List<Dataset> getDatasets() {
 		return this.datasets;
@@ -49,7 +49,7 @@ public class Data {
 	}
 
 	/**
-	 * @see #setLabels(List<String> labels)
+	 * @see #setLabels(List)
 	 */
 	public List<String> getLabels() {
 		return this.labels;
@@ -63,7 +63,7 @@ public class Data {
 	}
 
 	/**
-	 * @see #setXLabels(List<String> xLabels)
+	 * @see #setXLabels(List)
 	 */
 	public List<String> getXLabels() {
 		return this.xLabels;
@@ -78,7 +78,7 @@ public class Data {
 	}
 
 	/**
-	 * @see #setYLabels(List<String> yLabels)
+	 * @see #setYLabels(List)
 	 */
 	public List<String> getYLabels() {
 		return this.yLabels;
