@@ -6,16 +6,16 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import be.ceau.chart.data.JavaScriptFunction;
-import be.ceau.chart.options.scales.RadialLinearScales;
+import be.ceau.chart.options.scales.RadialLinearScale;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 public class PolarOptions extends Options {
 
 	/**
-	 * @see #setScale(RadialLinearScales scale)
+	 * @see #setScale(RadialLinearScale scale)
 	 */
-	private RadialLinearScales scale;
+	private RadialLinearScale scale;
 
 	/**
 	 * Default {@code true}
@@ -32,9 +32,9 @@ public class PolarOptions extends Options {
 	private JavaScriptFunction legendCallback;
 
 	/**
-	 * @see #setScale(RadialLinearScales)
+	 * @see #setScale(RadialLinearScale)
 	 */
-	public RadialLinearScales getScale() {
+	public RadialLinearScale getScale() {
 		return this.scale;
 	}
 
@@ -42,7 +42,7 @@ public class PolarOptions extends Options {
 	 * Options for the one scale used on the chart. Use this to style the ticks,
 	 * labels, and grid.
 	 */
-	public void setScale(RadialLinearScales scale) {
+	public void setScale(RadialLinearScale scale) {
 		this.scale = scale;
 	}
 

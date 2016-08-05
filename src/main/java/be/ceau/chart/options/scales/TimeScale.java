@@ -1,10 +1,8 @@
 package be.ceau.chart.options.scales;
 
-import java.util.List;
-
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 /**
@@ -14,26 +12,32 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
  */
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
-public class TimeScales {
+public class TimeScale extends Scale {
 
-	private List<TimeScale> xAxes;
+	private Ticks ticks;
 	
-	private List<TimeScale> yAxes;
+	private Time time;
 
-	public List<TimeScale> getxAxes() {
-		return xAxes;
+	public Time getTime() {
+		return time;
 	}
 
-	public void setxAxes(List<TimeScale> xAxes) {
-		this.xAxes = xAxes;
+	public void setTime(Time time) {
+		this.time = time;
 	}
 
-	public List<TimeScale> getyAxes() {
-		return yAxes;
+	@Override
+	public String getType() {
+		return "time";
 	}
 
-	public void setyAxes(List<TimeScale> yAxes) {
-		this.yAxes = yAxes;
+	@Override
+	public Ticks getTicks() {
+		return ticks;
+	}
+
+	public void setTicks(Ticks ticks) {
+		this.ticks = ticks;
 	}
 
 }

@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
-import be.ceau.chart.options.scales.BarScales;
+import be.ceau.chart.options.scales.BarScale;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
@@ -21,9 +21,9 @@ public class BarOptions extends Options {
 	/**
 	 * Default {@code -}
 	 * 
-	 * @see #setScales(BarScales)
+	 * @see #setScales(BarScale)
 	 */
-	private BarScales scales;
+	private BarScale scales;
 
 	/**
 	 * @see #setHover(Hover)
@@ -41,13 +41,13 @@ public class BarOptions extends Options {
 	}
 
 	/**
-	 * @see #setScales(BarScales)
+	 * @see #setScales(BarScale)
 	 */
-	public BarScales getScales() {
+	public BarScale getScales() {
 		return scales;
 	}
 
-	public void setScales(BarScales scales) {
+	public void setScales(BarScale scales) {
 		this.scales = scales;
 	}
 

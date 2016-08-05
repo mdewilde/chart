@@ -1,10 +1,8 @@
 package be.ceau.chart.options.scales;
 
-import java.util.List;
-
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 /**
@@ -14,26 +12,22 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
  */
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
-public class LogarithmicScales {
+public class LogarithmicScale extends Scale {
 
-	private List<LogarithmicScale> xAxes;
-	
-	private List<LogarithmicScale> yAxes;
+	private LogarithmicTicks ticks;
 
-	public List<LogarithmicScale> getxAxes() {
-		return xAxes;
+	@Override
+	public String getType() {
+		return "logarithmic";
 	}
 
-	public void setxAxes(List<LogarithmicScale> xAxes) {
-		this.xAxes = xAxes;
+	@Override
+	public Ticks getTicks() {
+		return ticks;
 	}
 
-	public List<LogarithmicScale> getyAxes() {
-		return yAxes;
-	}
-
-	public void setyAxes(List<LogarithmicScale> yAxes) {
-		this.yAxes = yAxes;
+	public void setTicks(LogarithmicTicks ticks) {
+		this.ticks = ticks;
 	}
 
 }

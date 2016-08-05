@@ -21,6 +21,7 @@ import be.ceau.chart.options.LineOptions;
 import be.ceau.chart.options.Title;
 import be.ceau.chart.options.Tooltips;
 import be.ceau.chart.options.scales.GridLines;
+import be.ceau.chart.options.scales.LinearScale;
 import be.ceau.chart.options.scales.LinearScales;
 import be.ceau.chart.options.scales.LinearTicks;
 
@@ -104,7 +105,7 @@ public class LineTest {
 		
 		options.setTooltips(tooltips);
 		
-		options.setLinearScales(getLinearScales());
+		options.setScales(getLinearScales());
 		
 		lineChart.setOptions(options);
 		
@@ -115,25 +116,30 @@ public class LineTest {
 		Filer.toBrowser(lineChart.getType(), json);
 	
 	}
-	
+
 	private LinearScales getLinearScales() {
 		LinearScales linearScales = new LinearScales();
-		linearScales.setDisplay(true);
-		linearScales.setGridLines(getGridLines());
-		linearScales.setTicks(getTicks());
+		LinearScale scale = new LinearScale();
+		scale.setDisplay(true);
+		scale.setGridLines(getGridLines());
+		scale.setTicks(getTicks());
+		linearScales.setxAxes(Collections.singletonList(scale));
+		linearScales.setyAxes(Collections.singletonList(scale));
 		return linearScales;
 	}
-	
+
 	private LinearTicks getTicks() {
 		LinearTicks ticks = new LinearTicks();
 		ticks.setBeginAtZero(true);
+		ticks.setMax(new BigDecimal(150));
 		return ticks;
 	}
-	
+
 	private GridLines getGridLines() {
 		GridLines gridLines = new GridLines();
 		gridLines.setDisplay(true);
 		gridLines.setColor(Collections.singletonList(Color.LIGHT_CYAN));
 		return gridLines;
 	}
+
 }

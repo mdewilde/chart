@@ -22,10 +22,10 @@ public class LineOptions extends Options {
 	private Boolean spanGaps;
 
 	/**
-	 * @see #setLinearScales(LinearScales)
+	 * @see #setScales(LinearScales)
 	 */
-	private LinearScales linearScales;
-	
+	private LinearScales scales;
+
 	/**
 	 * @see #setShowLines(Boolean)
 	 */
@@ -67,17 +67,17 @@ public class LineOptions extends Options {
 	}
 
 	/**
-	 * @see #setLinearScales(LinearScales)
+	 * @see #setScales(LinearScales)
 	 */
-	public LinearScales getLinearScales() {
-		return linearScales;
+	public LinearScales getScales() {
+		return scales;
 	}
 
 	/**
 	 * The linear scale is use to chart numerical data
 	 */
-	public void setLinearScales(LinearScales linearScales) {
-		this.linearScales = linearScales;
+	public void setScales(LinearScales scales) {
+		this.scales = scales;
 	}
 
 }

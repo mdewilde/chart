@@ -1,7 +1,5 @@
 package be.ceau.chart.options.scales;
 
-import java.util.List;
-
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -15,26 +13,22 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
  */
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
-public class LinearScales {
+public class LinearScale extends Scale {
 
-	private List<LinearScale> xAxes;
+	private LinearTicks ticks;
 	
-	private List<LinearScale> yAxes;
-
-	public List<LinearScale> getxAxes() {
-		return xAxes;
+	@Override
+	public String getType() {
+		return "linear";
 	}
 
-	public void setxAxes(List<LinearScale> xAxes) {
-		this.xAxes = xAxes;
+	@Override
+	public Ticks getTicks() {
+		return ticks;
 	}
 
-	public List<LinearScale> getyAxes() {
-		return yAxes;
-	}
-
-	public void setyAxes(List<LinearScale> yAxes) {
-		this.yAxes = yAxes;
+	public void setTicks(LinearTicks ticks) {
+		this.ticks = ticks;
 	}
 
 }

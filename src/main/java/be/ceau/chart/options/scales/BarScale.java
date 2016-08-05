@@ -9,13 +9,22 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
-public class BarScales extends CategoryScale {
+public class BarScale extends CategoryScale {
 
-	private List<BarScale> xAxes;
-	
-	private List<BarScale> yAxes;
+	/**
+	 * @see #setxAxes(List)
+	 */
+	private List<XAxis> xAxes;
 
-	public List<BarScale> getxAxes() {
+	/**
+	 * @see #setyAxes(List)
+	 */
+	private List<YAxis> yAxes;
+
+	/**
+	 * @see #setxAxes(List)
+	 */
+	public List<XAxis> getxAxes() {
 		return xAxes;
 	}
 
@@ -23,15 +32,21 @@ public class BarScales extends CategoryScale {
 	 * The bar chart officially supports only 1 x-axis but uses an array to keep
 	 * the API consistent. Use a scatter chart if you need multiple x axes.
 	 */
-	public void setxAxes(List<BarScale> xAxes) {
+	public void setxAxes(List<XAxis> xAxes) {
 		this.xAxes = xAxes;
 	}
 
-	public List<BarScale> getyAxes() {
+	/**
+	 * @see #setyAxes(List)
+	 */
+	public List<YAxis> getyAxes() {
 		return yAxes;
 	}
 
-	public void setyAxes(List<BarScale> yAxes) {
+	/**
+	 * 
+	 */
+	public void setyAxes(List<YAxis> yAxes) {
 		this.yAxes = yAxes;
 	}
 
