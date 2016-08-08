@@ -1,15 +1,9 @@
 package be.ceau.chart.enums;
 
-import java.io.IOException;
 import java.util.Locale;
 
-import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonSerializer;
-import com.fasterxml.jackson.databind.SerializerProvider;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.annotation.JsonValue;
 
-@JsonSerialize(using = ScalesPosition.Serializer.class)
 public enum ScalesPosition {
 
 	TOP,
@@ -17,13 +11,16 @@ public enum ScalesPosition {
 	BOTTOM,
 	RIGHT;
 
-	public static class Serializer extends JsonSerializer<ScalesPosition> {
+	private final String serialized;
 
-		@Override
-		public void serialize(ScalesPosition value, JsonGenerator gen, SerializerProvider serializers) throws IOException, JsonProcessingException {
-			gen.writeString(value.name().toLowerCase(Locale.ENGLISH));
-		}
+	private ScalesPosition() {
+		this.serialized = name().toLowerCase(Locale.ENGLISH);
+	}
 
+	@Override
+	@JsonValue
+	public String toString() {
+		return this.serialized;
 	}
 
 }

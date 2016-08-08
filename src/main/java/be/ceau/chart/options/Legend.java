@@ -1,4 +1,21 @@
+/*
+	Copyright 2016 Marceau Dewilde <m@ceau.be>
+
+	Licensed under the Apache License, Version 2.0 (the "License");
+	you may not use this file except in compliance with the License.
+	You may obtain a copy of the License at
+
+		http://www.apache.org/licenses/LICENSE-2.0
+
+	Unless required by applicable law or agreed to in writing, software
+	distributed under the License is distributed on an "AS IS" BASIS,
+	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	See the License for the specific language governing permissions and
+	limitations under the License.
+*/
 package be.ceau.chart.options;
+
+import java.util.Locale;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
@@ -12,36 +29,26 @@ import be.ceau.chart.data.JavaScriptFunction;
 public class Legend {
 
 	/**
-	 * Default {@code true}
-	 * 
 	 * @see #setDisplay(Boolean)
 	 */
 	private Boolean display;
 
 	/**
-	 * Default {@code 'top'}
-	 * 
-	 * @see #setPosition(String)
+	 * @see #setPosition(Legend.Position)
 	 */
-	private String position;
+	private Position position;
 
 	/**
-	 * Default {@code true}
-	 * 
 	 * @see #setFullWidth(Boolean)
 	 */
 	private Boolean fullWidth;
 
 	/**
-	 * Default {@code function(event, legendItem) {}}
-	 * 
 	 * @see #setOnClick(JavaScriptFunction)
 	 */
 	private JavaScriptFunction onClick;
 
 	/**
-	 * Default {@code -}
-	 * 
 	 * @see #setLabels(LegendLabels)
 	 */
 	private LegendLabels labels;
@@ -54,6 +61,8 @@ public class Legend {
 	}
 
 	/**
+	 * Default {@code true}
+	 * 
 	 * Is the legend displayed
 	 */
 	public void setDisplay(Boolean display) {
@@ -61,16 +70,18 @@ public class Legend {
 	}
 
 	/**
-	 * @see #setPosition(String)
+	 * @see #setPosition(Legend.Position)
 	 */
-	public String getPosition() {
+	public Position getPosition() {
 	    return this.position;
 	}
 
 	/**
+	 * Default {@code 'top'}
+	 * 
 	 * Position of the legend. Options are 'top' or 'bottom'
 	 */
-	public void setPosition(String position) {
+	public void setPosition(Legend.Position position) {
 	    this.position = position;
 	}
 
@@ -82,6 +93,8 @@ public class Legend {
 	}
 
 	/**
+	 * Default {@code true}
+	 * 
 	 * Marks that this box should take the full width of the canvas (pushing down other boxes)
 	 */
 	public void setFullWidth(Boolean fullWidth) {
@@ -96,6 +109,8 @@ public class Legend {
 	}
 
 	/**
+	 * Default {@code function(event, legendItem) {}}
+	 * 
 	 * A callback that is called when a click is registered on top of a label item
 	 */
 	public void setOnClick(JavaScriptFunction onClick) {
@@ -110,10 +125,30 @@ public class Legend {
 	}
 
 	/**
+	 * Default {@code -}
+	 * 
 	 * See the Legend Label Configuration section below.
 	 */
 	public void setLabels(LegendLabels labels) {
 	    this.labels = labels;
+	}
+	
+	public static enum Position {
+
+		TOP,
+		BOTTOM;
+
+		private final String serialized;
+
+		private Position() {
+			this.serialized = name().toLowerCase(Locale.ENGLISH);
+		}
+
+		@Override
+		public String toString() {
+			return this.serialized;
+		}
+
 	}
 	
 }

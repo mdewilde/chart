@@ -1,10 +1,23 @@
+/*
+	Copyright 2016 Marceau Dewilde <m@ceau.be>
+
+	Licensed under the Apache License, Version 2.0 (the "License");
+	you may not use this file except in compliance with the License.
+	You may obtain a copy of the License at
+
+		http://www.apache.org/licenses/LICENSE-2.0
+
+	Unless required by applicable law or agreed to in writing, software
+	distributed under the License is distributed on an "AS IS" BASIS,
+	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	See the License for the specific language governing permissions and
+	limitations under the License.
+*/
 package be.ceau.chart.options;
 
-import java.math.BigDecimal;
-
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import be.ceau.chart.color.Color;
@@ -13,175 +26,205 @@ import be.ceau.chart.data.JavaScriptFunction;
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 public class LegendLabels {
+	
 	/**
-	 * Default {@code 40}
-	 * 
-	 * @see #setBoxWidth(BigDecimal boxWidth)
+	 * @see #setBoxWidth(Integer)
 	 */
-	private BigDecimal boxWidth;
+	private Integer boxWidth;
 
 	/**
-	 * Default {@code 12}
-	 * 
-	 * @see #setFontSize(BigDecimal fontSize)
+	 * @see #setFontSize(Integer)
 	 */
-	private BigDecimal fontSize;
+	private Integer fontSize;
 
 	/**
-	 * Default {@code "normal"}
-	 * 
-	 * @see #setFontStyle(String fontStyle)
+	 * @see #setFontStyle(String)
 	 */
 	private String fontStyle;
 
 	/**
-	 * Default {@code "#666"}
-	 * 
-	 * @see #setFontColor(Color fontColor)
+	 * @see #setFontColor(Color)
 	 */
 	private Color fontColor;
 
 	/**
-	 * Default {@code "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif"}
-	 * 
-	 * @see #setFontFamily(String fontFamily)
+	 * @see #setFontFamily(String)
 	 */
 	private String fontFamily;
 
 	/**
-	 * Default {@code 10}
-	 * 
-	 * @see #setPadding(BigDecimal padding)
+	 * @see #setPadding(Integer)
 	 */
-	private BigDecimal padding;
+	private Integer padding;
 
 	/**
-	 * Default {@code function(chart) { }}
-	 * 
-	 * @see #setGenerateLabels:(JavaScriptFunction generateLabels)
+	 * @see #setGenerateLabels(JavaScriptFunction)
 	 */
 	private JavaScriptFunction generateLabels;
 
 	/**
-	 * Default {@code false}
-	 * 
-	 * @see #setUsePointStyle(Boolean usePointStyle)
+	 * @see #setUsePointStyle(Boolean)
 	 */
 	private Boolean usePointStyle;
 
 	/**
-	 * @see #setBoxWidth(BigDecimal boxWidth)
+	 * @see #setBoxWidth(Integer)
 	 */
-	public BigDecimal getBoxWidth() {
-		return this.boxWidth;
+	public Integer getBoxWidth() {
+	    return this.boxWidth;
 	}
 
 	/**
+	 * <p>
 	 * Width of coloured box
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code 40}
+	 * </p>
 	 */
-	public void setBoxWidth(BigDecimal boxWidth) {
-		this.boxWidth = boxWidth;
+	public void setBoxWidth(Integer boxWidth) {
+	    this.boxWidth = boxWidth;
 	}
 
 	/**
-	 * @see #setFontSize(BigDecimal fontSize)
+	 * @see #setFontSize(Integer)
 	 */
-	public BigDecimal getFontSize() {
-		return this.fontSize;
+	public Integer getFontSize() {
+	    return this.fontSize;
 	}
 
 	/**
+	 * <p>
 	 * Font size inherited from global configuration
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code 12}
+	 * </p>
 	 */
-	public void setFontSize(BigDecimal fontSize) {
-		this.fontSize = fontSize;
+	public void setFontSize(Integer fontSize) {
+	    this.fontSize = fontSize;
 	}
 
 	/**
-	 * @see #setFontStyle(String fontStyle)
+	 * @see #setFontStyle(String)
 	 */
 	public String getFontStyle() {
-		return this.fontStyle;
+	    return this.fontStyle;
 	}
 
 	/**
+	 * <p>
 	 * Font style inherited from global configuration
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code "normal"}
+	 * </p>
 	 */
 	public void setFontStyle(String fontStyle) {
-		this.fontStyle = fontStyle;
+	    this.fontStyle = fontStyle;
 	}
 
 	/**
-	 * @see #setFontColor(Color fontColor)
+	 * @see #setFontColor(Color)
 	 */
 	public Color getFontColor() {
-		return this.fontColor;
+	    return this.fontColor;
 	}
 
 	/**
+	 * <p>
 	 * Font color inherited from global configuration
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code "#666"}
+	 * </p>
 	 */
 	public void setFontColor(Color fontColor) {
-		this.fontColor = fontColor;
+	    this.fontColor = fontColor;
 	}
 
 	/**
-	 * @see #setFontFamily(String fontFamily)
+	 * @see #setFontFamily(String)
 	 */
 	public String getFontFamily() {
-		return this.fontFamily;
+	    return this.fontFamily;
 	}
 
 	/**
+	 * <p>
 	 * Font family inherited from global configuration
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif"}
+	 * </p>
 	 */
 	public void setFontFamily(String fontFamily) {
-		this.fontFamily = fontFamily;
+	    this.fontFamily = fontFamily;
 	}
 
 	/**
-	 * @see #setPadding(BigDecimal padding)
+	 * @see #setPadding(Integer)
 	 */
-	public BigDecimal getPadding() {
-		return this.padding;
+	public Integer getPadding() {
+	    return this.padding;
 	}
 
 	/**
+	 * <p>
 	 * Padding between rows of colored boxes
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code 10}
+	 * </p>
 	 */
-	public void setPadding(BigDecimal padding) {
-		this.padding = padding;
+	public void setPadding(Integer padding) {
+	    this.padding = padding;
 	}
 
 	/**
-	 * @see #setGenerateLabels(JavaScriptFunction generateLabels)
+	 * @see #setGenerateLabels(JavaScriptFunction)
 	 */
 	public JavaScriptFunction getGenerateLabels() {
-		return this.generateLabels;
+	    return this.generateLabels;
 	}
 
 	/**
-	 * Generates legend items for each thing in the legend. Default
-	 * implementation returns the text + styling for the color box. See Legend
-	 * Item for details.
+	 * <p>
+	 * Generates legend items for each thing in the legend. Default implementation returns the text + styling for the color box. See Legend Item for details.
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code function(chart) {  }}
+	 * </p>
 	 */
 	public void setGenerateLabels(JavaScriptFunction generateLabels) {
-		this.generateLabels = generateLabels;
+	    this.generateLabels = generateLabels;
 	}
 
 	/**
-	 * @see #setUsePointStyle(Boolean usePointStyle)
+	 * @see #setUsePointStyle(Boolean)
 	 */
 	public Boolean getUsePointStyle() {
-		return this.usePointStyle;
+	    return this.usePointStyle;
 	}
 
 	/**
-	 * Label style will match corresponding point style (size is based on
-	 * fontSize, boxWidth is not used in this case).
+	 * <p>
+	 * Label style will match corresponding point style (size is based on fontSize, boxWidth is not used in this case).
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code false}
+	 * </p>
 	 */
 	public void setUsePointStyle(Boolean usePointStyle) {
-		this.usePointStyle = usePointStyle;
+	    this.usePointStyle = usePointStyle;
 	}
 
 }

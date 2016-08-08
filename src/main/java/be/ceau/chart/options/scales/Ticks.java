@@ -1,14 +1,30 @@
+/*
+	Copyright 2016 Marceau Dewilde <m@ceau.be>
+
+	Licensed under the Apache License, Version 2.0 (the "License");
+	you may not use this file except in compliance with the License.
+	You may obtain a copy of the License at
+
+		http://www.apache.org/licenses/LICENSE-2.0
+
+	Unless required by applicable law or agreed to in writing, software
+	distributed under the License is distributed on an "AS IS" BASIS,
+	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	See the License for the specific language governing permissions and
+	limitations under the License.
+*/
 package be.ceau.chart.options.scales;
 
 import java.math.BigDecimal;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import be.ceau.chart.color.Color;
 import be.ceau.chart.data.JavaScriptFunction;
+import be.ceau.chart.enums.FontStyle;
 
 /**
  * The grid line configuration is nested under the scale configuration in the
@@ -20,277 +36,328 @@ import be.ceau.chart.data.JavaScriptFunction;
 public class Ticks {
 
 	/**
-	 * Default {@code true}
-	 * 
-	 * @see #setAutoSkip(Boolean autoSkip)
+	 * @see #setAutoSkip(Boolean)
 	 */
 	private Boolean autoSkip;
 
 	/**
-	 * Default {@code function(value) { return helpers.isArray(value) ? value : '' + value; }}
-	 * 
-	 * @see #setCallback(JavaScriptFunction callback)
+	 * @see #setCallback(JavaScriptFunction)
 	 */
 	private JavaScriptFunction callback;
 
 	/**
-	 * Default {@code true}
-	 * 
-	 * @see #setDisplay(Boolean display)
+	 * @see #setDisplay(Boolean)
 	 */
 	private Boolean display;
 
 	/**
-	 * Default {@code "#666"}
-	 * 
-	 * @see #setFontColor(Color fontColor)
+	 * @see #setFontColor(Color)
 	 */
 	private Color fontColor;
 
 	/**
-	 * Default {@code "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif"}
-	 * 
-	 * @see #setFontFamily(String fontFamily)
+	 * @see #setFontFamily(String)
 	 */
 	private String fontFamily;
 
 	/**
-	 * Default {@code 12}
-	 * 
-	 * @see #setFontSize(BigDecimal fontSize)
+	 * @see #setFontSize(BigDecimal)
 	 */
 	private BigDecimal fontSize;
 
 	/**
-	 * Default {@code "normal"}
-	 * 
-	 * @see #setFontStyle(String fontStyle)
+	 * @see #setFontStyle(FontStyle)
 	 */
-	private String fontStyle;
+	private FontStyle fontStyle;
 
 	/**
-	 * Default {@code 0}
-	 * 
-	 * @see #setLabelOffset(BigDecimal labelOffset)
+	 * @see #setLabelOffset(BigDecimal)
 	 */
 	private BigDecimal labelOffset;
 
 	/**
-	 * Default {@code 90}
-	 * 
-	 * @see #setMaxRotation(BigDecimal maxRotation)
+	 * @see #setMaxRotation(BigDecimal)
 	 */
 	private BigDecimal maxRotation;
 
 	/**
-	 * Default {@code 0}
-	 * 
-	 * @see #setMinRotation(BigDecimal minRotation)
+	 * @see #setMinRotation(BigDecimal)
 	 */
 	private BigDecimal minRotation;
 
 	/**
-	 * Default {@code false}
-	 * 
-	 * @see #setMirror(Boolean mirror)
+	 * @see #setMirror(Boolean)
 	 */
 	private Boolean mirror;
 
 	/**
-	 * Default {@code 10}
-	 * 
-	 * @see #setPadding(BigDecimal padding)
+	 * @see #setPadding(BigDecimal)
 	 */
 	private BigDecimal padding;
 
 	/**
-	 * Default {@code false}
-	 * 
-	 * @see #setReverse(Boolean reverse)
+	 * @see #setReverse(Boolean)
 	 */
 	private Boolean reverse;
 
 	/**
-	 * @see #setAutoSkip(Boolean autoSkip)
+	 * @see #setAutoSkip(Boolean)
 	 */
 	public Boolean getAutoSkip() {
 	    return this.autoSkip;
 	}
 
 	/**
+	 * <p>
 	 * If true, automatically calculates how many labels that can be shown and hides labels accordingly. Turn it off to show all labels no matter what
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code true}
+	 * </p>
 	 */
 	public void setAutoSkip(Boolean autoSkip) {
 	    this.autoSkip = autoSkip;
 	}
 
 	/**
-	 * @see #setCallback(JavaScriptFunction callback)
+	 * @see #setCallback(JavaScriptFunction)
 	 */
 	public JavaScriptFunction getCallback() {
 	    return this.callback;
 	}
 
 	/**
+	 * <p>
 	 * Returns the string representation of the tick value as it should be displayed on the chart. See callback section below.
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code function(value) { return helpers.isArray(value) ? value : '' + value; }}
+	 * </p>
 	 */
 	public void setCallback(JavaScriptFunction callback) {
 	    this.callback = callback;
 	}
 
 	/**
-	 * @see #setDisplay(Boolean display)
+	 * @see #setDisplay(Boolean)
 	 */
 	public Boolean getDisplay() {
 	    return this.display;
 	}
 
 	/**
+	 * <p>
 	 * If true, show the ticks.
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code true}
+	 * </p>
 	 */
 	public void setDisplay(Boolean display) {
 	    this.display = display;
 	}
 
 	/**
-	 * @see #setFontColor(Color fontColor)
+	 * @see #setFontColor(Color)
 	 */
 	public Color getFontColor() {
 	    return this.fontColor;
 	}
 
 	/**
+	 * <p>
 	 * Font color for the tick labels.
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code "#666"}
+	 * </p>
 	 */
 	public void setFontColor(Color fontColor) {
 	    this.fontColor = fontColor;
 	}
 
 	/**
-	 * @see #setFontFamily(String fontFamily)
+	 * @see #setFontFamily(String)
 	 */
 	public String getFontFamily() {
 	    return this.fontFamily;
 	}
 
 	/**
+	 * <p>
 	 * Font family for the tick labels, follows CSS font-family options.
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif"}
+	 * </p>
 	 */
 	public void setFontFamily(String fontFamily) {
 	    this.fontFamily = fontFamily;
 	}
 
 	/**
-	 * @see #setFontSize(BigDecimal fontSize)
+	 * @see #setFontSize(BigDecimal)
 	 */
 	public BigDecimal getFontSize() {
 	    return this.fontSize;
 	}
 
 	/**
+	 * <p>
 	 * Font size for the tick labels.
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code 12}
+	 * </p>
 	 */
 	public void setFontSize(BigDecimal fontSize) {
 	    this.fontSize = fontSize;
 	}
 
 	/**
-	 * @see #setFontStyle(String fontStyle)
+	 * @see #setFontStyle(FontStyle)
 	 */
-	public String getFontStyle() {
+	public FontStyle getFontStyle() {
 	    return this.fontStyle;
 	}
 
 	/**
+	 * <p>
 	 * Font style for the tick labels, follows CSS font-style options (i.e. normal, italic, oblique, initial, inherit).
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code "normal"}
+	 * </p>
 	 */
-	public void setFontStyle(String fontStyle) {
+	public void setFontStyle(FontStyle fontStyle) {
 	    this.fontStyle = fontStyle;
 	}
 
 	/**
-	 * @see #setLabelOffset(BigDecimal labelOffset)
+	 * @see #setLabelOffset(BigDecimal)
 	 */
 	public BigDecimal getLabelOffset() {
 	    return this.labelOffset;
 	}
 
 	/**
+	 * <p>
 	 * Distance in pixels to offset the label from the centre point of the tick (in the y direction for the x axis, and the x direction for the y axis). Note: this can cause labels at the edges to be cropped by the edge of the canvas
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code 0}
+	 * </p>
 	 */
 	public void setLabelOffset(BigDecimal labelOffset) {
 	    this.labelOffset = labelOffset;
 	}
 
 	/**
-	 * @see #setMaxRotation(BigDecimal maxRotation)
+	 * @see #setMaxRotation(BigDecimal)
 	 */
 	public BigDecimal getMaxRotation() {
 	    return this.maxRotation;
 	}
 
 	/**
+	 * <p>
 	 * Maximum rotation for tick labels when rotating to condense labels. Note: Rotation doesn't occur until necessary. Note: Only applicable to horizontal scales.
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code 90}
+	 * </p>
 	 */
 	public void setMaxRotation(BigDecimal maxRotation) {
 	    this.maxRotation = maxRotation;
 	}
 
 	/**
-	 * @see #setMinRotation(BigDecimal minRotation)
+	 * @see #setMinRotation(BigDecimal)
 	 */
 	public BigDecimal getMinRotation() {
 	    return this.minRotation;
 	}
 
 	/**
+	 * <p>
 	 * Minimum rotation for tick labels. Note: Only applicable to horizontal scales.
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code 0}
+	 * </p>
 	 */
 	public void setMinRotation(BigDecimal minRotation) {
 	    this.minRotation = minRotation;
 	}
 
 	/**
-	 * @see #setMirror(Boolean mirror)
+	 * @see #setMirror(Boolean)
 	 */
 	public Boolean getMirror() {
 	    return this.mirror;
 	}
 
 	/**
+	 * <p>
 	 * Flips tick labels around axis, displaying the labels inside the chart instead of outside. Note: Only applicable to vertical scales.
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code false}
+	 * </p>
 	 */
 	public void setMirror(Boolean mirror) {
 	    this.mirror = mirror;
 	}
 
 	/**
-	 * @see #setPadding(BigDecimal padding)
+	 * @see #setPadding(BigDecimal)
 	 */
 	public BigDecimal getPadding() {
 	    return this.padding;
 	}
 
 	/**
+	 * <p>
 	 * Padding between the tick label and the axis. Note: Only applicable to horizontal scales.
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code 10}
+	 * </p>
 	 */
 	public void setPadding(BigDecimal padding) {
 	    this.padding = padding;
 	}
 
 	/**
-	 * @see #setReverse(Boolean reverse)
+	 * @see #setReverse(Boolean)
 	 */
 	public Boolean getReverse() {
 	    return this.reverse;
 	}
 
 	/**
+	 * <p>
 	 * Reverses order of tick labels.
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code false}
+	 * </p>
 	 */
 	public void setReverse(Boolean reverse) {
 	    this.reverse = reverse;
 	}
-
 
 }

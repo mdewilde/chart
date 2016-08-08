@@ -12,11 +12,13 @@ import be.ceau.chart.color.Color;
 import be.ceau.chart.data.JavaScriptFunction;
 import be.ceau.chart.data.LineData;
 import be.ceau.chart.data.LineDataset;
+import be.ceau.chart.enums.FontStyle;
 import be.ceau.chart.enums.HoverMode;
 import be.ceau.chart.enums.TitlePosition;
 import be.ceau.chart.options.Animation;
 import be.ceau.chart.options.Hover;
 import be.ceau.chart.options.Legend;
+import be.ceau.chart.options.LegendLabels;
 import be.ceau.chart.options.LineOptions;
 import be.ceau.chart.options.Title;
 import be.ceau.chart.options.Tooltips;
@@ -58,21 +60,24 @@ public class LineTest {
 		lineChart.setData(data);
 		
 		LineOptions options = new LineOptions();
-		Animation animation = new Animation();
-		options.setAnimation(animation);
+
+		options.setAnimation(newAnimation());
 		
-//		options.setEvents(events);
+//		 options.setEvents(events);
 		
-		Hover hover = new Hover();
-		hover.setAnimationDuration(700);
-		hover.setMode(HoverMode.DATASET);
-		hover.setOnHover(new JavaScriptFunction("function(){ console.log('onHover callback'); }"));
+		options.setHover(newHover());
 		
-		options.setHover(hover);
-		
-		
-		Legend legend = new Legend();
-		options.setLegend(legend);
+		options.setLegendCallback(new JavaScriptFunction("function(){ alert('legendCallback'); }"));
+		options.setMaintainAspectRatio(true);
+		options.setOnClick(new JavaScriptFunction("function(){ console.log('onclick'); }"));
+		options.setOnResize(new JavaScriptFunction("function(){ console.log('resized'); }"));
+		options.setResponsive(true);
+		options.setResponsiveAnimationDuration(1000);
+		options.setShowLines(true);
+		options.setSpanGaps(true);
+	
+		options.setLegend(newLegend());
+
 		options.setLegendCallback(new JavaScriptFunction("function(){ alert('legendCallback'); }"));
 		options.setMaintainAspectRatio(true);
 		options.setOnClick(new JavaScriptFunction("function(){ console.log('onclick'); }"));
@@ -82,30 +87,10 @@ public class LineTest {
 		options.setShowLines(true);
 		options.setSpanGaps(true);
 		
-		Title title = new Title();
-		title.setDisplay(true);
-		title.setFontColor(Color.random());
-		title.setFontFamily("Times New Roman");
-		title.setFontSize(new BigDecimal(24));
-		title.setFullWidth(true);
-		title.setPadding(28);
-		title.setPosition(TitlePosition.BOTTOM);
-		title.setText("it's the title");
 		
-		options.setTitle(title);
-		
-		Tooltips tooltips = new Tooltips();
-		tooltips.setEnabled(true);
-		tooltips.setBackgroundColor(Color.RED);
-		tooltips.setBodyFontColor(Color.AZURE);
-//		tooltips.setBodyFontFamily(bodyFontFamily);
-//		tooltips.setBodyFontStyle(bodyFontStyle);
-//		tooltips.setMode(mode);
-		tooltips.setTitleFontColor(Color.CHARTREUSE);
-		
-		options.setTooltips(tooltips);
-		
-		options.setScales(getLinearScales());
+		options.setTitle(newTitle());
+		options.setTooltips(newTooltips());
+		options.setScales(newLinearScales());
 		
 		lineChart.setOptions(options);
 		
@@ -116,8 +101,10 @@ public class LineTest {
 		Filer.toBrowser(lineChart.getType(), json);
 	
 	}
+	
+	
 
-	private LinearScales getLinearScales() {
+	private LinearScales newLinearScales() {
 		LinearScales linearScales = new LinearScales();
 		LinearScale scale = new LinearScale();
 		scale.setDisplay(true);
@@ -131,7 +118,7 @@ public class LineTest {
 	private LinearTicks getTicks() {
 		LinearTicks ticks = new LinearTicks();
 		ticks.setBeginAtZero(true);
-		ticks.setMax(new BigDecimal(150));
+		ticks.setMax(new BigDecimal(2500));
 		return ticks;
 	}
 
@@ -140,6 +127,91 @@ public class LineTest {
 		gridLines.setDisplay(true);
 		gridLines.setColor(Collections.singletonList(Color.LIGHT_CYAN));
 		return gridLines;
+	}
+
+	private Animation newAnimation() {
+		Animation animation = new Animation();
+		animation.setDuration(2000);
+		animation.setEasing(Animation.Easing.EASE_OUT_SINE);
+		animation.setOnComplete(new JavaScriptFunction("function(){console.log('onComplete');}"));
+		animation.setOnProgress(new JavaScriptFunction("function(){console.log('onProgress');}"));
+		return animation;
+	}
+	
+	private Hover newHover() {
+		Hover hover = new Hover();
+		hover.setAnimationDuration(700);
+		hover.setMode(HoverMode.DATASET);
+		hover.setOnHover(new JavaScriptFunction("function(){ console.log('onHover'); }"));
+		return hover;
+	}
+	
+	private Legend newLegend() {
+		Legend legend = new Legend();
+		legend.setDisplay(true);
+		legend.setFullWidth(true);
+		legend.setLabels(newLegendLabels());
+		legend.setOnClick(new JavaScriptFunction("function(){ console.log('onClick'); }"));
+		legend.setPosition(Legend.Position.TOP);
+		return legend;
+	}
+	
+	private LegendLabels newLegendLabels() {
+		LegendLabels legendLabels = new LegendLabels();
+		legendLabels.setBoxWidth(150);
+		legendLabels.setFontColor(Color.ANTIQUE_WHITE);
+		legendLabels.setFontFamily("Verdana");
+		legendLabels.setFontSize(15);
+		legendLabels.setFontStyle("bold");
+		legendLabels.setGenerateLabels(new JavaScriptFunction("function(){ console.log('generateLabels'); }"));
+		legendLabels.setPadding(20);
+		legendLabels.setUsePointStyle(true);
+		return legendLabels;
+	}
+
+	private Title newTitle() {
+		Title title = new Title();
+		title.setDisplay(true);
+		title.setFontColor(Color.CHOCOLATE);
+		title.setFontFamily("Verdana");
+		title.setFontSize(24);
+		title.setFontStyle("normal");
+		title.setFullWidth(true);
+		title.setPadding(28);
+		title.setPosition(TitlePosition.BOTTOM);
+		title.setText("LineTest Title");
+		return title;
+	}
+	
+	private Tooltips newTooltips() {
+		Tooltips tooltips = new Tooltips();
+		tooltips.setBackgroundColor(Color.RED);
+		tooltips.setBodyFontColor(Color.AZURE);
+		tooltips.setBodyFontFamily("Verdana");
+		tooltips.setBodyFontStyle(FontStyle.BOLD);
+//		tooltips.setBodySpacing();
+//		tooltips.setCaretSize(caretSize);
+//		tooltips.setCornerRadius(cornerRadius);
+//		tooltips.setCustom(custom);
+//		tooltips.setEnabled(enabled);
+//		tooltips.setFooterFontColor(footerFontColor);
+//		tooltips.setFooterFontFamily(footerFontFamily);
+//		tooltips.setFooterFontSize(footerFontSize);
+//		tooltips.setFooterFontStyle(footerFontStyle);
+//		tooltips.setFooterMarginTop(footerMarginTop);
+//		tooltips.setFooterSpacing(footerSpacing);
+//		tooltips.setItemSort(itemSort);
+//		tooltips.setMode(mode);
+//		tooltips.setMultiKeyBackground(multiKeyBackground);
+//		tooltips.setTitleFontColor(titleFontColor);
+//		tooltips.setTitleFontFamily(titleFontFamily);
+//		tooltips.setTitleFontSize(titleFontSize);
+//		tooltips.setTitleFontStyle();
+//		tooltips.setTitleMarginBottom(titleMarginBottom);
+//		tooltips.setTitleSpacing(titleSpacing);
+//		tooltips.setXPadding(xPadding);
+//		tooltips.setYPadding(yPadding);
+		return tooltips;
 	}
 
 }

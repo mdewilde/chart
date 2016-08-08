@@ -13,10 +13,10 @@ public class Generator {
 		
 		Map<String, BigDecimal> data = new LinkedHashMap<String, BigDecimal>();
 		
-		// first choose random number of points we will generate - more than 20 is overkill
-		int datapoints = RANDOM.nextInt(20) + 1;
+		// first choose random number of points we will generate - 4 minimum - more than 20 is overkill
+		int datapoints = RANDOM.nextInt(20) + 5;
 		
-		for (int i = 1; i <= datapoints; i++) {
+		for (int i = 4; i <= datapoints; i++) {
 			
 			data.put("#" + i, new BigDecimal(RANDOM.nextInt(500)));
 

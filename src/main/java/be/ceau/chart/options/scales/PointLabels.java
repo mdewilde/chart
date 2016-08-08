@@ -1,14 +1,30 @@
+/*
+	Copyright 2016 Marceau Dewilde <m@ceau.be>
+
+	Licensed under the Apache License, Version 2.0 (the "License");
+	you may not use this file except in compliance with the License.
+	You may obtain a copy of the License at
+
+		http://www.apache.org/licenses/LICENSE-2.0
+
+	Unless required by applicable law or agreed to in writing, software
+	distributed under the License is distributed on an "AS IS" BASIS,
+	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	See the License for the specific language governing permissions and
+	limitations under the License.
+*/
 package be.ceau.chart.options.scales;
 
 import java.math.BigDecimal;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import be.ceau.chart.color.Color;
 import be.ceau.chart.data.JavaScriptFunction;
+import be.ceau.chart.enums.FontStyle;
 
 /**
  * The following options are used to configure the point labels that are shown
@@ -20,107 +36,127 @@ import be.ceau.chart.data.JavaScriptFunction;
 public class PointLabels {
 
 	/**
-	 * Default {@code -}
-	 * 
-	 * @see #setCallback(JavaScriptFunction callback)
+	 * @see #setCallback(JavaScriptFunction)
 	 */
 	private JavaScriptFunction callback;
 
 	/**
-	 * Default {@code '#666'}
-	 * 
-	 * @see #setFontColor(Color fontColor)
+	 * @see #setFontColor(Color)
 	 */
 	private Color fontColor;
 
 	/**
-	 * Default {@code "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif"}
-	 * 
-	 * @see #setFontFamily(String fontFamily)
+	 * @see #setFontFamily(String)
 	 */
 	private String fontFamily;
 
 	/**
-	 * Default {@code 10}
-	 * 
-	 * @see #setFontSize(BigDecimal fontSize)
+	 * @see #setFontSize(BigDecimal)
 	 */
 	private BigDecimal fontSize;
 
 	/**
-	 * Default {@code 'normal'}
-	 * 
-	 * @see #setFontStyle(String fontStyle)
+	 * @see #setFontStyle(FontStyle)
 	 */
-	private String fontStyle;
+	private FontStyle fontStyle;
 
 	/**
-	 * @see #setCallback(JavaScriptFunction callback)
+	 * @see #setCallback(JavaScriptFunction)
 	 */
 	public JavaScriptFunction getCallback() {
 	    return this.callback;
 	}
 
 	/**
+	 * <p>
 	 * Callback function to transform data label to axis label
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code -}
+	 * </p>
 	 */
 	public void setCallback(JavaScriptFunction callback) {
 	    this.callback = callback;
 	}
 
 	/**
-	 * @see #setFontColor(Color fontColor)
+	 * @see #setFontColor(Color)
 	 */
 	public Color getFontColor() {
 	    return this.fontColor;
 	}
 
 	/**
+	 * <p>
 	 * Font color
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code '#666'}
+	 * </p>
 	 */
 	public void setFontColor(Color fontColor) {
 	    this.fontColor = fontColor;
 	}
 
 	/**
-	 * @see #setFontFamily(String fontFamily)
+	 * @see #setFontFamily(String)
 	 */
 	public String getFontFamily() {
 	    return this.fontFamily;
 	}
 
 	/**
+	 * <p>
 	 * Font family to render
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif"}
+	 * </p>
 	 */
 	public void setFontFamily(String fontFamily) {
 	    this.fontFamily = fontFamily;
 	}
 
 	/**
-	 * @see #setFontSize(BigDecimal fontSize)
+	 * @see #setFontSize(BigDecimal)
 	 */
 	public BigDecimal getFontSize() {
 	    return this.fontSize;
 	}
 
 	/**
+	 * <p>
 	 * Font size in pixels
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code 10}
+	 * </p>
 	 */
 	public void setFontSize(BigDecimal fontSize) {
 	    this.fontSize = fontSize;
 	}
 
 	/**
-	 * @see #setFontStyle(String fontStyle)
+	 * @see #setFontStyle(FontStyle)
 	 */
-	public String getFontStyle() {
+	public FontStyle getFontStyle() {
 	    return this.fontStyle;
 	}
 
 	/**
+	 * <p>
 	 * Font Style to use
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code 'normal'}
+	 * </p>
 	 */
-	public void setFontStyle(String fontStyle) {
+	public void setFontStyle(FontStyle fontStyle) {
 	    this.fontStyle = fontStyle;
 	}
 	
