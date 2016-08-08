@@ -52,7 +52,7 @@ public class PolarDataset {
 	/**
 	 * @see #setBorderWidth(List)
 	 */
-	private List<BigDecimal> borderWidth;
+	private List<Integer> borderWidth;
 
 	/**
 	 * @see #setHoverBackgroundColor(List)
@@ -67,7 +67,7 @@ public class PolarDataset {
 	/**
 	 * @see #setHoverBorderWidth(List)
 	 */
-	private List<BigDecimal> hoverBorderWidth;
+	private List<Integer> hoverBorderWidth;
 
 	/**
 	 * @see #setData(List)
@@ -128,14 +128,14 @@ public class PolarDataset {
 	/**
 	 * @see #setBorderWidth(List)
 	 */
-	public List<BigDecimal> getBorderWidth() {
+	public List<Integer> getBorderWidth() {
 	    return this.borderWidth;
 	}
 
 	/**
 	 * Border width of arcs in pixels
 	 */
-	public void setBorderWidth(List<BigDecimal> borderWidth) {
+	public void setBorderWidth(List<Integer> borderWidth) {
 	    this.borderWidth = borderWidth;
 	}
 
@@ -170,14 +170,14 @@ public class PolarDataset {
 	/**
 	 * @see #setHoverBorderWidth(List)
 	 */
-	public List<BigDecimal> getHoverBorderWidth() {
+	public List<Integer> getHoverBorderWidth() {
 	    return this.hoverBorderWidth;
 	}
 
 	/**
 	 * Border width of arc when hovered
 	 */
-	public void setHoverBorderWidth(List<BigDecimal> hoverBorderWidth) {
+	public void setHoverBorderWidth(List<Integer> hoverBorderWidth) {
 	    this.hoverBorderWidth = hoverBorderWidth;
 	}
 

@@ -15,8 +15,6 @@
 */
 package be.ceau.chart.options.elements;
 
-import java.math.BigDecimal;
-
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -30,9 +28,9 @@ import be.ceau.chart.enums.PointStyle;
 public class Point {
 	
 	/**
-	 * @see #setRadius(BigDecimal)
+	 * @see #setRadius(Integer)
 	 */
-	private BigDecimal radius;
+	private Integer radius;
 
 	/**
 	 * @see #setPointStyle(PointStyle)
@@ -45,9 +43,9 @@ public class Point {
 	private Color backgroundColor;
 
 	/**
-	 * @see #setBorderWidth(BigDecimal)
+	 * @see #setBorderWidth(Integer)
 	 */
-	private BigDecimal borderWidth;
+	private Integer borderWidth;
 
 	/**
 	 * @see #setBorderColor(Color)
@@ -55,24 +53,24 @@ public class Point {
 	private Color borderColor;
 
 	/**
-	 * @see #setHitRadius(BigDecimal)
+	 * @see #setHitRadius(Integer)
 	 */
-	private BigDecimal hitRadius;
+	private Integer hitRadius;
 
 	/**
-	 * @see #setHoverRadius(BigDecimal)
+	 * @see #setHoverRadius(Integer)
 	 */
-	private BigDecimal hoverRadius;
+	private Integer hoverRadius;
 
 	/**
-	 * @see #setHoverBorderWidth(BigDecimal)
+	 * @see #setHoverBorderWidth(Integer)
 	 */
-	private BigDecimal hoverBorderWidth;
+	private Integer hoverBorderWidth;
 
 	/**
-	 * @see #setRadius(BigDecimal)
+	 * @see #setRadius(Integer)
 	 */
-	public BigDecimal getRadius() {
+	public Integer getRadius() {
 	    return this.radius;
 	}
 
@@ -85,7 +83,7 @@ public class Point {
 	 * Default {@code 3}
 	 * </p>
 	 */
-	public void setRadius(BigDecimal radius) {
+	public void setRadius(Integer radius) {
 	    this.radius = radius;
 	}
 
@@ -130,9 +128,9 @@ public class Point {
 	}
 
 	/**
-	 * @see #setBorderWidth(BigDecimal)
+	 * @see #setBorderWidth(Integer)
 	 */
-	public BigDecimal getBorderWidth() {
+	public Integer getBorderWidth() {
 	    return this.borderWidth;
 	}
 
@@ -145,7 +143,7 @@ public class Point {
 	 * Default {@code 1}
 	 * </p>
 	 */
-	public void setBorderWidth(BigDecimal borderWidth) {
+	public void setBorderWidth(Integer borderWidth) {
 	    this.borderWidth = borderWidth;
 	}
 
@@ -170,9 +168,9 @@ public class Point {
 	}
 
 	/**
-	 * @see #setHitRadius(BigDecimal)
+	 * @see #setHitRadius(Integer)
 	 */
-	public BigDecimal getHitRadius() {
+	public Integer getHitRadius() {
 	    return this.hitRadius;
 	}
 
@@ -185,14 +183,14 @@ public class Point {
 	 * Default {@code 1}
 	 * </p>
 	 */
-	public void setHitRadius(BigDecimal hitRadius) {
+	public void setHitRadius(Integer hitRadius) {
 	    this.hitRadius = hitRadius;
 	}
 
 	/**
-	 * @see #setHoverRadius(BigDecimal)
+	 * @see #setHoverRadius(Integer)
 	 */
-	public BigDecimal getHoverRadius() {
+	public Integer getHoverRadius() {
 	    return this.hoverRadius;
 	}
 
@@ -205,14 +203,14 @@ public class Point {
 	 * Default {@code 4}
 	 * </p>
 	 */
-	public void setHoverRadius(BigDecimal hoverRadius) {
+	public void setHoverRadius(Integer hoverRadius) {
 	    this.hoverRadius = hoverRadius;
 	}
 
 	/**
-	 * @see #setHoverBorderWidth(BigDecimal)
+	 * @see #setHoverBorderWidth(Integer)
 	 */
-	public BigDecimal getHoverBorderWidth() {
+	public Integer getHoverBorderWidth() {
 	    return this.hoverBorderWidth;
 	}
 
@@ -225,7 +223,7 @@ public class Point {
 	 * Default {@code 1}
 	 * </p>
 	 */
-	public void setHoverBorderWidth(BigDecimal hoverBorderWidth) {
+	public void setHoverBorderWidth(Integer hoverBorderWidth) {
 	    this.hoverBorderWidth = hoverBorderWidth;
 	}
 

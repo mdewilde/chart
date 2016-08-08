@@ -71,12 +71,13 @@ public class LineChart implements Chart {
 	private static final ObjectWriter WRITER = new ObjectMapper().writerWithDefaultPrettyPrinter().forType(LineChart.class);
 
 	private final String type = "line";
-	
+
 	private LineData data;
 
 	private LineOptions options;
 
-	public LineChart() {}
+	public LineChart() {
+	}
 
 	public LineChart(LineData data, LineOptions options) {
 		this.data = data;

@@ -25,6 +25,8 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import be.ceau.chart.color.Color;
+import be.ceau.chart.enums.BorderCapStyle;
+import be.ceau.chart.enums.BorderJoinStyle;
 import be.ceau.chart.enums.PointStyle;
 
 @JsonInclude(Include.NON_EMPTY)
@@ -57,9 +59,9 @@ public class LineDataset {
 	private Boolean fill;
 
 	/**
-	 * @see #setLineTension(BigDecimal)
+	 * @see #setLineTension(Float)
 	 */
-	private BigDecimal lineTension;
+	private Float lineTension;
 
 	/**
 	 * @see #setBackgroundColor(Color)
@@ -67,9 +69,9 @@ public class LineDataset {
 	private Color backgroundColor;
 
 	/**
-	 * @see #setBorderWidth(BigDecimal)
+	 * @see #setBorderWidth(Integer)
 	 */
-	private BigDecimal borderWidth;
+	private Integer borderWidth;
 
 	/**
 	 * @see #setBorderColor(Color)
@@ -77,24 +79,24 @@ public class LineDataset {
 	private Color borderColor;
 
 	/**
-	 * @see #setBorderCapStyle(String)
+	 * @see #setBorderCapStyle(BorderCapStyle)
 	 */
-	private String borderCapStyle;
+	private BorderCapStyle borderCapStyle;
 
 	/**
 	 * @see #setBorderDash(List)
 	 */
-	private List<BigDecimal> borderDash;
+	private List<Integer> borderDash;
 
 	/**
 	 * @see #setBorderDashOffset(BigDecimal)
 	 */
-	private BigDecimal borderDashOffset;
+	private Integer borderDashOffset;
 
 	/**
-	 * @see #setBorderJoinStyle(String)
+	 * @see #setBorderJoinStyle(BorderJoinStyle)
 	 */
-	private String borderJoinStyle;
+	private BorderJoinStyle borderJoinStyle;
 
 	/**
 	 * @see #setPointBorderColor(List)
@@ -109,22 +111,22 @@ public class LineDataset {
 	/**
 	 * @see #setPointBorderWidth(List)
 	 */
-	private List<BigDecimal> pointBorderWidth;
+	private List<Integer> pointBorderWidth;
 
 	/**
 	 * @see #setPointRadius(List)
 	 */
-	private List<BigDecimal> pointRadius;
+	private List<Integer> pointRadius;
 
 	/**
 	 * @see #setPointHoverRadius(List)
 	 */
-	private List<BigDecimal> pointHoverRadius;
+	private List<Integer> pointHoverRadius;
 
 	/**
 	 * @see #setPointHitRadius(List)
 	 */
-	private List<BigDecimal> pointHitRadius;
+	private List<Integer> pointHitRadius;
 
 	/**
 	 * @see #setPointHoverBackgroundColor(List)
@@ -139,7 +141,7 @@ public class LineDataset {
 	/**
 	 * @see #setPointHoverBorderWidth(List)
 	 */
-	private List<BigDecimal> pointHoverBorderWidth;
+	private List<Integer> pointHoverBorderWidth;
 
 	/**
 	 * @see #setPointStyle(List)
@@ -258,15 +260,14 @@ public class LineDataset {
 	/**
 	 * @see #setLineTension(BigDecimal)
 	 */
-	public BigDecimal getLineTension() {
+	public Float getLineTension() {
 		return this.lineTension;
 	}
 
 	/**
-	 * Bezier curve tension of the line. Set to 0 to draw straightlines. Note
-	 * This was renamed from 'tension' but the old name still works.
+	 * Bezier curve tension of the line. Set to 0 to draw straightlines.
 	 */
-	public void setLineTension(BigDecimal lineTension) {
+	public void setLineTension(Float lineTension) {
 		this.lineTension = lineTension;
 	}
 
@@ -285,16 +286,16 @@ public class LineDataset {
 	}
 
 	/**
-	 * @see #setBorderWidth(BigDecimal)
+	 * @see #setBorderWidth(Integer)
 	 */
-	public BigDecimal getBorderWidth() {
+	public Integer getBorderWidth() {
 		return this.borderWidth;
 	}
 
 	/**
 	 * The width of the line in pixels
 	 */
-	public void setBorderWidth(BigDecimal borderWidth) {
+	public void setBorderWidth(Integer borderWidth) {
 		this.borderWidth = borderWidth;
 	}
 
@@ -313,9 +314,9 @@ public class LineDataset {
 	}
 
 	/**
-	 * @see #setBorderCapStyle(String)
+	 * @see #setBorderCapStyle(BorderCapStyle)
 	 */
-	public String getBorderCapStyle() {
+	public BorderCapStyle getBorderCapStyle() {
 		return this.borderCapStyle;
 	}
 
@@ -328,14 +329,14 @@ public class LineDataset {
 	 * equal width and half the height of the line's thickness.
 	 * </ul>
 	 */
-	public void setBorderCapStyle(String borderCapStyle) {
+	public void setBorderCapStyle(BorderCapStyle borderCapStyle) {
 		this.borderCapStyle = borderCapStyle;
 	}
 
 	/**
 	 * @see #setBorderDash(List)
 	 */
-	public List<BigDecimal> getBorderDash() {
+	public List<Integer> getBorderDash() {
 		return this.borderDash;
 	}
 
@@ -346,14 +347,14 @@ public class LineDataset {
 	 * copied and concatenated. For example, [5, 15, 25] will become [5, 15, 25,
 	 * 5, 15, 25].
 	 */
-	public void setBorderDash(List<BigDecimal> borderDash) {
+	public void setBorderDash(List<Integer> borderDash) {
 		this.borderDash = borderDash;
 	}
 
 	/**
-	 * @see #setBorderDashOffset(BigDecimal)
+	 * @see #setBorderDashOffset(Integer)
 	 */
-	public BigDecimal getBorderDashOffset() {
+	public Integer getBorderDashOffset() {
 		return this.borderDashOffset;
 	}
 
@@ -361,14 +362,14 @@ public class LineDataset {
 	 * Default line dash offset. A float specifying the amount of
 	 * the offset. Initially 0.0.
 	 */
-	public void setBorderDashOffset(BigDecimal borderDashOffset) {
+	public void setBorderDashOffset(Integer borderDashOffset) {
 		this.borderDashOffset = borderDashOffset;
 	}
 
 	/**
-	 * @see #setBorderJoinStyle(String)
+	 * @see #setBorderJoinStyle(BorderJoinStyle)
 	 */
-	public String getBorderJoinStyle() {
+	public BorderJoinStyle getBorderJoinStyle() {
 		return this.borderJoinStyle;
 	}
 
@@ -388,7 +389,7 @@ public class LineDataset {
 	 * lozenge-shaped area. This setting is effected by the miterLimit property.
 	 * </ul>
 	 */
-	public void setBorderJoinStyle(String borderJoinStyle) {
+	public void setBorderJoinStyle(BorderJoinStyle borderJoinStyle) {
 		this.borderJoinStyle = borderJoinStyle;
 	}
 
@@ -423,56 +424,56 @@ public class LineDataset {
 	/**
 	 * @see #setPointBorderWidth(List)
 	 */
-	public List<BigDecimal> getPointBorderWidth() {
+	public List<Integer> getPointBorderWidth() {
 		return this.pointBorderWidth;
 	}
 
 	/**
 	 * The width of the point border in pixels
 	 */
-	public void setPointBorderWidth(List<BigDecimal> pointBorderWidth) {
+	public void setPointBorderWidth(List<Integer> pointBorderWidth) {
 		this.pointBorderWidth = pointBorderWidth;
 	}
 
 	/**
 	 * @see #setPointRadius(List)
 	 */
-	public List<BigDecimal> getPointRadius() {
+	public List<Integer> getPointRadius() {
 		return this.pointRadius;
 	}
 
 	/**
 	 * The radius of the point shape. If set to 0, nothing is rendered.
 	 */
-	public void setPointRadius(List<BigDecimal> pointRadius) {
+	public void setPointRadius(List<Integer> pointRadius) {
 		this.pointRadius = pointRadius;
 	}
 
 	/**
 	 * @see #setPointHoverRadius(List)
 	 */
-	public List<BigDecimal> getPointHoverRadius() {
+	public List<Integer> getPointHoverRadius() {
 		return this.pointHoverRadius;
 	}
 
 	/**
 	 * The radius of the point when hovered
 	 */
-	public void setPointHoverRadius(List<BigDecimal> pointHoverRadius) {
+	public void setPointHoverRadius(List<Integer> pointHoverRadius) {
 		this.pointHoverRadius = pointHoverRadius;
 	}
 
 	/**
 	 * @see #setPointHitRadius(List)
 	 */
-	public List<BigDecimal> getPointHitRadius() {
+	public List<Integer> getPointHitRadius() {
 		return this.pointHitRadius;
 	}
 
 	/**
 	 * The pixel size of the non-displayed point that reacts to mouse events
 	 */
-	public void setPointHitRadius(List<BigDecimal> pointHitRadius) {
+	public void setPointHitRadius(List<Integer> pointHitRadius) {
 		this.pointHitRadius = pointHitRadius;
 	}
 
@@ -507,14 +508,14 @@ public class LineDataset {
 	/**
 	 * @see #setPointHoverBorderWidth(List)
 	 */
-	public List<BigDecimal> getPointHoverBorderWidth() {
+	public List<Integer> getPointHoverBorderWidth() {
 		return this.pointHoverBorderWidth;
 	}
 
 	/**
 	 * Border width of point when hovered
 	 */
-	public void setPointHoverBorderWidth(List<BigDecimal> pointHoverBorderWidth) {
+	public void setPointHoverBorderWidth(List<Integer> pointHoverBorderWidth) {
 		this.pointHoverBorderWidth = pointHoverBorderWidth;
 	}
 

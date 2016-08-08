@@ -15,8 +15,6 @@
 */
 package be.ceau.chart.options.elements;
 
-import java.math.BigDecimal;
-
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -27,25 +25,29 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 public class RadarLine extends Line {
 
 	/**
-	 * Default {@code 0}
-	 * 
-	 * @see #setLineTension(BigDecimal)
+	 * @see #setLineTension(Float)
 	 */
-	private BigDecimal lineTension;
+	private Float lineTension;
 
 	/**
-	 * @see #setLineTension(BigDecimal)
+	 * @see #setLineTension(Float)
 	 */
-	public BigDecimal getLineTension() {
+	public Float getLineTension() {
 		return lineTension;
 	}
 
 	/**
-	 * Tension exhibited by lines when calculating splineCurve. Setting to 0 creates straight lines
+	 * <p>
+	 * Tension exhibited by lines when calculating splineCurve. Setting to 0
+	 * creates straight lines
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code 0}
+	 * </p>
 	 */
-	public void setLineTension(BigDecimal lineTension) {
+	public void setLineTension(Float lineTension) {
 		this.lineTension = lineTension;
-	} 	
-	
+	}
 
 }

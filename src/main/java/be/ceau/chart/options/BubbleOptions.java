@@ -13,53 +13,45 @@
 	See the License for the specific language governing permissions and
 	limitations under the License.
 */
-package be.ceau.chart.data;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
+package be.ceau.chart.options;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
+import be.ceau.chart.options.elements.BubbleElements;
+
+/**
+ * The bubble chart has no unique configuration options. To configure options common to all of the bubbles, the point element options are used.
+	
+	For example, to give all bubbles a 1px wide black border, the following options would be used.
+	
+	new Chart(ctx,{
+	    type:"bubble",
+	    options: {
+	        elements: {
+	            points: {
+	                borderWidth: 1,
+	                borderColor: 'rgb(0, 0, 0)'
+	            }
+	        }
+	    }
+	});
+
+ */
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
-public class PieData {
+public class BubbleOptions extends Options {
 
-	private final List<String> labels = new ArrayList<String>();
-	private final List<PieDataset> datasets = new ArrayList<PieDataset>();
+	private BubbleElements elements;
 
-	public List<String> getLabels() {
-		return Collections.unmodifiableList(labels);
+	public BubbleElements getElements() {
+		return elements;
 	}
 
-	public void setLabels(Collection<String> labels) {
-		this.labels.clear();
-		if (labels != null) {
-			this.labels.addAll(labels);
-		}
-	}
-
-	public void addLabel(String label) {
-		this.labels.add(label);
-	}
-
-	public List<PieDataset> getDatasets() {
-		return Collections.unmodifiableList(datasets);
-	}
-
-	public void setDatasets(Collection<PieDataset> datasets) {
-		this.datasets.clear();
-		if (datasets != null) {
-			this.datasets.addAll(datasets);
-		}
-	}
-
-	public void addDataset(PieDataset dataset) {
-		this.datasets.add(dataset);
+	public void setElements(BubbleElements elements) {
+		this.elements = elements;
 	}
 
 }

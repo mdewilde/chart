@@ -15,102 +15,117 @@
 */
 package be.ceau.chart.options.elements;
 
-import java.math.BigDecimal;
-
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import be.ceau.chart.color.Color;
+import be.ceau.chart.enums.BorderSkipped;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 public class Rectangle {
 
 	/**
-	 * Default {@code 'rgba(0,0,0,0.1)'}
-	 * 
-	 * @see #setBackgroundColor(Color backgroundColor)
+	 * @see #setBackgroundColor(Color)
 	 */
 	private Color backgroundColor;
 
 	/**
-	 * Default {@code 0}
-	 * 
-	 * @see #setBorderWidth(BigDecimal borderWidth)
+	 * @see #setBorderWidth(Integer)
 	 */
-	private BigDecimal borderWidth;
+	private Integer borderWidth;
 
 	/**
-	 * Default {@code 'rgba(0,0,0,0.1)'}
-	 * 
-	 * @see #setBorderColor(Color borderColor)
+	 * @see #setBorderColor(Color)
 	 */
 	private Color borderColor;
 
 	/**
-	 * Default {@code 'bottom'}
-	 * 
-	 * @see #setBorderSkipped(String borderSkipped)
+	 * @see #setBorderSkipped(BorderSkipped)
 	 */
-	private String borderSkipped;
+	private BorderSkipped borderSkipped;
 
 	/**
-	 * @see #setBackgroundColor(Color backgroundColor)
+	 * @see #setBackgroundColor(Color)
 	 */
 	public Color getBackgroundColor() {
-	    return this.backgroundColor;
+		return this.backgroundColor;
 	}
 
 	/**
+	 * <p>
 	 * Default bar fill color
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code 'rgba(0,0,0,0.1)'}
+	 * </p>
 	 */
 	public void setBackgroundColor(Color backgroundColor) {
-	    this.backgroundColor = backgroundColor;
+		this.backgroundColor = backgroundColor;
 	}
 
 	/**
-	 * @see #setBorderWidth(BigDecimal borderWidth)
+	 * @see #setBorderWidth(Integer)
 	 */
-	public BigDecimal getBorderWidth() {
-	    return this.borderWidth;
+	public Integer getBorderWidth() {
+		return this.borderWidth;
 	}
 
 	/**
+	 * <p>
 	 * Default bar stroke width
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code 0}
+	 * </p>
 	 */
-	public void setBorderWidth(BigDecimal borderWidth) {
-	    this.borderWidth = borderWidth;
+	public void setBorderWidth(Integer borderWidth) {
+		this.borderWidth = borderWidth;
 	}
 
 	/**
-	 * @see #setBorderColor(Color borderColor)
+	 * @see #setBorderColor(Color)
 	 */
 	public Color getBorderColor() {
-	    return this.borderColor;
+		return this.borderColor;
 	}
 
 	/**
+	 * <p>
 	 * Default bar stroke color
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code 'rgba(0,0,0,0.1)'}
+	 * </p>
 	 */
 	public void setBorderColor(Color borderColor) {
-	    this.borderColor = borderColor;
+		this.borderColor = borderColor;
 	}
 
 	/**
-	 * @see #setBorderSkipped(String borderSkipped)
+	 * @see #setBorderSkipped(BorderSkipped)
 	 */
-	public String getBorderSkipped() {
-	    return this.borderSkipped;
+	public BorderSkipped getBorderSkipped() {
+		return this.borderSkipped;
 	}
 
 	/**
-	 * Default skipped (excluded) border for rectangle. Can be one of bottom, left, top, right
+	 * <p>
+	 * Default skipped (excluded) border for rectangle. Can be one of bottom,
+	 * left, top, right
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code 'bottom'}
+	 * </p>
 	 */
-	public void setBorderSkipped(String borderSkipped) {
-	    this.borderSkipped = borderSkipped;
+	public void setBorderSkipped(BorderSkipped borderSkipped) {
+		this.borderSkipped = borderSkipped;
 	}
-
 
 }

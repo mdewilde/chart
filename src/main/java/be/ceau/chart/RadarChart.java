@@ -23,6 +23,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 
+import be.ceau.chart.options.RadarOptions;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
@@ -31,6 +32,34 @@ public class RadarChart implements Chart {
 	private static final ObjectWriter WRITER = new ObjectMapper().writerWithDefaultPrettyPrinter().forType(RadarChart.class);
 
 	private final String type = "radar";
+
+	private RadarChart radarData;
+
+	private RadarOptions radarOptions;
+
+	public RadarChart() {
+	}
+
+	public RadarChart(RadarChart radarData, RadarOptions radarOptions) {
+		this.radarData = radarData;
+		this.radarOptions = radarOptions;
+	}
+
+	public RadarChart getRadarData() {
+		return radarData;
+	}
+
+	public void setRadarData(RadarChart radarData) {
+		this.radarData = radarData;
+	}
+
+	public RadarOptions getRadarOptions() {
+		return radarOptions;
+	}
+
+	public void setRadarOptions(RadarOptions radarOptions) {
+		this.radarOptions = radarOptions;
+	}
 
 	@Override
 	public String getType() {

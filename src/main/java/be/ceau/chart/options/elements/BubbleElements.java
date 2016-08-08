@@ -13,27 +13,25 @@
 	See the License for the specific language governing permissions and
 	limitations under the License.
 */
-package be.ceau.chart.enums;
+package be.ceau.chart.options.elements;
 
-import java.util.Locale;
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
-import com.fasterxml.jackson.annotation.JsonValue;
+@JsonInclude(Include.NON_EMPTY)
+@JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
+public class BubbleElements {
 
-public enum TitlePosition {
+	private Point points;
 
-	TOP,
-	BOTTOM;
-	
-	private final String serialized;
-
-	private TitlePosition() {
-		this.serialized = name().toLowerCase(Locale.ENGLISH);
+	public Point getPoints() {
+		return points;
 	}
 
-	@Override
-	@JsonValue
-	public String toString() {
-		return this.serialized;
+	public void setPoints(Point points) {
+		this.points = points;
 	}
-	
+
 }

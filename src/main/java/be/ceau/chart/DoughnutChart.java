@@ -23,13 +23,44 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 
+import be.ceau.chart.data.DoughnutData;
+import be.ceau.chart.options.DoughnutOptions;
+
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 public class DoughnutChart implements Chart {
-	
+
 	private static final ObjectWriter WRITER = new ObjectMapper().writerWithDefaultPrettyPrinter().forType(DoughnutChart.class);
 
 	private final String type = "doughnut";
+
+	private DoughnutData data;
+
+	private DoughnutOptions options;
+
+	public DoughnutChart() {
+	}
+
+	public DoughnutChart(DoughnutData data, DoughnutOptions options) {
+		this.data = data;
+		this.options = options;
+	}
+
+	public DoughnutData getData() {
+		return data;
+	}
+
+	public void setData(DoughnutData data) {
+		this.data = data;
+	}
+
+	public DoughnutOptions getOptions() {
+		return options;
+	}
+
+	public void setOptions(DoughnutOptions options) {
+		this.options = options;
+	}
 
 	@Override
 	public String getType() {

@@ -15,11 +15,9 @@
 */
 package be.ceau.chart.options.elements;
 
-import java.math.BigDecimal;
-
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import be.ceau.chart.color.Color;
@@ -29,66 +27,78 @@ import be.ceau.chart.color.Color;
 public class Arc {
 	
 	/**
-	 * Default {@code 'rgba(0,0,0,0.1)'}
-	 * 
-	 * @see #setBackgroundColor(Color backgroundColor)
+	 * @see #setBackgroundColor(Color)
 	 */
 	private Color backgroundColor;
 
 	/**
-	 * Default {@code '#fff'}
-	 * 
-	 * @see #setBorderColor(Color borderColor)
+	 * @see #setBorderColor(Color)
 	 */
 	private Color borderColor;
 
 	/**
-	 * Default {@code 2}
-	 * 
-	 * @see #setBorderWidth(BigDecimal borderWidth)
+	 * @see #setBorderWidth(Integer)
 	 */
-	private BigDecimal borderWidth;
+	private Integer borderWidth;
 
 	/**
-	 * @see #setBackgroundColor(Color backgroundColor)
+	 * @see #setBackgroundColor(Color)
 	 */
 	public Color getBackgroundColor() {
-		return this.backgroundColor;
+	    return this.backgroundColor;
 	}
 
 	/**
+	 * <p>
 	 * Default fill color for arcs. Inherited from the global default
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code 'rgba(0,0,0,0.1)'}
+	 * </p>
 	 */
 	public void setBackgroundColor(Color backgroundColor) {
-		this.backgroundColor = backgroundColor;
+	    this.backgroundColor = backgroundColor;
 	}
 
 	/**
-	 * @see #setBorderColor(Color borderColor)
+	 * @see #setBorderColor(Color)
 	 */
 	public Color getBorderColor() {
-		return this.borderColor;
+	    return this.borderColor;
 	}
 
 	/**
+	 * <p>
 	 * Default stroke color for arcs
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code '#fff'}
+	 * </p>
 	 */
 	public void setBorderColor(Color borderColor) {
-		this.borderColor = borderColor;
+	    this.borderColor = borderColor;
 	}
 
 	/**
-	 * @see #setBorderWidth(BigDecimal borderWidth)
+	 * @see #setBorderWidth(Integer)
 	 */
-	public BigDecimal getBorderWidth() {
-		return this.borderWidth;
+	public Integer getBorderWidth() {
+	    return this.borderWidth;
 	}
 
 	/**
+	 * <p>
 	 * Default stroke width for arcs
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code 2}
+	 * </p>
 	 */
-	public void setBorderWidth(BigDecimal borderWidth) {
-		this.borderWidth = borderWidth;
+	public void setBorderWidth(Integer borderWidth) {
+	    this.borderWidth = borderWidth;
 	}
 
 }

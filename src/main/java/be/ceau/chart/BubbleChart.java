@@ -23,6 +23,9 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 
+import be.ceau.chart.data.BubbleData;
+import be.ceau.chart.options.BubbleOptions;
+
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 public class BubbleChart implements Chart {
@@ -30,6 +33,34 @@ public class BubbleChart implements Chart {
 	private static final ObjectWriter WRITER = new ObjectMapper().writerWithDefaultPrettyPrinter().forType(BubbleChart.class);
 
 	private final String type = "bubble";
+
+	private BubbleData data;
+
+	private BubbleOptions options;
+
+	public BubbleChart() {
+	}
+
+	public BubbleChart(BubbleData data, BubbleOptions options) {
+		this.data = data;
+		this.options = options;
+	}
+
+	public BubbleData getData() {
+		return data;
+	}
+
+	public void setData(BubbleData data) {
+		this.data = data;
+	}
+
+	public BubbleOptions getOptions() {
+		return options;
+	}
+
+	public void setOptions(BubbleOptions options) {
+		this.options = options;
+	}
 
 	@Override
 	public String getType() {

@@ -24,6 +24,8 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import be.ceau.chart.color.Color;
+import be.ceau.chart.enums.BorderCapStyle;
+import be.ceau.chart.enums.BorderJoinStyle;
 import be.ceau.chart.enums.PointStyle;
 
 @JsonInclude(Include.NON_EMPTY)
@@ -66,9 +68,9 @@ public class RadarDataset {
 	private Color borderColor;
 
 	/**
-	 * @see #setBorderCapStyle(String)
+	 * @see #setBorderCapStyle(BorderCapStyle)
 	 */
-	private String borderCapStyle;
+	private BorderCapStyle borderCapStyle;
 
 	/**
 	 * @see #setBorderDash(List)
@@ -81,9 +83,9 @@ public class RadarDataset {
 	private Float borderDashOffset;
 
 	/**
-	 * @see #setBorderJoinStyle(String)
+	 * @see #setBorderJoinStyle(BorderJoinStyle)
 	 */
-	private String borderJoinStyle;
+	private BorderJoinStyle borderJoinStyle;
 
 	/**
 	 * @see #setPointBorderColor(List)
@@ -234,9 +236,9 @@ public class RadarDataset {
 	}
 
 	/**
-	 * @see #setBorderCapStyle(String)
+	 * @see #setBorderCapStyle(BorderCapStyle)
 	 */
-	public String getBorderCapStyle() {
+	public BorderCapStyle getBorderCapStyle() {
 		return this.borderCapStyle;
 	}
 
@@ -249,7 +251,7 @@ public class RadarDataset {
 	 * equal width and half the height of the line's thickness.
 	 * </ul>
 	 */
-	public void setBorderCapStyle(String borderCapStyle) {
+	public void setBorderCapStyle(BorderCapStyle borderCapStyle) {
 		this.borderCapStyle = borderCapStyle;
 	}
 
@@ -287,9 +289,9 @@ public class RadarDataset {
 	}
 
 	/**
-	 * @see #setBorderJoinStyle(String)
+	 * @see #setBorderJoinStyle(BorderJoinStyle)
 	 */
-	public String getBorderJoinStyle() {
+	public BorderJoinStyle getBorderJoinStyle() {
 		return this.borderJoinStyle;
 	}
 
@@ -309,7 +311,7 @@ public class RadarDataset {
 	 * lozenge-shaped area. This setting is effected by the miterLimit property.
 	 * </ul>
 	 */
-	public void setBorderJoinStyle(String borderJoinStyle) {
+	public void setBorderJoinStyle(BorderJoinStyle borderJoinStyle) {
 		this.borderJoinStyle = borderJoinStyle;
 	}
 

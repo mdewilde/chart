@@ -62,7 +62,7 @@ public class BarDataset {
 	/**
 	 * @see #setBorderWidth(List)
 	 */
-	private List<BigDecimal> borderWidth;
+	private List<Integer> borderWidth;
 
 	/**
 	 * @see #setBorderSkipped(List)
@@ -82,7 +82,7 @@ public class BarDataset {
 	/**
 	 * @see #setHoverBorderWidth(List)
 	 */
-	private List<BigDecimal> hoverBorderWidth;
+	private List<Integer> hoverBorderWidth;
 
 	/**
 	 * @see #setData(List)
@@ -171,14 +171,14 @@ public class BarDataset {
 	/**
 	 * @see #setBorderWidth(List)
 	 */
-	public List<BigDecimal> getBorderWidth() {
+	public List<Integer> getBorderWidth() {
 	    return this.borderWidth;
 	}
 
 	/**
 	 * Border width of bar in pixels
 	 */
-	public void setBorderWidth(List<BigDecimal> borderWidth) {
+	public void setBorderWidth(List<Integer> borderWidth) {
 	    this.borderWidth = borderWidth;
 	}
 
@@ -227,14 +227,14 @@ public class BarDataset {
 	/**
 	 * @see #setHoverBorderWidth(List)
 	 */
-	public List<BigDecimal> getHoverBorderWidth() {
+	public List<Integer> getHoverBorderWidth() {
 	    return this.hoverBorderWidth;
 	}
 
 	/**
 	 * Border width of bar when hovered
 	 */
-	public void setHoverBorderWidth(List<BigDecimal> hoverBorderWidth) {
+	public void setHoverBorderWidth(List<Integer> hoverBorderWidth) {
 	    this.hoverBorderWidth = hoverBorderWidth;
 	}
 	

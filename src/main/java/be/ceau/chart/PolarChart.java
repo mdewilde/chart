@@ -23,19 +23,50 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 
+import be.ceau.chart.data.PolarData;
+import be.ceau.chart.options.PolarOptions;
+
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 public class PolarChart implements Chart {
 
 	private static final ObjectWriter WRITER = new ObjectMapper().writerWithDefaultPrettyPrinter().forType(PolarChart.class);
 
-	private final String type = "polar";
+	private final String type = "polarArea";
+
+	private PolarData polarData;
+
+	private PolarOptions polarOptions;
+
+	public PolarChart() {
+	}
+
+	public PolarChart(PolarData polarData, PolarOptions polarOptions) {
+		this.polarData = polarData;
+		this.polarOptions = polarOptions;
+	}
+
+	public PolarData getPolarData() {
+		return polarData;
+	}
+
+	public void setPolarData(PolarData polarData) {
+		this.polarData = polarData;
+	}
+
+	public PolarOptions getPolarOptions() {
+		return polarOptions;
+	}
+
+	public void setPolarOptions(PolarOptions polarOptions) {
+		this.polarOptions = polarOptions;
+	}
 
 	@Override
 	public String getType() {
 		return type;
 	}
-	
+
 	@Override
 	public String toJson() {
 		try {
