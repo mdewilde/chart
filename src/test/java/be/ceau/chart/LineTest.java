@@ -37,7 +37,7 @@ public class LineTest {
 		LineData data = new LineData();
 		LineDataset dataset = new LineDataset();
 		
-		dataset.setBackgroundColor(Color.random());
+		dataset.setBackgroundColor(Color.DARK_SEA_GREEN);
 		dataset.setBorderCapStyle("round");
 		dataset.setBorderColor(Color.random());
 		dataset.setBorderDash(Arrays.asList(new BigDecimal(10), new BigDecimal(2)));
@@ -98,31 +98,29 @@ public class LineTest {
 		
 		String json = lineChart.toJson();
 		
-		Filer.toBrowser(lineChart.getType(), json);
-	
+		Opener.toBrowser(lineChart.getType(), json);
+
 	}
 	
-	
-
 	private LinearScales newLinearScales() {
 		LinearScales linearScales = new LinearScales();
 		LinearScale scale = new LinearScale();
 		scale.setDisplay(true);
-		scale.setGridLines(getGridLines());
-		scale.setTicks(getTicks());
+		scale.setGridLines(newGridLines());
+		scale.setTicks(newTicks());
 		linearScales.setxAxes(Collections.singletonList(scale));
 		linearScales.setyAxes(Collections.singletonList(scale));
 		return linearScales;
 	}
 
-	private LinearTicks getTicks() {
+	private LinearTicks newTicks() {
 		LinearTicks ticks = new LinearTicks();
 		ticks.setBeginAtZero(true);
 		ticks.setMax(new BigDecimal(2500));
 		return ticks;
 	}
 
-	private GridLines getGridLines() {
+	private GridLines newGridLines() {
 		GridLines gridLines = new GridLines();
 		gridLines.setDisplay(true);
 		gridLines.setColor(Collections.singletonList(Color.LIGHT_CYAN));

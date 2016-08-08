@@ -15,16 +15,10 @@
  */
 package be.ceau.chart.color;
 
-import java.io.IOException;
 import java.util.Random;
 
-import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonSerializer;
-import com.fasterxml.jackson.databind.SerializerProvider;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.annotation.JsonValue;
 
-@JsonSerialize(using = Color.Serializer.class)
 public class Color {
 
 	private static final Random RANDOMIZER = new Random(System.nanoTime());
@@ -267,6 +261,7 @@ public class Color {
 		return a;
 	}
 
+	@JsonValue
 	public String rgba() {
 		return "rgba(" + r + "," + g + "," + b + "," + String.format("%.3f", a) + ")";
 	}
@@ -305,15 +300,6 @@ public class Color {
 		if (r != other.r)
 			return false;
 		return true;
-	}
-
-	public static final class Serializer extends JsonSerializer<Color> {
-
-		@Override
-		public void serialize(Color value, JsonGenerator gen, SerializerProvider serializers) throws IOException, JsonProcessingException {
-			gen.writeString(value.rgba());
-		}
-
 	}
 
 }

@@ -19,11 +19,12 @@ import java.math.BigDecimal;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import be.ceau.chart.color.Color;
+import be.ceau.chart.enums.PointStyle;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
@@ -45,9 +46,9 @@ public class RadarDataset {
 	private Boolean fill;
 
 	/**
-	 * @see #setLineTension(BigDecimal)
+	 * @see #setLineTension(Float)
 	 */
-	private BigDecimal lineTension;
+	private Float lineTension;
 
 	/**
 	 * @see #setBackgroundColor(Color)
@@ -55,9 +56,9 @@ public class RadarDataset {
 	private Color backgroundColor;
 
 	/**
-	 * @see #setBorderWidth(BigDecimal)
+	 * @see #setBorderWidth(Integer)
 	 */
-	private BigDecimal borderWidth;
+	private Integer borderWidth;
 
 	/**
 	 * @see #setBorderColor(Color)
@@ -72,12 +73,12 @@ public class RadarDataset {
 	/**
 	 * @see #setBorderDash(List)
 	 */
-	private List<BigDecimal> borderDash;
+	private List<Integer> borderDash;
 
 	/**
-	 * @see #setBorderDashOffset(BigDecimal)
+	 * @see #setBorderDashOffset(Float)
 	 */
-	private BigDecimal borderDashOffset;
+	private Float borderDashOffset;
 
 	/**
 	 * @see #setBorderJoinStyle(String)
@@ -97,22 +98,22 @@ public class RadarDataset {
 	/**
 	 * @see #setPointBorderWidth(List)
 	 */
-	private List<BigDecimal> pointBorderWidth;
+	private List<Integer> pointBorderWidth;
 
 	/**
 	 * @see #setPointRadius(List)
 	 */
-	private List<BigDecimal> pointRadius;
+	private List<Integer> pointRadius;
 
 	/**
 	 * @see #setPointHoverRadius(List)
 	 */
-	private List<BigDecimal> pointHoverRadius;
+	private List<Integer> pointHoverRadius;
 
 	/**
 	 * @see #setHitRadius(List)
 	 */
-	private List<BigDecimal> hitRadius;
+	private List<Integer> hitRadius;
 
 	/**
 	 * @see #setPointHoverBackgroundColor(List)
@@ -127,12 +128,12 @@ public class RadarDataset {
 	/**
 	 * @see #setPointHoverBorderWidth(List)
 	 */
-	private List<BigDecimal> pointHoverBorderWidth;
+	private List<Integer> pointHoverBorderWidth;
 
 	/**
 	 * @see #setPointStyle(List)
 	 */
-	private List<String> pointStyle;
+	private List<PointStyle> pointStyle;
 
 	/**
 	 * @see #setData(List)
@@ -177,17 +178,16 @@ public class RadarDataset {
 	}
 
 	/**
-	 * @see #setLineTension(BigDecimal)
+	 * @see #setLineTension(Float)
 	 */
-	public BigDecimal getLineTension() {
+	public Float getLineTension() {
 		return this.lineTension;
 	}
 
 	/**
-	 * Bezier curve tension of the line. Set to 0 to draw straightlines. Note
-	 * This was renamed from 'tension' but the old name still works.
+	 * Bezier curve tension of the line. Set to 0 to draw straightlines.
 	 */
-	public void setLineTension(BigDecimal lineTension) {
+	public void setLineTension(Float lineTension) {
 		this.lineTension = lineTension;
 	}
 
@@ -206,16 +206,16 @@ public class RadarDataset {
 	}
 
 	/**
-	 * @see #setBorderWidth(BigDecimal)
+	 * @see #setBorderWidth(Integer)
 	 */
-	public BigDecimal getBorderWidth() {
+	public Integer getBorderWidth() {
 		return this.borderWidth;
 	}
 
 	/**
 	 * The width of the line in pixels
 	 */
-	public void setBorderWidth(BigDecimal borderWidth) {
+	public void setBorderWidth(Integer borderWidth) {
 		this.borderWidth = borderWidth;
 	}
 
@@ -256,7 +256,7 @@ public class RadarDataset {
 	/**
 	 * @see #setBorderDash(List)
 	 */
-	public List<BigDecimal> getBorderDash() {
+	public List<Integer> getBorderDash() {
 		return this.borderDash;
 	}
 
@@ -267,14 +267,14 @@ public class RadarDataset {
 	 * copied and concatenated. For example, [5, 15, 25] will become [5, 15, 25,
 	 * 5, 15, 25].
 	 */
-	public void setBorderDash(List<BigDecimal> borderDash) {
+	public void setBorderDash(List<Integer> borderDash) {
 		this.borderDash = borderDash;
 	}
 
 	/**
-	 * @see #setBorderDashOffset(BigDecimal)
+	 * @see #setBorderDashOffset(Float)
 	 */
-	public BigDecimal getBorderDashOffset() {
+	public Float getBorderDashOffset() {
 		return this.borderDashOffset;
 	}
 
@@ -282,7 +282,7 @@ public class RadarDataset {
 	 * Default line dash offset. A float specifying the amount of
 	 * the offset. Initially 0.0.
 	 */
-	public void setBorderDashOffset(BigDecimal borderDashOffset) {
+	public void setBorderDashOffset(Float borderDashOffset) {
 		this.borderDashOffset = borderDashOffset;
 	}
 
@@ -344,56 +344,56 @@ public class RadarDataset {
 	/**
 	 * @see #setPointBorderWidth(List)
 	 */
-	public List<BigDecimal> getPointBorderWidth() {
+	public List<Integer> getPointBorderWidth() {
 		return this.pointBorderWidth;
 	}
 
 	/**
 	 * The width of the point border in pixels
 	 */
-	public void setPointBorderWidth(List<BigDecimal> pointBorderWidth) {
+	public void setPointBorderWidth(List<Integer> pointBorderWidth) {
 		this.pointBorderWidth = pointBorderWidth;
 	}
 
 	/**
 	 * @see #setPointRadius(List)
 	 */
-	public List<BigDecimal> getPointRadius() {
+	public List<Integer> getPointRadius() {
 		return this.pointRadius;
 	}
 
 	/**
 	 * The radius of the point shape. If set to 0, nothing is rendered.
 	 */
-	public void setPointRadius(List<BigDecimal> pointRadius) {
+	public void setPointRadius(List<Integer> pointRadius) {
 		this.pointRadius = pointRadius;
 	}
 
 	/**
 	 * @see #setPointHoverRadius(List)
 	 */
-	public List<BigDecimal> getPointHoverRadius() {
+	public List<Integer> getPointHoverRadius() {
 		return this.pointHoverRadius;
 	}
 
 	/**
 	 * The radius of the point when hovered
 	 */
-	public void setPointHoverRadius(List<BigDecimal> pointHoverRadius) {
+	public void setPointHoverRadius(List<Integer> pointHoverRadius) {
 		this.pointHoverRadius = pointHoverRadius;
 	}
 
 	/**
 	 * @see #setHitRadius(List)
 	 */
-	public List<BigDecimal> getHitRadius() {
+	public List<Integer> getHitRadius() {
 		return this.hitRadius;
 	}
 
 	/**
 	 * The pixel size of the non-displayed point that reacts to mouse events
 	 */
-	public void setHitRadius(List<BigDecimal> hitRadius) {
+	public void setHitRadius(List<Integer> hitRadius) {
 		this.hitRadius = hitRadius;
 	}
 
@@ -428,21 +428,21 @@ public class RadarDataset {
 	/**
 	 * @see #setPointHoverBorderWidth(List)
 	 */
-	public List<BigDecimal> getPointHoverBorderWidth() {
+	public List<Integer> getPointHoverBorderWidth() {
 		return this.pointHoverBorderWidth;
 	}
 
 	/**
 	 * Border width of point when hovered
 	 */
-	public void setPointHoverBorderWidth(List<BigDecimal> pointHoverBorderWidth) {
+	public void setPointHoverBorderWidth(List<Integer> pointHoverBorderWidth) {
 		this.pointHoverBorderWidth = pointHoverBorderWidth;
 	}
 
 	/**
 	 * @see #setPointStyle(List)
 	 */
-	public List<String> getPointStyle() {
+	public List<PointStyle> getPointStyle() {
 		return this.pointStyle;
 	}
 
@@ -450,7 +450,7 @@ public class RadarDataset {
 	 * The style of point. Options include 'circle', 'triangle', 'rect',
 	 * 'rectRot', 'cross', 'crossRot', 'star', 'line', and 'dash'
 	 */
-	public void setPointStyle(List<String> pointStyle) {
+	public void setPointStyle(List<PointStyle> pointStyle) {
 		this.pointStyle = pointStyle;
 	}
 

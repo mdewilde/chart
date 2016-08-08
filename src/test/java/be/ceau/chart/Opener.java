@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-public class Filer {
+public class Opener {
 
 	public static void toBrowser(String type, String json) throws IOException {
 		

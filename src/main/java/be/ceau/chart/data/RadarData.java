@@ -19,11 +19,12 @@ import java.math.BigDecimal;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import be.ceau.chart.color.Color;
+import be.ceau.chart.enums.PointStyle;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
@@ -132,7 +133,7 @@ public class RadarData {
 	/**
 	 * @see #setPointStyle(List)
 	 */
-	private List<String> pointStyle;
+	private List<PointStyle> pointStyle;
 
 	/**
 	 * @see #setData(List)
@@ -442,7 +443,7 @@ public class RadarData {
 	/**
 	 * @see #setPointStyle(List)
 	 */
-	public List<String> getPointStyle() {
+	public List<PointStyle> getPointStyle() {
 		return this.pointStyle;
 	}
 
@@ -450,7 +451,7 @@ public class RadarData {
 	 * The style of point. Options include 'circle', 'triangle', 'rect',
 	 * 'rectRot', 'cross', 'crossRot', 'star', 'line', and 'dash'
 	 */
-	public void setPointStyle(List<String> pointStyle) {
+	public void setPointStyle(List<PointStyle> pointStyle) {
 		this.pointStyle = pointStyle;
 	}
 
