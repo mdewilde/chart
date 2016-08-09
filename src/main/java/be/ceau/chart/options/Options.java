@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import be.ceau.chart.data.JavaScriptFunction;
+import be.ceau.chart.enums.Event;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
@@ -56,7 +57,7 @@ public class Options {
 	 * 
 	 * @see #setEvents(List)
 	 */
-	private List<String> events;
+	private List<Event> events;
 
 	/**
 	 * Default {@code null}
@@ -138,14 +139,14 @@ public class Options {
 	/**
 	 * @see #setEvents(List)
 	 */
-	public List<String> getEvents() {
+	public List<Event> getEvents() {
 		return this.events;
 	}
 
 	/**
 	 * Events that the chart should listen to for tooltips and hovering
 	 */
-	public void setEvents(List<String> events) {
+	public void setEvents(List<Event> events) {
 		this.events = events;
 	}
 

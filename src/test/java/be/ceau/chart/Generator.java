@@ -1,9 +1,13 @@
 package be.ceau.chart;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Random;
+
+import be.ceau.chart.data.BubbleDataPoint;
 
 public class Generator {
 
@@ -28,6 +32,29 @@ public class Generator {
 
 		return data;
 		
+	}
+	
+	public static int nextInt(int bound) {
+		return RANDOM.nextInt(bound);
+	}
+	
+	public static List<BubbleDataPoint> generateBubbleDataPoints() {
+		List<BubbleDataPoint> list = new ArrayList<BubbleDataPoint>();
+		
+		// first choose random number of points we will generate - 4 minimum - more than 20 is overkill
+		int datapoints = RANDOM.nextInt(20) + 5;
+		
+		for (int i = 4; i <= datapoints; i++) {
+			
+			BubbleDataPoint point = new BubbleDataPoint();
+			point.setX(new BigDecimal(RANDOM.nextInt(500)));
+			point.setY(new BigDecimal(RANDOM.nextInt(500)));
+			point.setR(new BigDecimal(RANDOM.nextInt(50)));
+			list.add(point);
+			
+		}
+
+		return list;
 	}
 	
 	private static String newWord() {

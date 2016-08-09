@@ -15,6 +15,7 @@
 */
 package be.ceau.chart.data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
@@ -69,7 +70,7 @@ public class RadarDataset extends Dataset {
 	/**
 	 * @see #setBorderDash(List)
 	 */
-	private List<Integer> borderDash;
+	private final List<Integer> borderDash = new ArrayList<Integer>();
 
 	/**
 	 * @see #setBorderDashOffset(Float)
@@ -84,52 +85,52 @@ public class RadarDataset extends Dataset {
 	/**
 	 * @see #setPointBorderColor(List)
 	 */
-	private List<Color> pointBorderColor;
+	private final List<Color> pointBorderColor = new ArrayList<Color>();
 
 	/**
 	 * @see #setPointBackgroundColor(List)
 	 */
-	private List<Color> pointBackgroundColor;
+	private final List<Color> pointBackgroundColor = new ArrayList<Color>();
 
 	/**
 	 * @see #setPointBorderWidth(List)
 	 */
-	private List<Integer> pointBorderWidth;
+	private final List<Integer> pointBorderWidth = new ArrayList<Integer>();
 
 	/**
 	 * @see #setPointRadius(List)
 	 */
-	private List<Integer> pointRadius;
+	private final List<Integer> pointRadius = new ArrayList<Integer>();
 
 	/**
 	 * @see #setPointHoverRadius(List)
 	 */
-	private List<Integer> pointHoverRadius;
+	private final List<Integer> pointHoverRadius = new ArrayList<Integer>();
 
 	/**
 	 * @see #setHitRadius(List)
 	 */
-	private List<Integer> hitRadius;
+	private final List<Integer> hitRadius = new ArrayList<Integer>();
 
 	/**
 	 * @see #setPointHoverBackgroundColor(List)
 	 */
-	private List<Color> pointHoverBackgroundColor;
+	private final List<Color> pointHoverBackgroundColor = new ArrayList<Color>();
 
 	/**
 	 * @see #setPointHoverBorderColor(List)
 	 */
-	private List<Color> pointHoverBorderColor;
+	private final List<Color> pointHoverBorderColor = new ArrayList<Color>();
 
 	/**
 	 * @see #setPointHoverBorderWidth(List)
 	 */
-	private List<Integer> pointHoverBorderWidth;
+	private final List<Integer> pointHoverBorderWidth = new ArrayList<Integer>();
 
 	/**
 	 * @see #setPointStyle(List)
 	 */
-	private List<PointStyle> pointStyle;
+	private final List<PointStyle> pointStyle = new ArrayList<PointStyle>();
 
 	/**
 	 * @see #setLabel(String)
@@ -243,6 +244,13 @@ public class RadarDataset extends Dataset {
 	}
 
 	/**
+	 * @see #setBorderDash(List)
+	 */
+	public void addBorderDash(Integer borderDash) {
+		this.borderDash.add(borderDash);
+	}
+
+	/**
 	 * Default line dash. A list of numbers that specifies distances to
 	 * alternately draw a line and a gap (in coordinate space units). If the
 	 * number of elements in the array is odd, the elements of the array get
@@ -250,7 +258,10 @@ public class RadarDataset extends Dataset {
 	 * 5, 15, 25].
 	 */
 	public void setBorderDash(List<Integer> borderDash) {
-		this.borderDash = borderDash;
+		this.borderDash.clear();
+		if (borderDash != null) {
+			this.borderDash.addAll(borderDash);
+		}
 	}
 
 	/**
@@ -303,10 +314,20 @@ public class RadarDataset extends Dataset {
 	}
 
 	/**
+	 * @see #setPointBorderColor(List)
+	 */
+	public void addPointBorderColor(Color pointBorderColor) {
+		this.pointBorderColor.add(pointBorderColor);
+	}
+
+	/**
 	 * The border color for points.
 	 */
 	public void setPointBorderColor(List<Color> pointBorderColor) {
-		this.pointBorderColor = pointBorderColor;
+		this.pointBorderColor.clear();
+		if (pointBorderColor != null) {
+			this.pointBorderColor.addAll(pointBorderColor);
+		}
 	}
 
 	/**
@@ -317,10 +338,20 @@ public class RadarDataset extends Dataset {
 	}
 
 	/**
+	 * @see #setPointBackgroundColor(List)
+	 */
+	public void addPointBackgroundColor(Color pointBackgroundColor) {
+		this.pointBackgroundColor.add(pointBackgroundColor);
+	}
+
+	/**
 	 * The fill color for points
 	 */
 	public void setPointBackgroundColor(List<Color> pointBackgroundColor) {
-		this.pointBackgroundColor = pointBackgroundColor;
+		this.pointBackgroundColor.clear();
+		if (pointBackgroundColor != null) {
+			this.pointBackgroundColor.addAll(pointBackgroundColor);
+		}
 	}
 
 	/**
@@ -329,12 +360,22 @@ public class RadarDataset extends Dataset {
 	public List<Integer> getPointBorderWidth() {
 		return this.pointBorderWidth;
 	}
+	
+	/**
+	 * @see #setPointBorderWidth(List)
+	 */
+	public void addPointBorderWidth(Integer pointBorderWidth) {
+		this.pointBorderWidth.add(pointBorderWidth);
+	}
 
 	/**
 	 * The width of the point border in pixels
 	 */
 	public void setPointBorderWidth(List<Integer> pointBorderWidth) {
-		this.pointBorderWidth = pointBorderWidth;
+		this.pointBorderWidth.clear();
+		if (pointBorderWidth != null) {
+			this.pointBorderWidth.addAll(pointBorderWidth);
+		}
 	}
 
 	/**
@@ -345,10 +386,20 @@ public class RadarDataset extends Dataset {
 	}
 
 	/**
+	 * @see #setPointRadius(List)
+	 */
+	public void getPointRadius(Integer pointRadius) {
+		this.pointRadius.add(pointRadius);
+	}
+
+	/**
 	 * The radius of the point shape. If set to 0, nothing is rendered.
 	 */
 	public void setPointRadius(List<Integer> pointRadius) {
-		this.pointRadius = pointRadius;
+		this.pointRadius.clear();
+		if (pointRadius != null) {
+			this.pointRadius.addAll(pointRadius);
+		}
 	}
 
 	/**
@@ -359,10 +410,20 @@ public class RadarDataset extends Dataset {
 	}
 
 	/**
+	 * @see #setPointHoverRadius(List)
+	 */
+	public void addPointHoverRadius(Integer pointHoverRadius) {
+		this.pointHoverRadius.add(pointHoverRadius);
+	}
+
+	/**
 	 * The radius of the point when hovered
 	 */
 	public void setPointHoverRadius(List<Integer> pointHoverRadius) {
-		this.pointHoverRadius = pointHoverRadius;
+		this.pointHoverRadius.clear();
+		if (pointHoverRadius != null) {
+			this.pointHoverRadius.addAll(pointHoverRadius);
+		}
 	}
 
 	/**
@@ -373,10 +434,20 @@ public class RadarDataset extends Dataset {
 	}
 
 	/**
+	 * @see #setHitRadius(List)
+	 */
+	public void addHitRadius(Integer hitRadius) {
+		this.hitRadius.add(hitRadius);
+	}
+
+	/**
 	 * The pixel size of the non-displayed point that reacts to mouse events
 	 */
 	public void setHitRadius(List<Integer> hitRadius) {
-		this.hitRadius = hitRadius;
+		this.hitRadius.clear();
+		if (hitRadius != null) {
+			this.hitRadius.addAll(hitRadius);
+		}
 	}
 
 	/**
@@ -387,10 +458,20 @@ public class RadarDataset extends Dataset {
 	}
 
 	/**
+	 * @see #setPointHoverBackgroundColor(List)
+	 */
+	public void addPointHoverBackgroundColor(Color pointHoverBackgroundColor) {
+		this.pointHoverBackgroundColor.add(pointHoverBackgroundColor);
+	}
+
+	/**
 	 * Point background color when hovered
 	 */
 	public void setPointHoverBackgroundColor(List<Color> pointHoverBackgroundColor) {
-		this.pointHoverBackgroundColor = pointHoverBackgroundColor;
+		this.pointHoverBackgroundColor.clear();
+		if (pointHoverBackgroundColor != null) {
+			this.pointHoverBackgroundColor.addAll(pointHoverBackgroundColor);
+		}
 	}
 
 	/**
@@ -401,10 +482,20 @@ public class RadarDataset extends Dataset {
 	}
 
 	/**
+	 * @see #setPointHoverBorderColor(List)
+	 */
+	public void getPointHoverBorderColor(Color pointHoverBorderColor) {
+		this.pointHoverBorderColor.add(pointHoverBorderColor);
+	}
+
+	/**
 	 * Point border color when hovered
 	 */
 	public void setPointHoverBorderColor(List<Color> pointHoverBorderColor) {
-		this.pointHoverBorderColor = pointHoverBorderColor;
+		this.pointHoverBorderColor.clear();
+		if (pointHoverBorderColor != null) {
+			this.pointHoverBorderColor.addAll(pointHoverBorderColor);
+		}
 	}
 
 	/**
@@ -415,10 +506,20 @@ public class RadarDataset extends Dataset {
 	}
 
 	/**
+	 * @see #setPointHoverBorderWidth(List)
+	 */
+	public void addPointHoverBorderWidth(Integer pointHoverBorderWidth) {
+		this.pointHoverBorderWidth.add(pointHoverBorderWidth);
+	}
+
+	/**
 	 * Border width of point when hovered
 	 */
 	public void setPointHoverBorderWidth(List<Integer> pointHoverBorderWidth) {
-		this.pointHoverBorderWidth = pointHoverBorderWidth;
+		this.pointHoverBorderWidth.clear();
+		if (pointHoverBorderWidth != null) {
+			this.pointHoverBorderWidth.addAll(pointHoverBorderWidth);
+		}
 	}
 
 	/**
@@ -427,13 +528,23 @@ public class RadarDataset extends Dataset {
 	public List<PointStyle> getPointStyle() {
 		return this.pointStyle;
 	}
+	
+	/**
+	 * @see #setPointStyle(List)
+	 */
+	public void addPointStyle(PointStyle pointStyle) {
+		this.pointStyle.add(pointStyle);
+	}
 
 	/**
 	 * The style of point. Options include 'circle', 'triangle', 'rect',
 	 * 'rectRot', 'cross', 'crossRot', 'star', 'line', and 'dash'
 	 */
 	public void setPointStyle(List<PointStyle> pointStyle) {
-		this.pointStyle = pointStyle;
+		this.pointStyle.clear();
+		if (pointStyle != null) {
+			this.pointStyle.addAll(pointStyle);
+		}
 	}
 
 }

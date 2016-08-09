@@ -20,10 +20,11 @@ public class DoughnutTest extends ChartTest {
 	private DoughnutData newData() {
 		DoughnutDataset dataset = new DoughnutDataset();
 		DoughnutData data = new DoughnutData();
-//		data.addDataset(dataset);
+		data.addDataset(dataset);
 		for (Entry<String, BigDecimal> entry : Generator.generateData().entrySet()) {
-//			data.addLabel(entry.getKey());
+			data.addLabel(entry.getKey());
 			dataset.addData(entry.getValue());
+			dataset.
 		}
 		return data;
 	}

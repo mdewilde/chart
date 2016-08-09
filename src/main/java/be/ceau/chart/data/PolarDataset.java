@@ -15,6 +15,7 @@
 */
 package be.ceau.chart.data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
@@ -36,32 +37,32 @@ public class PolarDataset extends Dataset {
 	/**
 	 * @see #setBackgroundColor(List)
 	 */
-	private List<Color> backgroundColor;
+	private final List<Color> backgroundColor = new ArrayList<Color>();
 
 	/**
 	 * @see #setBorderColor(List)
 	 */
-	private List<Color> borderColor;
+	private final List<Color> borderColor = new ArrayList<Color>();
 
 	/**
 	 * @see #setBorderWidth(List)
 	 */
-	private List<Integer> borderWidth;
+	private final List<Integer> borderWidth = new ArrayList<Integer>();
 
 	/**
 	 * @see #setHoverBackgroundColor(List)
 	 */
-	private List<Color> hoverBackgroundColor;
+	private final List<Color> hoverBackgroundColor = new ArrayList<Color>();
 
 	/**
 	 * @see #setHoverBorderColor(List)
 	 */
-	private List<Color> hoverBorderColor;
+	private final List<Color> hoverBorderColor = new ArrayList<Color>();
 
 	/**
 	 * @see #setHoverBorderWidth(List)
 	 */
-	private List<Integer> hoverBorderWidth;
+	private final List<Integer> hoverBorderWidth = new ArrayList<Integer>();
 
 	/**
 	 * @see #setLabel(String)
@@ -88,7 +89,10 @@ public class PolarDataset extends Dataset {
 	 * The fill color of the arcs. See Colors
 	 */
 	public void setBackgroundColor(List<Color> backgroundColor) {
-	    this.backgroundColor = backgroundColor;
+		this.LLLL.clear();
+		if (LLLL != null) {
+			this.LLLL.addAll(LLLL);
+		}
 	}
 
 	/**
@@ -102,7 +106,10 @@ public class PolarDataset extends Dataset {
 	 * Arc border color
 	 */
 	public void setBorderColor(List<Color> borderColor) {
-	    this.borderColor = borderColor;
+		this.LLLL.clear();
+		if (LLLL != null) {
+			this.LLLL.addAll(LLLL);
+		}
 	}
 
 	/**
@@ -116,7 +123,10 @@ public class PolarDataset extends Dataset {
 	 * Border width of arcs in pixels
 	 */
 	public void setBorderWidth(List<Integer> borderWidth) {
-	    this.borderWidth = borderWidth;
+		this.LLLL.clear();
+		if (LLLL != null) {
+			this.LLLL.addAll(LLLL);
+		}
 	}
 
 	/**
@@ -130,7 +140,10 @@ public class PolarDataset extends Dataset {
 	 * Arc background color when hovered
 	 */
 	public void setHoverBackgroundColor(List<Color> hoverBackgroundColor) {
-	    this.hoverBackgroundColor = hoverBackgroundColor;
+		this.LLLL.clear();
+		if (LLLL != null) {
+			this.LLLL.addAll(LLLL);
+		}
 	}
 
 	/**
@@ -144,7 +157,10 @@ public class PolarDataset extends Dataset {
 	 * Arc border color when hovered
 	 */
 	public void setHoverBorderColor(List<Color> hoverBorderColor) {
-	    this.hoverBorderColor = hoverBorderColor;
+		this.LLLL.clear();
+		if (LLLL != null) {
+			this.LLLL.addAll(LLLL);
+		}
 	}
 
 	/**
@@ -158,7 +174,10 @@ public class PolarDataset extends Dataset {
 	 * Border width of arc when hovered
 	 */
 	public void setHoverBorderWidth(List<Integer> hoverBorderWidth) {
-	    this.hoverBorderWidth = hoverBorderWidth;
+		this.LLLL.clear();
+		if (LLLL != null) {
+			this.LLLL.addAll(LLLL);
+		}
 	}
 
 }

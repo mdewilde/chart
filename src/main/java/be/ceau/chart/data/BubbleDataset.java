@@ -25,9 +25,28 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import be.ceau.chart.color.Color;
 
+/**
+ * <p>
+ * A collection of data points for a bubble chart.
+ * </p>
+ * 
+ * <p>
+ * For best results, ensure that each property is set with a list of equal
+ * length.
+ * </p>
+ * 
+ * 
+ * 
+ *
+ */
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
-public class DoughnutDataset extends Dataset {
+public class BubbleDataset {
+
+	/**
+	 * @see #setData(List)
+	 */
+	private final List<BubbleDataPoint> data = new ArrayList<BubbleDataPoint>();
 
 	/**
 	 * @see #setLabel(String)
@@ -65,6 +84,35 @@ public class DoughnutDataset extends Dataset {
 	private final List<Integer> hoverBorderWidth = new ArrayList<Integer>();
 
 	/**
+	 * @see #setHoverRadius(List)
+	 */
+	private final List<Integer> hoverRadius = new ArrayList<Integer>();
+
+	/**
+	 * @see #setData(List)
+	 */
+	public List<BubbleDataPoint> getData() {
+		return this.data;
+	}
+
+	/**
+	 * @see #setData(List)
+	 */
+	public void addData(BubbleDataPoint point) {
+		this.data.add(point);
+	}
+
+	/**
+	 * The data to plot as bubbles.
+	 */
+	public void setData(List<BubbleDataPoint> data) {
+		this.data.clear();
+		if (data != null) {
+			this.data.addAll(data);
+		}
+	}
+
+	/**
 	 * @see #setLabel(String)
 	 */
 	public String getLabel() {
@@ -72,7 +120,9 @@ public class DoughnutDataset extends Dataset {
 	}
 
 	/**
+	 * <p>
 	 * The label for the dataset which appears in the legend and tooltips
+	 * </p>
 	 */
 	public void setLabel(String label) {
 		this.label = label;
@@ -93,7 +143,14 @@ public class DoughnutDataset extends Dataset {
 	}
 
 	/**
-	 * The fill color of the arcs. See Colors
+	 * <p>
+	 * The fill color of the bubbles.
+	 * </p>
+	 * 
+	 * <p>
+	 * Each BubbleDataPoint in this BubbleDataset uses the backgroundColor at
+	 * the corresponding index.
+	 * </p>
 	 */
 	public void setBackgroundColor(List<Color> backgroundColor) {
 		this.backgroundColor.clear();
@@ -117,7 +174,14 @@ public class DoughnutDataset extends Dataset {
 	}
 
 	/**
-	 * Arc border color
+	 * <p>
+	 * The stroke color of the bubbles.
+	 * </p>
+	 * 
+	 * <p>
+	 * Each BubbleDataPoint in this BubbleDataset uses the borderColor at the
+	 * corresponding index.
+	 * </p>
 	 */
 	public void setBorderColor(List<Color> borderColor) {
 		this.borderColor.clear();
@@ -141,7 +205,14 @@ public class DoughnutDataset extends Dataset {
 	}
 
 	/**
-	 * Border width of arcs in pixels
+	 * <p>
+	 * The stroke width of bubble in pixels.
+	 * </p>
+	 * 
+	 * <p>
+	 * Each BubbleDataPoint in this BubbleDataset uses the borderWidth at the
+	 * corresponding index.
+	 * </p>
 	 */
 	public void setBorderWidth(List<Integer> borderWidth) {
 		this.borderWidth.clear();
@@ -165,7 +236,14 @@ public class DoughnutDataset extends Dataset {
 	}
 
 	/**
-	 * Arc background color when hovered
+	 * <p>
+	 * The fill color of the bubbles when hovered.
+	 * </p>
+	 * 
+	 * <p>
+	 * Each BubbleDataPoint in this BubbleDataset uses the hoverBackgroundColor
+	 * at the corresponding index.
+	 * </p>
 	 */
 	public void setHoverBackgroundColor(List<Color> hoverBackgroundColor) {
 		this.hoverBackgroundColor.clear();
@@ -189,7 +267,14 @@ public class DoughnutDataset extends Dataset {
 	}
 
 	/**
-	 * Arc border color when hovered
+	 * <p>
+	 * The stroke color of the bubbles when hovered.
+	 * </p>
+	 * 
+	 * <p>
+	 * Each BubbleDataPoint in this BubbleDataset uses the hoverBorderColor at
+	 * the corresponding index.
+	 * </p>
 	 */
 	public void setHoverBorderColor(List<Color> hoverBorderColor) {
 		this.hoverBorderColor.clear();
@@ -213,12 +298,50 @@ public class DoughnutDataset extends Dataset {
 	}
 
 	/**
-	 * Border width of arc when hovered
+	 * <p>
+	 * The stroke width of the bubbles when hovered.
+	 * </p>
+	 * 
+	 * <p>
+	 * Each BubbleDataPoint in this BubbleDataset uses the hoverBorderWidth at
+	 * the corresponding index.
+	 * </p>
 	 */
 	public void setHoverBorderWidth(List<Integer> hoverBorderWidth) {
 		this.hoverBorderWidth.clear();
 		if (hoverBorderWidth != null) {
 			this.hoverBorderWidth.addAll(hoverBorderWidth);
+		}
+	}
+
+	/**
+	 * @see #setHoverRadius(List)
+	 */
+	public List<Integer> getHoverRadius() {
+		return this.hoverRadius;
+	}
+
+	/**
+	 * @see #setHoverRadius(List)
+	 */
+	public void addHoverRadius(Integer hoverRadius) {
+		this.hoverRadius.add(hoverRadius);
+	}
+
+	/**
+	 * <p>
+	 * Additional radius to add to data radius on hover.
+	 * </p>
+	 * 
+	 * <p>
+	 * Each BubbleDataPoint in this BubbleDataset uses the hoverRadius at the
+	 * corresponding index.
+	 * </p>
+	 */
+	public void setHoverRadius(List<Integer> hoverRadius) {
+		this.hoverRadius.clear();
+		if (hoverRadius != null) {
+			this.hoverRadius.addAll(hoverRadius);
 		}
 	}
 

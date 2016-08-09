@@ -18,43 +18,67 @@ package be.ceau.chart.data;
 import java.math.BigDecimal;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 public class BubbleDataPoint {
 
-	// X Value
+	/**
+	 * @see #setX(BigDecimal)
+	 */
 	private BigDecimal x;
 
-	// Y Value
+	/**
+	 * @see #setY(BigDecimal)
+	 */
 	private BigDecimal y;
 
-	// Radius of bubble. This is not scaled.
+	/**
+	 * @see #setR(BigDecimal)
+	 */
 	private BigDecimal r;
 
+	/**
+	 * @see #setX(BigDecimal)
+	 */
 	public BigDecimal getX() {
 		return x;
 	}
 
+	/**
+	 * X Value
+	 */
 	public void setX(BigDecimal x) {
 		this.x = x;
 	}
 
+	/**
+	 * @see #setY(BigDecimal)
+	 */
 	public BigDecimal getY() {
 		return y;
 	}
 
+	/**
+	 * Y Value
+	 */
 	public void setY(BigDecimal y) {
 		this.y = y;
 	}
 
+	/**
+	 * @see #setR(BigDecimal)
+	 */
 	public BigDecimal getR() {
 		return r;
 	}
 
+	/**
+	 * Radius of bubble
+	 */
 	public void setR(BigDecimal r) {
 		this.r = r;
 	}

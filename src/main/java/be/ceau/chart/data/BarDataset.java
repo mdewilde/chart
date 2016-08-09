@@ -15,6 +15,7 @@
 */
 package be.ceau.chart.data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
@@ -23,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import be.ceau.chart.color.Color;
+import be.ceau.chart.enums.BorderSkipped;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
@@ -44,39 +46,39 @@ public class BarDataset extends Dataset {
 	private String yAxisID;
 
 	/**
+	 * @see #setBorderSkipped(List)
+	 */
+	private final List<BorderSkipped> borderSkipped = new ArrayList<BorderSkipped>();
+
+	/**
 	 * @see #setBackgroundColor(List)
 	 */
-	private List<Color> backgroundColor;
+	private final List<Color> backgroundColor = new ArrayList<Color>();
 
 	/**
 	 * @see #setBorderColor(List)
 	 */
-	private List<Color> borderColor;
+	private final List<Color> borderColor = new ArrayList<Color>();
 
 	/**
 	 * @see #setBorderWidth(List)
 	 */
-	private List<Integer> borderWidth;
-
-	/**
-	 * @see #setBorderSkipped(List)
-	 */
-	private List<String> borderSkipped;
+	private final List<Integer> borderWidth = new ArrayList<Integer>();
 
 	/**
 	 * @see #setHoverBackgroundColor(List)
 	 */
-	private List<Color> hoverBackgroundColor;
+	private final List<Color> hoverBackgroundColor = new ArrayList<Color>();
 
 	/**
 	 * @see #setHoverBorderColor(List)
 	 */
-	private List<Color> hoverBorderColor;
+	private final List<Color> hoverBorderColor = new ArrayList<Color>();
 
 	/**
 	 * @see #setHoverBorderWidth(List)
 	 */
-	private List<Integer> hoverBorderWidth;
+	private final List<Integer> hoverBorderWidth = new ArrayList<Integer>();
 
 	/**
 	 * @see #setLabel(String)
@@ -128,10 +130,20 @@ public class BarDataset extends Dataset {
 	}
 
 	/**
-	 * The fill color of the bars. See Colors
+	 * @see #setBackgroundColor(List)
+	 */
+	public void addBackgroundColor(Color backgroundColor) {
+	    this.backgroundColor.add(backgroundColor);
+	}
+
+	/**
+	 * The fill color of the bars.
 	 */
 	public void setBackgroundColor(List<Color> backgroundColor) {
-	    this.backgroundColor = backgroundColor;
+	    this.backgroundColor.clear();
+	    if (backgroundColor != null) {
+	    	this.backgroundColor.addAll(backgroundColor);
+	    }
 	}
 
 	/**
@@ -142,10 +154,20 @@ public class BarDataset extends Dataset {
 	}
 
 	/**
+	 * @see #setBorderColor(List)
+	 */
+	public void addBorderColor(Color borderColor) {
+	    this.borderColor.add(borderColor);
+	}
+
+	/**
 	 * Bar border color
 	 */
 	public void setBorderColor(List<Color> borderColor) {
-	    this.borderColor = borderColor;
+	    this.borderColor.clear();
+	    if (borderColor != null) {
+	    	this.borderColor.addAll(borderColor);
+	    }
 	}
 
 	/**
@@ -156,24 +178,44 @@ public class BarDataset extends Dataset {
 	}
 
 	/**
+	 * @see #setBorderWidth(List)
+	 */
+	public void addBorderWidth(Integer borderWidth) {
+	    this.borderWidth.add(borderWidth);
+	}
+
+	/**
 	 * Border width of bar in pixels
 	 */
 	public void setBorderWidth(List<Integer> borderWidth) {
-	    this.borderWidth = borderWidth;
+	    this.borderWidth.clear();
+	    if (borderWidth != null) {
+	    	this.borderWidth.addAll(borderWidth);
+	    }
 	}
 
 	/**
 	 * @see #setBorderSkipped(List)
 	 */
-	public List<String> getBorderSkipped() {
+	public List<BorderSkipped> getBorderSkipped() {
 	    return this.borderSkipped;
+	}
+
+	/**
+	 * @see #setBorderSkipped(List)
+	 */
+	public void addBorderSkipped(BorderSkipped borderSkipped) {
+	    this.borderSkipped.add(borderSkipped);
 	}
 
 	/**
 	 * Which edge to skip drawing the border for. Options are 'bottom', 'left', 'top', and 'right'
 	 */
-	public void setBorderSkipped(List<String> borderSkipped) {
-	    this.borderSkipped = borderSkipped;
+	public void setBorderSkipped(List<BorderSkipped> borderSkipped) {
+	    this.borderSkipped.clear();
+	    if (borderSkipped != null) {
+	    	this.borderSkipped.addAll(borderSkipped);
+	    }
 	}
 
 	/**
@@ -184,10 +226,20 @@ public class BarDataset extends Dataset {
 	}
 
 	/**
+	 * @see #setHoverBackgroundColor(List)
+	 */
+	public void addHoverBackgroundColor(Color hoverBackgroundColor) {
+	    this.hoverBackgroundColor.add(hoverBackgroundColor);
+	}
+
+	/**
 	 * Bar background color when hovered
 	 */
 	public void setHoverBackgroundColor(List<Color> hoverBackgroundColor) {
-	    this.hoverBackgroundColor = hoverBackgroundColor;
+	    this.hoverBackgroundColor.clear();
+	    if (hoverBackgroundColor != null) {
+	    	this.hoverBackgroundColor.addAll(hoverBackgroundColor);
+	    }
 	}
 
 	/**
@@ -198,10 +250,20 @@ public class BarDataset extends Dataset {
 	}
 
 	/**
+	 * @see #setHoverBorderColor(List)
+	 */
+	public void addHoverBorderColor(Color hoverBorderColor) {
+	    this.hoverBorderColor.add(hoverBorderColor);
+	}
+
+	/**
 	 * Bar border color when hovered
 	 */
 	public void setHoverBorderColor(List<Color> hoverBorderColor) {
-	    this.hoverBorderColor = hoverBorderColor;
+	    this.hoverBorderColor.clear();
+	    if (hoverBorderColor != null) {
+	    	this.hoverBorderColor.addAll(hoverBorderColor);
+	    }
 	}
 
 	/**
@@ -212,10 +274,20 @@ public class BarDataset extends Dataset {
 	}
 
 	/**
+	 * @see #setHoverBorderWidth(List)
+	 */
+	public void addHoverBorderWidth(Integer hoverBorderWidth) {
+	    this.hoverBorderWidth.add(hoverBorderWidth);
+	}
+
+	/**
 	 * Border width of bar when hovered
 	 */
 	public void setHoverBorderWidth(List<Integer> hoverBorderWidth) {
-	    this.hoverBorderWidth = hoverBorderWidth;
+	    this.hoverBorderWidth.clear();
+	    if (hoverBorderWidth != null) {
+	    	this.hoverBorderWidth.addAll(hoverBorderWidth);
+	    }
 	}
 	
 }
