@@ -34,32 +34,32 @@ public class PieChart implements Chart {
 
 	private final String type = "pie";
 
-	private PieData pieData;
+	private PieData data;
 
-	private PieOptions pieOptions;
+	private PieOptions options;
 
 	public PieChart() {
 	}
 
-	public PieChart(PieData pieData, PieOptions pieOptions) {
-		this.pieData = pieData;
-		this.pieOptions = pieOptions;
+	public PieChart(PieData data, PieOptions options) {
+		this.data = data;
+		this.options = options;
 	}
 
-	public PieData getPieData() {
-		return pieData;
+	public PieData getData() {
+		return data;
 	}
 
-	public void setPieData(PieData pieData) {
-		this.pieData = pieData;
+	public void setData(PieData data) {
+		this.data = data;
 	}
 
-	public PieOptions getPieOptions() {
-		return pieOptions;
+	public PieOptions getOptions() {
+		return options;
 	}
 
-	public void setPieOptions(PieOptions pieOptions) {
-		this.pieOptions = pieOptions;
+	public void setPieOptions(PieOptions options) {
+		this.options = options;
 	}
 
 	@Override

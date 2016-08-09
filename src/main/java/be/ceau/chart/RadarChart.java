@@ -23,6 +23,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 
+import be.ceau.chart.data.RadarData;
 import be.ceau.chart.options.RadarOptions;
 
 @JsonInclude(Include.NON_EMPTY)
@@ -33,32 +34,32 @@ public class RadarChart implements Chart {
 
 	private final String type = "radar";
 
-	private RadarChart radarData;
+	private RadarData data;
 
-	private RadarOptions radarOptions;
+	private RadarOptions options;
 
 	public RadarChart() {
 	}
 
-	public RadarChart(RadarChart radarData, RadarOptions radarOptions) {
-		this.radarData = radarData;
-		this.radarOptions = radarOptions;
+	public RadarChart(RadarData data, RadarOptions options) {
+		this.data = data;
+		this.options = options;
 	}
 
-	public RadarChart getRadarData() {
-		return radarData;
+	public RadarData getData() {
+		return data;
 	}
 
-	public void setRadarData(RadarChart radarData) {
-		this.radarData = radarData;
+	public void setData(RadarData data) {
+		this.data = data;
 	}
 
-	public RadarOptions getRadarOptions() {
-		return radarOptions;
+	public RadarOptions getOptions() {
+		return options;
 	}
 
-	public void setRadarOptions(RadarOptions radarOptions) {
-		this.radarOptions = radarOptions;
+	public void setOptions(RadarOptions options) {
+		this.options = options;
 	}
 
 	@Override

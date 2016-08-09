@@ -16,7 +16,6 @@
 package be.ceau.chart.data;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
@@ -31,12 +30,7 @@ import be.ceau.chart.enums.PointStyle;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
-public class LineDataset {
-
-	/**
-	 * @see #setData(BigDecimal)
-	 */
-	private final List<BigDecimal> data = new ArrayList<BigDecimal>();
+public class LineDataset extends Dataset {
 
 	/**
 	 * @see #setLabel(String)
@@ -162,44 +156,6 @@ public class LineDataset {
 	 * @see #setSteppedLine(Boolean)
 	 */
 	private Boolean steppedLine;
-
-	/**
-	 * @see #setData(List)
-	 */
-	public List<BigDecimal> getData() {
-		return this.data;
-	}
-
-	/**
-	 * The data to plot in a line
-	 */
-	public void setData(List<BigDecimal> data) {
-		this.data.clear();
-		if (data != null) {
-			this.data.addAll(data);
-		}
-	}
-
-	/**
-	 * The data to plot in a line
-	 */
-	public void addData(int data) {
-		this.data.add(new BigDecimal(data));
-	}
-
-	/**
-	 * The data to plot in a line
-	 */
-	public void addData(double data) {
-		this.data.add(new BigDecimal(String.valueOf(data)));
-	}
-
-	/**
-	 * The data to plot in a line
-	 */
-	public void addData(BigDecimal data) {
-		this.data.add(data);
-	}
 
 	/**
 	 * @see #setLabel(String)

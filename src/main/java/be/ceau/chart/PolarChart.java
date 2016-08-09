@@ -34,32 +34,32 @@ public class PolarChart implements Chart {
 
 	private final String type = "polarArea";
 
-	private PolarData polarData;
+	private PolarData data;
 
-	private PolarOptions polarOptions;
+	private PolarOptions options;
 
 	public PolarChart() {
 	}
 
-	public PolarChart(PolarData polarData, PolarOptions polarOptions) {
-		this.polarData = polarData;
-		this.polarOptions = polarOptions;
+	public PolarChart(PolarData data, PolarOptions options) {
+		this.data = data;
+		this.options = options;
 	}
 
-	public PolarData getPolarData() {
-		return polarData;
+	public PolarData getData() {
+		return data;
 	}
 
-	public void setPolarData(PolarData polarData) {
-		this.polarData = polarData;
+	public void setData(PolarData data) {
+		this.data = data;
 	}
 
-	public PolarOptions getPolarOptions() {
-		return polarOptions;
+	public PolarOptions getOptions() {
+		return options;
 	}
 
-	public void setPolarOptions(PolarOptions polarOptions) {
-		this.polarOptions = polarOptions;
+	public void setOptions(PolarOptions options) {
+		this.options = options;
 	}
 
 	@Override

@@ -15,24 +15,18 @@
 */
 package be.ceau.chart.data;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import be.ceau.chart.color.Color;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
-public class DoughnutDataset {
-
-	/**
-	 * @see #setData(List)
-	 */
-	private List<BigDecimal> data;
+public class DoughnutDataset extends Dataset {
 
 	/**
 	 * @see #setLabel(String)
@@ -68,20 +62,6 @@ public class DoughnutDataset {
 	 * @see #setHoverBorderWidth(List)
 	 */
 	private List<Integer> hoverBorderWidth;
-
-	/**
-	 * @see #setData(List)
-	 */
-	public List<BigDecimal> getData() {
-	    return this.data;
-	}
-
-	/**
-	 * The data to plot as arcs
-	 */
-	public void setData(List<BigDecimal> data) {
-	    this.data = data;
-	}
 
 	/**
 	 * @see #setLabel(String)

@@ -15,7 +15,6 @@
 */
 package be.ceau.chart.data;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
@@ -30,12 +29,7 @@ import be.ceau.chart.enums.PointStyle;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
-public class RadarDataset {
-
-	/**
-	 * @see #setData(List)
-	 */
-	private List<BigDecimal> data;
+public class RadarDataset extends Dataset {
 
 	/**
 	 * @see #setLabel(String)
@@ -136,20 +130,6 @@ public class RadarDataset {
 	 * @see #setPointStyle(List)
 	 */
 	private List<PointStyle> pointStyle;
-
-	/**
-	 * @see #setData(List)
-	 */
-	public List<BigDecimal> getData() {
-		return this.data;
-	}
-
-	/**
-	 * The data to plot in a line
-	 */
-	public void setData(List<BigDecimal> data) {
-		this.data = data;
-	}
 
 	/**
 	 * @see #setLabel(String)

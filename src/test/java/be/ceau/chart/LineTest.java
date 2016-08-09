@@ -1,17 +1,16 @@
 package be.ceau.chart;
 
-import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Map.Entry;
 
-import org.junit.Test;
-
 import be.ceau.chart.color.Color;
 import be.ceau.chart.data.JavaScriptFunction;
 import be.ceau.chart.data.LineData;
 import be.ceau.chart.data.LineDataset;
+import be.ceau.chart.enums.BorderCapStyle;
+import be.ceau.chart.enums.BorderJoinStyle;
 import be.ceau.chart.enums.FontStyle;
 import be.ceau.chart.enums.HoverMode;
 import be.ceau.chart.enums.TitlePosition;
@@ -27,46 +26,50 @@ import be.ceau.chart.options.scales.LinearScale;
 import be.ceau.chart.options.scales.LinearScales;
 import be.ceau.chart.options.scales.LinearTicks;
 
-public class LineTest {
+public class LineTest extends ChartTest {
 
-	@Test
-	public void line() throws IOException {
-		
-		LineChart lineChart = new LineChart();
-		
-		LineData data = new LineData();
+	@Override
+	public Chart createChart() {
+		LineChart chart = new LineChart();
+		chart.setData(newData());
+		chart.setOptions(newOptions());
+		return chart;
+	}
+
+	private LineData newData() {
 		LineDataset dataset = new LineDataset();
-		
+		LineData data = new LineData();
 		dataset.setBackgroundColor(Color.DARK_SEA_GREEN);
-		dataset.setBorderCapStyle("round");
+		dataset.setBorderCapStyle(BorderCapStyle.ROUND);
 		dataset.setBorderColor(Color.random());
-		dataset.setBorderDash(Arrays.asList(new BigDecimal(10), new BigDecimal(2)));
-		dataset.setBorderDashOffset(new BigDecimal(20));
-		dataset.setBorderJoinStyle("miter");
-		dataset.setBorderWidth(new BigDecimal(2));
+		dataset.setBorderDash(Arrays.asList(10, 2));
+		dataset.setBorderDashOffset(20);
+		dataset.setBorderJoinStyle(BorderJoinStyle.MITER);
+		dataset.setBorderWidth(2);
 		dataset.setFill(true);
 		dataset.setLabel("LineChart test");
-		dataset.setLineTension(new BigDecimal("0.6"));
+		dataset.setLineTension(0.6f);
 		dataset.setPointBackgroundColor(Collections.singletonList(Color.random()));
 		dataset.setSpanGaps(false);
-		
+
 		for (Entry<String, BigDecimal> entry : Generator.generateData().entrySet()) {
 			data.addLabel(entry.getKey());
 			dataset.addData(entry.getValue());
 		}
 
 		data.addDataset(dataset);
-		
-		lineChart.setData(data);
-		
+		return data;
+	}
+	
+	private LineOptions newOptions() {
 		LineOptions options = new LineOptions();
 
 		options.setAnimation(newAnimation());
-		
-//		 options.setEvents(events);
-		
+
+		// options.setEvents(events);
+
 		options.setHover(newHover());
-		
+
 		options.setLegendCallback(new JavaScriptFunction("function(){ alert('legendCallback'); }"));
 		options.setMaintainAspectRatio(true);
 		options.setOnClick(new JavaScriptFunction("function(){ console.log('onclick'); }"));
@@ -75,7 +78,7 @@ public class LineTest {
 		options.setResponsiveAnimationDuration(1000);
 		options.setShowLines(true);
 		options.setSpanGaps(true);
-	
+
 		options.setLegend(newLegend());
 
 		options.setLegendCallback(new JavaScriptFunction("function(){ alert('legendCallback'); }"));
@@ -86,20 +89,11 @@ public class LineTest {
 		options.setResponsiveAnimationDuration(1000);
 		options.setShowLines(true);
 		options.setSpanGaps(true);
-		
-		
+
 		options.setTitle(newTitle());
 		options.setTooltips(newTooltips());
 		options.setScales(newLinearScales());
-		
-		lineChart.setOptions(options);
-		
-		
-		
-		String json = lineChart.toJson();
-		
-		Opener.toBrowser(lineChart.getType(), json);
-
+		return options;
 	}
 	
 	private LinearScales newLinearScales() {
@@ -135,7 +129,7 @@ public class LineTest {
 		animation.setOnProgress(new JavaScriptFunction("function(){console.log('onProgress');}"));
 		return animation;
 	}
-	
+
 	private Hover newHover() {
 		Hover hover = new Hover();
 		hover.setAnimationDuration(700);
@@ -143,7 +137,7 @@ public class LineTest {
 		hover.setOnHover(new JavaScriptFunction("function(){ console.log('onHover'); }"));
 		return hover;
 	}
-	
+
 	private Legend newLegend() {
 		Legend legend = new Legend();
 		legend.setDisplay(true);
@@ -153,7 +147,7 @@ public class LineTest {
 		legend.setPosition(Legend.Position.TOP);
 		return legend;
 	}
-	
+
 	private LegendLabels newLegendLabels() {
 		LegendLabels legendLabels = new LegendLabels();
 		legendLabels.setBoxWidth(150);
@@ -180,35 +174,35 @@ public class LineTest {
 		title.setText("LineTest Title");
 		return title;
 	}
-	
+
 	private Tooltips newTooltips() {
 		Tooltips tooltips = new Tooltips();
 		tooltips.setBackgroundColor(Color.RED);
 		tooltips.setBodyFontColor(Color.AZURE);
 		tooltips.setBodyFontFamily("Verdana");
 		tooltips.setBodyFontStyle(FontStyle.BOLD);
-//		tooltips.setBodySpacing();
-//		tooltips.setCaretSize(caretSize);
-//		tooltips.setCornerRadius(cornerRadius);
-//		tooltips.setCustom(custom);
-//		tooltips.setEnabled(enabled);
-//		tooltips.setFooterFontColor(footerFontColor);
-//		tooltips.setFooterFontFamily(footerFontFamily);
-//		tooltips.setFooterFontSize(footerFontSize);
-//		tooltips.setFooterFontStyle(footerFontStyle);
-//		tooltips.setFooterMarginTop(footerMarginTop);
-//		tooltips.setFooterSpacing(footerSpacing);
-//		tooltips.setItemSort(itemSort);
-//		tooltips.setMode(mode);
-//		tooltips.setMultiKeyBackground(multiKeyBackground);
-//		tooltips.setTitleFontColor(titleFontColor);
-//		tooltips.setTitleFontFamily(titleFontFamily);
-//		tooltips.setTitleFontSize(titleFontSize);
-//		tooltips.setTitleFontStyle();
-//		tooltips.setTitleMarginBottom(titleMarginBottom);
-//		tooltips.setTitleSpacing(titleSpacing);
-//		tooltips.setXPadding(xPadding);
-//		tooltips.setYPadding(yPadding);
+		// tooltips.setBodySpacing();
+		// tooltips.setCaretSize(caretSize);
+		// tooltips.setCornerRadius(cornerRadius);
+		// tooltips.setCustom(custom);
+		// tooltips.setEnabled(enabled);
+		// tooltips.setFooterFontColor(footerFontColor);
+		// tooltips.setFooterFontFamily(footerFontFamily);
+		// tooltips.setFooterFontSize(footerFontSize);
+		// tooltips.setFooterFontStyle(footerFontStyle);
+		// tooltips.setFooterMarginTop(footerMarginTop);
+		// tooltips.setFooterSpacing(footerSpacing);
+		// tooltips.setItemSort(itemSort);
+		// tooltips.setMode(mode);
+		// tooltips.setMultiKeyBackground(multiKeyBackground);
+		// tooltips.setTitleFontColor(titleFontColor);
+		// tooltips.setTitleFontFamily(titleFontFamily);
+		// tooltips.setTitleFontSize(titleFontSize);
+		// tooltips.setTitleFontStyle();
+		// tooltips.setTitleMarginBottom(titleMarginBottom);
+		// tooltips.setTitleSpacing(titleSpacing);
+		// tooltips.setXPadding(xPadding);
+		// tooltips.setYPadding(yPadding);
 		return tooltips;
 	}
 
