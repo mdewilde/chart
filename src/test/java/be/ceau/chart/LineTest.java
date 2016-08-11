@@ -6,7 +6,6 @@ import java.util.Collections;
 import java.util.Map.Entry;
 
 import be.ceau.chart.color.Color;
-import be.ceau.chart.data.JavaScriptFunction;
 import be.ceau.chart.data.LineData;
 import be.ceau.chart.dataset.LineDataset;
 import be.ceau.chart.enums.BorderCapStyle;
@@ -14,6 +13,7 @@ import be.ceau.chart.enums.BorderJoinStyle;
 import be.ceau.chart.enums.FontStyle;
 import be.ceau.chart.enums.HoverMode;
 import be.ceau.chart.enums.TitlePosition;
+import be.ceau.chart.javascript.JavaScriptFunction;
 import be.ceau.chart.options.Animation;
 import be.ceau.chart.options.Hover;
 import be.ceau.chart.options.Legend;

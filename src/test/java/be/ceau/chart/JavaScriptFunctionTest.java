@@ -2,7 +2,8 @@ package be.ceau.chart;
 
 import org.junit.Test;
 
-import be.ceau.chart.data.JavaScriptFunction;
+import be.ceau.chart.javascript.JavaScriptFunction;
+
 import org.junit.Assert;
 
 public class JavaScriptFunctionTest {

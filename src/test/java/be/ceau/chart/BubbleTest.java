@@ -4,11 +4,11 @@ import java.util.Arrays;
 
 import be.ceau.chart.color.Color;
 import be.ceau.chart.data.BubbleData;
-import be.ceau.chart.data.BubbleDataPoint;
-import be.ceau.chart.data.JavaScriptFunction;
+import be.ceau.chart.dataset.BubbleDataPoint;
 import be.ceau.chart.dataset.BubbleDataset;
 import be.ceau.chart.enums.Event;
 import be.ceau.chart.enums.PointStyle;
+import be.ceau.chart.javascript.JavaScriptFunction;
 import be.ceau.chart.options.Animation;
 import be.ceau.chart.options.BubbleOptions;
 import be.ceau.chart.options.Hover;

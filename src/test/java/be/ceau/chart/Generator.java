@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-import be.ceau.chart.data.BubbleDataPoint;
+import be.ceau.chart.dataset.BubbleDataPoint;
 
 public class Generator {
 
