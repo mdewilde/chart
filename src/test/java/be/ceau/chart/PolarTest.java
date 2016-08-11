@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.util.Map.Entry;
 
 import be.ceau.chart.data.PolarData;
-import be.ceau.chart.data.PolarDataset;
+import be.ceau.chart.dataset.PolarDataset;
 import be.ceau.chart.options.PolarOptions;
 
 public class PolarTest extends ChartTest {

@@ -13,8 +13,9 @@
 	See the License for the specific language governing permissions and
 	limitations under the License.
 */
-package be.ceau.chart.data;
+package be.ceau.chart.dataset;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,18 +25,29 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import be.ceau.chart.color.Color;
+import be.ceau.chart.data.Dataset;
 import be.ceau.chart.enums.BorderCapStyle;
 import be.ceau.chart.enums.BorderJoinStyle;
 import be.ceau.chart.enums.PointStyle;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
-public class RadarDataset extends Dataset {
+public class LineDataset extends Dataset {
 
 	/**
 	 * @see #setLabel(String)
 	 */
 	private String label;
+
+	/**
+	 * @see #setXAxisID(String)
+	 */
+	private String xAxisID;
+
+	/**
+	 * @see #setYAxisID(String)
+	 */
+	private String yAxisID;
 
 	/**
 	 * @see #setFill(Boolean)
@@ -73,9 +85,9 @@ public class RadarDataset extends Dataset {
 	private final List<Integer> borderDash = new ArrayList<Integer>();
 
 	/**
-	 * @see #setBorderDashOffset(Float)
+	 * @see #setBorderDashOffset(BigDecimal)
 	 */
-	private Float borderDashOffset;
+	private Integer borderDashOffset;
 
 	/**
 	 * @see #setBorderJoinStyle(BorderJoinStyle)
@@ -108,9 +120,9 @@ public class RadarDataset extends Dataset {
 	private final List<Integer> pointHoverRadius = new ArrayList<Integer>();
 
 	/**
-	 * @see #setHitRadius(List)
+	 * @see #setPointHitRadius(List)
 	 */
-	private final List<Integer> hitRadius = new ArrayList<Integer>();
+	private final List<Integer> pointHitRadius = new ArrayList<Integer>();
 
 	/**
 	 * @see #setPointHoverBackgroundColor(List)
@@ -133,6 +145,21 @@ public class RadarDataset extends Dataset {
 	private final List<PointStyle> pointStyle = new ArrayList<PointStyle>();
 
 	/**
+	 * @see #setShowLine(Boolean)
+	 */
+	private Boolean showLine;
+
+	/**
+	 * @see #setSpanGaps(Boolean)
+	 */
+	private Boolean spanGaps;
+
+	/**
+	 * @see #setSteppedLine(Boolean)
+	 */
+	private Boolean steppedLine;
+
+	/**
 	 * @see #setLabel(String)
 	 */
 	public String getLabel() {
@@ -144,6 +171,34 @@ public class RadarDataset extends Dataset {
 	 */
 	public void setLabel(String label) {
 		this.label = label;
+	}
+
+	/**
+	 * @see #setXAxisID(String)
+	 */
+	public String getXAxisID() {
+		return this.xAxisID;
+	}
+
+	/**
+	 * The ID of the x axis to plot this dataset on
+	 */
+	public void setXAxisID(String xAxisID) {
+		this.xAxisID = xAxisID;
+	}
+
+	/**
+	 * @see #setYAxisID(String)
+	 */
+	public String getYAxisID() {
+		return this.yAxisID;
+	}
+
+	/**
+	 * The ID of the y axis to plot this dataset on
+	 */
+	public void setYAxisID(String yAxisID) {
+		this.yAxisID = yAxisID;
 	}
 
 	/**
@@ -161,7 +216,7 @@ public class RadarDataset extends Dataset {
 	}
 
 	/**
-	 * @see #setLineTension(Float)
+	 * @see #setLineTension(BigDecimal)
 	 */
 	public Float getLineTension() {
 		return this.lineTension;
@@ -265,9 +320,9 @@ public class RadarDataset extends Dataset {
 	}
 
 	/**
-	 * @see #setBorderDashOffset(Float)
+	 * @see #setBorderDashOffset(Integer)
 	 */
-	public Float getBorderDashOffset() {
+	public Integer getBorderDashOffset() {
 		return this.borderDashOffset;
 	}
 
@@ -275,7 +330,7 @@ public class RadarDataset extends Dataset {
 	 * Default line dash offset. A float specifying the amount of
 	 * the offset. Initially 0.0.
 	 */
-	public void setBorderDashOffset(Float borderDashOffset) {
+	public void setBorderDashOffset(Integer borderDashOffset) {
 		this.borderDashOffset = borderDashOffset;
 	}
 
@@ -360,11 +415,11 @@ public class RadarDataset extends Dataset {
 	public List<Integer> getPointBorderWidth() {
 		return this.pointBorderWidth;
 	}
-	
+
 	/**
 	 * @see #setPointBorderWidth(List)
 	 */
-	public void addPointBorderWidth(Integer pointBorderWidth) {
+	public void addPointBackgroundColor(Integer pointBorderWidth) {
 		this.pointBorderWidth.add(pointBorderWidth);
 	}
 
@@ -388,7 +443,7 @@ public class RadarDataset extends Dataset {
 	/**
 	 * @see #setPointRadius(List)
 	 */
-	public void getPointRadius(Integer pointRadius) {
+	public void addPointRadius(Integer pointRadius) {
 		this.pointRadius.add(pointRadius);
 	}
 
@@ -427,26 +482,26 @@ public class RadarDataset extends Dataset {
 	}
 
 	/**
-	 * @see #setHitRadius(List)
+	 * @see #setPointHitRadius(List)
 	 */
-	public List<Integer> getHitRadius() {
-		return this.hitRadius;
+	public List<Integer> getPointHitRadius() {
+		return this.pointHitRadius;
 	}
 
 	/**
-	 * @see #setHitRadius(List)
+	 * @see #setPointHitRadius(List)
 	 */
-	public void addHitRadius(Integer hitRadius) {
-		this.hitRadius.add(hitRadius);
+	public void addPointHitRadius(Integer pointHitRadius) {
+		this.pointHitRadius.add(pointHitRadius);
 	}
 
 	/**
 	 * The pixel size of the non-displayed point that reacts to mouse events
 	 */
-	public void setHitRadius(List<Integer> hitRadius) {
-		this.hitRadius.clear();
-		if (hitRadius != null) {
-			this.hitRadius.addAll(hitRadius);
+	public void setPointHitRadius(List<Integer> pointHitRadius) {
+		this.pointHitRadius.clear();
+		if (pointHitRadius != null) {
+			this.pointHitRadius.addAll(pointHitRadius);
 		}
 	}
 
@@ -484,7 +539,7 @@ public class RadarDataset extends Dataset {
 	/**
 	 * @see #setPointHoverBorderColor(List)
 	 */
-	public void getPointHoverBorderColor(Color pointHoverBorderColor) {
+	public void addPointHoverBorderColor(Color pointHoverBorderColor) {
 		this.pointHoverBorderColor.add(pointHoverBorderColor);
 	}
 
@@ -528,7 +583,7 @@ public class RadarDataset extends Dataset {
 	public List<PointStyle> getPointStyle() {
 		return this.pointStyle;
 	}
-	
+
 	/**
 	 * @see #setPointStyle(List)
 	 */
@@ -537,14 +592,58 @@ public class RadarDataset extends Dataset {
 	}
 
 	/**
-	 * The style of point. Options include 'circle', 'triangle', 'rect',
-	 * 'rectRot', 'cross', 'crossRot', 'star', 'line', and 'dash'
+	 * The style of point. Options are 'circle', 'triangle', 'rect', 'rectRot',
+	 * 'cross', 'crossRot', 'star', 'line', and 'dash'. If the option is an
+	 * image, that image is drawn on the canvas using drawImage.
 	 */
 	public void setPointStyle(List<PointStyle> pointStyle) {
 		this.pointStyle.clear();
 		if (pointStyle != null) {
 			this.pointStyle.addAll(pointStyle);
 		}
+	}
+
+	/**
+	 * @see #setShowLine(Boolean)
+	 */
+	public Boolean getShowLine() {
+		return this.showLine;
+	}
+
+	/**
+	 * If false, the line is not drawn for this dataset
+	 */
+	public void setShowLine(Boolean showLine) {
+		this.showLine = showLine;
+	}
+
+	/**
+	 * @see #setSpanGaps(Boolean)
+	 */
+	public Boolean getSpanGaps() {
+		return this.spanGaps;
+	}
+
+	/**
+	 * If true, lines will be drawn between points with no or null data
+	 */
+	public void setSpanGaps(Boolean spanGaps) {
+		this.spanGaps = spanGaps;
+	}
+
+	/**
+	 * @see #setSteppedLine(Boolean)
+	 */
+	public Boolean getSteppedLine() {
+		return this.steppedLine;
+	}
+
+	/**
+	 * If true, the line is shown as a steeped line and 'lineTension' will be
+	 * ignored
+	 */
+	public void setSteppedLine(Boolean steppedLine) {
+		this.steppedLine = steppedLine;
 	}
 
 }

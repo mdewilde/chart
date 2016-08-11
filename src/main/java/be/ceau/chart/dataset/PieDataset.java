@@ -13,7 +13,7 @@
 	See the License for the specific language governing permissions and
 	limitations under the License.
 */
-package be.ceau.chart.data;
+package be.ceau.chart.dataset;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import be.ceau.chart.color.Color;
+import be.ceau.chart.data.Dataset;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
@@ -65,33 +66,40 @@ public class PieDataset extends Dataset {
 	private final List<Integer> hoverBorderWidth = new ArrayList<Integer>();
 
 	/**
-	 * @see #setLabel(String label)
+	 * @see #setLabel(String)
 	 */
 	public String getLabel() {
-	    return this.label;
+		return this.label;
 	}
 
 	/**
 	 * The label for the dataset which appears in the legend and tooltips
 	 */
 	public void setLabel(String label) {
-	    this.label = label;
+		this.label = label;
 	}
 
 	/**
 	 * @see #setBackgroundColor(List)
 	 */
 	public List<Color> getBackgroundColor() {
-	    return this.backgroundColor;
+		return this.backgroundColor;
 	}
 
 	/**
-	 * The fill color of the arcs. See Colors
+	 * @see #setBackgroundColor(List)
+	 */
+	public void addBackgroundColor(Color backgroundColor) {
+		this.backgroundColor.add(backgroundColor);
+	}
+
+	/**
+	 * The fill color of the arcs. 
 	 */
 	public void setBackgroundColor(List<Color> backgroundColor) {
-		this.LLLL.clear();
-		if (LLLL != null) {
-			this.LLLL.addAll(LLLL);
+		this.backgroundColor.clear();
+		if (backgroundColor != null) {
+			this.backgroundColor.addAll(backgroundColor);
 		}
 	}
 
@@ -99,16 +107,23 @@ public class PieDataset extends Dataset {
 	 * @see #setBorderColor(List)
 	 */
 	public List<Color> getBorderColor() {
-	    return this.borderColor;
+		return this.borderColor;
+	}
+
+	/**
+	 * @see #setBorderColor(List)
+	 */
+	public void addBorderColor(Color borderColor) {
+		this.borderColor.add(borderColor);
 	}
 
 	/**
 	 * Arc border color
 	 */
 	public void setBorderColor(List<Color> borderColor) {
-		this.LLLL.clear();
-		if (LLLL != null) {
-			this.LLLL.addAll(LLLL);
+		this.borderColor.clear();
+		if (borderColor != null) {
+			this.borderColor.addAll(borderColor);
 		}
 	}
 
@@ -116,16 +131,23 @@ public class PieDataset extends Dataset {
 	 * @see #setBorderWidth(List)
 	 */
 	public List<Integer> getBorderWidth() {
-	    return this.borderWidth;
+		return this.borderWidth;
+	}
+
+	/**
+	 * @see #setBorderWidth(List)
+	 */
+	public void addBorderWidth(Integer borderWidth) {
+		this.borderWidth.add(borderWidth);
 	}
 
 	/**
 	 * Border width of arcs in pixels
 	 */
 	public void setBorderWidth(List<Integer> borderWidth) {
-		this.LLLL.clear();
-		if (LLLL != null) {
-			this.LLLL.addAll(LLLL);
+		this.borderWidth.clear();
+		if (borderWidth != null) {
+			this.borderWidth.addAll(borderWidth);
 		}
 	}
 
@@ -133,16 +155,23 @@ public class PieDataset extends Dataset {
 	 * @see #setHoverBackgroundColor(List)
 	 */
 	public List<Color> getHoverBackgroundColor() {
-	    return this.hoverBackgroundColor;
+		return this.hoverBackgroundColor;
+	}
+
+	/**
+	 * @see #setHoverBackgroundColor(List)
+	 */
+	public void addHoverBackgroundColor(Color hoverBackgroundColor) {
+		this.hoverBackgroundColor.add(hoverBackgroundColor);
 	}
 
 	/**
 	 * Arc background color when hovered
 	 */
 	public void setHoverBackgroundColor(List<Color> hoverBackgroundColor) {
-		this.LLLL.clear();
-		if (LLLL != null) {
-			this.LLLL.addAll(LLLL);
+		this.hoverBackgroundColor.clear();
+		if (hoverBackgroundColor != null) {
+			this.hoverBackgroundColor.addAll(hoverBackgroundColor);
 		}
 	}
 
@@ -150,16 +179,23 @@ public class PieDataset extends Dataset {
 	 * @see #setHoverBorderColor(List)
 	 */
 	public List<Color> getHoverBorderColor() {
-	    return this.hoverBorderColor;
+		return this.hoverBorderColor;
+	}
+
+	/**
+	 * @see #setHoverBorderColor(List)
+	 */
+	public void addHoverBorderColor(Color hoverBorderColor) {
+		this.hoverBorderColor.add(hoverBorderColor);
 	}
 
 	/**
 	 * Arc border color when hovered
 	 */
 	public void setHoverBorderColor(List<Color> hoverBorderColor) {
-		this.LLLL.clear();
-		if (LLLL != null) {
-			this.LLLL.addAll(LLLL);
+		this.hoverBorderColor.clear();
+		if (hoverBorderColor != null) {
+			this.hoverBorderColor.addAll(hoverBorderColor);
 		}
 	}
 
@@ -167,16 +203,23 @@ public class PieDataset extends Dataset {
 	 * @see #setHoverBorderWidth(List)
 	 */
 	public List<Integer> getHoverBorderWidth() {
-	    return this.hoverBorderWidth;
+		return this.hoverBorderWidth;
+	}
+
+	/**
+	 * @see #setHoverBorderWidth(List)
+	 */
+	public void addHoverBorderWidth(Integer hoverBorderWidth) {
+		this.hoverBorderWidth.add(hoverBorderWidth);
 	}
 
 	/**
 	 * Border width of arc when hovered
 	 */
 	public void setHoverBorderWidth(List<Integer> hoverBorderWidth) {
-		this.LLLL.clear();
-		if (LLLL != null) {
-			this.LLLL.addAll(LLLL);
+		this.hoverBorderWidth.clear();
+		if (hoverBorderWidth != null) {
+			this.hoverBorderWidth.addAll(hoverBorderWidth);
 		}
 	}
 

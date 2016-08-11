@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.util.Map.Entry;
 
 import be.ceau.chart.data.PieData;
-import be.ceau.chart.data.PieDataset;
+import be.ceau.chart.dataset.PieDataset;
 import be.ceau.chart.options.PieOptions;
 
 public class PieTest extends ChartTest {

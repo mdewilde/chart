@@ -8,7 +8,7 @@ import java.util.Map.Entry;
 import be.ceau.chart.color.Color;
 import be.ceau.chart.data.JavaScriptFunction;
 import be.ceau.chart.data.LineData;
-import be.ceau.chart.data.LineDataset;
+import be.ceau.chart.dataset.LineDataset;
 import be.ceau.chart.enums.BorderCapStyle;
 import be.ceau.chart.enums.BorderJoinStyle;
 import be.ceau.chart.enums.FontStyle;

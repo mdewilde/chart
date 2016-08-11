@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.util.Map.Entry;
 
 import be.ceau.chart.data.BarData;
-import be.ceau.chart.data.BarDataset;
+import be.ceau.chart.dataset.BarDataset;
 import be.ceau.chart.options.BarOptions;
 
 public class BarTest extends ChartTest {

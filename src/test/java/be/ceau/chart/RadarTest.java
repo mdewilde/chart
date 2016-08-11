@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.util.Map.Entry;
 
 import be.ceau.chart.data.RadarData;
-import be.ceau.chart.data.RadarDataset;
+import be.ceau.chart.dataset.RadarDataset;
 import be.ceau.chart.options.RadarOptions;
 
 public class RadarTest extends ChartTest {
