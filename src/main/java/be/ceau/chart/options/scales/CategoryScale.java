@@ -33,11 +33,13 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 public class CategoryScale extends Scale {
 	
+	private final String type = "category";
+
 	private CategoryTicks ticks;
 
 	@Override
 	public String getType() {
-		return "category";
+		return type;
 	}
 
 	@Override

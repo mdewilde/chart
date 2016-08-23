@@ -15,15 +15,15 @@
 */
 package be.ceau.chart.options.scales;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import be.ceau.chart.color.Color;
+import be.ceau.chart.dataset.OptionalArray;
 
 /**
  * The grid line configuration is nested under the scale configuration in the
@@ -33,73 +33,53 @@ import be.ceau.chart.color.Color;
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 public class GridLines {
-	
+
 	/**
-	 * Default {@code true}
-	 * 
 	 * @see #setDisplay(Boolean)
 	 */
 	private Boolean display;
 
 	/**
-	 * Default {@code "rgba(0, 0, 0, 0.1)"}
-	 * 
 	 * @see #setColor(List)
 	 */
-	private List<Color> color;
+	private final List<Color> color = new OptionalArray<Color>();
 
 	/**
-	 * Default {@code 1}
-	 * 
 	 * @see #setLineWidth(List)
 	 */
-	private List<BigDecimal> lineWidth;
+	private List<Integer> lineWidth = new OptionalArray<Integer>();
 
 	/**
-	 * Default {@code true}
-	 * 
 	 * @see #setDrawBorder(Boolean)
 	 */
 	private Boolean drawBorder;
 
 	/**
-	 * Default {@code true}
-	 * 
 	 * @see #setDrawOnChartArea(Boolean)
 	 */
 	private Boolean drawOnChartArea;
 
 	/**
-	 * Default {@code true}
-	 * 
 	 * @see #setDrawTicks(Boolean)
 	 */
 	private Boolean drawTicks;
 
 	/**
-	 * Default {@code 10}
-	 * 
-	 * @see #setTickMarkLength(BigDecimal)
+	 * @see #setTickMarkLength(Integer)
 	 */
-	private BigDecimal tickMarkLength;
+	private Integer tickMarkLength;
 
 	/**
-	 * Default {@code 1}
-	 * 
-	 * @see #setZeroLineWidth(BigDecimal)
+	 * @see #setZeroLineWidth(Integer)
 	 */
-	private BigDecimal zeroLineWidth;
+	private Integer zeroLineWidth;
 
 	/**
-	 * Default {@code "rgba(0, 0, 0, 0.25)"}
-	 * 
 	 * @see #setZeroLineColor(Color)
 	 */
 	private Color zeroLineColor;
 
 	/**
-	 * Default {@code false}
-	 * 
 	 * @see #setOffsetGridLines(Boolean)
 	 */
 	private Boolean offsetGridLines;
@@ -108,140 +88,223 @@ public class GridLines {
 	 * @see #setDisplay(Boolean)
 	 */
 	public Boolean getDisplay() {
-	    return this.display;
+		return this.display;
 	}
 
 	/**
+	 * <p>
 	 * 
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code true}
+	 * </p>
 	 */
 	public void setDisplay(Boolean display) {
-	    this.display = display;
+		this.display = display;
 	}
 
 	/**
 	 * @see #setColor(List)
 	 */
 	public List<Color> getColor() {
-	    return this.color;
+		return this.color;
 	}
 
 	/**
+	 * @see #setColor(List)
+	 */
+	public void addColor(Color color) {
+		this.color.add(color);
+	}
+
+	/**
+	 * <p>
 	 * Color of the grid lines.
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code "rgba(0, 0, 0, 0.1)"}
+	 * </p>
 	 */
 	public void setColor(List<Color> color) {
-	    this.color = color;
+		this.color.clear();
+		if (color != null) {
+			this.color.addAll(color);
+		}
 	}
 
 	/**
 	 * @see #setLineWidth(List)
 	 */
-	public List<BigDecimal> getLineWidth() {
-	    return this.lineWidth;
+	public List<Integer> getLineWidth() {
+		return this.lineWidth;
 	}
 
 	/**
-	 * Stroke width of grid lines
+	 * @see #setLineWidth(List)
 	 */
-	public void setLineWidth(List<BigDecimal> lineWidth) {
-	    this.lineWidth = lineWidth;
+	public void addColor(Integer lineWidth) {
+		this.lineWidth.add(lineWidth);
+	}
+
+	/**
+	 * <p>
+	 * Stroke width of grid lines
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code 1}
+	 * </p>
+	 */
+	public void setLineWidth(List<Integer> lineWidth) {
+		this.lineWidth.clear();
+		if (lineWidth != null) {
+			this.lineWidth.addAll(lineWidth);
+		}
 	}
 
 	/**
 	 * @see #setDrawBorder(Boolean)
 	 */
 	public Boolean getDrawBorder() {
-	    return this.drawBorder;
+		return this.drawBorder;
 	}
 
 	/**
+	 * <p>
 	 * If true draw border on the edge of the chart
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code true}
+	 * </p>
 	 */
 	public void setDrawBorder(Boolean drawBorder) {
-	    this.drawBorder = drawBorder;
+		this.drawBorder = drawBorder;
 	}
 
 	/**
 	 * @see #setDrawOnChartArea(Boolean)
 	 */
 	public Boolean getDrawOnChartArea() {
-	    return this.drawOnChartArea;
+		return this.drawOnChartArea;
 	}
 
 	/**
-	 * If true, draw lines on the chart area inside the axis lines. This is useful when there are multiple axes and you need to control which grid lines are drawn
+	 * <p>
+	 * If true, draw lines on the chart area inside the axis lines. This is
+	 * useful when there are multiple axes and you need to control which grid
+	 * lines are drawn
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code true}
+	 * </p>
 	 */
 	public void setDrawOnChartArea(Boolean drawOnChartArea) {
-	    this.drawOnChartArea = drawOnChartArea;
+		this.drawOnChartArea = drawOnChartArea;
 	}
 
 	/**
 	 * @see #setDrawTicks(Boolean)
 	 */
 	public Boolean getDrawTicks() {
-	    return this.drawTicks;
+		return this.drawTicks;
 	}
 
 	/**
+	 * <p>
 	 * If true, draw lines beside the ticks in the axis area beside the chart.
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code true}
+	 * </p>
 	 */
 	public void setDrawTicks(Boolean drawTicks) {
-	    this.drawTicks = drawTicks;
+		this.drawTicks = drawTicks;
 	}
 
 	/**
-	 * @see #setTickMarkLength(BigDecimal)
+	 * @see #setTickMarkLength(Integer)
 	 */
-	public BigDecimal getTickMarkLength() {
-	    return this.tickMarkLength;
+	public Integer getTickMarkLength() {
+		return this.tickMarkLength;
 	}
 
 	/**
+	 * <p>
 	 * Length in pixels that the grid lines will draw into the axis area.
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code 10}
+	 * </p>
 	 */
-	public void setTickMarkLength(BigDecimal tickMarkLength) {
-	    this.tickMarkLength = tickMarkLength;
+	public void setTickMarkLength(Integer tickMarkLength) {
+		this.tickMarkLength = tickMarkLength;
 	}
 
 	/**
-	 * @see #setZeroLineWidth(BigDecimal)
+	 * @see #setZeroLineWidth(Integer)
 	 */
-	public BigDecimal getZeroLineWidth() {
-	    return this.zeroLineWidth;
+	public Integer getZeroLineWidth() {
+		return this.zeroLineWidth;
 	}
 
 	/**
+	 * <p>
 	 * Stroke width of the grid line for the first index (index 0).
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code 1}
+	 * </p>
 	 */
-	public void setZeroLineWidth(BigDecimal zeroLineWidth) {
-	    this.zeroLineWidth = zeroLineWidth;
+	public void setZeroLineWidth(Integer zeroLineWidth) {
+		this.zeroLineWidth = zeroLineWidth;
 	}
 
 	/**
 	 * @see #setZeroLineColor(Color)
 	 */
 	public Color getZeroLineColor() {
-	    return this.zeroLineColor;
+		return this.zeroLineColor;
 	}
 
 	/**
+	 * <p>
 	 * Stroke color of the grid line for the first index (index 0).
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code "rgba(0, 0, 0, 0.25)"}
+	 * </p>
 	 */
 	public void setZeroLineColor(Color zeroLineColor) {
-	    this.zeroLineColor = zeroLineColor;
+		this.zeroLineColor = zeroLineColor;
 	}
 
 	/**
 	 * @see #setOffsetGridLines(Boolean)
 	 */
 	public Boolean getOffsetGridLines() {
-	    return this.offsetGridLines;
+		return this.offsetGridLines;
 	}
 
 	/**
-	 * If true, labels are shifted to be between grid lines. This is used in the bar chart.
+	 * <p>
+	 * If true, labels are shifted to be between grid lines. This is used in the
+	 * bar chart.
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code false}
+	 * </p>
 	 */
 	public void setOffsetGridLines(Boolean offsetGridLines) {
-	    this.offsetGridLines = offsetGridLines;
+		this.offsetGridLines = offsetGridLines;
 	}
 
 }

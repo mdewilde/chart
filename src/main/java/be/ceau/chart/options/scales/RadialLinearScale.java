@@ -16,8 +16,8 @@
 package be.ceau.chart.options.scales;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 /**
@@ -29,93 +29,111 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 public class RadialLinearScale extends Scale {
 
-	@Override
-	public String getType() {
-		return "radialLinear";
-	}
+	private final String type = "radialLinear";
 
 	/**
-	 * Default {@code false}
-	 * 
-	 * @see #setLineArc(Boolean lineArc)
+	 * @see #setLineArc(Boolean)
 	 */
 	private Boolean lineArc;
 
 	/**
-	 * Default {@code -}
-	 * 
-	 * @see #setAngleLines(AngleLines angleLines)
+	 * @see #setAngleLines(AngleLines)
 	 */
 	private AngleLines angleLines;
 
 	/**
-	 * Default {@code -}
-	 * 
-	 * @see #setPointLabels(PointLabels pointLabels)
+	 * @see #setPointLabels(PointLabels)
 	 */
 	private PointLabels pointLabels;
 
 	/**
-	 * Default {@code -}
-	 * 
-	 * @see #setTicks(Ticks ticks)
+	 * @see #setTicks(Ticks)
 	 */
 	private Ticks ticks;
 
+	@Override
+	public String getType() {
+		return type;
+	}
+
 	/**
-	 * @see #setLineArc(Boolean lineArc)
+	 * @see #setLineArc(Boolean)
 	 */
 	public Boolean getLineArc() {
 	    return this.lineArc;
 	}
 
 	/**
+	 * <p>
 	 * If true, circular arcs are used else straight lines are used. The former is used by the polar area chart and the latter by the radar chart
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code false}
+	 * </p>
 	 */
 	public void setLineArc(Boolean lineArc) {
 	    this.lineArc = lineArc;
 	}
 
 	/**
-	 * @see #setAngleLines(AngleLines angleLines)
+	 * @see #setAngleLines(AngleLines)
 	 */
 	public AngleLines getAngleLines() {
 	    return this.angleLines;
 	}
 
 	/**
+	 * <p>
 	 * See the Angle Line Options section below for details.
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code -}
+	 * </p>
 	 */
 	public void setAngleLines(AngleLines angleLines) {
 	    this.angleLines = angleLines;
 	}
 
 	/**
-	 * @see #setPointLabels(PointLabels pointLabels)
+	 * @see #setPointLabels(PointLabels)
 	 */
 	public PointLabels getPointLabels() {
 	    return this.pointLabels;
 	}
 
 	/**
+	 * <p>
 	 * See the Point Label Options section below for details.
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code -}
+	 * </p>
 	 */
 	public void setPointLabels(PointLabels pointLabels) {
 	    this.pointLabels = pointLabels;
 	}
 
 	/**
-	 * @see #setTicks(Ticks ticks)
+	 * @see #setTicks(Ticks)
 	 */
 	public Ticks getTicks() {
 	    return this.ticks;
 	}
 
 	/**
+	 * <p>
 	 * See the Ticks table below for options.
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code -}
+	 * </p>
 	 */
 	public void setTicks(Ticks ticks) {
 	    this.ticks = ticks;
 	}
-	
+
 }

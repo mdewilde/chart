@@ -16,7 +16,9 @@
 package be.ceau.chart.options;
 
 import java.math.BigDecimal;
-import java.util.List;
+import java.util.Collection;
+import java.util.EnumSet;
+import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
@@ -55,9 +57,9 @@ public class Options {
 	 * Default
 	 * {@code ["mousemove", "mouseout", "click", "touchstart", "touchmove", "touchend"]}
 	 * 
-	 * @see #setEvents(List)
+	 * @see #setEvents(Collection)
 	 */
-	private List<Event> events;
+	private final Set<Event> events = EnumSet.noneOf(Event.class);
 
 	/**
 	 * Default {@code null}
@@ -137,17 +139,20 @@ public class Options {
 	}
 
 	/**
-	 * @see #setEvents(List)
+	 * @see #setEvents(Collection)
 	 */
-	public List<Event> getEvents() {
+	public Set<Event> getEvents() {
 		return this.events;
 	}
 
 	/**
 	 * Events that the chart should listen to for tooltips and hovering
 	 */
-	public void setEvents(List<Event> events) {
-		this.events = events;
+	public void setEvents(Collection<Event> events) {
+		this.events.clear();
+		if (events != null) {
+			this.events.addAll(events);
+		}
 	}
 
 	/**

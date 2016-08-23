@@ -1,4 +1,19 @@
-package be.ceau.chart;
+/*
+	Copyright 2016 Marceau Dewilde <m@ceau.be>
+
+	Licensed under the Apache License, Version 2.0 (the "License");
+	you may not use this file except in compliance with the License.
+	You may obtain a copy of the License at
+
+		http://www.apache.org/licenses/LICENSE-2.0
+
+	Unless required by applicable law or agreed to in writing, software
+	distributed under the License is distributed on an "AS IS" BASIS,
+	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	See the License for the specific language governing permissions and
+	limitations under the License.
+*/
+package be.ceau.chart.tests.util;
 
 import java.awt.Desktop;
 import java.io.File;
@@ -34,7 +49,7 @@ public class Opener {
 				.append(line)
 				.append("<meta name='author' content='Marceau Dewilde'>")
 				.append(line)
-				.append("<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.min.js'></script>")
+				.append("<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.1/Chart.js'></script>")
 				.append(line)
 				.append("<script>")
 				.append("function r(e,t){new Chart(document.getElementById(e).getContext('2d'),t)}")
@@ -46,7 +61,7 @@ public class Opener {
 				.append(line)
 				.append("<canvas id='c'></canvas>")
 				.append(line)
-				.append("<div><pre>").append(json).append("</div></pre>")
+				.append("<div><pre>").append(json).append("</pre></div>")
 				.append(line)
 				.append("<script>")
 				.append(line)

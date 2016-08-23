@@ -25,15 +25,19 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
+import be.ceau.chart.Drawable;
 import be.ceau.chart.dataset.PolarDataset;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
-public class PolarData {
+public class PolarData implements Drawable {
 
 	private final List<String> labels = new ArrayList<String>();
 	private final List<PolarDataset> datasets = new ArrayList<PolarDataset>();
 
+	/**
+	 * @return unmodifiable list of all labels, never {@code null}
+	 */
 	public List<String> getLabels() {
 		return Collections.unmodifiableList(labels);
 	}
@@ -49,6 +53,10 @@ public class PolarData {
 		this.labels.add(label);
 	}
 
+	/**
+	 * @return unmodifiable list of all {@link PolarDataset} objects, never
+	 *         {@code null}
+	 */
 	public List<PolarDataset> getDatasets() {
 		return Collections.unmodifiableList(datasets);
 	}
@@ -62,6 +70,22 @@ public class PolarData {
 
 	public void addDataset(PolarDataset dataset) {
 		this.datasets.add(dataset);
+	}
+
+	/**
+	 * {@code PolarData} is drawable if at least one dataset has at least two
+	 * data points.
+	 * 
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean isDrawable() {
+		for (PolarDataset dataset : datasets) {
+			if (dataset.getData().size() > 1) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 }

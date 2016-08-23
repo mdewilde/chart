@@ -29,11 +29,13 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 public class LogarithmicScale extends Scale {
 
+	private final String type = "logarithmic";
+
 	private LogarithmicTicks ticks;
 
 	@Override
 	public String getType() {
-		return "logarithmic";
+		return type;
 	}
 
 	@Override

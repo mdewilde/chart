@@ -1,0 +1,62 @@
+package be.ceau.chart.enums;
+
+import java.util.Locale;
+
+import com.fasterxml.jackson.annotation.JsonValue;
+
+public enum Easing {
+
+	LINEAR,
+	EASE_IN_QUAD,
+	EASE_OUT_QUAD,
+	EASE_IN_OUT_QUAD,
+	EASE_IN_CUBIC,
+	EASE_OUT_CUBIC,
+	EASE_IN_OUT_CUBIC,
+	EASE_IN_QUART,
+	EASE_OUT_QUART,
+	EASE_IN_OUT_QUART,
+	EASE_IN_QUINT,
+	EASE_OUT_QUINT,
+	EASE_IN_OUT_QUINT,
+	EASE_IN_SINE,
+	EASE_OUT_SINE,
+	EASE_IN_OUT_SINE,
+	EASE_IN_EXPO,
+	EASE_OUT_EXPO,
+	EASE_IN_OUT_EXPO,
+	EASE_IN_CIRC,
+	EASE_OUT_CIRC,
+	EASE_IN_OUT_CIRC,
+	EASE_IN_ELASTIC,
+	EASE_OUT_ELASTIC,
+	EASE_IN_OUT_ELASTIC,
+	EASE_IN_BACK,
+	EASE_OUT_BACK,
+	EASE_IN_OUT_BACK,
+	EASE_IN_BOUNCE,
+	EASE_OUT_BOUNCE,
+	EASE_IN_OUT_BOUNCE;
+
+	private final String serialized;
+
+	private Easing() {
+		StringBuilder sb = new StringBuilder();
+		for (String s : name().split("_")) {
+			if (sb.length() == 0) {
+				sb.append(s.toLowerCase(Locale.ENGLISH));
+			} else {
+				sb.append(s.substring(0, 1).toUpperCase(Locale.ENGLISH));
+				sb.append(s.substring(1).toLowerCase(Locale.ENGLISH));
+			}
+		}
+		this.serialized = sb.toString();
+	}
+
+	@Override
+	@JsonValue
+	public String toString() {
+		return this.serialized;
+	}
+
+}

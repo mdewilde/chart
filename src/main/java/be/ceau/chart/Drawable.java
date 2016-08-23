@@ -13,21 +13,20 @@
 	See the License for the specific language governing permissions and
 	limitations under the License.
 */
-package be.ceau.chart.javascript;
+package be.ceau.chart;
 
-import com.fasterxml.jackson.annotation.JsonValue;
+/**
+ * Common interface for Chart components that may or may not be drawable,
+ * depending on configuration state.
+ */
+public interface Drawable {
 
-public class JavaScriptFunction {
-
-	private final String function;
-
-	public JavaScriptFunction(String function) {
-		this.function = function;
-	}
-
-	@JsonValue
-	public String getFunction() {
-		return function;
-	}
+	/**
+	 * Optional check to determine whether the current state of {@code this}
+	 * object will generate a drawable JSON string
+	 * 
+	 * @return true if {@code this} component is drawable in its current state
+	 */
+	public boolean isDrawable();
 
 }

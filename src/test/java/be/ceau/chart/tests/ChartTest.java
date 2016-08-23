@@ -13,21 +13,23 @@
 	See the License for the specific language governing permissions and
 	limitations under the License.
 */
-package be.ceau.chart.javascript;
+package be.ceau.chart.tests;
 
-import com.fasterxml.jackson.annotation.JsonValue;
+import java.io.IOException;
 
-public class JavaScriptFunction {
+import org.junit.Test;
 
-	private final String function;
+import be.ceau.chart.Chart;
+import be.ceau.chart.tests.util.Opener;
 
-	public JavaScriptFunction(String function) {
-		this.function = function;
-	}
+public abstract class ChartTest {
 
-	@JsonValue
-	public String getFunction() {
-		return function;
+	public abstract Chart createChart();
+
+	@Test
+	public void chartTest() throws IOException {
+		Chart chart = createChart();
+		Opener.toBrowser(chart.getType(), chart.toJson());
 	}
 
 }

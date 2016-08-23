@@ -13,21 +13,7 @@
 	See the License for the specific language governing permissions and
 	limitations under the License.
 */
-package be.ceau.chart.javascript;
-
-import com.fasterxml.jackson.annotation.JsonValue;
-
-public class JavaScriptFunction {
-
-	private final String function;
-
-	public JavaScriptFunction(String function) {
-		this.function = function;
-	}
-
-	@JsonValue
-	public String getFunction() {
-		return function;
-	}
-
-}
+/**
+ * Unit tests
+ */
+package be.ceau.chart.tests;

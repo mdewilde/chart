@@ -30,11 +30,13 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 public class LinearScale extends Scale {
 
+	private final String type = "linear";
+
 	private LinearTicks ticks;
 	
 	@Override
 	public String getType() {
-		return "linear";
+		return type;
 	}
 
 	@Override

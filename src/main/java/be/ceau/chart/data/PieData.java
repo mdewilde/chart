@@ -25,15 +25,19 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
+import be.ceau.chart.Drawable;
 import be.ceau.chart.dataset.PieDataset;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
-public class PieData {
+public class PieData implements Drawable {
 
 	private final List<String> labels = new ArrayList<String>();
 	private final List<PieDataset> datasets = new ArrayList<PieDataset>();
 
+	/**
+	 * @return unmodifiable list of all labels, never {@code null}
+	 */
 	public List<String> getLabels() {
 		return Collections.unmodifiableList(labels);
 	}
@@ -49,6 +53,10 @@ public class PieData {
 		this.labels.add(label);
 	}
 
+	/**
+	 * @return unmodifiable list of all {@link PieDataset} objects, never
+	 *         {@code null}
+	 */
 	public List<PieDataset> getDatasets() {
 		return Collections.unmodifiableList(datasets);
 	}
@@ -62,6 +70,12 @@ public class PieData {
 
 	public void addDataset(PieDataset dataset) {
 		this.datasets.add(dataset);
+	}
+
+	@Override
+	public boolean isDrawable() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }

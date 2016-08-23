@@ -29,9 +29,16 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 public class TimeScale extends Scale {
 
+	private final String type = "time";
+
 	private Ticks ticks;
 	
 	private Time time;
+
+	@Override
+	public String getType() {
+		return type;
+	}
 
 	public Time getTime() {
 		return time;
@@ -39,11 +46,6 @@ public class TimeScale extends Scale {
 
 	public void setTime(Time time) {
 		this.time = time;
-	}
-
-	@Override
-	public String getType() {
-		return "time";
 	}
 
 	@Override

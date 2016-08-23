@@ -28,11 +28,6 @@ import be.ceau.chart.javascript.JavaScriptFunction;
 public abstract class Scale {
 
 	/**
-	 * @see #setType(String)
-	 */
-	private String type;
-
-	/**
 	 * @see #setDisplay(Boolean)
 	 */
 	private Boolean display;
@@ -133,26 +128,15 @@ public abstract class Scale {
 	private Ticks ticks;
 
 	/**
-	 * @see #setType(String)
-	 */
-	public String getType() {
-		return this.type;
-	}
-
-	/**
 	 * <p>
-	 * Type of scale being employed. Custom scales can be created and registered
-	 * with a string key. Options: "category", "linear", "logarithmic", "time",
-	 * "radialLinear"
+	 * Type of scale being employed.
 	 * </p>
 	 * 
 	 * <p>
-	 * Default {@code Chart specific.}
+	 * Default {@code Chart specific}
 	 * </p>
 	 */
-	public void setType(String type) {
-		this.type = type;
-	}
+	public abstract String getType();
 
 	/**
 	 * @see #setDisplay(Boolean)

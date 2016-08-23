@@ -56,37 +56,37 @@ public class BubbleDataset {
 	/**
 	 * @see #setBackgroundColor(List)
 	 */
-	private final List<Color> backgroundColor = new ArrayList<Color>();
+	private final List<Color> backgroundColor = new OptionalArray<Color>();
 
 	/**
 	 * @see #setBorderColor(List)
 	 */
-	private final List<Color> borderColor = new ArrayList<Color>();
+	private final List<Color> borderColor = new OptionalArray<Color>();
 
 	/**
 	 * @see #setBorderWidth(List)
 	 */
-	private final List<Integer> borderWidth = new ArrayList<Integer>();
+	private final List<Integer> borderWidth = new OptionalArray<Integer>();
 
 	/**
 	 * @see #setHoverBackgroundColor(List)
 	 */
-	private final List<Color> hoverBackgroundColor = new ArrayList<Color>();
+	private final List<Color> hoverBackgroundColor = new OptionalArray<Color>();
 
 	/**
 	 * @see #setHoverBorderColor(List)
 	 */
-	private final List<Color> hoverBorderColor = new ArrayList<Color>();
+	private final List<Color> hoverBorderColor = new OptionalArray<Color>();
 
 	/**
 	 * @see #setHoverBorderWidth(List)
 	 */
-	private final List<Integer> hoverBorderWidth = new ArrayList<Integer>();
+	private final List<Integer> hoverBorderWidth = new OptionalArray<Integer>();
 
 	/**
 	 * @see #setHoverRadius(List)
 	 */
-	private final List<Integer> hoverRadius = new ArrayList<Integer>();
+	private final List<Integer> hoverRadius = new OptionalArray<Integer>();
 
 	/**
 	 * @see #setData(List)
