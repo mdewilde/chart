@@ -25,12 +25,11 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
-import be.ceau.chart.Drawable;
 import be.ceau.chart.dataset.PolarDataset;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
-public class PolarData implements Drawable {
+public class PolarData {
 
 	private final List<String> labels = new ArrayList<String>();
 	private final List<PolarDataset> datasets = new ArrayList<PolarDataset>();
@@ -70,22 +69,6 @@ public class PolarData implements Drawable {
 
 	public void addDataset(PolarDataset dataset) {
 		this.datasets.add(dataset);
-	}
-
-	/**
-	 * {@code PolarData} is drawable if at least one dataset has at least two
-	 * data points.
-	 * 
-	 * {@inheritDoc}
-	 */
-	@Override
-	public boolean isDrawable() {
-		for (PolarDataset dataset : datasets) {
-			if (dataset.getData().size() > 1) {
-				return true;
-			}
-		}
-		return false;
 	}
 
 }

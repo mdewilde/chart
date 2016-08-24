@@ -15,41 +15,20 @@
 */
 package be.ceau.chart.tests;
 
-import java.math.BigDecimal;
-import java.util.Map.Entry;
-
 import be.ceau.chart.BarChart;
 import be.ceau.chart.Chart;
-import be.ceau.chart.data.BarData;
-import be.ceau.chart.dataset.BarDataset;
 import be.ceau.chart.options.BarOptions;
-import be.ceau.chart.tests.util.Generator;
+import be.ceau.chart.tests.util.TestFactory;
 
 public class BarTest extends ChartTest {
 	
 	@Override
 	public Chart createChart() {
 		BarChart chart = new BarChart();
-		chart.setData(newData());
-		chart.setOptions(newOptions());
+		chart.setData(TestFactory.newBarData());
+		chart.setOptions(TestFactory.randomInstance(BarOptions.class));
+		System.out.println("Chart is" + (chart.isDrawable() ? " " : " NOT ") + "drawable");
 		return chart;
-	}
-
-	private BarData newData() {
-		BarDataset dataset = new BarDataset();
-		BarData data = new BarData();
-		data.addDataset(dataset);
-		for (Entry<String, BigDecimal> entry : Generator.generateData().entrySet()) {
-			data.addLabel(entry.getKey());
-			dataset.addData(entry.getValue());
-		}
-		return data;
-	}
-	
-	private BarOptions newOptions() {
-		BarOptions options = new BarOptions();
-		options.setAnimation(null);
-		return options;
 	}
 
 }

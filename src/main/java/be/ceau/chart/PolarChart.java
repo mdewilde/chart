@@ -24,6 +24,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 
 import be.ceau.chart.data.PolarData;
+import be.ceau.chart.dataset.PolarDataset;
 import be.ceau.chart.options.PolarOptions;
 
 @JsonInclude(Include.NON_EMPTY)
@@ -74,6 +75,24 @@ public class PolarChart implements Chart {
 		} catch (JsonProcessingException e) {
 			throw new RuntimeException(e);
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * <p>
+	 * {@code PolarChart} is drawable if at least one dataset has at least two
+	 * data points.
+	 * </p>
+	 */
+	@Override
+	public boolean isDrawable() {
+		for (PolarDataset dataset : data.getDatasets()) {
+			if (dataset.getData().size() > 1) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 }

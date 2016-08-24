@@ -24,6 +24,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 
 import be.ceau.chart.data.RadarData;
+import be.ceau.chart.dataset.RadarDataset;
 import be.ceau.chart.options.RadarOptions;
 
 @JsonInclude(Include.NON_EMPTY)
@@ -74,6 +75,24 @@ public class RadarChart implements Chart {
 		} catch (JsonProcessingException e) {
 			throw new RuntimeException(e);
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * <p>
+	 * {@code RadarData} is drawable if at least one dataset has at least three
+	 * data points.
+	 * </p>
+	 */
+	@Override
+	public boolean isDrawable() {
+		for (RadarDataset dataset : data.getDatasets()) {
+			if (dataset.getData().size() > 2) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 }

@@ -25,12 +25,11 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
-import be.ceau.chart.Drawable;
 import be.ceau.chart.dataset.RadarDataset;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
-public class RadarData implements Drawable {
+public class RadarData {
 
 	private final List<String> labels = new ArrayList<String>();
 	private final List<RadarDataset> datasets = new ArrayList<RadarDataset>();
@@ -70,22 +69,6 @@ public class RadarData implements Drawable {
 
 	public void addDataset(RadarDataset dataset) {
 		this.datasets.add(dataset);
-	}
-
-	/**
-	 * {@code RadarData} is drawable if at least one dataset has at least three
-	 * data points.
-	 * 
-	 * {@inheritDoc}
-	 */
-	@Override
-	public boolean isDrawable() {
-		for (RadarDataset dataset : datasets) {
-			if (dataset.getData().size() > 2) {
-				return true;
-			}
-		}
-		return false;
 	}
 
 }

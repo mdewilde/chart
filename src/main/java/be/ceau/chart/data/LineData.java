@@ -25,12 +25,11 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
-import be.ceau.chart.Drawable;
 import be.ceau.chart.dataset.LineDataset;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
-public class LineData implements Drawable {
+public class LineData {
 
 	private final List<String> labels = new ArrayList<String>();
 	private final List<LineDataset> datasets = new ArrayList<LineDataset>();
@@ -70,12 +69,6 @@ public class LineData implements Drawable {
 
 	public void addDataset(LineDataset dataset) {
 		this.datasets.add(dataset);
-	}
-
-	@Override
-	public boolean isDrawable() {
-		// TODO Auto-generated method stub
-		return false;
 	}
 
 }

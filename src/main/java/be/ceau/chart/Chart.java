@@ -15,11 +15,27 @@
 */
 package be.ceau.chart;
 
-
 public interface Chart {
 
 	public String getType();
 
+	/**
+	 * <p>
+	 * Convert {@code this} instance to Json for use with Chart.js library.
+	 * </p>
+	 * 
+	 * @return json representation of {@code this} {@link Chart}
+	 */
 	public String toJson();
+
+	/**
+	 * <p>
+	 * Optional check to determine whether the current state of {@code this}
+	 * object will generate a drawable JSON string.
+	 * </p>
+	 * 
+	 * @return true if {@code this} component is drawable in its current state
+	 */
+	public boolean isDrawable();
 
 }

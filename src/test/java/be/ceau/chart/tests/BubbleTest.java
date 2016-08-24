@@ -21,11 +21,7 @@ import be.ceau.chart.color.Color;
 import be.ceau.chart.data.BubbleData;
 import be.ceau.chart.dataset.BubbleDataPoint;
 import be.ceau.chart.dataset.BubbleDataset;
-import be.ceau.chart.enums.PointStyle;
-import be.ceau.chart.javascript.JavaScriptFunction;
 import be.ceau.chart.options.BubbleOptions;
-import be.ceau.chart.options.elements.BubbleElements;
-import be.ceau.chart.options.elements.Point;
 import be.ceau.chart.tests.util.Generator;
 import be.ceau.chart.tests.util.TestFactory;
 
@@ -35,7 +31,8 @@ public class BubbleTest extends ChartTest {
 	public Chart createChart() {
 		BubbleChart chart = new BubbleChart();
 		chart.setData(newData());
-		chart.setOptions(newOptions());
+		chart.setOptions(TestFactory.randomInstance(BubbleOptions.class));
+		System.out.println("Chart is" + (chart.isDrawable() ? " " : " NOT ") + "drawable");
 		return chart;
 	}
 	
@@ -46,7 +43,7 @@ public class BubbleTest extends ChartTest {
 
 		dataset.setLabel("BubbleTestDataset");
 		
-		for (BubbleDataPoint point : Generator.generateBubbleDataPoints()) {
+		for (BubbleDataPoint point : TestFactory.generateBubbleDataPoints()) {
 			dataset.addData(point);
 			dataset.addBackgroundColor(Color.random());
 			dataset.addBorderColor(Color.random());
@@ -57,50 +54,6 @@ public class BubbleTest extends ChartTest {
 			dataset.addHoverRadius(Generator.nextInt(10));
 		}
 		return data;
-	}
-	
-	private BubbleOptions newOptions() {
-		BubbleOptions options = new BubbleOptions();
-		options.setElements(newBubbleElements());
-
-		options.setAnimation(TestFactory.newAnimation());
-		options.setEvents(TestFactory.getEventList());
-		options.setHover(TestFactory.newHover());
-		options.setLegend(TestFactory.newLegend());
-
-		options.setLegendCallback(new JavaScriptFunction("function() {console.log('legend callback');}"));
-		
-		options.setMaintainAspectRatio(Generator.maybe());
-
-		options.setOnClick(new JavaScriptFunction("function() {console.log('onclick');}"));
-		
-		options.setOnResize(new JavaScriptFunction("function() {console.log('onresize');}"));
-		
-		options.setResponsive(Generator.maybe());
-		options.setResponsiveAnimationDuration(Generator.nextInt(2000));
-		
-		options.setTitle(TestFactory.newTitle());
-		options.setTooltips(TestFactory.newTooltips());
-		return options;
-	}
-	
-	private BubbleElements newBubbleElements() {
-		BubbleElements elements = new BubbleElements();
-		elements.setPoints(newPoint());
-		return elements;
-	}
-	
-	private Point newPoint() {
-		Point point = new Point();
-		point.setBackgroundColor(Color.random());
-		point.setBorderColor(Color.random());
-		point.setBorderWidth(6);
-		point.setHitRadius(4);
-		point.setHoverBorderWidth(6);
-		point.setHoverRadius(3);
-		point.setPointStyle(PointStyle.CIRCLE);
-		point.setRadius(21);
-		return point;
 	}
 	
 }

@@ -22,6 +22,9 @@ import org.junit.Test;
 import be.ceau.chart.Chart;
 import be.ceau.chart.tests.util.Opener;
 
+/**
+ * Abstract superclass for chart type specific test
+ */
 public abstract class ChartTest {
 
 	public abstract Chart createChart();

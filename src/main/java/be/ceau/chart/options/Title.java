@@ -21,6 +21,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import be.ceau.chart.color.Color;
+import be.ceau.chart.enums.FontStyle;
 import be.ceau.chart.enums.TitlePosition;
 
 @JsonInclude(Include.NON_EMPTY)
@@ -58,9 +59,9 @@ public class Title {
 	private Color fontColor;
 
 	/**
-	 * @see #setFontStyle(String)
+	 * @see #setFontStyle(FontStyle)
 	 */
-	private String fontStyle;
+	private FontStyle fontStyle;
 
 	/**
 	 * @see #setPadding(Integer)
@@ -194,9 +195,9 @@ public class Title {
 	}
 
 	/**
-	 * @see #setFontStyle(String)
+	 * @see #setFontStyle(FontStyle)
 	 */
-	public String getFontStyle() {
+	public FontStyle getFontStyle() {
 		return this.fontStyle;
 	}
 
@@ -205,12 +206,12 @@ public class Title {
 	 * Font styling of the title, follows CSS font-style options (i.e. normal,
 	 * italic, oblique, initial, inherit).
 	 * </p>
-	 * TODO?!
+	 * 
 	 * <p>
 	 * Default {@code 'bold'}
 	 * </p>
 	 */
-	public void setFontStyle(String fontStyle) {
+	public void setFontStyle(FontStyle fontStyle) {
 		this.fontStyle = fontStyle;
 	}
 

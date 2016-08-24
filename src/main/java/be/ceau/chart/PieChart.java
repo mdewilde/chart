@@ -24,6 +24,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 
 import be.ceau.chart.data.PieData;
+import be.ceau.chart.dataset.PieDataset;
 import be.ceau.chart.options.PieOptions;
 
 @JsonInclude(Include.NON_EMPTY)
@@ -58,7 +59,7 @@ public class PieChart implements Chart {
 		return options;
 	}
 
-	public void setPieOptions(PieOptions options) {
+	public void setOptions(PieOptions options) {
 		this.options = options;
 	}
 
@@ -74,6 +75,24 @@ public class PieChart implements Chart {
 		} catch (JsonProcessingException e) {
 			throw new RuntimeException(e);
 		}
+	}
+	
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * <p>
+	 * {@code PieChart} is drawable if at least one dataset has at least one
+	 * data point.
+	 * </p>
+	 */
+	@Override
+	public boolean isDrawable() {
+		for (PieDataset dataset : data.getDatasets()) {
+			if (dataset.getData().size() > 1) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 }

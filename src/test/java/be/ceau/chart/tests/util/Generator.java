@@ -15,22 +15,10 @@
 */
 package be.ceau.chart.tests.util;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 import java.util.Random;
-
-import be.ceau.chart.color.Color;
-import be.ceau.chart.dataset.BubbleDataPoint;
-import be.ceau.chart.enums.FontFamily;
-import be.ceau.chart.javascript.JavaScriptFunction;
 
 public class Generator {
 
@@ -63,95 +51,24 @@ public class Generator {
 		return RANDOM.nextInt(bound);
 	}
 	
-	public static BigDecimal nextBigDecimal(int bound) {
-		return new BigDecimal(RANDOM.nextInt(bound));
-	}
-
-	public static <E> E any(Class<E> e) {
-		E[] es = e.getEnumConstants();
-		return es[Generator.nextInt(es.length)];
-	}
-
-	public static List<BubbleDataPoint> generateBubbleDataPoints() {
-		List<BubbleDataPoint> list = new ArrayList<BubbleDataPoint>();
-		
-		// first choose random number of points we will generate - 4 minimum - more than 20 is overkill
-		int datapoints = RANDOM.nextInt(20) + 5;
-		
-		for (int i = 4; i <= datapoints; i++) {
-			
-			BubbleDataPoint point = new BubbleDataPoint();
-			point.setX(new BigDecimal(RANDOM.nextInt(500)));
-			point.setY(new BigDecimal(RANDOM.nextInt(500)));
-			point.setR(new BigDecimal(RANDOM.nextInt(50)));
-			list.add(point);
-			
-		}
-
-		return list;
+	public static float nextFloat(float bound) {
+		return RANDOM.nextFloat();
 	}
 	
-	private static String newWord() {
-		return new StringBuilder()
-				.append(consonants[RANDOM.nextInt(consonants.length)])
-				.append(vowels[RANDOM.nextInt(vowels.length)])
-				.append(consonants[RANDOM.nextInt(consonants.length)])
-				.toString();
+	public static BigDecimal nextBigDecimal(int bound) {
+		return new BigDecimal(RANDOM.nextInt(bound));
 	}
 	
 	public static boolean maybe() {
 		return RANDOM.nextBoolean();
 	}
 
-	public static <T> T randomInstance(Class<T> clazz) throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
-		T t = clazz.newInstance();
-		for (Method method : clazz.getMethods()) {
-			if (method.getName().startsWith("set")) {
-				method.setAccessible(true);
-				for (Class<?> clazzz : method.getParameterTypes()) {
-					method.invoke(t, instance(clazzz, method.getName()));
-				}
-			}
-		}
-		return t;
-	}
-
-	private static <T> Object instance(Class<T> t, String label) throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
-		if (t == null) {
-			return null;
-		}
-		if (Boolean.class.equals(t)) {
-			return maybe();
-		}
-		if (BigDecimal.class.equals(t)) {
-			return nextBigDecimal(10);
-		}
-		if (Color.class.equals(t)) {
-			return Color.random();
-		}
-		if (JavaScriptFunction.class.equals(t)) {
-			return new JavaScriptFunction("function(){console.log('" + label + "');}");
-		}
-		if (Integer.class.equals(t)) {
-			return nextInt(10);
-		}
-		if (String.class.equals(t)) {
-			if (label.toLowerCase(Locale.ENGLISH).contains("fontfamily")) {
-				Field field = FontFamily.class.getDeclaredFields()[nextInt(FontFamily.class.getDeclaredFields().length)];
-				return field.get(FontFamily.class);
-			}
-			return label;
-		}
-		if (t.isEnum()) {
-			return any(t);
-		}
-		if (t.getPackage().getName().startsWith("be.ceau.chart")) {
-			return randomInstance(t);
-		}
-		if (List.class.equals(t)) {
-			return Collections.emptyList();
-		}
-		return t.newInstance();
+	public static String newWord() {
+		return new StringBuilder()
+				.append(consonants[RANDOM.nextInt(consonants.length)])
+				.append(vowels[RANDOM.nextInt(vowels.length)])
+				.append(consonants[RANDOM.nextInt(consonants.length)])
+				.toString();
 	}
 	
 }

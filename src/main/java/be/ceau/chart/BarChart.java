@@ -24,7 +24,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 
 import be.ceau.chart.data.BarData;
+import be.ceau.chart.dataset.BarDataset;
 import be.ceau.chart.options.BarOptions;
+import be.ceau.chart.options.scales.XAxis;
+import be.ceau.chart.options.scales.YAxis;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
@@ -74,6 +77,56 @@ public class BarChart implements Chart {
 		} catch (JsonProcessingException e) {
 			throw new RuntimeException(e);
 		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * <p>
+	 * {@code BarChart} is drawable if at least one dataset has at least one
+	 * data point.<br>
+	 * If an xAxisID is set on a dataset, an xAxis scale must exist with that id.
+	 * <br>
+	 * If an yAxisID is set on a dataset, a yAxis scale must exist with that id.
+	 * </p>
+	 */
+	@Override
+	public boolean isDrawable() {
+		boolean sufficientData = false;
+		for (BarDataset dataset : data.getDatasets()) {
+			if (dataset.getXAxisID() != null && !hasXAxisWithId(dataset.getXAxisID())) {
+				return false;
+			}
+			if (dataset.getYAxisID() != null && !hasYAxisWithId(dataset.getYAxisID())) {
+				return false;
+			}
+			if (dataset.getData().size() > 0) {
+				sufficientData = true;
+			}
+		}
+		return sufficientData;
+	}
+	
+	private boolean hasXAxisWithId(String id) {
+		if (options != null && options.getScales() != null && options.getScales().getxAxes() != null) {
+			for (XAxis xAxis : options.getScales().getxAxes()) {
+				if (id.equals(xAxis.getId())) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	
+	private boolean hasYAxisWithId(String id) {
+		if (options != null && options.getScales() != null && options.getScales().getyAxes() != null) {
+			for (YAxis yAxis : options.getScales().getyAxes()) {
+				if (id.equals(yAxis.getId())) {
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 
 }

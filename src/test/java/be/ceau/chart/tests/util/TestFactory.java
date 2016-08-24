@@ -17,23 +17,40 @@ package be.ceau.chart.tests.util;
 
 import static be.ceau.chart.tests.util.Generator.maybe;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.EnumSet;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import be.ceau.chart.color.Color;
+import be.ceau.chart.data.BarData;
+import be.ceau.chart.data.DoughnutData;
+import be.ceau.chart.data.LineData;
+import be.ceau.chart.data.PieData;
+import be.ceau.chart.data.RadarData;
+import be.ceau.chart.dataset.BarDataset;
+import be.ceau.chart.dataset.BubbleDataPoint;
+import be.ceau.chart.dataset.DoughnutDataset;
+import be.ceau.chart.dataset.LineDataset;
+import be.ceau.chart.dataset.PieDataset;
+import be.ceau.chart.dataset.RadarDataset;
+import be.ceau.chart.enums.BorderSkipped;
 import be.ceau.chart.enums.Easing;
 import be.ceau.chart.enums.Event;
-import be.ceau.chart.enums.FontStyle;
-import be.ceau.chart.enums.HoverMode;
-import be.ceau.chart.enums.TitlePosition;
+import be.ceau.chart.enums.FontFamily;
 import be.ceau.chart.javascript.JavaScriptFunction;
 import be.ceau.chart.options.Animation;
-import be.ceau.chart.options.Hover;
-import be.ceau.chart.options.Legend;
-import be.ceau.chart.options.LegendLabels;
-import be.ceau.chart.options.Title;
-import be.ceau.chart.options.Tooltips;
-import be.ceau.chart.options.scales.Ticks;
+import be.ceau.chart.options.scales.LinearScale;
+import be.ceau.chart.options.scales.LinearScales;
 
 /**
  * Factory for randomized test instances of common Chart objects.
@@ -43,7 +60,7 @@ public class TestFactory {
 	public static Animation newAnimation() {
 		Animation animation = new Animation();
 		animation.setDuration(Generator.nextInt(5000));
-		animation.setEasing(Generator.any(Easing.class));
+		animation.setEasing(any(Easing.class));
 		animation.setOnComplete(new JavaScriptFunction("function(){console.log('animation complete');}"));
 		animation.setOnProgress(new JavaScriptFunction("function(){console.log('animation progress');}"));
 		return animation;
@@ -52,94 +69,224 @@ public class TestFactory {
 	public static Set<Event> getEventList() {
 		Set<Event> set = EnumSet.noneOf(Event.class);
 		for (int i = 0; i < Generator.nextInt(Event.values().length); i++) {
-			set.add(Generator.any(Event.class));
+			set.add(any(Event.class));
 		}
 		return set;
 	}
 	
-	public static Hover newHover() {
-		Hover hover = new Hover();
-		hover.setAnimationDuration(Generator.nextInt(10000));
-		hover.setMode(Generator.any(HoverMode.class));
-		hover.setOnHover(new JavaScriptFunction("function(){console.log('hover');}"));
-		return hover;
+	public static <E> E any(Class<E> e) {
+		E[] es = e.getEnumConstants();
+		return es[Generator.nextInt(es.length)];
 	}
 
-	public static Legend newLegend() {
-		Legend legend = new Legend();
-		legend.setDisplay(maybe());
-		legend.setFullWidth(maybe());
-		legend.setLabels(newLegendLabels());
-		legend.setOnClick(new JavaScriptFunction("function(){ console.log('legend click'); }"));
-		legend.setPosition(Legend.Position.TOP);
-		return legend;
+	public static List<BubbleDataPoint> generateBubbleDataPoints() {
+		List<BubbleDataPoint> list = new ArrayList<BubbleDataPoint>();
+		
+		// first choose random number of points we will generate - 4 minimum - more than 20 is overkill
+		int datapoints = Generator.nextInt(20) + 5;
+		
+		for (int i = 4; i <= datapoints; i++) {
+			
+			BubbleDataPoint point = new BubbleDataPoint();
+			point.setX(new BigDecimal(Generator.nextInt(500)));
+			point.setY(new BigDecimal(Generator.nextInt(500)));
+			point.setR(new BigDecimal(Generator.nextInt(50)));
+			list.add(point);
+
+		}
+
+		return list;
 	}
 
-	private static LegendLabels newLegendLabels() {
-		LegendLabels legendLabels = new LegendLabels();
-		legendLabels.setBoxWidth(150);
-		legendLabels.setFontColor(Color.ANTIQUE_WHITE);
-		legendLabels.setFontFamily("Verdana");
-		legendLabels.setFontSize(15);
-		legendLabels.setFontStyle("bold");
-		legendLabels.setGenerateLabels(new JavaScriptFunction("function(){ console.log('generateLabels'); }"));
-		legendLabels.setPadding(20);
-		legendLabels.setUsePointStyle(maybe());
-		return legendLabels;
+	@SuppressWarnings("unchecked")
+	public static <T> T randomInstance(Class<T> clazz) {
+		// custom handlers
+		if (LineData.class.equals(clazz)) {
+			return (T) newLineData();
+		}
+		if (LinearScales.class.equals(clazz)) {
+			return (T) newLinearScales();
+		}
+		if (PieData.class.equals(clazz)) {
+			return (T) newPieData();
+		}
+		if (DoughnutData.class.equals(clazz)) {
+			return (T) newDoughnutData();
+		}
+		if (RadarData.class.equals(clazz)) {
+			return (T) newRadarData();
+		}
+		// fallback to fully generated instance
+		return generatedInstance(clazz);
+	}
+
+	private static <T> T generatedInstance(Class<T> clazz) {
+		T t = null;
+		try {
+			t = clazz.newInstance();
+			for (Method method : clazz.getMethods()) {
+				if (method.getName().startsWith("set")) {
+					method.setAccessible(true);
+					for (Class<?> clazzz : method.getParameterTypes()) {
+						try {
+							method.invoke(t, instance(clazzz, clazz.getSimpleName(), method.getName()));
+						} catch (IllegalArgumentException e) {
+							e.printStackTrace();
+						} catch (InvocationTargetException e) {
+							e.printStackTrace();
+						}
+					}
+				}
+			}
+		} catch (InstantiationException e) {
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		}
+		return t;
 	}
 	
-	public static Title newTitle() {
-		Title title = new Title();
-		title.setDisplay(maybe());
-		title.setFontColor(Color.random());
-		title.setFontFamily("Verdana");
-		title.setFontSize(24);
-		title.setFontStyle("normal");
-		title.setFullWidth(maybe());
-		title.setPadding(28);
-		title.setPosition(Generator.any(TitlePosition.class));
-		title.setText("LineTest Title");
-		return title;
+	private static <T> Object instance(Class<T> t, String className, String label) throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		if (t == null) {
+			return null;
+		}
+		if (Boolean.class.equals(t)) {
+			return maybe();
+		}
+		if (BigDecimal.class.equals(t)) {
+			return Generator.nextBigDecimal(10);
+		}
+		if (Color.class.equals(t)) {
+			return Color.random();
+		}
+		if (JavaScriptFunction.class.equals(t)) {
+			return new JavaScriptFunction("function(){console.log('" + label + "');}");
+		}
+		if (Integer.class.equals(t)) {
+			if (label.contains("Duration")) {
+				return Generator.nextInt(10000);
+			}
+			return Generator.nextInt(10);
+		}
+		if (Float.class.equals(t)) {
+			return Generator.nextFloat(10f);
+		}
+		if (String.class.equals(t)) {
+			if ("setLabel".equals(label)) {
+				return className + " label";
+			}
+			if ("setXAxisID".equals(label) || "setYAxisID".equals(label)) {
+				return null;
+			}
+			if (label.toLowerCase(Locale.ENGLISH).contains("fontfamily")) {
+				Field field = FontFamily.class.getDeclaredFields()[Generator.nextInt(FontFamily.class.getDeclaredFields().length)];
+				return field.get(FontFamily.class);
+			}
+			return label;
+		}
+		if (t.isEnum()) {
+			return any(t);
+		}
+		if (t.getPackage().getName().startsWith("be.ceau.chart")) {
+			return randomInstance(t);
+		}
+		if (List.class.equals(t)) {
+			return Collections.emptyList();
+		}
+		if (Set.class.equals(t)) {
+			return Collections.emptySet();
+		}
+		if (Map.class.equals(t)) {
+			return Collections.emptyMap();
+		}
+		if (Collection.class.equals(t)) {
+			return Collections.emptyList();
+		}
+		return t.newInstance();
 	}
 	
-	public static Tooltips newTooltips() {
-		Tooltips tooltips = new Tooltips();
-		tooltips.setBackgroundColor(Color.random());
-		tooltips.setBodyFontColor(Color.random());
-		tooltips.setBodyFontFamily("Verdana");
-		tooltips.setBodyFontStyle(Generator.any(FontStyle.class));
-		tooltips.setBodySpacing(Generator.nextInt(90));
-		tooltips.setCaretSize(Generator.nextInt(40));
-		tooltips.setCornerRadius(Generator.nextInt(12));
-		tooltips.setCustom(null);
-		tooltips.setEnabled(Generator.maybe());
-		tooltips.setFooterFontColor(Color.random());
-		tooltips.setFooterFontFamily("sans serif");
-		tooltips.setFooterFontSize(Generator.nextInt(100));
-		tooltips.setFooterFontStyle(Generator.any(FontStyle.class));
-		tooltips.setFooterMarginTop(Generator.nextInt(100));
-		tooltips.setFooterSpacing(Generator.nextInt(100));
-		tooltips.setItemSort(null);
-		tooltips.setMode("single");
-		tooltips.setMultiKeyBackground(Color.random());
-		tooltips.setTitleFontColor(Color.random());
-		tooltips.setTitleFontFamily("serif");
-		tooltips.setTitleFontSize(Generator.nextInt(100));
-		tooltips.setTitleFontStyle(Generator.any(FontStyle.class));
-		tooltips.setTitleMarginBottom(Generator.nextInt(75));
-		tooltips.setTitleSpacing(Generator.nextInt(75));
-		tooltips.setXPadding(Generator.nextInt(100));
-		tooltips.setYPadding(Generator.nextInt(100));
-		return tooltips;
+	private static LineData newLineData() {
+		LineData data = new LineData();
+		LineDataset dataset = randomInstance(LineDataset.class);
+		for (Entry<String, BigDecimal> entry : Generator.generateData().entrySet()) {
+			data.addLabel(entry.getKey());
+			dataset.addData(entry.getValue());
+		}
+		data.addDataset(dataset);
+		return data;
 	}
-	
-	public static Ticks newTicks() {
-		Ticks ticks = new Ticks();
-		ticks.setAutoSkip(true);
-		ticks.setDisplay(true);
-		
-		
-		return ticks;
+
+	private static LinearScales newLinearScales() {
+		 LinearScales scales = new LinearScales();
+		 scales.setxAxes(Collections.singletonList(randomInstance(LinearScale.class)));
+		 scales.setyAxes(Collections.singletonList(randomInstance(LinearScale.class)));
+		 return scales;
+	}
+
+	private static PieData newPieData() {
+		PieData data = new PieData();
+		PieDataset dataset = randomInstance(PieDataset.class);
+		for (Entry<String, BigDecimal> entry : Generator.generateData().entrySet()) {
+			data.addLabel(entry.getKey());
+			dataset.addData(entry.getValue());
+			dataset.addBackgroundColor(Color.random());
+		}
+		dataset.addBorderColor(Color.random());
+		dataset.addBorderWidth(Generator.nextInt(14));
+		dataset.addHoverBackgroundColor(Color.random());
+		dataset.addHoverBorderColor(Color.random());
+		dataset.addHoverBorderWidth(Generator.nextInt(14));
+		data.addDataset(dataset);
+		return data;
+	}
+
+	private static DoughnutData newDoughnutData() {
+		DoughnutDataset dataset = new DoughnutDataset();
+		DoughnutData data = new DoughnutData();
+		data.addDataset(dataset);
+		for (Entry<String, BigDecimal> entry : Generator.generateData().entrySet()) {
+			data.addLabel(entry.getKey());
+			dataset.addData(entry.getValue());
+			dataset.addBackgroundColor(Color.random());
+		}
+		dataset.addBorderColor(Color.random());
+		dataset.addBorderWidth(Generator.nextInt(22));
+		dataset.addHoverBackgroundColor(Color.random());
+		dataset.addHoverBorderColor(Color.random());
+		dataset.addHoverBorderWidth(Generator.nextInt(22));
+		return data;
+	}
+
+	private static RadarData newRadarData() {
+		RadarDataset dataset = new RadarDataset();
+		RadarData data = new RadarData();
+		data.addDataset(dataset);
+		for (Entry<String, BigDecimal> entry : Generator.generateData().entrySet()) {
+			data.addLabel(entry.getKey());
+			dataset.addData(entry.getValue());
+		}
+		return data;
+	}
+
+	public static BarData newBarData() {
+		BarDataset dataset = new BarDataset();
+		BarData data = new BarData();
+		data.addDataset(dataset);
+		for (Entry<String, BigDecimal> entry : Generator.generateData().entrySet()) {
+			data.addLabel(entry.getKey());
+			dataset.addData(entry.getValue());
+			dataset.addBackgroundColor(Color.random());
+			dataset.addBorderColor(Color.random());
+			dataset.addBorderSkipped(any(BorderSkipped.class));
+			dataset.addBorderWidth(Generator.nextInt(15));
+			dataset.addHoverBackgroundColor(Color.random());
+			dataset.addHoverBorderColor(Color.random());
+			dataset.addHoverBorderWidth(Generator.nextInt(15));
+		}
+		dataset.setLabel("BarDataset label");
+		dataset.setXAxisID("x");
+		dataset.setYAxisID("y");
+		return data;
 	}
 
 }

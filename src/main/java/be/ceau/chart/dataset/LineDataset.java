@@ -181,7 +181,8 @@ public class LineDataset extends Dataset {
 	}
 
 	/**
-	 * The ID of the x axis to plot this dataset on
+	 * The ID of the x axis to plot this dataset on. The value for this property
+	 * should equal the ID set at {@code chart.options.scales.xAxes.id}
 	 */
 	public void setXAxisID(String xAxisID) {
 		this.xAxisID = xAxisID;
@@ -195,7 +196,8 @@ public class LineDataset extends Dataset {
 	}
 
 	/**
-	 * The ID of the y axis to plot this dataset on
+	 * The ID of the y axis to plot this dataset on. The value for this property
+	 * should equal the ID set at {@code chart.options.scales.yAxes.id}
 	 */
 	public void setYAxisID(String yAxisID) {
 		this.yAxisID = yAxisID;
@@ -283,8 +285,8 @@ public class LineDataset extends Dataset {
 	 * <ul>
 	 * <li>{@code butt} The ends of lines are squared off at the endpoints.
 	 * <li>{@code round} The ends of lines are rounded.
-	 * <li>{@code square} The ends of lines are squared off by adding a box with an
-	 * equal width and half the height of the line's thickness.
+	 * <li>{@code square} The ends of lines are squared off by adding a box with
+	 * an equal width and half the height of the line's thickness.
 	 * </ul>
 	 */
 	public void setBorderCapStyle(BorderCapStyle borderCapStyle) {
@@ -327,8 +329,8 @@ public class LineDataset extends Dataset {
 	}
 
 	/**
-	 * Default line dash offset. A float specifying the amount of
-	 * the offset. Initially 0.0.
+	 * Default line dash offset. A float specifying the amount of the offset.
+	 * Initially 0.0.
 	 */
 	public void setBorderDashOffset(Integer borderDashOffset) {
 		this.borderDashOffset = borderDashOffset;
@@ -346,15 +348,17 @@ public class LineDataset extends Dataset {
 	 * Default line join style.
 	 * </p>
 	 * <ul>
-	 * <li>{@code round} Rounds off the corners of a shape by filling an additional
-	 * sector of disc centered at the common endpoint of connected segments. The
-	 * radius for these rounded corners is equal to the line width.
-	 * <li>{@code bevel} Fills an additional triangular area between the common endpoint
-	 * of connected segments, and the separate outside rectangular corners of
-	 * each segment.
-	 * <li>{@code miter} Connected segments are joined by extending their outside edges
-	 * to connect at a single point, with the effect of filling an additional
-	 * lozenge-shaped area. This setting is effected by the miterLimit property.
+	 * <li>{@code round} Rounds off the corners of a shape by filling an
+	 * additional sector of disc centered at the common endpoint of connected
+	 * segments. The radius for these rounded corners is equal to the line
+	 * width.
+	 * <li>{@code bevel} Fills an additional triangular area between the common
+	 * endpoint of connected segments, and the separate outside rectangular
+	 * corners of each segment.
+	 * <li>{@code miter} Connected segments are joined by extending their
+	 * outside edges to connect at a single point, with the effect of filling an
+	 * additional lozenge-shaped area. This setting is effected by the
+	 * miterLimit property.
 	 * </ul>
 	 */
 	public void setBorderJoinStyle(BorderJoinStyle borderJoinStyle) {

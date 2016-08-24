@@ -15,15 +15,10 @@
 */
 package be.ceau.chart.tests;
 
-import java.math.BigDecimal;
-import java.util.Map.Entry;
-
 import be.ceau.chart.Chart;
 import be.ceau.chart.PieChart;
 import be.ceau.chart.data.PieData;
-import be.ceau.chart.dataset.PieDataset;
 import be.ceau.chart.options.PieOptions;
-import be.ceau.chart.tests.util.Generator;
 import be.ceau.chart.tests.util.TestFactory;
 
 public class PieTest extends ChartTest {
@@ -31,31 +26,10 @@ public class PieTest extends ChartTest {
 	@Override
 	public Chart createChart() {
 		PieChart chart = new PieChart();
-		chart.setData(newData());
-		chart.setPieOptions(newOptions());
+		chart.setData(TestFactory.randomInstance(PieData.class));
+		chart.setOptions(TestFactory.randomInstance(PieOptions.class));
+		System.out.println("Chart is" + (chart.isDrawable() ? " " : " NOT ") + "drawable");
 		return chart;
-	}
-
-	private PieData newData() {
-		PieDataset dataset = new PieDataset();
-		PieData data = new PieData();
-		data.addDataset(dataset);
-		for (Entry<String, BigDecimal> entry : Generator.generateData().entrySet()) {
-			data.addLabel(entry.getKey());
-			dataset.addData(entry.getValue());
-		}
-		return data;
-	}
-	
-	private PieOptions newOptions() {
-		PieOptions options = new PieOptions();
-		options.setAnimation(TestFactory.newAnimation());
-		options.setEvents(TestFactory.getEventList());
-		options.setHover(TestFactory.newHover());
-		options.setLegend(TestFactory.newLegend());
-		options.setTitle(TestFactory.newTitle());
-		options.setTooltips(TestFactory.newTooltips());
-		return options;
 	}
 
 }
