@@ -41,14 +41,14 @@ Include this project directly from Maven Central
 
 ### Download
 Download this project
-* [chart-2.0.0-javadoc.jar](https://www.ceau.be/chart/chart-2.0.0-javadoc.jar)
-* [chart-2.0.0-javadoc.jar.asc](https://www.ceau.be/chart/chart-2.0.0-javadoc.jar.asc)
-* [chart-2.0.0-sources.jar](https://www.ceau.be/chart/chart-2.0.0-sources.jar)
-* [chart-2.0.0-sources.jar.asc](https://www.ceau.be/chart/chart-2.0.0-sources.jar.asc)
-* [chart-2.0.0.jar](https://www.ceau.be/chart/chart-2.0.0.jar)
-* [chart-2.0.0.jar.asc](https://www.ceau.be/chart/chart-2.0.0.jar.asc)
-* [chart-2.0.0.pom](https://www.ceau.be/chart/chart-2.0.0.pom)
-* [chart-2.0.0.pom.asc](https://www.ceau.be/chart/chart-2.0.0.pom.asc)
+* [chart-2.0.0-SNAPSHOT-javadoc.jar](https://www.ceau.be/chart/chart-2.0.0-SNAPSHOT-javadoc.jar)
+* [chart-2.0.0-SNAPSHOT-javadoc.jar.asc](https://www.ceau.be/chart/chart-2.0.0-SNAPSHOT-javadoc.jar.asc)
+* [chart-2.0.0-SNAPSHOT-sources.jar](https://www.ceau.be/chart/chart-2.0.0-SNAPSHOT-sources.jar)
+* [chart-2.0.0-SNAPSHOT-sources.jar.asc](https://www.ceau.be/chart/chart-2.0.0-SNAPSHOT-sources.jar.asc)
+* [chart-2.0.0-SNAPSHOT.jar](https://www.ceau.be/chart/chart-2.0.0-SNAPSHOT.jar)
+* [chart-2.0.0-SNAPSHOT.jar.asc](https://www.ceau.be/chart/chart-2.0.0-SNAPSHOT.jar.asc)
+* [chart-2.0.0-SNAPSHOT.pom](https://www.ceau.be/chart/chart-2.0.0-SNAPSHOT.pom)
+* [chart-2.0.0-SNAPSHOT.pom.asc](https://www.ceau.be/chart/chart-2.0.0-SNAPSHOT.pom.asc)
 
 ### GnuPG public key
 Verify signature files with my [GnuPG public key](https://www.ceau.be/pubkey.gpg).
