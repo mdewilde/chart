@@ -14,18 +14,9 @@ return new BubbleChart(data, options).toJson();
 In JavaScript:
 
 ```JavaScript
-var canvas = document.getElementById(e).getContext('2d');
-new Chart(canvas, json)};
+var ctx = document.getElementById(e).getContext('2d');
+new Chart(ctx, json)};
 ```
-
-### Maven Central
-Include this project directly from Maven Central
-```XML
-<groupId>be.ceau</groupId>
-<artifactId>chart</artifactId>
-<version>2.0.0</version>
-```
-![Maven Central badge](https://maven-badges.herokuapp.com/maven-central/be.ceau/chart/badge.svg)
 
 ### Test
 See example charts by running the included unit tests:
@@ -38,6 +29,15 @@ Source code is available on [GitHub](https://github.com/mdewilde/chart).
 
 ### Javadoc
 Browse this project's [Javadoc](https://www.ceau.be/chart/apidocs/index.html).
+
+### Maven Central
+Include this project directly from Maven Central
+```XML
+<groupId>be.ceau</groupId>
+<artifactId>chart</artifactId>
+<version>${project.version}</version>
+```
+![Maven Central badge](https://maven-badges.herokuapp.com/maven-central/be.ceau/chart/badge.svg)
 
 ### Download
 Download this project

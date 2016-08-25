@@ -17,7 +17,6 @@ package be.ceau.chart.tests;
 
 import be.ceau.chart.Chart;
 import be.ceau.chart.PolarChart;
-import be.ceau.chart.data.PolarData;
 import be.ceau.chart.options.PolarOptions;
 import be.ceau.chart.tests.util.TestFactory;
 
@@ -26,7 +25,7 @@ public class PolarTest extends ChartTest {
 	@Override
 	public Chart createChart() {
 		PolarChart chart = new PolarChart();
-		chart.setData(TestFactory.randomInstance(PolarData.class));
+		chart.setData(TestFactory.newPolarData());
 		chart.setOptions(TestFactory.randomInstance(PolarOptions.class));
 		System.out.println("Chart is" + (chart.isDrawable() ? " " : " NOT ") + "drawable");
 		return chart;

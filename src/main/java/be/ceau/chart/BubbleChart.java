@@ -27,7 +27,7 @@ import be.ceau.chart.data.BubbleData;
 import be.ceau.chart.options.BubbleOptions;
 
 @JsonInclude(Include.NON_EMPTY)
-@JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
+@JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE, isGetterVisibility = Visibility.NONE)
 public class BubbleChart implements Chart {
 
 	private static final ObjectWriter WRITER = new ObjectMapper().writerWithDefaultPrettyPrinter().forType(BubbleChart.class);

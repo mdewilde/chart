@@ -16,8 +16,8 @@
 package be.ceau.chart.options.scales;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 /**
@@ -33,7 +33,6 @@ public class LogarithmicScale extends Scale {
 
 	private LogarithmicTicks ticks;
 
-	@Override
 	public String getType() {
 		return type;
 	}

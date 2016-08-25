@@ -123,22 +123,6 @@ public abstract class Scale {
 	private ScaleLabel scaleLabel;
 
 	/**
-	 * @see #setTicks(Ticks)
-	 */
-	private Ticks ticks;
-
-	/**
-	 * <p>
-	 * Type of scale being employed.
-	 * </p>
-	 * 
-	 * <p>
-	 * Default {@code Chart specific}
-	 * </p>
-	 */
-	public abstract String getType();
-
-	/**
 	 * @see #setDisplay(Boolean)
 	 */
 	public Boolean getDisplay() {
@@ -536,26 +520,6 @@ public abstract class Scale {
 	public void setScaleLabel(ScaleLabel scaleLabel) {
 		this.scaleLabel = scaleLabel;
 	}
-
-//	/**
-//	 * @see #setTicks(Ticks)
-//	 */
-//	public Ticks getTicks() {
-//		return this.ticks;
-//	}
-//
-//	/**
-//	 * <p>
-//	 * See ticks configuration section.
-//	 * </p>
-//	 * 
-//	 * <p>
-//	 * Default {@code }
-//	 * </p>
-//	 */
-//	public void setTicks(Ticks ticks) {
-//		this.ticks = ticks;
-//	}
 
 	public abstract Ticks getTicks();
 

@@ -27,7 +27,7 @@ import be.ceau.chart.data.DoughnutData;
 import be.ceau.chart.options.DoughnutOptions;
 
 @JsonInclude(Include.NON_EMPTY)
-@JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
+@JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE, isGetterVisibility = Visibility.NONE)
 public class DoughnutChart implements Chart {
 
 	private static final ObjectWriter WRITER = new ObjectMapper().writerWithDefaultPrettyPrinter().forType(DoughnutChart.class);

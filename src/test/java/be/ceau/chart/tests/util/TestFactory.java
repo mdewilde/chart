@@ -36,17 +36,20 @@ import be.ceau.chart.data.BarData;
 import be.ceau.chart.data.DoughnutData;
 import be.ceau.chart.data.LineData;
 import be.ceau.chart.data.PieData;
+import be.ceau.chart.data.PolarData;
 import be.ceau.chart.data.RadarData;
 import be.ceau.chart.dataset.BarDataset;
 import be.ceau.chart.dataset.BubbleDataPoint;
 import be.ceau.chart.dataset.DoughnutDataset;
 import be.ceau.chart.dataset.LineDataset;
 import be.ceau.chart.dataset.PieDataset;
+import be.ceau.chart.dataset.PolarDataset;
 import be.ceau.chart.dataset.RadarDataset;
 import be.ceau.chart.enums.BorderSkipped;
 import be.ceau.chart.enums.Easing;
 import be.ceau.chart.enums.Event;
 import be.ceau.chart.enums.FontFamily;
+import be.ceau.chart.enums.ScalesPosition;
 import be.ceau.chart.javascript.JavaScriptFunction;
 import be.ceau.chart.options.Animation;
 import be.ceau.chart.options.scales.LinearScale;
@@ -175,6 +178,12 @@ public class TestFactory {
 			if ("setLabel".equals(label)) {
 				return className + " label";
 			}
+			if ("setId".equals(label)) {
+				return Generator.newWord();
+			}
+			if ("setText".equals(label)) {
+				return Generator.newWord();
+			}
 			if ("setXAxisID".equals(label) || "setYAxisID".equals(label)) {
 				return null;
 			}
@@ -183,6 +192,10 @@ public class TestFactory {
 				return field.get(FontFamily.class);
 			}
 			return label;
+		}
+		if (ScalesPosition.class.equals(t)) {
+			// scales position seems to break charts
+			return null;
 		}
 		if (t.isEnum()) {
 			return any(t);
@@ -284,8 +297,24 @@ public class TestFactory {
 			dataset.addHoverBorderWidth(Generator.nextInt(15));
 		}
 		dataset.setLabel("BarDataset label");
-		dataset.setXAxisID("x");
-		dataset.setYAxisID("y");
+		return data;
+	}
+
+	public static PolarData newPolarData() {
+		PolarData data = new PolarData();
+		PolarDataset dataset = new PolarDataset();
+		data.addDataset(dataset);
+		for (Entry<String, BigDecimal> entry : Generator.generateData().entrySet()) {
+			data.addLabel(entry.getKey());
+			dataset.addData(entry.getValue());
+			dataset.addBackgroundColor(Color.random());
+			dataset.addBorderColor(Color.random());
+			dataset.addBorderWidth(Generator.nextInt(15));
+			dataset.addHoverBackgroundColor(Color.random());
+			dataset.addHoverBorderColor(Color.random());
+			dataset.addHoverBorderWidth(Generator.nextInt(15));
+		}
+		dataset.setLabel("BarDataset label");
 		return data;
 	}
 

@@ -35,7 +35,6 @@ public class TimeScale extends Scale {
 	
 	private Time time;
 
-	@Override
 	public String getType() {
 		return type;
 	}

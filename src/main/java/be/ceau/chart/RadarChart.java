@@ -28,7 +28,7 @@ import be.ceau.chart.dataset.RadarDataset;
 import be.ceau.chart.options.RadarOptions;
 
 @JsonInclude(Include.NON_EMPTY)
-@JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
+@JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE, isGetterVisibility = Visibility.NONE)
 public class RadarChart implements Chart {
 
 	private static final ObjectWriter WRITER = new ObjectMapper().writerWithDefaultPrettyPrinter().forType(RadarChart.class);

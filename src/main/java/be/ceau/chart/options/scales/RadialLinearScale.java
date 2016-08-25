@@ -51,7 +51,6 @@ public class RadialLinearScale extends Scale {
 	 */
 	private Ticks ticks;
 
-	@Override
 	public String getType() {
 		return type;
 	}
