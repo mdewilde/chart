@@ -18,7 +18,6 @@ package be.ceau.chart.dataset;
 import java.util.List;
 
 import be.ceau.chart.color.Color;
-import be.ceau.chart.data.Dataset;
 
 public abstract class AbstractRoundDataset extends Dataset {
 

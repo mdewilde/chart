@@ -81,7 +81,7 @@ public class RadarChart implements Chart {
 	 * {@inheritDoc}
 	 * 
 	 * <p>
-	 * {@code RadarData} is drawable if at least one dataset has at least three
+	 * {@code RadarChart} is drawable if at least one dataset has at least three
 	 * data points.
 	 * </p>
 	 */

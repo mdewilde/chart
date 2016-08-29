@@ -80,14 +80,13 @@ public class DoughnutChart implements Chart {
 	 * {@inheritDoc}
 	 * 
 	 * <p>
-	 * {@code PolarChart} is drawable if at least one dataset has at least two
-	 * data points.
+	 * {@code DoughnutChart} is drawable if at least one dataset has at least
+	 * one data point.
 	 * </p>
 	 */
 	@Override
 	public boolean isDrawable() {
-		// TODO Auto-generated method stub
-		return false;
+		return data != null && !data.getDatasets().isEmpty();
 	}
 
 }
