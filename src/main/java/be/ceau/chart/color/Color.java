@@ -15,6 +15,7 @@
  */
 package be.ceau.chart.color;
 
+import java.util.Locale;
 import java.util.Random;
 
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -263,7 +264,7 @@ public class Color {
 
 	@JsonValue
 	public String rgba() {
-		return "rgba(" + r + "," + g + "," + b + "," + String.format("%.3f", a) + ")";
+		return "rgba(" + r + "," + g + "," + b + "," + String.format(Locale.US, "%.3f", a) + ")";
 	}
 
 	@Override

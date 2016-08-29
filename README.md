@@ -18,6 +18,13 @@ var ctx = document.getElementById('canvasId').getContext('2d');
 new Chart(ctx, json);
 ```
 
+### Compatibility chart
+
+Chart.js | Chart.java
+------------ | -------------
+1.x | 0.9.x
+2.x | 2.x
+
 ### Test
 See example charts by running the included unit tests:
 ```XML
