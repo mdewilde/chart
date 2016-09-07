@@ -19,6 +19,10 @@ import java.util.Locale;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 
+/**
+ * Enumeration of easing functions, based on Robert Penner's
+ * <a href="http://robertpenner.com/easing/">list</a>
+ */
 public enum Easing {
 
 	LINEAR,

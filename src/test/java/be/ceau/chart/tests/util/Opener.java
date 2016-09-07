@@ -29,7 +29,7 @@ public class Opener {
 		PrintWriter out = new PrintWriter(tmp);
 		out.write(createWebPage(type, json));
 		out.close();
-			
+
 		Desktop.getDesktop().browse(tmp.toURI());
 
 	}

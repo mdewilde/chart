@@ -15,6 +15,10 @@
 */
 package be.ceau.chart.enums;
 
+/**
+ * Public constants for some common, web-safe fonts that can be used in
+ * constructing {@code Chart} instances.
+ */
 public class FontFamily {
 
 	public static final String ANDALE_MONO = "Andale Mono";

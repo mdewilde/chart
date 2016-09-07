@@ -14,6 +14,6 @@
 	limitations under the License.
 */
 /**
- * Package contains models and logic for colorizing charts.
+ * Package contains model and logic for colorizing charts.
  */
 package be.ceau.chart.color;

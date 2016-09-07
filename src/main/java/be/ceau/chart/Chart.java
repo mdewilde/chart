@@ -17,6 +17,10 @@ package be.ceau.chart;
 
 public interface Chart {
 
+	/**
+	 * @return type of this Chart implementation for proper drawing in
+	 *         JavaScript.
+	 */
 	public String getType();
 
 	/**
