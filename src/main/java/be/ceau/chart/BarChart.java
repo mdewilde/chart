@@ -17,8 +17,10 @@ package be.ceau.chart;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
@@ -35,7 +37,8 @@ public class BarChart implements Chart {
 
 	private static final ObjectWriter WRITER = new ObjectMapper().writerWithDefaultPrettyPrinter().forType(BarChart.class);
 
-	private final String type = "bar";
+	@JsonIgnore
+	private boolean vertical = true;
 
 	private BarData data;
 
@@ -65,9 +68,54 @@ public class BarChart implements Chart {
 		this.options = options;
 	}
 
+	/**
+	 * <p>
+	 * Draw this {@code BarChart} horizontally.
+	 * </p>
+	 * <p>
+	 * Default is to draw a vertical {@code BarChart}.
+	 * </p>
+	 * 
+	 * @see #setVertical()
+	 */
+	public void setHorizontal() {
+		this.vertical = false;
+	}
+
+	/**
+	 * @return true if this {@code BarChart} is set to be drawn horizontally
+	 * @see #setHorizontal()
+	 */
+	public boolean isHorizontal() {
+		return !this.vertical;
+	}
+
+	/**
+	 * <p>
+	 * Draw this {@code BarChart} vertically.
+	 * </p>
+	 * <p>
+	 * Vertical drawing is the default for {@code BarChart}.
+	 * </p>
+	 * 
+	 * @see #setHorizontal()
+	 */
+	public void setVertical() {
+		this.vertical = true;
+	}
+
+	/**
+	 * @return true if this {@code BarChart} is set to be drawn vertically
+	 * @see #setVertical()
+	 */
+	public boolean isVertical() {
+		return this.vertical;
+	}
+
 	@Override
+	@JsonProperty("type")
 	public String getType() {
-		return type;
+		return this.vertical ? "bar" : "horizontalBar";
 	}
 
 	@Override
@@ -85,8 +133,8 @@ public class BarChart implements Chart {
 	 * <p>
 	 * {@code BarChart} is drawable if at least one dataset has at least one
 	 * data point.<br>
-	 * If an xAxisID is set on a dataset, an xAxis scale must exist with that id.
-	 * <br>
+	 * If an xAxisID is set on a dataset, an xAxis scale must exist with that
+	 * id. <br>
 	 * If an yAxisID is set on a dataset, a yAxis scale must exist with that id.
 	 * </p>
 	 */
@@ -106,7 +154,7 @@ public class BarChart implements Chart {
 		}
 		return sufficientData;
 	}
-	
+
 	private boolean hasXAxisWithId(String id) {
 		if (options != null && options.getScales() != null && options.getScales().getxAxes() != null) {
 			for (XAxis xAxis : options.getScales().getxAxes()) {
@@ -117,7 +165,7 @@ public class BarChart implements Chart {
 		}
 		return false;
 	}
-	
+
 	private boolean hasYAxisWithId(String id) {
 		if (options != null && options.getScales() != null && options.getScales().getyAxes() != null) {
 			for (YAxis yAxis : options.getScales().getyAxes()) {
