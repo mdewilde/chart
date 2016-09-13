@@ -15,6 +15,7 @@
 */
 package be.ceau.chart.options.scales;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
@@ -29,12 +30,12 @@ public class BarScale extends CategoryScale {
 	/**
 	 * @see #setxAxes(List)
 	 */
-	private List<XAxis> xAxes;
+	private final List<XAxis> xAxes = new ArrayList<XAxis>();
 
 	/**
 	 * @see #setyAxes(List)
 	 */
-	private List<YAxis> yAxes;
+	private final List<YAxis> yAxes = new ArrayList<YAxis>();
 
 	/**
 	 * @see #setxAxes(List)
@@ -44,13 +45,30 @@ public class BarScale extends CategoryScale {
 	}
 
 	/**
+	 * @see #setxAxes(List)
+	 */
+	public void addxAxes(XAxis xAxis) {
+		if (xAxis != null) {
+			this.xAxes.clear();
+			this.xAxes.add(xAxis);
+		}
+	}
+
+	/**
 	 * <p>
 	 * The bar chart officially supports only 1 x-axis but uses an array to keep
 	 * the API consistent. Use a scatter chart if you need multiple x axes.
 	 * </p>
+	 * <p>
+	 * To produce compatible JSON, only the first {@code BarScale} instance will
+	 * be stored if a list containing more than one instance is passed.
+	 * </p>
 	 */
 	public void setxAxes(List<XAxis> xAxes) {
-		this.xAxes = xAxes;
+		this.xAxes.clear();
+		if (xAxes != null && !xAxes.isEmpty()) {
+			addxAxes(xAxes.get(0));
+		}
 	}
 
 	/**
@@ -61,10 +79,22 @@ public class BarScale extends CategoryScale {
 	}
 
 	/**
-	 * 
+	 * @see #setyAxes(List)
+	 */
+	public void addyAxes(YAxis yAxis) {
+		if (yAxis != null) {
+			this.yAxes.add(yAxis);
+		}
+	}
+
+	/**
+	 * The Y axis for this bar chart
 	 */
 	public void setyAxes(List<YAxis> yAxes) {
-		this.yAxes = yAxes;
+		this.yAxes.clear();
+		if (yAxes != null) {
+			this.yAxes.addAll(yAxes);
+		}
 	}
 
 }

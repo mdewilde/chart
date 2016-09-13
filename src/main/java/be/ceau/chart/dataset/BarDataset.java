@@ -15,7 +15,6 @@
 */
 package be.ceau.chart.dataset;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
@@ -47,7 +46,7 @@ public class BarDataset extends BackgroundBorderHoverDataset {
 	/**
 	 * @see #setBorderSkipped(List)
 	 */
-	private final List<BorderSkipped> borderSkipped = new ArrayList<BorderSkipped>();
+	private final List<BorderSkipped> borderSkipped = new OptionalArray<BorderSkipped>();
 
 	/**
 	 * @see #setLabel(String)

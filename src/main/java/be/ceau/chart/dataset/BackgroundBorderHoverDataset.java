@@ -15,7 +15,6 @@
 */
 package be.ceau.chart.dataset;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import be.ceau.chart.color.Color;
@@ -25,32 +24,32 @@ public class BackgroundBorderHoverDataset extends Dataset {
 	/**
 	 * @see #setBackgroundColor(List)
 	 */
-	protected final List<Color> backgroundColor = new ArrayList<Color>();
+	protected final List<Color> backgroundColor = new OptionalArray<Color>();
 
 	/**
 	 * @see #setBorderColor(List)
 	 */
-	protected final List<Color> borderColor = new ArrayList<Color>();
+	protected final List<Color> borderColor = new OptionalArray<Color>();
 
 	/**
 	 * @see #setBorderWidth(List)
 	 */
-	protected final List<Integer> borderWidth = new ArrayList<Integer>();
+	protected final List<Integer> borderWidth = new OptionalArray<Integer>();
 
 	/**
 	 * @see #setHoverBackgroundColor(List)
 	 */
-	protected final List<Color> hoverBackgroundColor = new ArrayList<Color>();
+	protected final List<Color> hoverBackgroundColor = new OptionalArray<Color>();
 
 	/**
 	 * @see #setHoverBorderColor(List)
 	 */
-	protected final List<Color> hoverBorderColor = new ArrayList<Color>();
+	protected final List<Color> hoverBorderColor = new OptionalArray<Color>();
 
 	/**
 	 * @see #setHoverBorderWidth(List)
 	 */
-	protected final List<Integer> hoverBorderWidth = new ArrayList<Integer>();
+	protected final List<Integer> hoverBorderWidth = new OptionalArray<Integer>();
 
 	/**
 	 * @see #setBackgroundColor(List)
@@ -63,7 +62,17 @@ public class BackgroundBorderHoverDataset extends Dataset {
 	 * @see #setBackgroundColor(List)
 	 */
 	public void addBackgroundColor(Color backgroundColor) {
-	    this.backgroundColor.add(backgroundColor);
+	    if (backgroundColor != null) {
+	    	this.backgroundColor.add(backgroundColor);
+	    }
+	}
+
+	/**
+	 * @see #setBackgroundColor(List)
+	 */
+	public void setBackgroundColor(Color backgroundColor) {
+	    this.backgroundColor.clear();
+	    addBackgroundColor(backgroundColor);
 	}
 
 	/**
@@ -87,7 +96,17 @@ public class BackgroundBorderHoverDataset extends Dataset {
 	 * @see #setBorderColor(List)
 	 */
 	public void addBorderColor(Color borderColor) {
-	    this.borderColor.add(borderColor);
+	    if (borderColor != null) {
+	    	this.borderColor.add(borderColor);
+	    }
+	}
+
+	/**
+	 * @see #setBorderColor(List)
+	 */
+	public void setBorderColor(Color borderColor) {
+	    this.borderColor.clear();
+    	addBorderColor(borderColor);
 	}
 
 	/**
@@ -111,7 +130,17 @@ public class BackgroundBorderHoverDataset extends Dataset {
 	 * @see #setBorderWidth(List)
 	 */
 	public void addBorderWidth(Integer borderWidth) {
-	    this.borderWidth.add(borderWidth);
+	    if (borderWidth != null) {
+	    	this.borderWidth.add(borderWidth);
+	    }
+	}
+
+	/**
+	 * @see #setBorderWidth(List)
+	 */
+	public void setBorderWidth(Integer borderWidth) {
+	    this.borderWidth.clear();
+    	addBorderWidth(borderWidth);
 	}
 
 	/**
@@ -135,7 +164,17 @@ public class BackgroundBorderHoverDataset extends Dataset {
 	 * @see #setHoverBackgroundColor(List)
 	 */
 	public void addHoverBackgroundColor(Color hoverBackgroundColor) {
-	    this.hoverBackgroundColor.add(hoverBackgroundColor);
+	    if (hoverBackgroundColor != null) {
+		    this.hoverBackgroundColor.add(hoverBackgroundColor);
+	    }
+	}
+
+	/**
+	 * @see #setHoverBackgroundColor(List)
+	 */
+	public void setHoverBackgroundColor(Color hoverBackgroundColor) {
+	    this.hoverBackgroundColor.clear();
+	    addHoverBackgroundColor(hoverBackgroundColor);
 	}
 
 	/**
@@ -159,7 +198,17 @@ public class BackgroundBorderHoverDataset extends Dataset {
 	 * @see #setHoverBorderColor(List)
 	 */
 	public void addHoverBorderColor(Color hoverBorderColor) {
-	    this.hoverBorderColor.add(hoverBorderColor);
+	    if (hoverBorderColor != null) {
+	    	this.hoverBorderColor.add(hoverBorderColor);
+	    }
+	}
+
+	/**
+	 * @see #setHoverBorderColor(List)
+	 */
+	public void setHoverBorderColor(Color hoverBorderColor) {
+	    this.hoverBorderColor.clear();
+	    addHoverBorderColor(hoverBorderColor);
 	}
 
 	/**
@@ -183,7 +232,17 @@ public class BackgroundBorderHoverDataset extends Dataset {
 	 * @see #setHoverBorderWidth(List)
 	 */
 	public void addHoverBorderWidth(Integer hoverBorderWidth) {
-	    this.hoverBorderWidth.add(hoverBorderWidth);
+	    if (hoverBorderWidth != null) {
+		    this.hoverBorderWidth.add(hoverBorderWidth);
+	    }
+	}
+
+	/**
+	 * @see #setHoverBorderWidth(List)
+	 */
+	public void setHoverBorderWidth(Integer hoverBorderWidth) {
+	    this.hoverBorderWidth.clear();
+	    addHoverBorderWidth(hoverBorderWidth);
 	}
 
 	/**

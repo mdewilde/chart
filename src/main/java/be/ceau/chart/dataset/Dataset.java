@@ -44,21 +44,21 @@ public abstract class Dataset {
 	}
 
 	/**
-	 * The data to plot in a line
+	 * @see #setData(List)
 	 */
 	public void addData(int data) {
 		this.data.add(new BigDecimal(data));
 	}
 
 	/**
-	 * The data to plot in a line
+	 * @see #setData(List)
 	 */
 	public void addData(double data) {
 		this.data.add(new BigDecimal(String.valueOf(data)));
 	}
 
 	/**
-	 * The data to plot in a line
+	 * @see #setData(List)
 	 */
 	public void addData(BigDecimal data) {
 		this.data.add(data);
