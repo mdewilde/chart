@@ -20,6 +20,8 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
+import be.ceau.chart.options.ticks.Ticks;
+
 /**
  * The radial linear scale is used specifically for the radar and polar are
  * chart types. It overlays the chart area, rather than being positioned on one
@@ -71,8 +73,9 @@ public class RadialLinearScale extends Scale {
 	 * Default {@code false}
 	 * </p>
 	 */
-	public void setLineArc(Boolean lineArc) {
+	public RadialLinearScale setLineArc(Boolean lineArc) {
 	    this.lineArc = lineArc;
+	    return this;
 	}
 
 	/**
@@ -91,8 +94,9 @@ public class RadialLinearScale extends Scale {
 	 * Default {@code -}
 	 * </p>
 	 */
-	public void setAngleLines(AngleLines angleLines) {
+	public RadialLinearScale setAngleLines(AngleLines angleLines) {
 	    this.angleLines = angleLines;
+	    return this;
 	}
 
 	/**
@@ -111,8 +115,9 @@ public class RadialLinearScale extends Scale {
 	 * Default {@code -}
 	 * </p>
 	 */
-	public void setPointLabels(PointLabels pointLabels) {
+	public RadialLinearScale setPointLabels(PointLabels pointLabels) {
 	    this.pointLabels = pointLabels;
+	    return this;
 	}
 
 	/**
@@ -131,8 +136,9 @@ public class RadialLinearScale extends Scale {
 	 * Default {@code -}
 	 * </p>
 	 */
-	public void setTicks(Ticks ticks) {
+	public RadialLinearScale setTicks(Ticks ticks) {
 	    this.ticks = ticks;
+	    return this;
 	}
 
 }

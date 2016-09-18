@@ -27,10 +27,11 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import be.ceau.chart.enums.Event;
 import be.ceau.chart.javascript.JavaScriptFunction;
+import be.ceau.chart.options.animation.Animation;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
-public class Options {
+public class Options<T extends Options<T>> {
 
 	/**
 	 * Default {@code true}
@@ -93,7 +94,7 @@ public class Options {
 
 	private Hover hover;
 
-	private Animation animation;
+	private Animation<?> animation;
 
 	/**
 	 * @see #setResponsive(Boolean)
@@ -105,8 +106,10 @@ public class Options {
 	/**
 	 * Resizes when the canvas container does.
 	 */
-	public void setResponsive(Boolean responsive) {
+	@SuppressWarnings("unchecked")
+	public T setResponsive(Boolean responsive) {
 		this.responsive = responsive;
+	    return (T) this;
 	}
 
 	/**
@@ -120,8 +123,10 @@ public class Options {
 	 * Duration in milliseconds it takes to animate to new size after a resize
 	 * event.
 	 */
-	public void setResponsiveAnimationDuration(Integer responsiveAnimationDuration) {
+	@SuppressWarnings("unchecked")
+	public T setResponsiveAnimationDuration(Integer responsiveAnimationDuration) {
 		this.responsiveAnimationDuration = responsiveAnimationDuration;
+	    return (T) this;
 	}
 
 	/**
@@ -134,8 +139,10 @@ public class Options {
 	/**
 	 * Maintain the original canvas aspect ratio (width / height) when resizing
 	 */
-	public void setMaintainAspectRatio(Boolean maintainAspectRatio) {
+	@SuppressWarnings("unchecked")
+	public T setMaintainAspectRatio(Boolean maintainAspectRatio) {
 		this.maintainAspectRatio = maintainAspectRatio;
+	    return (T) this;
 	}
 
 	/**
@@ -148,11 +155,13 @@ public class Options {
 	/**
 	 * Events that the chart should listen to for tooltips and hovering
 	 */
-	public void setEvents(Collection<Event> events) {
+	@SuppressWarnings("unchecked")
+	public T setEvents(Collection<Event> events) {
 		this.events.clear();
 		if (events != null) {
 			this.events.addAll(events);
 		}
+	    return (T) this;
 	}
 
 	/**
@@ -166,8 +175,10 @@ public class Options {
 	 * Called if the event is of type 'mouseup' or 'click'. Called in the
 	 * context of the chart and passed an array of active elements
 	 */
-	public void setOnClick(JavaScriptFunction onClick) {
+	@SuppressWarnings("unchecked")
+	public T setOnClick(JavaScriptFunction onClick) {
 		this.onClick = onClick;
+	    return (T) this;
 	}
 
 	/**
@@ -181,8 +192,10 @@ public class Options {
 	 * Function to generate a legend. Receives the chart object to generate a
 	 * legend from. Default implementation returns an HTML string.
 	 */
-	public void setLegendCallback(JavaScriptFunction legendCallback) {
+	@SuppressWarnings("unchecked")
+	public T setLegendCallback(JavaScriptFunction legendCallback) {
 		this.legendCallback = legendCallback;
+	    return (T) this;
 	}
 
 	/**
@@ -196,8 +209,10 @@ public class Options {
 	 * Called when a resize occurs. Gets passed two arguemnts: the chart
 	 * instance and the new size.
 	 */
-	public void setOnResize(JavaScriptFunction onResize) {
+	@SuppressWarnings("unchecked")
+	public T setOnResize(JavaScriptFunction onResize) {
 		this.onResize = onResize;
+	    return (T) this;
 	}
 
 	/**
@@ -212,8 +227,10 @@ public class Options {
 	 * global options for the chart title is defined in
 	 * Chart.defaults.global.title.
 	 */
-	public void setTitle(Title title) {
+	@SuppressWarnings("unchecked")
+	public T setTitle(Title title) {
 		this.title = title;
+	    return (T) this;
 	}
 
 	/**
@@ -228,8 +245,10 @@ public class Options {
 	 * global options for the chart legend is defined in
 	 * Chart.defaults.global.legend.
 	 */
-	public void setLegend(Legend legend) {
+	@SuppressWarnings("unchecked")
+	public T setLegend(Legend legend) {
 		this.legend = legend;
+	    return (T) this;
 	}
 
 	/**
@@ -250,8 +269,10 @@ public class Options {
 	 * string or an array of strings. Arrays of strings are treated as multiple
 	 * lines of text.
 	 */
-	public void setTooltips(Tooltips tooltips) {
+	@SuppressWarnings("unchecked")
+	public T setTooltips(Tooltips tooltips) {
 		this.tooltips = tooltips;
+	    return (T) this;
 	}
 
 	/**
@@ -265,14 +286,16 @@ public class Options {
 	 * The hover configuration is passed into the options.hover namespace. The
 	 * global hover configuration is at Chart.defaults.global.hover.
 	 */
-	public void setHover(Hover hover) {
+	@SuppressWarnings("unchecked")
+	public T setHover(Hover hover) {
 		this.hover = hover;
+	    return (T) this;
 	}
 
 	/**
 	 * @see #setAnimation(Animation)
 	 */
-	public Animation getAnimation() {
+	public Animation<?> getAnimation() {
 		return animation;
 	}
 
@@ -280,8 +303,10 @@ public class Options {
 	 * The following animation options are available. The global options for are
 	 * defined in Chart.defaults.global.animation.
 	 */
-	public void setAnimation(Animation animation) {
+	@SuppressWarnings("unchecked")
+	public T setAnimation(Animation<?> animation) {
 		this.animation = animation;
+	    return (T) this;
 	}
 
 }

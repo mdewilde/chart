@@ -16,8 +16,8 @@
 package be.ceau.chart.options.scales;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 @JsonInclude(Include.NON_EMPTY)
@@ -62,8 +62,9 @@ public class YAxis {
 	/**
 	 * As defined in Scales.
 	 */
-	public void setType(String type) {
+	public YAxis setType(String type) {
 		this.type = type;
+	    return this;
 	}
 
 	/**
@@ -76,8 +77,9 @@ public class YAxis {
 	/**
 	 * If true, show the scale.
 	 */
-	public void setDisplay(Boolean display) {
+	public YAxis setDisplay(Boolean display) {
 		this.display = display;
+	    return this;
 	}
 
 	/**
@@ -90,8 +92,9 @@ public class YAxis {
 	/**
 	 * Id of the axis so that data can bind to it.
 	 */
-	public void setId(String id) {
+	public YAxis setId(String id) {
 		this.id = id;
+	    return this;
 	}
 
 	/**
@@ -104,8 +107,9 @@ public class YAxis {
 	/**
 	 * If true, bars are stacked on the y-axis
 	 */
-	public void setStacked(Boolean stacked) {
+	public YAxis setStacked(Boolean stacked) {
 		this.stacked = stacked;
+	    return this;
 	}
 
 }

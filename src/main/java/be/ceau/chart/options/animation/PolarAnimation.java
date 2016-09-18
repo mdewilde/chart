@@ -13,7 +13,7 @@
 	See the License for the specific language governing permissions and
 	limitations under the License.
 */
-package be.ceau.chart.options;
+package be.ceau.chart.options.animation;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
@@ -22,7 +22,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
-public class PieAnimation extends Animation {
+public class PolarAnimation extends Animation<PolarAnimation> {
 
 	/**
 	 * Default {@code true}
@@ -48,8 +48,9 @@ public class PieAnimation extends Animation {
 	/**
 	 * If true, will animate the rotation of the chart.
 	 */
-	public void setAnimateRotate(Boolean animateRotate) {
+	public PolarAnimation setAnimateRotate(Boolean animateRotate) {
 	    this.animateRotate = animateRotate;
+	    return this;
 	}
 
 	/**
@@ -62,8 +63,9 @@ public class PieAnimation extends Animation {
 	/**
 	 * If true, will animate scaling the chart.
 	 */
-	public void setAnimateScale(Boolean animateScale) {
+	public PolarAnimation setAnimateScale(Boolean animateScale) {
 	    this.animateScale = animateScale;
+	    return this;
 	}
 
 }

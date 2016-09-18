@@ -16,9 +16,11 @@
 package be.ceau.chart.options.scales;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
+import be.ceau.chart.options.ticks.Ticks;
 
 /**
  * The time scale is used to display times and dates. It can only be placed on
@@ -27,7 +29,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
  */
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
-public class TimeScale extends Scale {
+public class TimeScale extends Scale<TimeScale> {
 
 	private final String type = "time";
 
@@ -43,8 +45,9 @@ public class TimeScale extends Scale {
 		return time;
 	}
 
-	public void setTime(Time time) {
+	public TimeScale setTime(Time time) {
 		this.time = time;
+	    return this;
 	}
 
 	@Override
@@ -52,8 +55,9 @@ public class TimeScale extends Scale {
 		return ticks;
 	}
 
-	public void setTicks(Ticks ticks) {
+	public TimeScale setTicks(Ticks ticks) {
 		this.ticks = ticks;
+	    return this;
 	}
 
 }

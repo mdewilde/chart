@@ -43,16 +43,18 @@ public class CategoryScales {
 		return xAxes;
 	}
 
-	public void setxAxes(List<CategoryScale> xAxes) {
+	public CategoryScales setxAxes(List<CategoryScale> xAxes) {
 		this.xAxes = xAxes;
+		return this;
 	}
 
 	public List<CategoryScale> getyAxes() {
 		return yAxes;
 	}
 
-	public void setyAxes(List<CategoryScale> yAxes) {
+	public CategoryScales setyAxes(List<CategoryScale> yAxes) {
 		this.yAxes = yAxes;
+		return this;
 	}
 
 }

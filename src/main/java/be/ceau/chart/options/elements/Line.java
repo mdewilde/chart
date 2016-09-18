@@ -101,8 +101,9 @@ public class Line {
 	 * Default {@code 0.4}
 	 * </p>
 	 */
-	public void setTension(Float tension) {
+	public Line setTension(Float tension) {
 		this.tension = tension;
+	    return this;
 	}
 
 	/**
@@ -121,8 +122,9 @@ public class Line {
 	 * Default {@code 'rgba(0,0,0,0.1)'}
 	 * </p>
 	 */
-	public void setBackgroundColor(Color backgroundColor) {
+	public Line setBackgroundColor(Color backgroundColor) {
 		this.backgroundColor = backgroundColor;
+	    return this;
 	}
 
 	/**
@@ -141,8 +143,9 @@ public class Line {
 	 * Default {@code 3}
 	 * </p>
 	 */
-	public void setBorderWidth(Integer borderWidth) {
+	public Line setBorderWidth(Integer borderWidth) {
 		this.borderWidth = borderWidth;
+	    return this;
 	}
 
 	/**
@@ -161,8 +164,9 @@ public class Line {
 	 * Default {@code 'rgba(0,0,0,0.1)'}
 	 * </p>
 	 */
-	public void setBorderColor(Color borderColor) {
+	public Line setBorderColor(Color borderColor) {
 		this.borderColor = borderColor;
+	    return this;
 	}
 
 	/**
@@ -188,8 +192,9 @@ public class Line {
 	 * Default {@code 'butt'}
 	 * </p>
 	 */
-	public void setBorderCapStyle(BorderCapStyle borderCapStyle) {
+	public Line setBorderCapStyle(BorderCapStyle borderCapStyle) {
 		this.borderCapStyle = borderCapStyle;
+	    return this;
 	}
 
 	/**
@@ -215,8 +220,9 @@ public class Line {
 	 * Default {@code []}
 	 * </p>
 	 */
-	public void setBorderDash(List<Integer> borderDash) {
+	public Line setBorderDash(List<Integer> borderDash) {
 		this.borderDash = borderDash;
+	    return this;
 	}
 
 	/**
@@ -236,8 +242,9 @@ public class Line {
 	 * Default {@code 0.0}
 	 * </p>
 	 */
-	public void setBorderDashOffset(Float borderDashOffset) {
+	public Line setBorderDashOffset(Float borderDashOffset) {
 		this.borderDashOffset = borderDashOffset;
+	    return this;
 	}
 
 	/**
@@ -269,8 +276,9 @@ public class Line {
 	 * Default {@code 'miter'}
 	 * </p>
 	 */
-	public void setBorderJoinStyle(BorderJoinStyle borderJoinStyle) {
+	public Line setBorderJoinStyle(BorderJoinStyle borderJoinStyle) {
 		this.borderJoinStyle = borderJoinStyle;
+	    return this;
 	}
 
 	/**
@@ -290,8 +298,9 @@ public class Line {
 	 * Default {@code true}
 	 * </p>
 	 */
-	public void setCapBezierPoints(Boolean capBezierPoints) {
+	public Line setCapBezierPoints(Boolean capBezierPoints) {
 		this.capBezierPoints = capBezierPoints;
+	    return this;
 	}
 
 	/**
@@ -310,8 +319,9 @@ public class Line {
 	 * Default {@code true}
 	 * </p>
 	 */
-	public void setFill(Boolean fill) {
+	public Line setFill(Boolean fill) {
 		this.fill = fill;
+	    return this;
 	}
 
 	/**
@@ -331,8 +341,9 @@ public class Line {
 	 * Default {@code false}
 	 * </p>
 	 */
-	public void setStepped(Boolean stepped) {
+	public Line setStepped(Boolean stepped) {
 		this.stepped = stepped;
+	    return this;
 	}
 
 }

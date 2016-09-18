@@ -60,22 +60,25 @@ public class BubbleDataPoint {
 	/**
 	 * X Value
 	 */
-	public void setX(int x) {
+	public BubbleDataPoint setX(int x) {
 		this.x = new BigDecimal(x);
+		return this;
 	}
 	
 	/**
 	 * X Value
 	 */
-	public void setX(double x) {
+	public BubbleDataPoint setX(double x) {
 		this.x = new BigDecimal(String.valueOf(x));
+		return this;
 	}
 	
 	/**
 	 * X Value
 	 */
-	public void setX(BigDecimal x) {
+	public BubbleDataPoint setX(BigDecimal x) {
 		this.x = x;
+		return this;
 	}
 
 	/**
@@ -88,22 +91,25 @@ public class BubbleDataPoint {
 	/**
 	 * @see #setY(BigDecimal)
 	 */
-	public void setY(int y) {
+	public BubbleDataPoint setY(int y) {
 		this.y = new BigDecimal(y);
+		return this;
 	}
 
 	/**
 	 * @see #setY(BigDecimal)
 	 */
-	public void setY(double y) {
+	public BubbleDataPoint setY(double y) {
 		this.y = new BigDecimal(String.valueOf(y));
+		return this;
 	}
 
 	/**
 	 * Y Value
 	 */
-	public void setY(BigDecimal y) {
+	public BubbleDataPoint setY(BigDecimal y) {
 		this.y = y;
+		return this;
 	}
 
 	/**
@@ -116,15 +122,17 @@ public class BubbleDataPoint {
 	/**
 	 * @see #setR(BigDecimal)
 	 */
-	public void setR(double r) {
+	public BubbleDataPoint setR(double r) {
 		this.r = new BigDecimal(String.valueOf(r));
+		return this;
 	}
 
 	/**
 	 * Radius of bubble
 	 */
-	public void setR(BigDecimal r) {
+	public BubbleDataPoint setR(BigDecimal r) {
 		this.r = r;
+		return this;
 	}
 
 }

@@ -13,18 +13,18 @@
 	See the License for the specific language governing permissions and
 	limitations under the License.
 */
-package be.ceau.chart.options.scales;
+package be.ceau.chart.options.ticks;
 
 import java.math.BigDecimal;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
-public class LinearTicks extends Ticks {
+public class LinearTicks extends Ticks<LinearTicks> {
 
 	/**
 	 * @see #setBeginAtZero(Boolean)
@@ -82,8 +82,9 @@ public class LinearTicks extends Ticks {
 	 * Default {@code -}
 	 * </p>
 	 */
-	public void setBeginAtZero(Boolean beginAtZero) {
+	public LinearTicks setBeginAtZero(Boolean beginAtZero) {
 		this.beginAtZero = beginAtZero;
+		return this;
 	}
 
 	/**
@@ -103,8 +104,9 @@ public class LinearTicks extends Ticks {
 	 * Default {@code -}
 	 * </p>
 	 */
-	public void setMin(BigDecimal min) {
+	public LinearTicks setMin(BigDecimal min) {
 		this.min = min;
+		return this;
 	}
 
 	/**
@@ -124,8 +126,9 @@ public class LinearTicks extends Ticks {
 	 * Default {@code -}
 	 * </p>
 	 */
-	public void setMax(BigDecimal max) {
+	public LinearTicks setMax(BigDecimal max) {
 		this.max = max;
+		return this;
 	}
 
 	/**
@@ -145,8 +148,9 @@ public class LinearTicks extends Ticks {
 	 * Default {@code 11}
 	 * </p>
 	 */
-	public void setMaxTicksLimit(BigDecimal maxTicksLimit) {
+	public LinearTicks setMaxTicksLimit(BigDecimal maxTicksLimit) {
 		this.maxTicksLimit = maxTicksLimit;
+		return this;
 	}
 
 	/**
@@ -168,8 +172,9 @@ public class LinearTicks extends Ticks {
 	 * Default {@code -}
 	 * </p>
 	 */
-	public void setFixedStepSize(BigDecimal fixedStepSize) {
+	public LinearTicks setFixedStepSize(BigDecimal fixedStepSize) {
 		this.fixedStepSize = fixedStepSize;
+		return this;
 	}
 
 	/**
@@ -189,8 +194,9 @@ public class LinearTicks extends Ticks {
 	 * Default {@code -}
 	 * </p>
 	 */
-	public void setStepSize(BigDecimal stepSize) {
+	public LinearTicks setStepSize(BigDecimal stepSize) {
 		this.stepSize = stepSize;
+		return this;
 	}
 
 	/**
@@ -210,8 +216,9 @@ public class LinearTicks extends Ticks {
 	 * Default {@code -}
 	 * </p>
 	 */
-	public void setSuggestedMax(BigDecimal suggestedMax) {
+	public LinearTicks setSuggestedMax(BigDecimal suggestedMax) {
 		this.suggestedMax = suggestedMax;
+		return this;
 	}
 
 	/**
@@ -231,8 +238,9 @@ public class LinearTicks extends Ticks {
 	 * Default {@code -}
 	 * </p>
 	 */
-	public void setSuggestedMin(BigDecimal suggestedMin) {
+	public LinearTicks setSuggestedMin(BigDecimal suggestedMin) {
 		this.suggestedMin = suggestedMin;
+		return this;
 	}
 
 }

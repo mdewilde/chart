@@ -18,8 +18,8 @@ package be.ceau.chart.options.scales;
 import java.math.BigDecimal;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 @JsonInclude(Include.NON_EMPTY)
@@ -85,8 +85,9 @@ public class XAxis {
 	/**
 	 * As defined in Scales.
 	 */
-	public void setType(String type) {
+	public XAxis setType(String type) {
 		this.type = type;
+	    return this;
 	}
 
 	/**
@@ -99,8 +100,9 @@ public class XAxis {
 	/**
 	 * If true, show the scale.
 	 */
-	public void setDisplay(Boolean display) {
+	public XAxis setDisplay(Boolean display) {
 		this.display = display;
+	    return this;
 	}
 
 	/**
@@ -113,8 +115,9 @@ public class XAxis {
 	/**
 	 * Id of the axis so that data can bind to it
 	 */
-	public void setId(String id) {
+	public XAxis setId(String id) {
 		this.id = id;
+	    return this;
 	}
 
 	/**
@@ -127,8 +130,9 @@ public class XAxis {
 	/**
 	 * If true, bars are stacked on the x-axis
 	 */
-	public void setStacked(Boolean stacked) {
+	public XAxis setStacked(Boolean stacked) {
 		this.stacked = stacked;
+	    return this;
 	}
 
 	/**
@@ -142,8 +146,9 @@ public class XAxis {
 	 * Percent (0-1) of the available width (the space between the gridlines for
 	 * small datasets) for each data-point to use for the bars. Read More
 	 */
-	public void setCategoryPercentage(BigDecimal categoryPercentage) {
+	public XAxis setCategoryPercentage(BigDecimal categoryPercentage) {
 		this.categoryPercentage = categoryPercentage;
+	    return this;
 	}
 
 	/**
@@ -158,8 +163,9 @@ public class XAxis {
 	 * category percentage. 1.0 will take the whole category width and put the
 	 * bars right next to each other. Read More
 	 */
-	public void setBarPercentage(BigDecimal barPercentage) {
+	public XAxis setBarPercentage(BigDecimal barPercentage) {
 		this.barPercentage = barPercentage;
+	    return this;
 	}
 
 	/**
@@ -172,8 +178,9 @@ public class XAxis {
 	/**
 	 * 
 	 */
-	public void setGridLines(GridLines gridLines) {
+	public XAxis setGridLines(GridLines gridLines) {
 		this.gridLines = gridLines;
+	    return this;
 	}
 
 }

@@ -100,8 +100,9 @@ public class GridLines {
 	 * Default {@code true}
 	 * </p>
 	 */
-	public void setDisplay(Boolean display) {
+	public GridLines setDisplay(Boolean display) {
 		this.display = display;
+		return this;
 	}
 
 	/**
@@ -114,8 +115,9 @@ public class GridLines {
 	/**
 	 * @see #setColor(List)
 	 */
-	public void addColor(Color color) {
+	public GridLines addColor(Color color) {
 		this.color.add(color);
+		return this;
 	}
 
 	/**
@@ -127,11 +129,12 @@ public class GridLines {
 	 * Default {@code "rgba(0, 0, 0, 0.1)"}
 	 * </p>
 	 */
-	public void setColor(List<Color> color) {
+	public GridLines setColor(List<Color> color) {
 		this.color.clear();
 		if (color != null) {
 			this.color.addAll(color);
 		}
+		return this;
 	}
 
 	/**
@@ -144,8 +147,9 @@ public class GridLines {
 	/**
 	 * @see #setLineWidth(List)
 	 */
-	public void addColor(Integer lineWidth) {
+	public GridLines addColor(Integer lineWidth) {
 		this.lineWidth.add(lineWidth);
+		return this;
 	}
 
 	/**
@@ -157,11 +161,12 @@ public class GridLines {
 	 * Default {@code 1}
 	 * </p>
 	 */
-	public void setLineWidth(List<Integer> lineWidth) {
+	public GridLines setLineWidth(List<Integer> lineWidth) {
 		this.lineWidth.clear();
 		if (lineWidth != null) {
 			this.lineWidth.addAll(lineWidth);
 		}
+		return this;
 	}
 
 	/**
@@ -180,8 +185,9 @@ public class GridLines {
 	 * Default {@code true}
 	 * </p>
 	 */
-	public void setDrawBorder(Boolean drawBorder) {
+	public GridLines setDrawBorder(Boolean drawBorder) {
 		this.drawBorder = drawBorder;
+		return this;
 	}
 
 	/**
@@ -202,8 +208,9 @@ public class GridLines {
 	 * Default {@code true}
 	 * </p>
 	 */
-	public void setDrawOnChartArea(Boolean drawOnChartArea) {
+	public GridLines setDrawOnChartArea(Boolean drawOnChartArea) {
 		this.drawOnChartArea = drawOnChartArea;
+		return this;
 	}
 
 	/**
@@ -222,8 +229,9 @@ public class GridLines {
 	 * Default {@code true}
 	 * </p>
 	 */
-	public void setDrawTicks(Boolean drawTicks) {
+	public GridLines setDrawTicks(Boolean drawTicks) {
 		this.drawTicks = drawTicks;
+		return this;
 	}
 
 	/**
@@ -242,8 +250,9 @@ public class GridLines {
 	 * Default {@code 10}
 	 * </p>
 	 */
-	public void setTickMarkLength(Integer tickMarkLength) {
+	public GridLines setTickMarkLength(Integer tickMarkLength) {
 		this.tickMarkLength = tickMarkLength;
+		return this;
 	}
 
 	/**
@@ -262,8 +271,9 @@ public class GridLines {
 	 * Default {@code 1}
 	 * </p>
 	 */
-	public void setZeroLineWidth(Integer zeroLineWidth) {
+	public GridLines setZeroLineWidth(Integer zeroLineWidth) {
 		this.zeroLineWidth = zeroLineWidth;
+		return this;
 	}
 
 	/**
@@ -282,8 +292,9 @@ public class GridLines {
 	 * Default {@code "rgba(0, 0, 0, 0.25)"}
 	 * </p>
 	 */
-	public void setZeroLineColor(Color zeroLineColor) {
+	public GridLines setZeroLineColor(Color zeroLineColor) {
 		this.zeroLineColor = zeroLineColor;
+		return this;
 	}
 
 	/**
@@ -303,8 +314,9 @@ public class GridLines {
 	 * Default {@code false}
 	 * </p>
 	 */
-	public void setOffsetGridLines(Boolean offsetGridLines) {
+	public GridLines setOffsetGridLines(Boolean offsetGridLines) {
 		this.offsetGridLines = offsetGridLines;
+		return this;
 	}
 
 }

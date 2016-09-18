@@ -39,16 +39,18 @@ public class LogarithmicScales {
 		return xAxes;
 	}
 
-	public void setxAxes(List<LogarithmicScale> xAxes) {
+	public LogarithmicScales setxAxes(List<LogarithmicScale> xAxes) {
 		this.xAxes = xAxes;
+	    return this;
 	}
 
 	public List<LogarithmicScale> getyAxes() {
 		return yAxes;
 	}
 
-	public void setyAxes(List<LogarithmicScale> yAxes) {
+	public LogarithmicScales setyAxes(List<LogarithmicScale> yAxes) {
 		this.yAxes = yAxes;
+	    return this;
 	}
 
 }

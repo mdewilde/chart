@@ -84,8 +84,9 @@ public class LegendLabels {
 	 * Default {@code 40}
 	 * </p>
 	 */
-	public void setBoxWidth(Integer boxWidth) {
+	public LegendLabels setBoxWidth(Integer boxWidth) {
 	    this.boxWidth = boxWidth;
+	    return this;
 	}
 
 	/**
@@ -104,8 +105,9 @@ public class LegendLabels {
 	 * Default {@code 12}
 	 * </p>
 	 */
-	public void setFontSize(Integer fontSize) {
+	public LegendLabels setFontSize(Integer fontSize) {
 	    this.fontSize = fontSize;
+	    return this;
 	}
 
 	/**
@@ -124,8 +126,9 @@ public class LegendLabels {
 	 * Default {@code "normal"}
 	 * </p>
 	 */
-	public void setFontStyle(FontStyle fontStyle) {
+	public LegendLabels setFontStyle(FontStyle fontStyle) {
 	    this.fontStyle = fontStyle;
+	    return this;
 	}
 
 	/**
@@ -144,8 +147,9 @@ public class LegendLabels {
 	 * Default {@code "#666"}
 	 * </p>
 	 */
-	public void setFontColor(Color fontColor) {
+	public LegendLabels setFontColor(Color fontColor) {
 	    this.fontColor = fontColor;
+	    return this;
 	}
 
 	/**
@@ -164,8 +168,9 @@ public class LegendLabels {
 	 * Default {@code "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif"}
 	 * </p>
 	 */
-	public void setFontFamily(String fontFamily) {
+	public LegendLabels setFontFamily(String fontFamily) {
 	    this.fontFamily = fontFamily;
+	    return this;
 	}
 
 	/**
@@ -184,8 +189,9 @@ public class LegendLabels {
 	 * Default {@code 10}
 	 * </p>
 	 */
-	public void setPadding(Integer padding) {
+	public LegendLabels setPadding(Integer padding) {
 	    this.padding = padding;
+	    return this;
 	}
 
 	/**
@@ -204,8 +210,9 @@ public class LegendLabels {
 	 * Default {@code function(chart) {  }}
 	 * </p>
 	 */
-	public void setGenerateLabels(JavaScriptFunction generateLabels) {
+	public LegendLabels setGenerateLabels(JavaScriptFunction generateLabels) {
 	    this.generateLabels = generateLabels;
+	    return this;
 	}
 
 	/**
@@ -224,8 +231,9 @@ public class LegendLabels {
 	 * Default {@code false}
 	 * </p>
 	 */
-	public void setUsePointStyle(Boolean usePointStyle) {
+	public LegendLabels setUsePointStyle(Boolean usePointStyle) {
 	    this.usePointStyle = usePointStyle;
+	    return this;
 	}
 
 }

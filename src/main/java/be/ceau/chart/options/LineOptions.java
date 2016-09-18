@@ -24,7 +24,7 @@ import be.ceau.chart.options.scales.LinearScales;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
-public class LineOptions extends Options {
+public class LineOptions extends Options<LineOptions> {
 
 	/**
 	 * @see #setShowLines(Boolean)
@@ -57,8 +57,9 @@ public class LineOptions extends Options {
 	 * Default {@code true}
 	 * </p>
 	 */
-	public void setShowLines(Boolean showLines) {
+	public LineOptions setShowLines(Boolean showLines) {
 		this.showLines = showLines;
+		return this;
 	}
 
 	/**
@@ -77,8 +78,9 @@ public class LineOptions extends Options {
 	 * Default {@code false}
 	 * </p>
 	 */
-	public void setSpanGaps(Boolean spanGaps) {
+	public LineOptions setSpanGaps(Boolean spanGaps) {
 		this.spanGaps = spanGaps;
+		return this;
 	}
 
 	/**
@@ -91,8 +93,9 @@ public class LineOptions extends Options {
 	/**
 	 * The linear scale is use to chart numerical data
 	 */
-	public void setScales(LinearScales scales) {
+	public LineOptions setScales(LinearScales scales) {
 		this.scales = scales;
+		return this;
 	}
 
 }

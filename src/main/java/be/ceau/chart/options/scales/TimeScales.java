@@ -39,16 +39,18 @@ public class TimeScales {
 		return xAxes;
 	}
 
-	public void setxAxes(List<TimeScale> xAxes) {
+	public TimeScales setxAxes(List<TimeScale> xAxes) {
 		this.xAxes = xAxes;
+	    return this;
 	}
 
 	public List<TimeScale> getyAxes() {
 		return yAxes;
 	}
 
-	public void setyAxes(List<TimeScale> yAxes) {
+	public TimeScales setyAxes(List<TimeScale> yAxes) {
 		this.yAxes = yAxes;
+	    return this;
 	}
 
 }

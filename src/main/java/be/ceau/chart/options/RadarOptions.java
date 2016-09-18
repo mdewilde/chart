@@ -25,7 +25,7 @@ import be.ceau.chart.options.scales.RadialLinearScale;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
-public class RadarOptions extends Options {
+public class RadarOptions extends Options<RadarOptions> {
 
 	/**
 	 * @see #setScale(RadialLinearScale)
@@ -48,8 +48,9 @@ public class RadarOptions extends Options {
 	 * Options for the one scale used on the chart. Use this to style the ticks,
 	 * labels, and grid lines.
 	 */
-	public void setScale(RadialLinearScale scale) {
+	public RadarOptions setScale(RadialLinearScale scale) {
 		this.scale = scale;
+	    return this;
 	}
 
 	/**
@@ -63,8 +64,9 @@ public class RadarOptions extends Options {
 	 * Options for all line elements used on the chart, as defined in the global
 	 * elements, duplicated here to show Radar chart specific defaults.
 	 */
-	public void setRadarElements(RadarElements elements) {
+	public RadarOptions setRadarElements(RadarElements elements) {
 		this.elements = elements;
+	    return this;
 	}
 
 }

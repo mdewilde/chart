@@ -89,8 +89,9 @@ public class Title {
 	 * Default {@code false}
 	 * </p>
 	 */
-	public void setDisplay(Boolean display) {
+	public Title setDisplay(Boolean display) {
 		this.display = display;
+	    return this;
 	}
 
 	/**
@@ -109,8 +110,9 @@ public class Title {
 	 * Default {@code 'top'}
 	 * </p>
 	 */
-	public void setPosition(TitlePosition position) {
+	public Title setPosition(TitlePosition position) {
 		this.position = position;
+	    return this;
 	}
 
 	/**
@@ -130,8 +132,9 @@ public class Title {
 	 * Default {@code true}
 	 * </p>
 	 */
-	public void setFullWidth(Boolean fullWidth) {
+	public Title setFullWidth(Boolean fullWidth) {
 		this.fullWidth = fullWidth;
+	    return this;
 	}
 
 	/**
@@ -150,8 +153,9 @@ public class Title {
 	 * Default {@code 12}
 	 * </p>
 	 */
-	public void setFontSize(Integer fontSize) {
+	public Title setFontSize(Integer fontSize) {
 		this.fontSize = fontSize;
+	    return this;
 	}
 
 	/**
@@ -170,8 +174,9 @@ public class Title {
 	 * Default {@code "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif"}
 	 * </p>
 	 */
-	public void setFontFamily(String fontFamily) {
+	public Title setFontFamily(String fontFamily) {
 		this.fontFamily = fontFamily;
+	    return this;
 	}
 
 	/**
@@ -190,8 +195,9 @@ public class Title {
 	 * Default {@code "#666"}
 	 * </p>
 	 */
-	public void setFontColor(Color fontColor) {
+	public Title setFontColor(Color fontColor) {
 		this.fontColor = fontColor;
+	    return this;
 	}
 
 	/**
@@ -211,8 +217,9 @@ public class Title {
 	 * Default {@code 'bold'}
 	 * </p>
 	 */
-	public void setFontStyle(FontStyle fontStyle) {
+	public Title setFontStyle(FontStyle fontStyle) {
 		this.fontStyle = fontStyle;
+	    return this;
 	}
 
 	/**
@@ -231,8 +238,9 @@ public class Title {
 	 * Default {@code 10}
 	 * </p>
 	 */
-	public void setPadding(Integer padding) {
+	public Title setPadding(Integer padding) {
 		this.padding = padding;
+	    return this;
 	}
 
 	/**
@@ -251,8 +259,9 @@ public class Title {
 	 * Default {@code ""}
 	 * </p>
 	 */
-	public void setText(String text) {
+	public Title setText(String text) {
 		this.text = text;
+	    return this;
 	}
 
 }

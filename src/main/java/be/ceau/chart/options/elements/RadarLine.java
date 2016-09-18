@@ -46,8 +46,9 @@ public class RadarLine extends Line {
 	 * Default {@code 0}
 	 * </p>
 	 */
-	public void setLineTension(Float lineTension) {
+	public RadarLine setLineTension(Float lineTension) {
 		this.lineTension = lineTension;
+	    return this;
 	}
 
 }

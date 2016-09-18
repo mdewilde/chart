@@ -57,8 +57,9 @@ public class Arc {
 	 * Default {@code 'rgba(0,0,0,0.1)'}
 	 * </p>
 	 */
-	public void setBackgroundColor(Color backgroundColor) {
+	public Arc setBackgroundColor(Color backgroundColor) {
 	    this.backgroundColor = backgroundColor;
+	    return this;
 	}
 
 	/**
@@ -77,8 +78,9 @@ public class Arc {
 	 * Default {@code '#fff'}
 	 * </p>
 	 */
-	public void setBorderColor(Color borderColor) {
+	public Arc setBorderColor(Color borderColor) {
 	    this.borderColor = borderColor;
+	    return this;
 	}
 
 	/**
@@ -97,8 +99,9 @@ public class Arc {
 	 * Default {@code 2}
 	 * </p>
 	 */
-	public void setBorderWidth(Integer borderWidth) {
+	public Arc setBorderWidth(Integer borderWidth) {
 	    this.borderWidth = borderWidth;
+	    return this;
 	}
 
 }

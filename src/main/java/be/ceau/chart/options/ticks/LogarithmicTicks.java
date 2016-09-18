@@ -13,7 +13,7 @@
 	See the License for the specific language governing permissions and
 	limitations under the License.
 */
-package be.ceau.chart.options;
+package be.ceau.chart.options.ticks;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
@@ -22,48 +22,46 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
-public class PolarAnimation extends Animation {
+public class LogarithmicTicks extends Ticks<LogarithmicTicks> {
 
 	/**
-	 * Default {@code true}
-	 * 
-	 * @see #setAnimateRotate(Boolean)
+	 * @see #setMin(String)
 	 */
-	private Boolean animateRotate;
+	private String min;
 
 	/**
-	 * Default {@code true}
-	 * 
-	 * @see #setAnimateScale(Boolean)
+	 * @see #setMax(String)
 	 */
-	private Boolean animateScale;
+	private String max;
 
 	/**
-	 * @see #setAnimateRotate(Boolean animation.animateRotate)
+	 * @see #setMin(String)
 	 */
-	public Boolean getAnimateRotate() {
-	    return this.animateRotate;
+	public String getMin() {
+		return min;
 	}
 
 	/**
-	 * If true, will animate the rotation of the chart.
+	 * The minimum item to display. Must be a value in the labels array
 	 */
-	public void setAnimateRotate(Boolean animateRotate) {
-	    this.animateRotate = animateRotate;
+	public LogarithmicTicks setMin(String min) {
+		this.min = min;
+	    return this;
 	}
 
 	/**
-	 * @see #setAnimateScale(Boolean)
+	 * @see #setMax(String)
 	 */
-	public Boolean getAnimateScale() {
-	    return this.animateScale;
+	public String getMax() {
+		return max;
 	}
 
 	/**
-	 * If true, will animate scaling the chart.
+	 * The maximum item to display. Must be a value in the labels array
 	 */
-	public void setAnimateScale(Boolean animateScale) {
-	    this.animateScale = animateScale;
+	public LogarithmicTicks setMax(String max) {
+		this.max = max;
+	    return this;
 	}
 
 }

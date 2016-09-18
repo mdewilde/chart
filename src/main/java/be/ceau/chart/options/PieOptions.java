@@ -22,9 +22,11 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
+import be.ceau.chart.options.animation.PieAnimation;
+
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
-public class PieOptions extends Options {
+public class PieOptions extends Options<PieOptions> {
 
 	/**
 	 * Default {@code 50 - for doughnut, 0 - for pie}
@@ -64,8 +66,9 @@ public class PieOptions extends Options {
 	/**
 	 * The percentage of the chart that is cut out of the middle.
 	 */
-	public void setCutoutPercentage(BigDecimal cutoutPercentage) {
+	public PieOptions setCutoutPercentage(BigDecimal cutoutPercentage) {
 	    this.cutoutPercentage = cutoutPercentage;
+	    return this;
 	}
 
 	/**
@@ -78,8 +81,9 @@ public class PieOptions extends Options {
 	/**
 	 * Starting angle to draw arcs from
 	 */
-	public void setRotation(BigDecimal rotation) {
+	public PieOptions setRotation(BigDecimal rotation) {
 	    this.rotation = rotation;
+	    return this;
 	}
 
 	/**
@@ -92,13 +96,15 @@ public class PieOptions extends Options {
 	/**
 	 * Sweep to allow arcs to cover
 	 */
-	public void setCircumference(BigDecimal circumference) {
+	public PieOptions setCircumference(BigDecimal circumference) {
 	    this.circumference = circumference;
+	    return this;
 	}
 
 	/**
 	 * @see #setAnimation(PieAnimation)
 	 */
+	@Override
 	public PieAnimation getAnimation() {
 	    return this.animation;
 	}
@@ -106,8 +112,9 @@ public class PieOptions extends Options {
 	/**
 	 * If true, will animate the rotation of the chart.
 	 */
-	public void setAnimation(PieAnimation animation) {
+	public PieOptions setAnimation(PieAnimation animation) {
 	    this.animation = animation;
+	    return this;
 	}
 
 }

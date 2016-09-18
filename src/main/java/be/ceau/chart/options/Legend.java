@@ -65,8 +65,9 @@ public class Legend {
 	 * 
 	 * Is the legend displayed
 	 */
-	public void setDisplay(Boolean display) {
+	public Legend setDisplay(Boolean display) {
 	    this.display = display;
+	    return this;
 	}
 
 	/**
@@ -81,8 +82,9 @@ public class Legend {
 	 * 
 	 * Position of the legend. Options are 'top' or 'bottom'
 	 */
-	public void setPosition(Legend.Position position) {
+	public Legend setPosition(Legend.Position position) {
 	    this.position = position;
+	    return this;
 	}
 
 	/**
@@ -97,8 +99,9 @@ public class Legend {
 	 * 
 	 * Marks that this box should take the full width of the canvas (pushing down other boxes)
 	 */
-	public void setFullWidth(Boolean fullWidth) {
+	public Legend setFullWidth(Boolean fullWidth) {
 	    this.fullWidth = fullWidth;
+	    return this;
 	}
 
 	/**
@@ -113,8 +116,9 @@ public class Legend {
 	 * 
 	 * A callback that is called when a click is registered on top of a label item
 	 */
-	public void setOnClick(JavaScriptFunction onClick) {
+	public Legend setOnClick(JavaScriptFunction onClick) {
 	    this.onClick = onClick;
+	    return this;
 	}
 
 	/**
@@ -129,8 +133,9 @@ public class Legend {
 	 * 
 	 * See the Legend Label Configuration section below.
 	 */
-	public void setLabels(LegendLabels labels) {
+	public Legend setLabels(LegendLabels labels) {
 	    this.labels = labels;
+	    return this;
 	}
 	
 	public static enum Position {

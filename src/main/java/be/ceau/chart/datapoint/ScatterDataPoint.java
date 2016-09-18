@@ -52,32 +52,38 @@ public class ScatterDataPoint {
 		return x;
 	}
 
-	public void setX(int x) {
+	public ScatterDataPoint setX(int x) {
 		this.x = new BigDecimal(x);
+		return this;
 	}
 
-	public void setX(double x) {
+	public ScatterDataPoint setX(double x) {
 		this.x = new BigDecimal(String.valueOf(x));
+		return this;
 	}
 
-	public void setX(BigDecimal x) {
+	public ScatterDataPoint setX(BigDecimal x) {
 		this.x = x;
-	}
+		return this;
+}
 
 	public BigDecimal getY() {
 		return y;
 	}
 
-	public void setY(int y) {
+	public ScatterDataPoint setY(int y) {
 		this.y = new BigDecimal(y);
+		return this;
 	}
 
-	public void setY(double y) {
+	public ScatterDataPoint setY(double y) {
 		this.y = new BigDecimal(String.valueOf(y));
+		return this;
 	}
 
-	public void setY(BigDecimal y) {
+	public ScatterDataPoint setY(BigDecimal y) {
 		this.y = y;
+		return this;
 	}
 
 }

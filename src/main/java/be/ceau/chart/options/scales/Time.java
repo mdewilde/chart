@@ -99,8 +99,9 @@ public class Time {
 	/**
 	 * See Display Formats section below.
 	 */
-	public void setDisplayFormats(DisplayFormats displayFormats) {
+	public Time setDisplayFormats(DisplayFormats displayFormats) {
 		this.displayFormats = displayFormats;
+	    return this;
 	}
 
 	/**
@@ -113,8 +114,9 @@ public class Time {
 	/**
 	 * If true and the unit is set to 'week', iso weekdays will be used.
 	 */
-	public void setIsoWeekday(Boolean isoWeekday) {
+	public Time setIsoWeekday(Boolean isoWeekday) {
 		this.isoWeekday = isoWeekday;
+	    return this;
 	}
 
 	/**
@@ -127,8 +129,9 @@ public class Time {
 	/**
 	 * If defined, this will override the data maximum
 	 */
-	public void setMax(Time max) {
+	public Time setMax(Time max) {
 		this.max = max;
+	    return this;
 	}
 
 	/**
@@ -141,8 +144,9 @@ public class Time {
 	/**
 	 * If defined, this will override the data minimum
 	 */
-	public void setMin(Time min) {
+	public Time setMin(Time min) {
 		this.min = min;
+	    return this;
 	}
 
 	/**
@@ -157,8 +161,9 @@ public class Time {
 	 * by moment to parse the date. If this is a function, it must return a
 	 * moment.js object given the appropriate data value.
 	 */
-	public void setParser(String parser) {
+	public Time setParser(String parser) {
 		this.parser = parser;
+	    return this;
 	}
 
 	/**
@@ -172,8 +177,9 @@ public class Time {
 	 * If defined, dates will be rounded to the start of this unit. See Time
 	 * Units below for the allowed units.
 	 */
-	public void setRound(String round) {
+	public Time setRound(String round) {
 		this.round = round;
+	    return this;
 	}
 
 	/**
@@ -186,8 +192,9 @@ public class Time {
 	/**
 	 * The moment js format string to use for the tooltip.
 	 */
-	public void setTooltipFormat(String tooltipFormat) {
+	public Time setTooltipFormat(String tooltipFormat) {
 		this.tooltipFormat = tooltipFormat;
+	    return this;
 	}
 
 	/**
@@ -201,8 +208,9 @@ public class Time {
 	 * If defined, will force the unit to be a certain type. See Time Units
 	 * section below for details.
 	 */
-	public void setUnit(String unit) {
+	public Time setUnit(String unit) {
 		this.unit = unit;
+	    return this;
 	}
 
 	/**
@@ -215,8 +223,9 @@ public class Time {
 	/**
 	 * The number of units between grid lines.
 	 */
-	public void setUnitStepSize(BigDecimal unitStepSize) {
+	public Time setUnitStepSize(BigDecimal unitStepSize) {
 		this.unitStepSize = unitStepSize;
+	    return this;
 	}
 
 }

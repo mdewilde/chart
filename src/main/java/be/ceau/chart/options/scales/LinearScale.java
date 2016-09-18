@@ -20,6 +20,8 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
+import be.ceau.chart.options.ticks.LinearTicks;
+
 /**
  * The linear scale is use to chart numerical data. It can be placed on either
  * the x or y axis. The scatter chart type automatically configures a line chart
@@ -28,7 +30,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
  */
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
-public class LinearScale extends Scale {
+public class LinearScale extends Scale<LinearScale> {
 
 	private final String type = "linear";
 	
@@ -44,17 +46,19 @@ public class LinearScale extends Scale {
 		return stacked;
 	}
 	
-	public void setStacked(Boolean stacked) {
+	public LinearScale setStacked(Boolean stacked) {
 		this.stacked = stacked;
+		return this;
 	}
 
 	@Override
-	public Ticks getTicks() {
+	public LinearTicks getTicks() {
 		return ticks;
 	}
 
-	public void setTicks(LinearTicks ticks) {
+	public LinearScale setTicks(LinearTicks ticks) {
 		this.ticks = ticks;
+		return this;
 	}
 
 }

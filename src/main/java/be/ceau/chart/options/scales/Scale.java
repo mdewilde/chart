@@ -22,10 +22,11 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import be.ceau.chart.enums.ScalesPosition;
 import be.ceau.chart.javascript.JavaScriptFunction;
+import be.ceau.chart.options.ticks.Ticks;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
-public abstract class Scale {
+public abstract class Scale<T extends Scale<T>> {
 
 	/**
 	 * @see #setDisplay(Boolean)
@@ -139,8 +140,10 @@ public abstract class Scale {
 	 * Default {@code true}
 	 * </p>
 	 */
-	public void setDisplay(Boolean display) {
+	@SuppressWarnings("unchecked")
+	public T setDisplay(Boolean display) {
 		this.display = display;
+	    return (T) this;
 	}
 
 	/**
@@ -160,8 +163,10 @@ public abstract class Scale {
 	 * Default {@code "left"}
 	 * </p>
 	 */
-	public void setPosition(ScalesPosition position) {
+	@SuppressWarnings("unchecked")
+	public T setPosition(ScalesPosition position) {
 		this.position = position;
+	    return (T) this;
 	}
 
 	/**
@@ -183,8 +188,10 @@ public abstract class Scale {
 	 * Default {@code }
 	 * </p>
 	 */
-	public void setId(String id) {
+	@SuppressWarnings("unchecked")
+	public T setId(String id) {
 		this.id = id;
+	    return (T) this;
 	}
 
 	/**
@@ -204,8 +211,10 @@ public abstract class Scale {
 	 * Default {@code undefined}
 	 * </p>
 	 */
-	public void setBeforeUpdate(JavaScriptFunction beforeUpdate) {
+	@SuppressWarnings("unchecked")
+	public T setBeforeUpdate(JavaScriptFunction beforeUpdate) {
 		this.beforeUpdate = beforeUpdate;
+	    return (T) this;
 	}
 
 	/**
@@ -225,8 +234,10 @@ public abstract class Scale {
 	 * Default {@code undefined}
 	 * </p>
 	 */
-	public void setBeforeSetDimensions(JavaScriptFunction beforeSetDimensions) {
+	@SuppressWarnings("unchecked")
+	public T setBeforeSetDimensions(JavaScriptFunction beforeSetDimensions) {
 		this.beforeSetDimensions = beforeSetDimensions;
+	    return (T) this;
 	}
 
 	/**
@@ -246,8 +257,10 @@ public abstract class Scale {
 	 * Default {@code undefined}
 	 * </p>
 	 */
-	public void setAfterSetDimensions(JavaScriptFunction afterSetDimensions) {
+	@SuppressWarnings("unchecked")
+	public T setAfterSetDimensions(JavaScriptFunction afterSetDimensions) {
 		this.afterSetDimensions = afterSetDimensions;
+	    return (T) this;
 	}
 
 	/**
@@ -267,8 +280,10 @@ public abstract class Scale {
 	 * Default {@code undefined}
 	 * </p>
 	 */
-	public void setBeforeDataLimits(JavaScriptFunction beforeDataLimits) {
+	@SuppressWarnings("unchecked")
+	public T setBeforeDataLimits(JavaScriptFunction beforeDataLimits) {
 		this.beforeDataLimits = beforeDataLimits;
+	    return (T) this;
 	}
 
 	/**
@@ -288,8 +303,10 @@ public abstract class Scale {
 	 * Default {@code undefined}
 	 * </p>
 	 */
-	public void setAfterDataLimits(JavaScriptFunction afterDataLimits) {
+	@SuppressWarnings("unchecked")
+	public T setAfterDataLimits(JavaScriptFunction afterDataLimits) {
 		this.afterDataLimits = afterDataLimits;
+	    return (T) this;
 	}
 
 	/**
@@ -309,8 +326,10 @@ public abstract class Scale {
 	 * Default {@code undefined}
 	 * </p>
 	 */
-	public void setBeforeBuildTicks(JavaScriptFunction beforeBuildTicks) {
+	@SuppressWarnings("unchecked")
+	public T setBeforeBuildTicks(JavaScriptFunction beforeBuildTicks) {
 		this.beforeBuildTicks = beforeBuildTicks;
+	    return (T) this;
 	}
 
 	/**
@@ -330,8 +349,10 @@ public abstract class Scale {
 	 * Default {@code undefined}
 	 * </p>
 	 */
-	public void setAfterBuildTicks(JavaScriptFunction afterBuildTicks) {
+	@SuppressWarnings("unchecked")
+	public T setAfterBuildTicks(JavaScriptFunction afterBuildTicks) {
 		this.afterBuildTicks = afterBuildTicks;
+	    return (T) this;
 	}
 
 	/**
@@ -351,8 +372,10 @@ public abstract class Scale {
 	 * Default {@code undefined}
 	 * </p>
 	 */
-	public void setBeforeTickToLabelConversion(JavaScriptFunction beforeTickToLabelConversion) {
+	@SuppressWarnings("unchecked")
+	public T setBeforeTickToLabelConversion(JavaScriptFunction beforeTickToLabelConversion) {
 		this.beforeTickToLabelConversion = beforeTickToLabelConversion;
+	    return (T) this;
 	}
 
 	/**
@@ -372,8 +395,10 @@ public abstract class Scale {
 	 * Default {@code undefined}
 	 * </p>
 	 */
-	public void setAfterTickToLabelConversion(JavaScriptFunction afterTickToLabelConversion) {
+	@SuppressWarnings("unchecked")
+	public T setAfterTickToLabelConversion(JavaScriptFunction afterTickToLabelConversion) {
 		this.afterTickToLabelConversion = afterTickToLabelConversion;
+	    return (T) this;
 	}
 
 	/**
@@ -393,8 +418,10 @@ public abstract class Scale {
 	 * Default {@code undefined}
 	 * </p>
 	 */
-	public void setBeforeCalculateTickRotation(JavaScriptFunction beforeCalculateTickRotation) {
+	@SuppressWarnings("unchecked")
+	public T setBeforeCalculateTickRotation(JavaScriptFunction beforeCalculateTickRotation) {
 		this.beforeCalculateTickRotation = beforeCalculateTickRotation;
+	    return (T) this;
 	}
 
 	/**
@@ -414,8 +441,10 @@ public abstract class Scale {
 	 * Default {@code undefined}
 	 * </p>
 	 */
-	public void setAfterCalculateTickRotation(JavaScriptFunction afterCalculateTickRotation) {
+	@SuppressWarnings("unchecked")
+	public T setAfterCalculateTickRotation(JavaScriptFunction afterCalculateTickRotation) {
 		this.afterCalculateTickRotation = afterCalculateTickRotation;
+	    return (T) this;
 	}
 
 	/**
@@ -435,8 +464,10 @@ public abstract class Scale {
 	 * Default {@code undefined}
 	 * </p>
 	 */
-	public void setBeforeFit(JavaScriptFunction beforeFit) {
+	@SuppressWarnings("unchecked")
+	public T setBeforeFit(JavaScriptFunction beforeFit) {
 		this.beforeFit = beforeFit;
+	    return (T) this;
 	}
 
 	/**
@@ -456,8 +487,10 @@ public abstract class Scale {
 	 * Default {@code undefined}
 	 * </p>
 	 */
-	public void setAfterFit(JavaScriptFunction afterFit) {
+	@SuppressWarnings("unchecked")
+	public T setAfterFit(JavaScriptFunction afterFit) {
 		this.afterFit = afterFit;
+	    return (T) this;
 	}
 
 	/**
@@ -477,8 +510,10 @@ public abstract class Scale {
 	 * Default {@code undefined}
 	 * </p>
 	 */
-	public void setAfterUpdate(JavaScriptFunction afterUpdate) {
+	@SuppressWarnings("unchecked")
+	public T setAfterUpdate(JavaScriptFunction afterUpdate) {
 		this.afterUpdate = afterUpdate;
+	    return (T) this;
 	}
 
 	/**
@@ -497,8 +532,10 @@ public abstract class Scale {
 	 * Default {@code -}
 	 * </p>
 	 */
-	public void setGridLines(GridLines gridLines) {
+	@SuppressWarnings("unchecked")
+	public T setGridLines(GridLines gridLines) {
 		this.gridLines = gridLines;
+	    return (T) this;
 	}
 
 	/**
@@ -517,8 +554,10 @@ public abstract class Scale {
 	 * Default {@code }
 	 * </p>
 	 */
-	public void setScaleLabel(ScaleLabel scaleLabel) {
+	@SuppressWarnings("unchecked")
+	public T setScaleLabel(ScaleLabel scaleLabel) {
 		this.scaleLabel = scaleLabel;
+	    return (T) this;
 	}
 
 	public abstract Ticks getTicks();

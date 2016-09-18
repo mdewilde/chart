@@ -67,8 +67,9 @@ public class Hover {
 	 * <li>{@code dataset} highlights the closest dataset.
 	 * </ul>
 	 */
-	public void setMode(HoverMode mode) {
+	public Hover setMode(HoverMode mode) {
 		this.mode = mode;
+	    return this;
 	}
 
 	/**
@@ -83,8 +84,9 @@ public class Hover {
 	 * 
 	 * Duration in milliseconds it takes to animate hover style changes
 	 */
-	public void setAnimationDuration(Integer animationDuration) {
+	public Hover setAnimationDuration(Integer animationDuration) {
 		this.animationDuration = animationDuration;
+	    return this;
 	}
 
 	/**
@@ -100,8 +102,9 @@ public class Hover {
 	 * Called when any of the events fire. Called in the context of the chart
 	 * and passed an array of active elements (bars, points, etc)
 	 */
-	public void setOnHover(JavaScriptFunction onHover) {
+	public Hover setOnHover(JavaScriptFunction onHover) {
 		this.onHover = onHover;
+	    return this;
 	}
 
 }

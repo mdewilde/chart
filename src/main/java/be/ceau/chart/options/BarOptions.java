@@ -24,7 +24,7 @@ import be.ceau.chart.options.scales.BarScale;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
-public class BarOptions extends Options {
+public class BarOptions extends Options<BarOptions> {
 
 	/**
 	 * Default {@code "label"}
@@ -51,8 +51,9 @@ public class BarOptions extends Options {
 	 * Label's hover mode. "label" is used since the x axis displays data by the
 	 * index in the dataset.
 	 */
-	public void setHover(Hover hover) {
+	public BarOptions setHover(Hover hover) {
 		this.hover = hover;
+		return this;
 	}
 
 	/**

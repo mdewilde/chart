@@ -30,8 +30,9 @@ public class BubbleElements {
 		return points;
 	}
 
-	public void setPoints(Point points) {
+	public BubbleElements setPoints(Point points) {
 		this.points = points;
+	    return this;
 	}
 
 }

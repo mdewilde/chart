@@ -20,6 +20,8 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
+import be.ceau.chart.options.ticks.CategoryTicks;
+
 /**
  * The category scale will be familiar to those who have used v1.0. Labels are
  * drawn from one of the label arrays included in the chart data. If only
@@ -31,17 +33,19 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
  */
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
-public class CategoryScale extends Scale {
+public class CategoryScale<T extends CategoryScale<T>> extends Scale<T> {
 	
 	private CategoryTicks ticks;
 
 	@Override
-	public Ticks getTicks() {
+	public CategoryTicks getTicks() {
 		return ticks;
 	}
 
-	public void setTicks(CategoryTicks ticks) {
+	@SuppressWarnings("unchecked")
+	public T setTicks(CategoryTicks ticks) {
 		this.ticks = ticks;
+		return (T) this;
 	}
 
 }

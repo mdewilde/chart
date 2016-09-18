@@ -25,7 +25,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
-public class BarScale extends CategoryScale {
+public class BarScale extends CategoryScale<BarScale> {
 
 	/**
 	 * @see #setxAxes(List)
@@ -47,11 +47,12 @@ public class BarScale extends CategoryScale {
 	/**
 	 * @see #setxAxes(List)
 	 */
-	public void addxAxes(XAxis xAxis) {
+	public BarScale addxAxes(XAxis xAxis) {
 		if (xAxis != null) {
 			this.xAxes.clear();
 			this.xAxes.add(xAxis);
 		}
+		return this;
 	}
 
 	/**
@@ -64,11 +65,12 @@ public class BarScale extends CategoryScale {
 	 * be stored if a list containing more than one instance is passed.
 	 * </p>
 	 */
-	public void setxAxes(List<XAxis> xAxes) {
+	public BarScale setxAxes(List<XAxis> xAxes) {
 		this.xAxes.clear();
 		if (xAxes != null && !xAxes.isEmpty()) {
 			addxAxes(xAxes.get(0));
 		}
+		return this;
 	}
 
 	/**
@@ -81,20 +83,22 @@ public class BarScale extends CategoryScale {
 	/**
 	 * @see #setyAxes(List)
 	 */
-	public void addyAxes(YAxis yAxis) {
+	public BarScale addyAxes(YAxis yAxis) {
 		if (yAxis != null) {
 			this.yAxes.add(yAxis);
 		}
+		return this;
 	}
 
 	/**
 	 * The Y axis for this bar chart
 	 */
-	public void setyAxes(List<YAxis> yAxes) {
+	public BarScale setyAxes(List<YAxis> yAxes) {
 		this.yAxes.clear();
 		if (yAxes != null) {
 			this.yAxes.addAll(yAxes);
 		}
+		return this;
 	}
 
 }

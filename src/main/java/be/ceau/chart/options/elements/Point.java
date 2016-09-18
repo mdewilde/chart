@@ -83,8 +83,9 @@ public class Point {
 	 * Default {@code 3}
 	 * </p>
 	 */
-	public void setRadius(Integer radius) {
+	public Point setRadius(Integer radius) {
 	    this.radius = radius;
+	    return this;
 	}
 
 	/**
@@ -103,8 +104,9 @@ public class Point {
 	 * Default {@code 'circle'}
 	 * </p>
 	 */
-	public void setPointStyle(PointStyle pointStyle) {
+	public Point setPointStyle(PointStyle pointStyle) {
 	    this.pointStyle = pointStyle;
+	    return this;
 	}
 
 	/**
@@ -123,8 +125,9 @@ public class Point {
 	 * Default {@code 'rgba(0,0,0,0.1)'}
 	 * </p>
 	 */
-	public void setBackgroundColor(Color backgroundColor) {
+	public Point setBackgroundColor(Color backgroundColor) {
 	    this.backgroundColor = backgroundColor;
+	    return this;
 	}
 
 	/**
@@ -143,8 +146,9 @@ public class Point {
 	 * Default {@code 1}
 	 * </p>
 	 */
-	public void setBorderWidth(Integer borderWidth) {
+	public Point setBorderWidth(Integer borderWidth) {
 	    this.borderWidth = borderWidth;
+	    return this;
 	}
 
 	/**
@@ -163,8 +167,9 @@ public class Point {
 	 * Default {@code 'rgba(0,0,0,0.1)'}
 	 * </p>
 	 */
-	public void setBorderColor(Color borderColor) {
+	public Point setBorderColor(Color borderColor) {
 	    this.borderColor = borderColor;
+	    return this;
 	}
 
 	/**
@@ -183,8 +188,9 @@ public class Point {
 	 * Default {@code 1}
 	 * </p>
 	 */
-	public void setHitRadius(Integer hitRadius) {
+	public Point setHitRadius(Integer hitRadius) {
 	    this.hitRadius = hitRadius;
+	    return this;
 	}
 
 	/**
@@ -203,8 +209,9 @@ public class Point {
 	 * Default {@code 4}
 	 * </p>
 	 */
-	public void setHoverRadius(Integer hoverRadius) {
+	public Point setHoverRadius(Integer hoverRadius) {
 	    this.hoverRadius = hoverRadius;
+	    return this;
 	}
 
 	/**
@@ -223,8 +230,9 @@ public class Point {
 	 * Default {@code 1}
 	 * </p>
 	 */
-	public void setHoverBorderWidth(Integer hoverBorderWidth) {
+	public Point setHoverBorderWidth(Integer hoverBorderWidth) {
 	    this.hoverBorderWidth = hoverBorderWidth;
+	    return this;
 	}
 
 }

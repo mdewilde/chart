@@ -63,8 +63,9 @@ public class Rectangle {
 	 * Default {@code 'rgba(0,0,0,0.1)'}
 	 * </p>
 	 */
-	public void setBackgroundColor(Color backgroundColor) {
+	public Rectangle setBackgroundColor(Color backgroundColor) {
 		this.backgroundColor = backgroundColor;
+	    return this;
 	}
 
 	/**
@@ -83,8 +84,9 @@ public class Rectangle {
 	 * Default {@code 0}
 	 * </p>
 	 */
-	public void setBorderWidth(Integer borderWidth) {
+	public Rectangle setBorderWidth(Integer borderWidth) {
 		this.borderWidth = borderWidth;
+	    return this;
 	}
 
 	/**
@@ -103,8 +105,9 @@ public class Rectangle {
 	 * Default {@code 'rgba(0,0,0,0.1)'}
 	 * </p>
 	 */
-	public void setBorderColor(Color borderColor) {
+	public Rectangle setBorderColor(Color borderColor) {
 		this.borderColor = borderColor;
+	    return this;
 	}
 
 	/**
@@ -124,8 +127,9 @@ public class Rectangle {
 	 * Default {@code 'bottom'}
 	 * </p>
 	 */
-	public void setBorderSkipped(BorderSkipped borderSkipped) {
+	public Rectangle setBorderSkipped(BorderSkipped borderSkipped) {
 		this.borderSkipped = borderSkipped;
+	    return this;
 	}
 
 }

@@ -61,8 +61,9 @@ public class AngleLines {
 	 * Default {@code true}
 	 * </p>
 	 */
-	public void setDisplay(Boolean display) {
+	public AngleLines setDisplay(Boolean display) {
 	    this.display = display;
+	    return this;
 	}
 
 	/**
@@ -81,8 +82,9 @@ public class AngleLines {
 	 * Default {@code 'rgba(0, 0, 0, 0.1)'}
 	 * </p>
 	 */
-	public void setColor(Color color) {
+	public AngleLines setColor(Color color) {
 	    this.color = color;
+	    return this;
 	}
 
 	/**
@@ -101,8 +103,9 @@ public class AngleLines {
 	 * Default {@code 1}
 	 * </p>
 	 */
-	public void setLineWidth(Integer lineWidth) {
+	public AngleLines setLineWidth(Integer lineWidth) {
 	    this.lineWidth = lineWidth;
+	    return this;
 	}
 
 }

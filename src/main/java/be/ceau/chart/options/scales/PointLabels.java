@@ -76,8 +76,9 @@ public class PointLabels {
 	 * Default {@code -}
 	 * </p>
 	 */
-	public void setCallback(JavaScriptFunction callback) {
+	public PointLabels setCallback(JavaScriptFunction callback) {
 	    this.callback = callback;
+	    return this;
 	}
 
 	/**
@@ -96,8 +97,9 @@ public class PointLabels {
 	 * Default {@code '#666'}
 	 * </p>
 	 */
-	public void setFontColor(Color fontColor) {
+	public PointLabels setFontColor(Color fontColor) {
 	    this.fontColor = fontColor;
+	    return this;
 	}
 
 	/**
@@ -116,8 +118,9 @@ public class PointLabels {
 	 * Default {@code "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif"}
 	 * </p>
 	 */
-	public void setFontFamily(String fontFamily) {
+	public PointLabels setFontFamily(String fontFamily) {
 	    this.fontFamily = fontFamily;
+	    return this;
 	}
 
 	/**
@@ -136,8 +139,9 @@ public class PointLabels {
 	 * Default {@code 10}
 	 * </p>
 	 */
-	public void setFontSize(BigDecimal fontSize) {
+	public PointLabels setFontSize(BigDecimal fontSize) {
 	    this.fontSize = fontSize;
+	    return this;
 	}
 
 	/**
@@ -156,8 +160,9 @@ public class PointLabels {
 	 * Default {@code 'normal'}
 	 * </p>
 	 */
-	public void setFontStyle(FontStyle fontStyle) {
+	public PointLabels setFontStyle(FontStyle fontStyle) {
 	    this.fontStyle = fontStyle;
+	    return this;
 	}
 	
 }

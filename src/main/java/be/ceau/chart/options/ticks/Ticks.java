@@ -13,7 +13,7 @@
 	See the License for the specific language governing permissions and
 	limitations under the License.
 */
-package be.ceau.chart.options.scales;
+package be.ceau.chart.options.ticks;
 
 import java.math.BigDecimal;
 
@@ -33,7 +33,7 @@ import be.ceau.chart.javascript.JavaScriptFunction;
  */
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
-public class Ticks {
+public class Ticks<T extends Ticks<T>> {
 
 	/**
 	 * @see #setAutoSkip(Boolean)
@@ -116,8 +116,10 @@ public class Ticks {
 	 * Default {@code true}
 	 * </p>
 	 */
-	public void setAutoSkip(Boolean autoSkip) {
+	@SuppressWarnings("unchecked")
+	public T setAutoSkip(Boolean autoSkip) {
 	    this.autoSkip = autoSkip;
+	    return (T) this;
 	}
 
 	/**
@@ -136,8 +138,10 @@ public class Ticks {
 	 * Default {@code function(value) { return helpers.isArray(value) ? value : '' + value; }}
 	 * </p>
 	 */
-	public void setCallback(JavaScriptFunction callback) {
+	@SuppressWarnings("unchecked")
+	public T setCallback(JavaScriptFunction callback) {
 	    this.callback = callback;
+	    return (T) this;
 	}
 
 	/**
@@ -156,8 +160,10 @@ public class Ticks {
 	 * Default {@code true}
 	 * </p>
 	 */
-	public void setDisplay(Boolean display) {
+	@SuppressWarnings("unchecked")
+	public T setDisplay(Boolean display) {
 	    this.display = display;
+	    return (T) this;
 	}
 
 	/**
@@ -176,8 +182,10 @@ public class Ticks {
 	 * Default {@code "#666"}
 	 * </p>
 	 */
-	public void setFontColor(Color fontColor) {
+	@SuppressWarnings("unchecked")
+	public T setFontColor(Color fontColor) {
 	    this.fontColor = fontColor;
+	    return (T) this;
 	}
 
 	/**
@@ -196,8 +204,10 @@ public class Ticks {
 	 * Default {@code "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif"}
 	 * </p>
 	 */
-	public void setFontFamily(String fontFamily) {
+	@SuppressWarnings("unchecked")
+	public T setFontFamily(String fontFamily) {
 	    this.fontFamily = fontFamily;
+	    return (T) this;
 	}
 
 	/**
@@ -216,8 +226,10 @@ public class Ticks {
 	 * Default {@code 12}
 	 * </p>
 	 */
-	public void setFontSize(BigDecimal fontSize) {
+	@SuppressWarnings("unchecked")
+	public T setFontSize(BigDecimal fontSize) {
 	    this.fontSize = fontSize;
+	    return (T) this;
 	}
 
 	/**
@@ -236,8 +248,10 @@ public class Ticks {
 	 * Default {@code "normal"}
 	 * </p>
 	 */
-	public void setFontStyle(FontStyle fontStyle) {
+	@SuppressWarnings("unchecked")
+	public T setFontStyle(FontStyle fontStyle) {
 	    this.fontStyle = fontStyle;
+	    return (T) this;
 	}
 
 	/**
@@ -256,8 +270,10 @@ public class Ticks {
 	 * Default {@code 0}
 	 * </p>
 	 */
-	public void setLabelOffset(BigDecimal labelOffset) {
+	@SuppressWarnings("unchecked")
+	public T setLabelOffset(BigDecimal labelOffset) {
 	    this.labelOffset = labelOffset;
+	    return (T) this;
 	}
 
 	/**
@@ -276,8 +292,10 @@ public class Ticks {
 	 * Default {@code 90}
 	 * </p>
 	 */
-	public void setMaxRotation(BigDecimal maxRotation) {
+	@SuppressWarnings("unchecked")
+	public T setMaxRotation(BigDecimal maxRotation) {
 	    this.maxRotation = maxRotation;
+	    return (T) this;
 	}
 
 	/**
@@ -296,8 +314,10 @@ public class Ticks {
 	 * Default {@code 0}
 	 * </p>
 	 */
-	public void setMinRotation(BigDecimal minRotation) {
+	@SuppressWarnings("unchecked")
+	public T setMinRotation(BigDecimal minRotation) {
 	    this.minRotation = minRotation;
+	    return (T) this;
 	}
 
 	/**
@@ -316,8 +336,10 @@ public class Ticks {
 	 * Default {@code false}
 	 * </p>
 	 */
-	public void setMirror(Boolean mirror) {
+	@SuppressWarnings("unchecked")
+	public T setMirror(Boolean mirror) {
 	    this.mirror = mirror;
+	    return (T) this;
 	}
 
 	/**
@@ -336,8 +358,10 @@ public class Ticks {
 	 * Default {@code 10}
 	 * </p>
 	 */
-	public void setPadding(BigDecimal padding) {
+	@SuppressWarnings("unchecked")
+	public T setPadding(BigDecimal padding) {
 	    this.padding = padding;
+	    return (T) this;
 	}
 
 	/**
@@ -356,8 +380,10 @@ public class Ticks {
 	 * Default {@code false}
 	 * </p>
 	 */
-	public void setReverse(Boolean reverse) {
+	@SuppressWarnings("unchecked")
+	public T setReverse(Boolean reverse) {
 	    this.reverse = reverse;
+	    return (T) this;
 	}
 
 }

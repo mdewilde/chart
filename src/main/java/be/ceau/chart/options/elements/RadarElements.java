@@ -39,8 +39,9 @@ public class RadarElements {
 	 * Line elements are used to represent the line in a line chart. The global
 	 * line options are stored in Chart.defaults.global.elements.line.
 	 */
-	public void setLine(RadarLine line) {
+	public RadarElements setLine(RadarLine line) {
 		this.line = line;
+	    return this;
 	}
 
 }

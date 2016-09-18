@@ -73,15 +73,12 @@ public class ScaleLabel {
 
 	/**
 	 * <p>
-	 * 
-	 * </p>
-	 * 
-	 * <p>
 	 * Default {@code false}
 	 * </p>
 	 */
-	public void setDisplay(Boolean display) {
+	public ScaleLabel setDisplay(Boolean display) {
 	    this.display = display;
+	    return this;
 	}
 
 	/**
@@ -100,8 +97,9 @@ public class ScaleLabel {
 	 * Default {@code ""}
 	 * </p>
 	 */
-	public void setLabelString(String labelString) {
+	public ScaleLabel setLabelString(String labelString) {
 	    this.labelString = labelString;
+	    return this;
 	}
 
 	/**
@@ -120,8 +118,9 @@ public class ScaleLabel {
 	 * Default {@code "#666"}
 	 * </p>
 	 */
-	public void setFontColor(Color fontColor) {
+	public ScaleLabel setFontColor(Color fontColor) {
 	    this.fontColor = fontColor;
+	    return this;
 	}
 
 	/**
@@ -140,8 +139,9 @@ public class ScaleLabel {
 	 * Default {@code "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif"}
 	 * </p>
 	 */
-	public void setFontFamily(String fontFamily) {
+	public ScaleLabel setFontFamily(String fontFamily) {
 	    this.fontFamily = fontFamily;
+	    return this;
 	}
 
 	/**
@@ -160,8 +160,9 @@ public class ScaleLabel {
 	 * Default {@code 12}
 	 * </p>
 	 */
-	public void setFontSize(BigDecimal fontSize) {
+	public ScaleLabel setFontSize(BigDecimal fontSize) {
 	    this.fontSize = fontSize;
+	    return this;
 	}
 
 	/**
@@ -180,8 +181,9 @@ public class ScaleLabel {
 	 * Default {@code "normal"}
 	 * </p>
 	 */
-	public void setFontStyle(FontStyle fontStyle) {
+	public ScaleLabel setFontStyle(FontStyle fontStyle) {
 	    this.fontStyle = fontStyle;
+	    return this;
 	}
 
 }

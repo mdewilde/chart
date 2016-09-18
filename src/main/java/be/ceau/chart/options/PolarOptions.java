@@ -21,11 +21,12 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import be.ceau.chart.javascript.JavaScriptFunction;
+import be.ceau.chart.options.animation.PolarAnimation;
 import be.ceau.chart.options.scales.RadialLinearScale;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
-public class PolarOptions extends Options {
+public class PolarOptions extends Options<PolarOptions> {
 
 	/**
 	 * @see #setScale(RadialLinearScale scale)
@@ -57,8 +58,9 @@ public class PolarOptions extends Options {
 	 * Options for the one scale used on the chart. Use this to style the ticks,
 	 * labels, and grid.
 	 */
-	public void setScale(RadialLinearScale scale) {
+	public PolarOptions setScale(RadialLinearScale scale) {
 		this.scale = scale;
+		return this;
 	}
 
 	/**
@@ -71,8 +73,9 @@ public class PolarOptions extends Options {
 	/**
 	 * If true, will animate the rotation of the chart.
 	 */
-	public void setAnimation(PolarAnimation animation) {
+	public PolarOptions setAnimation(PolarAnimation animation) {
 		this.animation = animation;
+		return this;
 	}
 
 	/**
@@ -85,8 +88,9 @@ public class PolarOptions extends Options {
 	/**
 	 * Generates the HTML legend via calls to generateLegend
 	 */
-	public void setLegendCallback(JavaScriptFunction legendCallback) {
+	public PolarOptions setLegendCallback(JavaScriptFunction legendCallback) {
 		this.legendCallback = legendCallback;
+		return this;
 	}
 
 }

@@ -34,16 +34,18 @@ public class Scales {
 		return xAxes;
 	}
 
-	public void setxAxes(List<Scale> xAxes) {
+	public Scales setxAxes(List<Scale> xAxes) {
 		this.xAxes = xAxes;
+	    return this;
 	}
 
 	public List<Scale> getyAxes() {
 		return yAxes;
 	}
 
-	public void setyAxes(List<Scale> yAxes) {
+	public Scales setyAxes(List<Scale> yAxes) {
 		this.yAxes = yAxes;
+	    return this;
 	}
 
 }

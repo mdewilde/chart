@@ -13,53 +13,59 @@
 	See the License for the specific language governing permissions and
 	limitations under the License.
 */
-package be.ceau.chart.options.scales;
+package be.ceau.chart.options.animation;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
-public class LogarithmicTicks extends Ticks {
+public class PieAnimation extends Animation<PieAnimation> {
 
 	/**
-	 * @see #setMin(String)
+	 * Default {@code true}
+	 * 
+	 * @see #setAnimateRotate(Boolean)
 	 */
-	private String min;
+	private Boolean animateRotate;
 
 	/**
-	 * @see #setMax(String)
+	 * Default {@code true}
+	 * 
+	 * @see #setAnimateScale(Boolean)
 	 */
-	private String max;
+	private Boolean animateScale;
 
 	/**
-	 * @see #setMin(String)
+	 * @see #setAnimateRotate(Boolean animation.animateRotate)
 	 */
-	public String getMin() {
-		return min;
+	public Boolean getAnimateRotate() {
+	    return this.animateRotate;
 	}
 
 	/**
-	 * The minimum item to display. Must be a value in the labels array
+	 * If true, will animate the rotation of the chart.
 	 */
-	public void setMin(String min) {
-		this.min = min;
+	public PieAnimation setAnimateRotate(Boolean animateRotate) {
+	    this.animateRotate = animateRotate;
+	    return this;
 	}
 
 	/**
-	 * @see #setMax(String)
+	 * @see #setAnimateScale(Boolean)
 	 */
-	public String getMax() {
-		return max;
+	public Boolean getAnimateScale() {
+	    return this.animateScale;
 	}
 
 	/**
-	 * The maximum item to display. Must be a value in the labels array
+	 * If true, will animate scaling the chart.
 	 */
-	public void setMax(String max) {
-		this.max = max;
+	public PieAnimation setAnimateScale(Boolean animateScale) {
+	    this.animateScale = animateScale;
+	    return this;
 	}
 
 }

@@ -13,7 +13,7 @@
 	See the License for the specific language governing permissions and
 	limitations under the License.
 */
-package be.ceau.chart.options;
+package be.ceau.chart.options.animation;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
@@ -25,7 +25,7 @@ import be.ceau.chart.javascript.JavaScriptFunction;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
-public class Animation {
+public class Animation<T extends Animation<T>> {
 
 	/**
 	 * @see #setDuration(Integer)
@@ -63,8 +63,10 @@ public class Animation {
 	 * The number of milliseconds an animation takes.
 	 * </p>
 	 */
-	public void setDuration(Integer duration) {
+	@SuppressWarnings("unchecked")
+	public T setDuration(Integer duration) {
 		this.duration = duration;
+		return (T) this;
 	}
 
 	/**
@@ -88,8 +90,10 @@ public class Animation {
 	 * http://www.robertpenner.com/easing/
 	 * </p>
 	 */
-	public void setEasing(Easing easing) {
+	@SuppressWarnings("unchecked")
+	public T setEasing(Easing easing) {
 		this.easing = easing;
+		return (T) this;
 	}
 
 	/**
@@ -110,8 +114,10 @@ public class Animation {
 	 * the animation.
 	 * </p>
 	 */
-	public void setOnProgress(JavaScriptFunction onProgress) {
+	@SuppressWarnings("unchecked")
+	public T setOnProgress(JavaScriptFunction onProgress) {
 		this.onProgress = onProgress;
+		return (T) this;
 	}
 
 	/**
@@ -131,8 +137,10 @@ public class Animation {
 	 * onProgress
 	 * </p>
 	 */
-	public void setOnComplete(JavaScriptFunction onComplete) {
+	@SuppressWarnings("unchecked")
+	public T setOnComplete(JavaScriptFunction onComplete) {
 		this.onComplete = onComplete;
+		return (T) this;
 	}
 
 }

@@ -13,7 +13,7 @@
 	See the License for the specific language governing permissions and
 	limitations under the License.
 */
-package be.ceau.chart.options.scales;
+package be.ceau.chart.options.ticks;
 
 import java.math.BigDecimal;
 
@@ -122,8 +122,9 @@ public class RadialLinearTicks extends Ticks {
 	/**
 	 * Color of label backdrops
 	 */
-	public void setBackdropColor(Color backdropColor) {
+	public RadialLinearTicks setBackdropColor(Color backdropColor) {
 		this.backdropColor = backdropColor;
+	    return this;
 	}
 
 	/**
@@ -136,8 +137,9 @@ public class RadialLinearTicks extends Ticks {
 	/**
 	 * Horizontal padding of label backdrop
 	 */
-	public void setBackdropPaddingX(BigDecimal backdropPaddingX) {
+	public RadialLinearTicks setBackdropPaddingX(BigDecimal backdropPaddingX) {
 		this.backdropPaddingX = backdropPaddingX;
+	    return this;
 	}
 
 	/**
@@ -150,8 +152,9 @@ public class RadialLinearTicks extends Ticks {
 	/**
 	 * Vertical padding of label backdrop
 	 */
-	public void setBackdropPaddingY(BigDecimal backdropPaddingY) {
+	public RadialLinearTicks setBackdropPaddingY(BigDecimal backdropPaddingY) {
 		this.backdropPaddingY = backdropPaddingY;
+	    return this;
 	}
 
 	/**
@@ -164,8 +167,9 @@ public class RadialLinearTicks extends Ticks {
 	/**
 	 * if true, scale will inclulde 0 if it is not already included.
 	 */
-	public void setBeginAtZero(Boolean beginAtZero) {
+	public RadialLinearTicks setBeginAtZero(Boolean beginAtZero) {
 		this.beginAtZero = beginAtZero;
+	    return this;
 	}
 
 	/**
@@ -179,8 +183,9 @@ public class RadialLinearTicks extends Ticks {
 	 * User defined minimum number for the scale, overrides minimum value from
 	 * data.
 	 */
-	public void setMin(BigDecimal min) {
+	public RadialLinearTicks setMin(BigDecimal min) {
 		this.min = min;
+	    return this;
 	}
 
 	/**
@@ -194,8 +199,9 @@ public class RadialLinearTicks extends Ticks {
 	 * User defined maximum number for the scale, overrides maximum value from
 	 * data.
 	 */
-	public void setMax(BigDecimal max) {
+	public RadialLinearTicks setMax(BigDecimal max) {
 		this.max = max;
+	    return this;
 	}
 
 	/**
@@ -209,8 +215,9 @@ public class RadialLinearTicks extends Ticks {
 	 * Maximum number of ticks and gridlines to show. If not defined, it will
 	 * limit to 11 ticks but will show all gridlines.
 	 */
-	public void setMaxTicksLimit(BigDecimal maxTicksLimit) {
+	public RadialLinearTicks setMaxTicksLimit(BigDecimal maxTicksLimit) {
 		this.maxTicksLimit = maxTicksLimit;
+	    return this;
 	}
 
 	/**
@@ -223,8 +230,9 @@ public class RadialLinearTicks extends Ticks {
 	/**
 	 * If true, draw a background behind the tick labels
 	 */
-	public void setShowLabelBackdrop(Boolean showLabelBackdrop) {
+	public RadialLinearTicks setShowLabelBackdrop(Boolean showLabelBackdrop) {
 		this.showLabelBackdrop = showLabelBackdrop;
+	    return this;
 	}
 
 	/**
@@ -240,8 +248,9 @@ public class RadialLinearTicks extends Ticks {
 	 * not set, the ticks are labeled automatically using the nice numbers
 	 * algorithm.
 	 */
-	public void setFixedStepSize(BigDecimal fixedStepSize) {
+	public RadialLinearTicks setFixedStepSize(BigDecimal fixedStepSize) {
 		this.fixedStepSize = fixedStepSize;
+	    return this;
 	}
 
 	/**
@@ -255,8 +264,9 @@ public class RadialLinearTicks extends Ticks {
 	 * if defined, it can be used along with the min and the max to give a
 	 * custom number of steps. See the example below.
 	 */
-	public void setStepSize(BigDecimal stepSize) {
+	public RadialLinearTicks setStepSize(BigDecimal stepSize) {
 		this.stepSize = stepSize;
+	    return this;
 	}
 
 	/**
@@ -270,8 +280,9 @@ public class RadialLinearTicks extends Ticks {
 	 * User defined maximum number for the scale, overrides maximum value except
 	 * for if it is lower than the maximum value.
 	 */
-	public void setSuggestedMax(BigDecimal suggestedMax) {
+	public RadialLinearTicks setSuggestedMax(BigDecimal suggestedMax) {
 		this.suggestedMax = suggestedMax;
+	    return this;
 	}
 
 	/**
@@ -285,8 +296,9 @@ public class RadialLinearTicks extends Ticks {
 	 * User defined minimum number for the scale, overrides minimum value except
 	 * for if it is higher than the minimum value.
 	 */
-	public void setSuggestedMin(BigDecimal suggestedMin) {
+	public RadialLinearTicks setSuggestedMin(BigDecimal suggestedMin) {
 		this.suggestedMin = suggestedMin;
+	    return this;
 	}
 
 }

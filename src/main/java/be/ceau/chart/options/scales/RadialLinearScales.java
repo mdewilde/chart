@@ -39,16 +39,18 @@ public class RadialLinearScales {
 		return xAxes;
 	}
 
-	public void setxAxes(List<RadialLinearScale> xAxes) {
+	public RadialLinearScales setxAxes(List<RadialLinearScale> xAxes) {
 		this.xAxes = xAxes;
+	    return this;
 	}
 
 	public List<RadialLinearScale> getyAxes() {
 		return yAxes;
 	}
 
-	public void setyAxes(List<RadialLinearScale> yAxes) {
+	public RadialLinearScales setyAxes(List<RadialLinearScale> yAxes) {
 		this.yAxes = yAxes;
+	    return this;
 	}
 
 }

@@ -56,8 +56,9 @@ public class Elements {
 	 * configured with the following options. The global arc options are stored
 	 * in Chart.defaults.global.elements.arc.
 	 */
-	public void setArc(Arc arc) {
+	public Elements setArc(Arc arc) {
 		this.arc = arc;
+	    return this;
 	}
 
 	/**
@@ -71,8 +72,9 @@ public class Elements {
 	 * Line elements are used to represent the line in a line chart. The global
 	 * line options are stored in Chart.defaults.global.elements.line.
 	 */
-	public void setLine(Line line) {
+	public Elements setLine(Line line) {
 		this.line = line;
+	    return this;
 	}
 
 	/**
@@ -87,8 +89,9 @@ public class Elements {
 	 * bubble chart. The global point options are stored in
 	 * Chart.defaults.global.elements.point.
 	 */
-	public void setPoint(Point point) {
+	public Elements setPoint(Point point) {
 		this.point = point;
+	    return this;
 	}
 
 	/**
@@ -103,8 +106,9 @@ public class Elements {
 	 * global rectangle options are stored in
 	 * Chart.defaults.global.elements.rectangle.
 	 */
-	public void setRectangle(Rectangle rectangle) {
+	public Elements setRectangle(Rectangle rectangle) {
 		this.rectangle = rectangle;
+	    return this;
 	}
 
 }

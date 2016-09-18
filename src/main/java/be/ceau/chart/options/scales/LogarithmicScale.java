@@ -20,6 +20,8 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
+import be.ceau.chart.options.ticks.LogarithmicTicks;
+
 /**
  * The logarithmic scale is use to chart numerical data. It can be placed on
  * either the x or y axis. As the name suggests, logarithmic interpolation is
@@ -27,7 +29,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
  */
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
-public class LogarithmicScale extends Scale {
+public class LogarithmicScale extends Scale<LogarithmicScale> {
 
 	private final String type = "logarithmic";
 
@@ -38,12 +40,13 @@ public class LogarithmicScale extends Scale {
 	}
 
 	@Override
-	public Ticks getTicks() {
+	public LogarithmicTicks getTicks() {
 		return ticks;
 	}
 
-	public void setTicks(LogarithmicTicks ticks) {
+	public LogarithmicScale setTicks(LogarithmicTicks ticks) {
 		this.ticks = ticks;
+	    return this;
 	}
 
 }

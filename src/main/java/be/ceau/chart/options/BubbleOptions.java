@@ -42,7 +42,7 @@ import be.ceau.chart.options.elements.BubbleElements;
  */
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
-public class BubbleOptions extends Options {
+public class BubbleOptions extends Options<BubbleOptions> {
 
 	private BubbleElements elements;
 
@@ -50,8 +50,9 @@ public class BubbleOptions extends Options {
 		return elements;
 	}
 
-	public void setElements(BubbleElements elements) {
+	public BubbleOptions setElements(BubbleElements elements) {
 		this.elements = elements;
+		return this;
 	}
 
 }

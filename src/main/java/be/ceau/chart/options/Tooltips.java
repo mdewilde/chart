@@ -184,8 +184,9 @@ public class Tooltips {
 	 * Default {@code true}
 	 * </p>
 	 */
-	public void setEnabled(Boolean enabled) {
+	public Tooltips setEnabled(Boolean enabled) {
 	    this.enabled = enabled;
+	    return this;
 	}
 
 	/**
@@ -204,8 +205,9 @@ public class Tooltips {
 	 * Default {@code null}
 	 * </p>
 	 */
-	public void setCustom(JavaScriptFunction custom) {
+	public Tooltips setCustom(JavaScriptFunction custom) {
 	    this.custom = custom;
+	    return this;
 	}
 
 	/**
@@ -224,8 +226,9 @@ public class Tooltips {
 	 * Default {@code 'single'}
 	 * </p>
 	 */
-	public void setMode(String mode) {
+	public Tooltips setMode(String mode) {
 	    this.mode = mode;
+	    return this;
 	}
 
 	/**
@@ -244,8 +247,9 @@ public class Tooltips {
 	 * Default {@code undefined}
 	 * </p>
 	 */
-	public void setItemSort(JavaScriptFunction itemSort) {
+	public Tooltips setItemSort(JavaScriptFunction itemSort) {
 	    this.itemSort = itemSort;
+	    return this;
 	}
 
 	/**
@@ -264,8 +268,9 @@ public class Tooltips {
 	 * Default {@code 'rgba(0,0,0,0.8)'}
 	 * </p>
 	 */
-	public void setBackgroundColor(Color backgroundColor) {
+	public Tooltips setBackgroundColor(Color backgroundColor) {
 	    this.backgroundColor = backgroundColor;
+	    return this;
 	}
 
 	/**
@@ -284,8 +289,9 @@ public class Tooltips {
 	 * Default {@code "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif"}
 	 * </p>
 	 */
-	public void setTitleFontFamily(String titleFontFamily) {
+	public Tooltips setTitleFontFamily(String titleFontFamily) {
 	    this.titleFontFamily = titleFontFamily;
+	    return this;
 	}
 
 	/**
@@ -304,8 +310,9 @@ public class Tooltips {
 	 * Default {@code 12}
 	 * </p>
 	 */
-	public void setTitleFontSize(Integer titleFontSize) {
+	public Tooltips setTitleFontSize(Integer titleFontSize) {
 	    this.titleFontSize = titleFontSize;
+	    return this;
 	}
 
 	/**
@@ -324,8 +331,9 @@ public class Tooltips {
 	 * Default {@code "bold"}
 	 * </p>
 	 */
-	public void setTitleFontStyle(FontStyle titleFontStyle) {
+	public Tooltips setTitleFontStyle(FontStyle titleFontStyle) {
 	    this.titleFontStyle = titleFontStyle;
+	    return this;
 	}
 
 	/**
@@ -344,8 +352,9 @@ public class Tooltips {
 	 * Default {@code "#fff"}
 	 * </p>
 	 */
-	public void setTitleFontColor(Color titleFontColor) {
+	public Tooltips setTitleFontColor(Color titleFontColor) {
 	    this.titleFontColor = titleFontColor;
+	    return this;
 	}
 
 	/**
@@ -364,8 +373,9 @@ public class Tooltips {
 	 * Default {@code 2}
 	 * </p>
 	 */
-	public void setTitleSpacing(Integer titleSpacing) {
+	public Tooltips setTitleSpacing(Integer titleSpacing) {
 	    this.titleSpacing = titleSpacing;
+	    return this;
 	}
 
 	/**
@@ -384,8 +394,9 @@ public class Tooltips {
 	 * Default {@code 6}
 	 * </p>
 	 */
-	public void setTitleMarginBottom(Integer titleMarginBottom) {
+	public Tooltips setTitleMarginBottom(Integer titleMarginBottom) {
 	    this.titleMarginBottom = titleMarginBottom;
+	    return this;
 	}
 
 	/**
@@ -404,8 +415,9 @@ public class Tooltips {
 	 * Default {@code "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif"}
 	 * </p>
 	 */
-	public void setBodyFontFamily(String bodyFontFamily) {
+	public Tooltips setBodyFontFamily(String bodyFontFamily) {
 	    this.bodyFontFamily = bodyFontFamily;
+	    return this;
 	}
 
 	/**
@@ -424,8 +436,9 @@ public class Tooltips {
 	 * Default {@code 12}
 	 * </p>
 	 */
-	public void setBodyFontSize(Integer bodyFontSize) {
+	public Tooltips setBodyFontSize(Integer bodyFontSize) {
 	    this.bodyFontSize = bodyFontSize;
+	    return this;
 	}
 
 	/**
@@ -444,8 +457,9 @@ public class Tooltips {
 	 * Default {@code "normal"}
 	 * </p>
 	 */
-	public void setBodyFontStyle(FontStyle bodyFontStyle) {
+	public Tooltips setBodyFontStyle(FontStyle bodyFontStyle) {
 	    this.bodyFontStyle = bodyFontStyle;
+	    return this;
 	}
 
 	/**
@@ -464,8 +478,9 @@ public class Tooltips {
 	 * Default {@code "#fff"}
 	 * </p>
 	 */
-	public void setBodyFontColor(Color bodyFontColor) {
+	public Tooltips setBodyFontColor(Color bodyFontColor) {
 	    this.bodyFontColor = bodyFontColor;
+	    return this;
 	}
 
 	/**
@@ -484,8 +499,9 @@ public class Tooltips {
 	 * Default {@code 2}
 	 * </p>
 	 */
-	public void setBodySpacing(Integer bodySpacing) {
+	public Tooltips setBodySpacing(Integer bodySpacing) {
 	    this.bodySpacing = bodySpacing;
+	    return this;
 	}
 
 	/**
@@ -504,8 +520,9 @@ public class Tooltips {
 	 * Default {@code "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif"}
 	 * </p>
 	 */
-	public void setFooterFontFamily(String footerFontFamily) {
+	public Tooltips setFooterFontFamily(String footerFontFamily) {
 	    this.footerFontFamily = footerFontFamily;
+	    return this;
 	}
 
 	/**
@@ -524,8 +541,9 @@ public class Tooltips {
 	 * Default {@code 12}
 	 * </p>
 	 */
-	public void setFooterFontSize(Integer footerFontSize) {
+	public Tooltips setFooterFontSize(Integer footerFontSize) {
 	    this.footerFontSize = footerFontSize;
+	    return this;
 	}
 
 	/**
@@ -544,8 +562,9 @@ public class Tooltips {
 	 * Default {@code "bold"}
 	 * </p>
 	 */
-	public void setFooterFontStyle(FontStyle footerFontStyle) {
+	public Tooltips setFooterFontStyle(FontStyle footerFontStyle) {
 	    this.footerFontStyle = footerFontStyle;
+	    return this;
 	}
 
 	/**
@@ -564,8 +583,9 @@ public class Tooltips {
 	 * Default {@code "#fff"}
 	 * </p>
 	 */
-	public void setFooterFontColor(Color footerFontColor) {
+	public Tooltips setFooterFontColor(Color footerFontColor) {
 	    this.footerFontColor = footerFontColor;
+	    return this;
 	}
 
 	/**
@@ -584,8 +604,9 @@ public class Tooltips {
 	 * Default {@code 2}
 	 * </p>
 	 */
-	public void setFooterSpacing(Integer footerSpacing) {
+	public Tooltips setFooterSpacing(Integer footerSpacing) {
 	    this.footerSpacing = footerSpacing;
+	    return this;
 	}
 
 	/**
@@ -604,8 +625,9 @@ public class Tooltips {
 	 * Default {@code 6}
 	 * </p>
 	 */
-	public void setFooterMarginTop(Integer footerMarginTop) {
+	public Tooltips setFooterMarginTop(Integer footerMarginTop) {
 	    this.footerMarginTop = footerMarginTop;
+	    return this;
 	}
 
 	/**
@@ -624,8 +646,9 @@ public class Tooltips {
 	 * Default {@code 6}
 	 * </p>
 	 */
-	public void setXPadding(Integer xPadding) {
+	public Tooltips setXPadding(Integer xPadding) {
 	    this.xPadding = xPadding;
+	    return this;
 	}
 
 	/**
@@ -644,8 +667,9 @@ public class Tooltips {
 	 * Default {@code 6}
 	 * </p>
 	 */
-	public void setYPadding(Integer yPadding) {
+	public Tooltips setYPadding(Integer yPadding) {
 	    this.yPadding = yPadding;
+	    return this;
 	}
 
 	/**
@@ -664,8 +688,9 @@ public class Tooltips {
 	 * Default {@code 5}
 	 * </p>
 	 */
-	public void setCaretSize(Integer caretSize) {
+	public Tooltips setCaretSize(Integer caretSize) {
 	    this.caretSize = caretSize;
+	    return this;
 	}
 
 	/**
@@ -684,8 +709,9 @@ public class Tooltips {
 	 * Default {@code 6}
 	 * </p>
 	 */
-	public void setCornerRadius(Integer cornerRadius) {
+	public Tooltips setCornerRadius(Integer cornerRadius) {
 	    this.cornerRadius = cornerRadius;
+	    return this;
 	}
 
 	/**
@@ -704,8 +730,9 @@ public class Tooltips {
 	 * Default {@code "#fff"}
 	 * </p>
 	 */
-	public void setMultiKeyBackground(Color multiKeyBackground) {
+	public Tooltips setMultiKeyBackground(Color multiKeyBackground) {
 	    this.multiKeyBackground = multiKeyBackground;
+	    return this;
 	}
 //
 //	/**
@@ -724,7 +751,7 @@ public class Tooltips {
 //	 * Default {@code }
 //	 * </p>
 //	 */
-//	public void setCallbacks(Callbacks callbacks) {
+//	public Tooltips setCallbacks(Callbacks callbacks) {
 //	    this.callbacks = callbacks;
 //	}
 

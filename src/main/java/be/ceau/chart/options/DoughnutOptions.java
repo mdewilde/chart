@@ -22,9 +22,11 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
+import be.ceau.chart.options.animation.DoughnutAnimation;
+
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
-public class DoughnutOptions extends Options {
+public class DoughnutOptions extends Options<DoughnutOptions> {
 
 	/**
 	 * Default {@code 50}
@@ -64,8 +66,9 @@ public class DoughnutOptions extends Options {
 	/**
 	 * The percentage of the chart that is cut out of the middle.
 	 */
-	public void setCutoutPercentage(BigDecimal cutoutPercentage) {
+	public DoughnutOptions setCutoutPercentage(BigDecimal cutoutPercentage) {
 		this.cutoutPercentage = cutoutPercentage;
+		return this;
 	}
 
 	/**
@@ -78,8 +81,9 @@ public class DoughnutOptions extends Options {
 	/**
 	 * Starting angle to draw arcs from
 	 */
-	public void setRotation(BigDecimal rotation) {
+	public DoughnutOptions setRotation(BigDecimal rotation) {
 		this.rotation = rotation;
+		return this;
 	}
 
 	/**
@@ -92,8 +96,9 @@ public class DoughnutOptions extends Options {
 	/**
 	 * Sweep to allow arcs to cover
 	 */
-	public void setCircumference(BigDecimal circumference) {
+	public DoughnutOptions setCircumference(BigDecimal circumference) {
 		this.circumference = circumference;
+		return this;
 	}
 
 	/**
@@ -106,8 +111,9 @@ public class DoughnutOptions extends Options {
 	/**
 	 * If true, will animate the rotation of the chart.
 	 */
-	public void setAnimation(DoughnutAnimation animation) {
+	public DoughnutOptions setAnimation(DoughnutAnimation animation) {
 		this.animation = animation;
+		return this;
 	}
 
 }

@@ -18,8 +18,8 @@ package be.ceau.chart.options;
 import java.math.BigDecimal;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import be.ceau.chart.color.Color;
@@ -66,8 +66,9 @@ public class GlobalFontSettings {
 	/**
 	 * Default font color for all text
 	 */
-	public void setDefaultFontColor(Color defaultFontColor) {
+	public GlobalFontSettings setDefaultFontColor(Color defaultFontColor) {
 	    this.defaultFontColor = defaultFontColor;
+	    return this;
 	}
 
 	/**
@@ -80,8 +81,9 @@ public class GlobalFontSettings {
 	/**
 	 * Default font family for all text
 	 */
-	public void setDefaultFontFamily(String defaultFontFamily) {
+	public GlobalFontSettings setDefaultFontFamily(String defaultFontFamily) {
 	    this.defaultFontFamily = defaultFontFamily;
+	    return this;
 	}
 
 	/**
@@ -94,8 +96,9 @@ public class GlobalFontSettings {
 	/**
 	 * Default font size (in px) for text. Does not apply to radialLinear scale point labels
 	 */
-	public void setDefaultFontSize(BigDecimal defaultFontSize) {
+	public GlobalFontSettings setDefaultFontSize(BigDecimal defaultFontSize) {
 	    this.defaultFontSize = defaultFontSize;
+	    return this;
 	}
 
 	/**
@@ -108,8 +111,9 @@ public class GlobalFontSettings {
 	/**
 	 * Default font style. Does not apply to tooltip title or footer. Does not apply to chart title
 	 */
-	public void setDefaultFontStyle(String defaultFontStyle) {
+	public GlobalFontSettings setDefaultFontStyle(String defaultFontStyle) {
 	    this.defaultFontStyle = defaultFontStyle;
+	    return this;
 	}
 
 }
