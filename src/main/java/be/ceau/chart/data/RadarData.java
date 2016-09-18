@@ -41,15 +41,17 @@ public class RadarData {
 		return Collections.unmodifiableList(labels);
 	}
 
-	public void setLabels(Collection<String> labels) {
+	public RadarData setLabels(Collection<String> labels) {
 		this.labels.clear();
 		if (labels != null) {
 			this.labels.addAll(labels);
 		}
+		return this;
 	}
 
-	public void addLabel(String label) {
+	public RadarData addLabel(String label) {
 		this.labels.add(label);
+		return this;
 	}
 
 	/**
@@ -60,15 +62,17 @@ public class RadarData {
 		return Collections.unmodifiableList(datasets);
 	}
 
-	public void setDatasets(Collection<RadarDataset> datasets) {
+	public RadarData setDatasets(Collection<RadarDataset> datasets) {
 		this.datasets.clear();
 		if (datasets != null) {
 			this.datasets.addAll(datasets);
 		}
+		return this;
 	}
 
-	public void addDataset(RadarDataset dataset) {
+	public RadarData addDataset(RadarDataset dataset) {
 		this.datasets.add(dataset);
+		return this;
 	}
 
 }

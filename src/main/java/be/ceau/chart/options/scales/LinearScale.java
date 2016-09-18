@@ -30,8 +30,24 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 public class LinearScale extends Scale {
 
+	private final String type = "linear";
+	
 	private LinearTicks ticks;
 	
+	private Boolean stacked;
+	
+	public String getType() {
+		return this.type;
+	}
+	
+	public Boolean getStacked() {
+		return stacked;
+	}
+	
+	public void setStacked(Boolean stacked) {
+		this.stacked = stacked;
+	}
+
 	@Override
 	public Ticks getTicks() {
 		return ticks;

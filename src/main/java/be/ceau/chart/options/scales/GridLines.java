@@ -23,7 +23,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import be.ceau.chart.color.Color;
-import be.ceau.chart.dataset.OptionalArray;
+import be.ceau.chart.objects.OptionalArray;
 
 /**
  * The grid line configuration is nested under the scale configuration in the

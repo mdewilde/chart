@@ -15,6 +15,7 @@
 */
 package be.ceau.chart.options.scales;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
@@ -32,24 +33,42 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 public class LinearScales {
 
-	private List<LinearScale> xAxes;
+	private final List<LinearScale> xAxes = new ArrayList<LinearScale>();
 	
-	private List<LinearScale> yAxes;
+	private final List<LinearScale> yAxes = new ArrayList<LinearScale>();
 
 	public List<LinearScale> getxAxes() {
 		return xAxes;
 	}
 
-	public void setxAxes(List<LinearScale> xAxes) {
-		this.xAxes = xAxes;
+	public LinearScales addxAxis(LinearScale xAxis) {
+		this.xAxes.add(xAxis);
+		return this;
+	}
+
+	public LinearScales setxAxes(List<LinearScale> xAxes) {
+		this.xAxes.clear();
+		if (xAxes != null) {
+			this.xAxes.addAll(xAxes);
+		}
+		return this;
 	}
 
 	public List<LinearScale> getyAxes() {
 		return yAxes;
 	}
 
-	public void setyAxes(List<LinearScale> yAxes) {
-		this.yAxes = yAxes;
+	public LinearScales addyAxis(LinearScale yAxis) {
+		this.yAxes.add(yAxis);
+		return this;
+	}
+
+	public LinearScales setyAxes(List<LinearScale> yAxes) {
+		this.yAxes.clear();
+		if (yAxes != null) {
+			this.yAxes.addAll(yAxes);
+		}
+		return this;
 	}
 
 }

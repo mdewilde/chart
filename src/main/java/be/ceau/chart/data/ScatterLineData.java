@@ -27,14 +27,15 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import be.ceau.chart.dataset.LineDataset;
+import be.ceau.chart.dataset.ScatterLineDataset;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
-public class LineData {
+public class ScatterLineData {
 
 	private final List<String> labels = new ArrayList<String>();
 
-	private final List<LineDataset> datasets = new ArrayList<LineDataset>();
+	private final List<ScatterLineDataset> datasets = new ArrayList<ScatterLineDataset>();
 
 	/**
 	 * @return unmodifiable list of all labels, never {@code null}
@@ -44,22 +45,12 @@ public class LineData {
 	}
 
 	/**
-	 * Remove all labels from the backing label list
-	 * 
-	 * @return this {@code LineData} to allow method chaining
-	 */
-	public LineData clearLabels() {
-		this.labels.clear();
-		return this;
-	}
-	
-	/**
 	 * Sets the backing label list, replacing any labels previously added or set
 	 * 
 	 * @param labels
 	 * @return this {@code LineData} to allow method chaining
 	 */
-	public LineData setLabels(Collection<String> labels) {
+	public ScatterLineData setLabels(Collection<String> labels) {
 		this.labels.clear();
 		if (labels != null) {
 			this.labels.addAll(labels);
@@ -73,7 +64,7 @@ public class LineData {
 	 * @param labels
 	 * @return this {@code LineData} to allow method chaining
 	 */
-	public LineData setLabels(String... labels) {
+	public ScatterLineData setLabels(String... labels) {
 		this.labels.clear();
 		if (labels != null) {
 			this.labels.addAll(Arrays.asList(labels));
@@ -86,7 +77,7 @@ public class LineData {
 	 * 
 	 * @return this {@code LineData} to allow method chaining
 	 */
-	public LineData addLabel(String label) {
+	public ScatterLineData addLabel(String label) {
 		this.labels.add(label);
 		return this;
 	}
@@ -96,20 +87,8 @@ public class LineData {
 	 * 
 	 * @return this {@code LineData} to allow method chaining
 	 */
-	public LineData addLabels(Collection<String> labels) {
-		if (labels != null) {
-			this.labels.addAll(labels);
-		}
-		return this;
-	}
-
-	/**
-	 * Adds the labels to the backing label list
-	 * 
-	 * @return this {@code LineData} to allow method chaining
-	 */
-	public LineData addLabels(String... labels) {
-		this.labels.addAll(Arrays.asList(labels));
+	public ScatterLineData addLabels(String... label) {
+		this.labels.addAll(Arrays.asList(label));
 		return this;
 	}
 
@@ -117,14 +96,14 @@ public class LineData {
 	 * @return unmodifiable list of all {@link LineDataset} objects, never
 	 *         {@code null}
 	 */
-	public List<LineDataset> getDatasets() {
+	public List<ScatterLineDataset> getDatasets() {
 		return Collections.unmodifiableList(datasets);
 	}
 
 	/**
 	 * @return this {@code LineData} to allow method chaining
 	 */
-	public LineData setDatasets(Collection<LineDataset> datasets) {
+	public ScatterLineData setDatasets(Collection<ScatterLineDataset> datasets) {
 		this.datasets.clear();
 		if (datasets != null) {
 			this.datasets.addAll(datasets);
@@ -135,7 +114,7 @@ public class LineData {
 	/**
 	 * @return this {@code LineData} to allow method chaining
 	 */
-	public LineData addDataset(LineDataset dataset) {
+	public ScatterLineData addDataset(ScatterLineDataset dataset) {
 		this.datasets.add(dataset);
 		return this;
 	}

@@ -41,15 +41,17 @@ public class BubbleData {
 		return Collections.unmodifiableList(datasets);
 	}
 
-	public void setDatasets(Collection<BubbleDataset> datasets) {
+	public BubbleData setDatasets(Collection<BubbleDataset> datasets) {
 		this.datasets.clear();
 		if (datasets != null) {
 			this.datasets.addAll(datasets);
 		}
+		return this;
 	}
 
-	public void addDataset(BubbleDataset dataset) {
+	public BubbleData addDataset(BubbleDataset dataset) {
 		this.datasets.add(dataset);
+		return this;
 	}
 
 }

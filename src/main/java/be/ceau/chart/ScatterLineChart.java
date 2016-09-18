@@ -17,109 +17,58 @@ package be.ceau.chart;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 
-import be.ceau.chart.data.BarData;
-import be.ceau.chart.dataset.BarDataset;
-import be.ceau.chart.options.BarOptions;
-import be.ceau.chart.options.scales.XAxis;
-import be.ceau.chart.options.scales.YAxis;
+import be.ceau.chart.data.ScatterLineData;
+import be.ceau.chart.dataset.ScatterLineDataset;
+import be.ceau.chart.options.LineOptions;
+import be.ceau.chart.options.scales.LinearScale;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE, isGetterVisibility = Visibility.NONE)
-public class BarChart implements Chart {
+public class ScatterLineChart implements Chart {
 
-	private static final ObjectWriter WRITER = new ObjectMapper().writerWithDefaultPrettyPrinter().forType(BarChart.class);
+	private static final ObjectWriter WRITER = new ObjectMapper().writerWithDefaultPrettyPrinter().forType(ScatterLineChart.class);
 
-	@JsonIgnore
-	private boolean vertical = true;
+	private final String type = "line";
 
-	private BarData data;
+	private ScatterLineData data;
 
-	private BarOptions options;
+	private LineOptions options;
 
-	public BarChart() {
+	public ScatterLineChart() {
 	}
 
-	public BarChart(BarData data, BarOptions options) {
+	public ScatterLineChart(ScatterLineData data, LineOptions options) {
 		this.data = data;
 		this.options = options;
-	}
-
-	public BarData getData() {
-		return data;
-	}
-
-	public BarChart setData(BarData data) {
-		this.data = data;
-		return this;
-	}
-
-	public BarOptions getOptions() {
-		return options;
-	}
-
-	public BarChart setOptions(BarOptions options) {
-		this.options = options;
-		return this;
-	}
-
-	/**
-	 * <p>
-	 * Draw this {@code BarChart} horizontally.
-	 * </p>
-	 * <p>
-	 * Default is to draw a vertical {@code BarChart}.
-	 * </p>
-	 * 
-	 * @see #setVertical()
-	 */
-	public BarChart setHorizontal() {
-		this.vertical = false;
-		return this;
-	}
-
-	/**
-	 * @return true if this {@code BarChart} is set to be drawn horizontally
-	 * @see #setHorizontal()
-	 */
-	public boolean isHorizontal() {
-		return !this.vertical;
-	}
-
-	/**
-	 * <p>
-	 * Draw this {@code BarChart} vertically.
-	 * </p>
-	 * <p>
-	 * Vertical drawing is the default for {@code BarChart}.
-	 * </p>
-	 * 
-	 * @see #setHorizontal()
-	 */
-	public BarChart setVertical() {
-		this.vertical = true;
-		return this;
-	}
-
-	/**
-	 * @return true if this {@code BarChart} is set to be drawn vertically
-	 * @see #setVertical()
-	 */
-	public boolean isVertical() {
-		return this.vertical;
 	}
 
 	@Override
-	@JsonProperty("type")
 	public String getType() {
-		return this.vertical ? "bar" : "horizontalBar";
+		return type;
+	}
+
+	public ScatterLineData getData() {
+		return data;
+	}
+
+	public ScatterLineChart setData(ScatterLineData data) {
+		this.data = data;
+		return this;
+	}
+
+	public LineOptions getOptions() {
+		return options;
+	}
+
+	public ScatterLineChart setOptions(LineOptions options) {
+		this.options = options;
+		return this;
 	}
 
 	@Override
@@ -130,22 +79,22 @@ public class BarChart implements Chart {
 			throw new RuntimeException(e);
 		}
 	}
-
+	
 	/**
 	 * {@inheritDoc}
 	 * 
 	 * <p>
-	 * {@code BarChart} is drawable if at least one dataset has at least one
+	 * {@code LineChart} is drawable if at least one dataset has at least one
 	 * data point.<br>
-	 * If an xAxisID is set on a dataset, an xAxis scale must exist with that
-	 * id. <br>
+	 * If an xAxisID is set on a dataset, an xAxis scale must exist with that id.
+	 * <br>
 	 * If an yAxisID is set on a dataset, a yAxis scale must exist with that id.
 	 * </p>
 	 */
 	@Override
 	public boolean isDrawable() {
 		boolean sufficientData = false;
-		for (BarDataset dataset : data.getDatasets()) {
+		for (ScatterLineDataset dataset : data.getDatasets()) {
 			if (dataset.getXAxisID() != null && !hasXAxisWithId(dataset.getXAxisID())) {
 				return false;
 			}
@@ -158,10 +107,10 @@ public class BarChart implements Chart {
 		}
 		return sufficientData;
 	}
-
+	
 	private boolean hasXAxisWithId(String id) {
 		if (options != null && options.getScales() != null && options.getScales().getxAxes() != null) {
-			for (XAxis xAxis : options.getScales().getxAxes()) {
+			for (LinearScale xAxis : options.getScales().getxAxes()) {
 				if (id.equals(xAxis.getId())) {
 					return true;
 				}
@@ -169,10 +118,10 @@ public class BarChart implements Chart {
 		}
 		return false;
 	}
-
+	
 	private boolean hasYAxisWithId(String id) {
 		if (options != null && options.getScales() != null && options.getScales().getyAxes() != null) {
-			for (YAxis yAxis : options.getScales().getyAxes()) {
+			for (LinearScale yAxis : options.getScales().getyAxes()) {
 				if (id.equals(yAxis.getId())) {
 					return true;
 				}

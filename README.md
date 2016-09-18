@@ -14,7 +14,7 @@ return new BubbleChart(data, options).toJson();
 In JavaScript:
 
 ```JavaScript
-var ctx = document.getElementById('canvasId').getContext('2d');
+var ctx = document.getElementById('canvasId'));
 new Chart(ctx, json);
 ```
 

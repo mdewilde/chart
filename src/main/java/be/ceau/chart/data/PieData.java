@@ -41,15 +41,17 @@ public class PieData {
 		return Collections.unmodifiableList(labels);
 	}
 
-	public void setLabels(Collection<String> labels) {
+	public PieData setLabels(Collection<String> labels) {
 		this.labels.clear();
 		if (labels != null) {
 			this.labels.addAll(labels);
 		}
+		return this;
 	}
 
-	public void addLabel(String label) {
+	public PieData addLabel(String label) {
 		this.labels.add(label);
+		return this;
 	}
 
 	/**
@@ -60,15 +62,17 @@ public class PieData {
 		return Collections.unmodifiableList(datasets);
 	}
 
-	public void setDatasets(Collection<PieDataset> datasets) {
+	public PieData setDatasets(Collection<PieDataset> datasets) {
 		this.datasets.clear();
 		if (datasets != null) {
 			this.datasets.addAll(datasets);
 		}
+		return this;
 	}
 
-	public void addDataset(PieDataset dataset) {
+	public PieData addDataset(PieDataset dataset) {
 		this.datasets.add(dataset);
+		return this;
 	}
 
 }

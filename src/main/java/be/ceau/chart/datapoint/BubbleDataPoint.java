@@ -13,7 +13,7 @@
 	See the License for the specific language governing permissions and
 	limitations under the License.
 */
-package be.ceau.chart.dataset;
+package be.ceau.chart.datapoint;
 
 import java.math.BigDecimal;
 
@@ -41,6 +41,15 @@ public class BubbleDataPoint {
 	 */
 	private BigDecimal r;
 
+	public BubbleDataPoint() {
+	}
+
+	public BubbleDataPoint(BigDecimal x, BigDecimal y, BigDecimal r) {
+		this.x = x;
+		this.y = y;
+		this.r = r;
+	}
+
 	/**
 	 * @see #setX(BigDecimal)
 	 */
@@ -48,6 +57,20 @@ public class BubbleDataPoint {
 		return x;
 	}
 
+	/**
+	 * X Value
+	 */
+	public void setX(int x) {
+		this.x = new BigDecimal(x);
+	}
+	
+	/**
+	 * X Value
+	 */
+	public void setX(double x) {
+		this.x = new BigDecimal(String.valueOf(x));
+	}
+	
 	/**
 	 * X Value
 	 */
@@ -63,6 +86,20 @@ public class BubbleDataPoint {
 	}
 
 	/**
+	 * @see #setY(BigDecimal)
+	 */
+	public void setY(int y) {
+		this.y = new BigDecimal(y);
+	}
+
+	/**
+	 * @see #setY(BigDecimal)
+	 */
+	public void setY(double y) {
+		this.y = new BigDecimal(String.valueOf(y));
+	}
+
+	/**
 	 * Y Value
 	 */
 	public void setY(BigDecimal y) {
@@ -74,6 +111,13 @@ public class BubbleDataPoint {
 	 */
 	public BigDecimal getR() {
 		return r;
+	}
+
+	/**
+	 * @see #setR(BigDecimal)
+	 */
+	public void setR(double r) {
+		this.r = new BigDecimal(String.valueOf(r));
 	}
 
 	/**

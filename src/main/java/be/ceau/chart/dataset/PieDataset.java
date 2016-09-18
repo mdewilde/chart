@@ -22,6 +22,6 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
-public class PieDataset extends AbstractRoundDataset {
+public class PieDataset extends AbstractRoundDataset<PieDataset> {
 
 }

@@ -51,16 +51,18 @@ public class PieChart implements Chart {
 		return data;
 	}
 
-	public void setData(PieData data) {
+	public PieChart setData(PieData data) {
 		this.data = data;
+		return this;
 	}
 
 	public PieOptions getOptions() {
 		return options;
 	}
 
-	public void setOptions(PieOptions options) {
+	public PieChart setOptions(PieOptions options) {
 		this.options = options;
+		return this;
 	}
 
 	@Override

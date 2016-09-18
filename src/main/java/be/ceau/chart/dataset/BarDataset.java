@@ -23,10 +23,11 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import be.ceau.chart.enums.BorderSkipped;
+import be.ceau.chart.objects.OptionalArray;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
-public class BarDataset extends BackgroundBorderHoverDataset {
+public class BarDataset extends BackgroundBorderHoverDataset<BarDataset> {
 
 	/**
 	 * @see #setLabel(String)
@@ -58,8 +59,9 @@ public class BarDataset extends BackgroundBorderHoverDataset {
 	/**
 	 * The label for the dataset which appears in the legend and tooltips
 	 */
-	public void setLabel(String label) {
+	public BarDataset setLabel(String label) {
 	    this.label = label;
+		return this;
 	}
 
 	/**
@@ -72,8 +74,9 @@ public class BarDataset extends BackgroundBorderHoverDataset {
 	/**
 	 * The ID of the x axis to plot this dataset on
 	 */
-	public void setXAxisID(String xAxisID) {
+	public BarDataset setXAxisID(String xAxisID) {
 	    this.xAxisID = xAxisID;
+		return this;
 	}
 
 	/**
@@ -86,8 +89,9 @@ public class BarDataset extends BackgroundBorderHoverDataset {
 	/**
 	 * The ID of the y axis to plot this dataset on
 	 */
-	public void setYAxisID(String yAxisID) {
+	public BarDataset setYAxisID(String yAxisID) {
 	    this.yAxisID = yAxisID;
+		return this;
 	}
 
 	/**
@@ -100,18 +104,20 @@ public class BarDataset extends BackgroundBorderHoverDataset {
 	/**
 	 * @see #setBorderSkipped(List)
 	 */
-	public void addBorderSkipped(BorderSkipped borderSkipped) {
+	public BarDataset addBorderSkipped(BorderSkipped borderSkipped) {
 	    this.borderSkipped.add(borderSkipped);
+		return this;
 	}
 
 	/**
 	 * Which edge to skip drawing the border for. Options are 'bottom', 'left', 'top', and 'right'
 	 */
-	public void setBorderSkipped(List<BorderSkipped> borderSkipped) {
+	public BarDataset setBorderSkipped(List<BorderSkipped> borderSkipped) {
 	    this.borderSkipped.clear();
 	    if (borderSkipped != null) {
 	    	this.borderSkipped.addAll(borderSkipped);
 	    }
+		return this;
 	}
 
 }

@@ -13,7 +13,7 @@
 	See the License for the specific language governing permissions and
 	limitations under the License.
 */
-package be.ceau.chart.dataset;
+package be.ceau.chart.objects;
 
 import java.io.IOException;
 import java.util.ArrayList;

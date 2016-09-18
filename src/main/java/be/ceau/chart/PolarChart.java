@@ -51,16 +51,18 @@ public class PolarChart implements Chart {
 		return data;
 	}
 
-	public void setData(PolarData data) {
+	public PolarChart setData(PolarData data) {
 		this.data = data;
+		return this;
 	}
 
 	public PolarOptions getOptions() {
 		return options;
 	}
 
-	public void setOptions(PolarOptions options) {
+	public PolarChart setOptions(PolarOptions options) {
 		this.options = options;
+		return this;
 	}
 
 	@Override

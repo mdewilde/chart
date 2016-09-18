@@ -17,52 +17,136 @@ package be.ceau.chart.dataset;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
-public abstract class Dataset {
+public abstract class Dataset<T extends Dataset<T>> {
 
 	/**
 	 * @see #setData(BigDecimal)
 	 */
-	protected final List<BigDecimal> data = new ArrayList<BigDecimal>();
+	private final List<BigDecimal> data = new ArrayList<BigDecimal>();
 
 	/**
-	 * @see #setData(List)
+	 * @return an unmodifiable view of the data held in this {@code Dataset},
+	 *         never {@code null}
 	 */
 	public List<BigDecimal> getData() {
-		return this.data;
+		return Collections.unmodifiableList(this.data);
 	}
 
 	/**
-	 * The data to plot in a line
+	 * Sets the backing data list to the argument, replacing any data already
+	 * added or set
+	 * 
+	 * @param data
+	 *            The data to plot in a line
 	 */
-	public void setData(List<BigDecimal> data) {
-		this.data.clear();
+	@SuppressWarnings("unchecked")
+	public T setData(List<BigDecimal> data) {
+		clearData();
 		if (data != null) {
 			this.data.addAll(data);
 		}
+		return (T) this;
 	}
 
 	/**
-	 * @see #setData(List)
+	 * Sets the backing data list to the argument, replacing any data already
+	 * added or set
+	 * 
+	 * @param data
+	 *            The data to plot in a line
 	 */
-	public void addData(int data) {
-		this.data.add(new BigDecimal(data));
+	@SuppressWarnings("unchecked")
+	public T setData(BigDecimal... data) {
+		clearData();
+		if (data != null) {
+			this.data.addAll(Arrays.asList(data));
+		}
+		return (T) this;
 	}
 
 	/**
-	 * @see #setData(List)
+	 * Sets the backing data list to the argument, replacing any data already
+	 * added or set
+	 * 
+	 * @param data
+	 *            The data to plot in a line
 	 */
-	public void addData(double data) {
-		this.data.add(new BigDecimal(String.valueOf(data)));
+	@SuppressWarnings("unchecked")
+	public T setData(int... data) {
+		clearData();
+		if (data != null) {
+			for (int i = 0; i < data.length; i++) {
+				this.data.add(new BigDecimal(data[i]));
+			}
+		}
+		return (T) this;
 	}
 
 	/**
-	 * @see #setData(List)
+	 * Sets the backing data list to the argument, replacing any data already
+	 * added or set
+	 * 
+	 * @param data
+	 *            The data to plot in a line
 	 */
-	public void addData(BigDecimal data) {
+	@SuppressWarnings("unchecked")
+	public T setData(double... data) {
+		clearData();
+		if (data != null) {
+			for (int i = 0; i < data.length; i++) {
+				this.data.add(new BigDecimal(String.valueOf(data[i])));
+			}
+		}
+		return (T) this;
+	}
+
+	/**
+	 * Remove all data held by this {@code Dataset}
+	 */
+	@SuppressWarnings("unchecked")
+	public T clearData() {
+		this.data.clear();
+		return (T) this;
+	}
+
+	/**
+	 * Add the data point to this {@code Dataset}
+	 * 
+	 * @param data
+	 *            a {@code BigDecimal}, can be {@code null} to signify absence of data
+	 *            for a given point
+	 * @see #setDataPoints(List)
+	 */
+	@SuppressWarnings("unchecked")
+	public T addData(BigDecimal data) {
 		this.data.add(data);
+		return (T) this;
 	}
 
-	
+	/**
+	 * Add the data point to this {@code Dataset}
+	 * 
+	 * @see #setDataPoints(List)
+	 */
+	@SuppressWarnings("unchecked")
+	public T addData(int data) {
+		this.data.add(new BigDecimal(data));
+		return (T) this;
+	}
+
+	/**
+	 * Add the data point to this {@code Dataset}
+	 *
+	 * @see #setDataPoints(List)
+	 */
+	@SuppressWarnings("unchecked")
+	public T addData(double data) {
+		this.data.add(new BigDecimal(String.valueOf(data)));
+		return (T) this;
+	}
+
 }

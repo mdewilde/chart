@@ -18,8 +18,9 @@ package be.ceau.chart.dataset;
 import java.util.List;
 
 import be.ceau.chart.color.Color;
+import be.ceau.chart.objects.OptionalArray;
 
-public class BackgroundBorderHoverDataset extends Dataset {
+public class BackgroundBorderHoverDataset<T extends BackgroundBorderHoverDataset<T>> extends Dataset<T> {
 
 	/**
 	 * @see #setBackgroundColor(List)
@@ -61,28 +62,34 @@ public class BackgroundBorderHoverDataset extends Dataset {
 	/**
 	 * @see #setBackgroundColor(List)
 	 */
-	public void addBackgroundColor(Color backgroundColor) {
+	@SuppressWarnings("unchecked")
+	public T addBackgroundColor(Color backgroundColor) {
 	    if (backgroundColor != null) {
 	    	this.backgroundColor.add(backgroundColor);
 	    }
+	    return (T) this;
 	}
 
 	/**
 	 * @see #setBackgroundColor(List)
 	 */
-	public void setBackgroundColor(Color backgroundColor) {
+	@SuppressWarnings("unchecked")
+	public T setBackgroundColor(Color backgroundColor) {
 	    this.backgroundColor.clear();
 	    addBackgroundColor(backgroundColor);
+	    return (T) this;
 	}
 
 	/**
 	 * The fill color of the bars.
 	 */
-	public void setBackgroundColor(List<Color> backgroundColor) {
+	@SuppressWarnings("unchecked")
+	public T setBackgroundColor(List<Color> backgroundColor) {
 	    this.backgroundColor.clear();
 	    if (backgroundColor != null) {
 	    	this.backgroundColor.addAll(backgroundColor);
 	    }
+	    return (T) this;
 	}
 
 	/**
@@ -95,28 +102,34 @@ public class BackgroundBorderHoverDataset extends Dataset {
 	/**
 	 * @see #setBorderColor(List)
 	 */
-	public void addBorderColor(Color borderColor) {
+	@SuppressWarnings("unchecked")
+	public T addBorderColor(Color borderColor) {
 	    if (borderColor != null) {
 	    	this.borderColor.add(borderColor);
 	    }
+	    return (T) this;
 	}
 
 	/**
 	 * @see #setBorderColor(List)
 	 */
-	public void setBorderColor(Color borderColor) {
+	@SuppressWarnings("unchecked")
+	public T setBorderColor(Color borderColor) {
 	    this.borderColor.clear();
     	addBorderColor(borderColor);
+	    return (T) this;
 	}
 
 	/**
 	 * Bar border color
 	 */
-	public void setBorderColor(List<Color> borderColor) {
+	@SuppressWarnings("unchecked")
+	public T setBorderColor(List<Color> borderColor) {
 	    this.borderColor.clear();
 	    if (borderColor != null) {
 	    	this.borderColor.addAll(borderColor);
 	    }
+	    return (T) this;
 	}
 
 	/**
@@ -129,28 +142,34 @@ public class BackgroundBorderHoverDataset extends Dataset {
 	/**
 	 * @see #setBorderWidth(List)
 	 */
-	public void addBorderWidth(Integer borderWidth) {
+	@SuppressWarnings("unchecked")
+	public T addBorderWidth(Integer borderWidth) {
 	    if (borderWidth != null) {
 	    	this.borderWidth.add(borderWidth);
 	    }
+	    return (T) this;
 	}
 
 	/**
 	 * @see #setBorderWidth(List)
 	 */
-	public void setBorderWidth(Integer borderWidth) {
+	@SuppressWarnings("unchecked")
+	public T setBorderWidth(Integer borderWidth) {
 	    this.borderWidth.clear();
     	addBorderWidth(borderWidth);
+	    return (T) this;
 	}
 
 	/**
 	 * Border width of bar in pixels
 	 */
-	public void setBorderWidth(List<Integer> borderWidth) {
+	@SuppressWarnings("unchecked")
+	public T setBorderWidth(List<Integer> borderWidth) {
 	    this.borderWidth.clear();
 	    if (borderWidth != null) {
 	    	this.borderWidth.addAll(borderWidth);
 	    }
+	    return (T) this;
 	}
 
 	/**
@@ -163,28 +182,34 @@ public class BackgroundBorderHoverDataset extends Dataset {
 	/**
 	 * @see #setHoverBackgroundColor(List)
 	 */
-	public void addHoverBackgroundColor(Color hoverBackgroundColor) {
+	@SuppressWarnings("unchecked")
+	public T addHoverBackgroundColor(Color hoverBackgroundColor) {
 	    if (hoverBackgroundColor != null) {
 		    this.hoverBackgroundColor.add(hoverBackgroundColor);
 	    }
+	    return (T) this;
 	}
 
 	/**
 	 * @see #setHoverBackgroundColor(List)
 	 */
-	public void setHoverBackgroundColor(Color hoverBackgroundColor) {
+	@SuppressWarnings("unchecked")
+	public T setHoverBackgroundColor(Color hoverBackgroundColor) {
 	    this.hoverBackgroundColor.clear();
 	    addHoverBackgroundColor(hoverBackgroundColor);
+	    return (T) this;
 	}
 
 	/**
 	 * Bar background color when hovered
 	 */
-	public void setHoverBackgroundColor(List<Color> hoverBackgroundColor) {
+	@SuppressWarnings("unchecked")
+	public T setHoverBackgroundColor(List<Color> hoverBackgroundColor) {
 	    this.hoverBackgroundColor.clear();
 	    if (hoverBackgroundColor != null) {
 	    	this.hoverBackgroundColor.addAll(hoverBackgroundColor);
 	    }
+	    return (T) this;
 	}
 
 	/**
@@ -197,28 +222,34 @@ public class BackgroundBorderHoverDataset extends Dataset {
 	/**
 	 * @see #setHoverBorderColor(List)
 	 */
-	public void addHoverBorderColor(Color hoverBorderColor) {
+	@SuppressWarnings("unchecked")
+	public T addHoverBorderColor(Color hoverBorderColor) {
 	    if (hoverBorderColor != null) {
 	    	this.hoverBorderColor.add(hoverBorderColor);
 	    }
+	    return (T) this;
 	}
 
 	/**
 	 * @see #setHoverBorderColor(List)
 	 */
-	public void setHoverBorderColor(Color hoverBorderColor) {
+	@SuppressWarnings("unchecked")
+	public T setHoverBorderColor(Color hoverBorderColor) {
 	    this.hoverBorderColor.clear();
 	    addHoverBorderColor(hoverBorderColor);
+	    return (T) this;
 	}
 
 	/**
 	 * Bar border color when hovered
 	 */
-	public void setHoverBorderColor(List<Color> hoverBorderColor) {
+	@SuppressWarnings("unchecked")
+	public T setHoverBorderColor(List<Color> hoverBorderColor) {
 	    this.hoverBorderColor.clear();
 	    if (hoverBorderColor != null) {
 	    	this.hoverBorderColor.addAll(hoverBorderColor);
 	    }
+	    return (T) this;
 	}
 
 	/**
@@ -231,28 +262,34 @@ public class BackgroundBorderHoverDataset extends Dataset {
 	/**
 	 * @see #setHoverBorderWidth(List)
 	 */
-	public void addHoverBorderWidth(Integer hoverBorderWidth) {
+	@SuppressWarnings("unchecked")
+	public T addHoverBorderWidth(Integer hoverBorderWidth) {
 	    if (hoverBorderWidth != null) {
 		    this.hoverBorderWidth.add(hoverBorderWidth);
 	    }
+	    return (T) this;
 	}
 
 	/**
 	 * @see #setHoverBorderWidth(List)
 	 */
-	public void setHoverBorderWidth(Integer hoverBorderWidth) {
+	@SuppressWarnings("unchecked")
+	public T setHoverBorderWidth(Integer hoverBorderWidth) {
 	    this.hoverBorderWidth.clear();
 	    addHoverBorderWidth(hoverBorderWidth);
+	    return (T) this;
 	}
 
 	/**
 	 * Border width of bar when hovered
 	 */
-	public void setHoverBorderWidth(List<Integer> hoverBorderWidth) {
+	@SuppressWarnings("unchecked")
+	public T setHoverBorderWidth(List<Integer> hoverBorderWidth) {
 	    this.hoverBorderWidth.clear();
 	    if (hoverBorderWidth != null) {
 	    	this.hoverBorderWidth.addAll(hoverBorderWidth);
 	    }
+	    return (T) this;
 	}
 	
 }

@@ -41,15 +41,17 @@ public class PolarData {
 		return Collections.unmodifiableList(labels);
 	}
 
-	public void setLabels(Collection<String> labels) {
+	public PolarData setLabels(Collection<String> labels) {
 		this.labels.clear();
 		if (labels != null) {
 			this.labels.addAll(labels);
 		}
+		return this;
 	}
 
-	public void addLabel(String label) {
+	public PolarData addLabel(String label) {
 		this.labels.add(label);
+		return this;
 	}
 
 	/**
@@ -60,15 +62,17 @@ public class PolarData {
 		return Collections.unmodifiableList(datasets);
 	}
 
-	public void setDatasets(Collection<PolarDataset> datasets) {
+	public PolarData setDatasets(Collection<PolarDataset> datasets) {
 		this.datasets.clear();
 		if (datasets != null) {
 			this.datasets.addAll(datasets);
 		}
+		return this;
 	}
 
-	public void addDataset(PolarDataset dataset) {
+	public PolarData addDataset(PolarDataset dataset) {
 		this.datasets.add(dataset);
+		return this;
 	}
 
 }

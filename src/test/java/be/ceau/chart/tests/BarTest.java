@@ -51,8 +51,7 @@ public class BarTest extends ChartTest {
 	 */
 	@Test
 	public void createExampleChart() throws IOException {
-		BarChart barChart = createExampleBarChart();
-		Opener.toBrowser(barChart.getType(), barChart.toJson());
+		Opener.inBrowser(createExampleBarChart());
 	}
 	
 	/**
@@ -66,7 +65,7 @@ public class BarTest extends ChartTest {
 	public void createHorizontalExampleChart() throws IOException {
 		BarChart barChart = createExampleBarChart();
 		barChart.setHorizontal();
-		Opener.toBrowser(barChart.getType(), barChart.toJson());
+		Opener.inBrowser(barChart);
 	}
 
 	private BarChart createExampleBarChart() {

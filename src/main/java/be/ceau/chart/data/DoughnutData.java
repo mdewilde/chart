@@ -41,15 +41,17 @@ public class DoughnutData {
 		return Collections.unmodifiableList(labels);
 	}
 
-	public void setLabels(Collection<String> labels) {
+	public DoughnutData setLabels(Collection<String> labels) {
 		this.labels.clear();
 		if (labels != null) {
 			this.labels.addAll(labels);
 		}
+		return this;
 	}
 
-	public void addLabel(String label) {
+	public DoughnutData addLabel(String label) {
 		this.labels.add(label);
+		return this;
 	}
 
 	/**
@@ -60,15 +62,17 @@ public class DoughnutData {
 		return Collections.unmodifiableList(datasets);
 	}
 
-	public void setDatasets(Collection<DoughnutDataset> datasets) {
+	public DoughnutData setDatasets(Collection<DoughnutDataset> datasets) {
 		this.datasets.clear();
 		if (datasets != null) {
 			this.datasets.addAll(datasets);
 		}
+		return this;
 	}
 
-	public void addDataset(DoughnutDataset dataset) {
+	public DoughnutData addDataset(DoughnutDataset dataset) {
 		this.datasets.add(dataset);
+		return this;
 	}
 
 }

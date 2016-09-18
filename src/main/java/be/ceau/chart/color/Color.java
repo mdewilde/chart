@@ -20,11 +20,14 @@ import java.util.Random;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 
+/**
+ * Immutable RGBa color model.
+ */
 public class Color {
 
 	private static final Random RANDOMIZER = new Random(System.nanoTime());
 
-	public static final Color TRANSPARENT = new Color(0, 0, 0, 0f);
+	public static final Color TRANSPARENT = new Color(0, 0, 0, 0);
 	public static final Color BLACK = new Color(0, 0, 0);
 	public static final Color WHITE = new Color(255, 255, 255);
 	public static final Color RED = new Color(255, 0, 0);
@@ -90,7 +93,7 @@ public class Color {
 	private final int r;
 	private final int g;
 	private final int b;
-	private final float alpha;
+	private final double alpha;
 
 	/**
 	 * Constructs a new Color instance
@@ -108,7 +111,7 @@ public class Color {
 	 *            value for alpha transparency. Value between 0 and 1
 	 *            (inclusive), with 0 fully transparent and 1 fully opaque.
 	 */
-	public Color(int r, int g, int b, float alpha) {
+	public Color(int r, int g, int b, double alpha) {
 		if (!Color.isChannelWithinBounds(r) || !Color.isChannelWithinBounds(g) || !Color.isChannelWithinBounds(b) || !Color.isAlphaWithinBounds(alpha)) {
 			throw new IllegalArgumentException("at least one argument is not within bounds");
 		}
@@ -132,19 +135,19 @@ public class Color {
 	 *            (inclusive).
 	 */
 	public Color(int r, int g, int b) {
-		this(r, g, b, 1.0f);
+		this(r, g, b, 1);
 	}
 
 	/**
 	 * Constructs a new Color instance with the RGB values of the Color argument
-	 * and the alpha transparency of the float argument.
+	 * and the alpha transparency of the double argument.
 	 */
-	public Color(Color color, float alpha) {
+	public Color(Color color, double alpha) {
 		if (color == null) {
 			throw new IllegalArgumentException("Color argument may not be null");
 		}
 		if (!Color.isAlphaWithinBounds(alpha)) {
-			throw new IllegalArgumentException("alpha float argument is not within allowed bounds: allowed values are between 0 and 1 (inclusive), but value passed is " + alpha);
+			throw new IllegalArgumentException("alpha double argument is not within allowed bounds: allowed values are between 0 and 1 (inclusive), but value passed is " + alpha);
 		}
 		this.r = color.getR();
 		this.g = color.getG();
@@ -161,7 +164,7 @@ public class Color {
 		int r = RANDOMIZER.nextInt(256);
 		int g = RANDOMIZER.nextInt(256);
 		int b = RANDOMIZER.nextInt(256);
-		float a = RANDOMIZER.nextFloat();
+		double a = RANDOMIZER.nextDouble();
 		return new Color(r, g, b, a);
 	}
 
@@ -187,14 +190,14 @@ public class Color {
 	 * </p>
 	 * 
 	 * <p>
-	 * Any float between 0.0f and 1.0f (inclusive) is valid.
+	 * Any double between 0.0d and 1.0d (inclusive) is valid.
 	 * </p>
 	 * 
 	 * @param alpha
 	 * @return true if argument is valid alpha value
 	 */
-	public static boolean isAlphaWithinBounds(float alpha) {
-		return Float.compare(0.0f, alpha) <= 0 && Float.compare(1.0f, alpha) >= 0;
+	public static boolean isAlphaWithinBounds(double alpha) {
+		return Double.compare(0.0d, alpha) <= 0 && Double.compare(1.0d, alpha) >= 0;
 	}
 
 	/**
@@ -219,9 +222,9 @@ public class Color {
 	}
 
 	/**
-	 * @return alpha channel value, between 0.0f and 1.0f (inclusive)
+	 * @return alpha channel value, between 0.0d and 1.0d (inclusive)
 	 */
-	public float getAlpha() {
+	public double getAlpha() {
 		return alpha;
 	}
 
@@ -242,7 +245,9 @@ public class Color {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + Float.floatToIntBits(alpha);
+		long temp;
+		temp = Double.doubleToLongBits(alpha);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
 		result = prime * result + b;
 		result = prime * result + g;
 		result = prime * result + r;
@@ -258,7 +263,7 @@ public class Color {
 		if (getClass() != obj.getClass())
 			return false;
 		Color other = (Color) obj;
-		if (Float.floatToIntBits(alpha) != Float.floatToIntBits(other.alpha))
+		if (Double.doubleToLongBits(alpha) != Double.doubleToLongBits(other.alpha))
 			return false;
 		if (b != other.b)
 			return false;

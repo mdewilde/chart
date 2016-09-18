@@ -41,15 +41,17 @@ public class BarData {
 		return Collections.unmodifiableList(labels);
 	}
 
-	public void setLabels(Collection<String> labels) {
+	public BarData setLabels(Collection<String> labels) {
 		this.labels.clear();
 		if (labels != null) {
 			this.labels.addAll(labels);
 		}
+		return this;
 	}
 
-	public void addLabel(String label) {
+	public BarData addLabel(String label) {
 		this.labels.add(label);
+		return this;
 	}
 
 	/**
@@ -60,15 +62,17 @@ public class BarData {
 		return Collections.unmodifiableList(datasets);
 	}
 
-	public void setDatasets(Collection<BarDataset> datasets) {
+	public BarData setDatasets(Collection<BarDataset> datasets) {
 		this.datasets.clear();
 		if (datasets != null) {
 			this.datasets.addAll(datasets);
 		}
+		return this;
 	}
 
-	public void addDataset(BarDataset dataset) {
+	public BarData addDataset(BarDataset dataset) {
 		this.datasets.add(dataset);
+		return this;
 	}
 
 }

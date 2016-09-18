@@ -57,16 +57,18 @@ public class LineChart implements Chart {
 		return data;
 	}
 
-	public void setData(LineData data) {
+	public LineChart setData(LineData data) {
 		this.data = data;
+		return this;
 	}
 
 	public LineOptions getOptions() {
 		return options;
 	}
 
-	public void setOptions(LineOptions options) {
+	public LineChart setOptions(LineOptions options) {
 		this.options = options;
+		return this;
 	}
 
 	@Override

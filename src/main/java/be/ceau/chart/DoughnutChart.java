@@ -50,16 +50,18 @@ public class DoughnutChart implements Chart {
 		return data;
 	}
 
-	public void setData(DoughnutData data) {
+	public DoughnutChart setData(DoughnutData data) {
 		this.data = data;
+		return this;
 	}
 
 	public DoughnutOptions getOptions() {
 		return options;
 	}
 
-	public void setOptions(DoughnutOptions options) {
+	public DoughnutChart setOptions(DoughnutOptions options) {
 		this.options = options;
+		return this;
 	}
 
 	@Override

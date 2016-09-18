@@ -13,15 +13,71 @@
 	See the License for the specific language governing permissions and
 	limitations under the License.
 */
-package be.ceau.chart.dataset;
+package be.ceau.chart.datapoint;
+
+import java.math.BigDecimal;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
-@JsonInclude(Include.NON_EMPTY)
+@JsonInclude(Include.ALWAYS)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
-public class PolarDataset extends AbstractRoundDataset<PolarDataset> {
+public class ScatterDataPoint {
+
+	private BigDecimal x;
+
+	private BigDecimal y;
+
+	public ScatterDataPoint() {
+	}
+
+	public ScatterDataPoint(int x, int y) {
+		setX(x);
+		setY(y);
+	}
+
+	public ScatterDataPoint(double x, double y) {
+		setX(x);
+		setY(y);
+	}
+
+	public ScatterDataPoint(BigDecimal x, BigDecimal y) {
+		setX(x);
+		setY(y);
+	}
+
+	public BigDecimal getX() {
+		return x;
+	}
+
+	public void setX(int x) {
+		this.x = new BigDecimal(x);
+	}
+
+	public void setX(double x) {
+		this.x = new BigDecimal(String.valueOf(x));
+	}
+
+	public void setX(BigDecimal x) {
+		this.x = x;
+	}
+
+	public BigDecimal getY() {
+		return y;
+	}
+
+	public void setY(int y) {
+		this.y = new BigDecimal(y);
+	}
+
+	public void setY(double y) {
+		this.y = new BigDecimal(String.valueOf(y));
+	}
+
+	public void setY(BigDecimal y) {
+		this.y = y;
+	}
 
 }

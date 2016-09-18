@@ -24,7 +24,6 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.EnumSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -38,20 +37,17 @@ import be.ceau.chart.data.LineData;
 import be.ceau.chart.data.PieData;
 import be.ceau.chart.data.PolarData;
 import be.ceau.chart.data.RadarData;
+import be.ceau.chart.datapoint.BubbleDataPoint;
 import be.ceau.chart.dataset.BarDataset;
-import be.ceau.chart.dataset.BubbleDataPoint;
 import be.ceau.chart.dataset.DoughnutDataset;
 import be.ceau.chart.dataset.LineDataset;
 import be.ceau.chart.dataset.PieDataset;
 import be.ceau.chart.dataset.PolarDataset;
 import be.ceau.chart.dataset.RadarDataset;
 import be.ceau.chart.enums.BorderSkipped;
-import be.ceau.chart.enums.Easing;
-import be.ceau.chart.enums.Event;
 import be.ceau.chart.enums.FontFamily;
 import be.ceau.chart.enums.ScalesPosition;
 import be.ceau.chart.javascript.JavaScriptFunction;
-import be.ceau.chart.options.Animation;
 import be.ceau.chart.options.scales.LinearScale;
 import be.ceau.chart.options.scales.LinearScales;
 
@@ -59,25 +55,30 @@ import be.ceau.chart.options.scales.LinearScales;
  * Factory for randomized test instances of common Chart objects.
  */
 public class TestFactory {
-
-	public static Animation newAnimation() {
-		Animation animation = new Animation();
-		animation.setDuration(Generator.nextInt(5000));
-		animation.setEasing(any(Easing.class));
-		animation.setOnComplete(new JavaScriptFunction("function(){console.log('animation complete');}"));
-		animation.setOnProgress(new JavaScriptFunction("function(){console.log('animation progress');}"));
-		return animation;
-	}
-
-	public static Set<Event> getEventList() {
-		Set<Event> set = EnumSet.noneOf(Event.class);
-		for (int i = 0; i < Generator.nextInt(Event.values().length); i++) {
-			set.add(any(Event.class));
-		}
-		return set;
-	}
 	
-	public static <E> E any(Class<E> e) {
+	@SuppressWarnings("unchecked")
+	public static <T> T randomInstance(Class<T> clazz) {
+		// custom handlers
+		if (LineData.class.equals(clazz)) {
+			return (T) newLineData();
+		}
+		if (LinearScales.class.equals(clazz)) {
+			return (T) newLinearScales();
+		}
+		if (PieData.class.equals(clazz)) {
+			return (T) newPieData();
+		}
+		if (DoughnutData.class.equals(clazz)) {
+			return (T) newDoughnutData();
+		}
+		if (RadarData.class.equals(clazz)) {
+			return (T) newRadarData();
+		}
+		// fallback to fully generated instance
+		return generatedInstance(clazz);
+	}
+
+	private static <E> E any(Class<E> e) {
 		E[] es = e.getEnumConstants();
 		return es[Generator.nextInt(es.length)];
 	}
@@ -101,34 +102,12 @@ public class TestFactory {
 		return list;
 	}
 
-	@SuppressWarnings("unchecked")
-	public static <T> T randomInstance(Class<T> clazz) {
-		// custom handlers
-		if (LineData.class.equals(clazz)) {
-			return (T) newLineData();
-		}
-		if (LinearScales.class.equals(clazz)) {
-			return (T) newLinearScales();
-		}
-		if (PieData.class.equals(clazz)) {
-			return (T) newPieData();
-		}
-		if (DoughnutData.class.equals(clazz)) {
-			return (T) newDoughnutData();
-		}
-		if (RadarData.class.equals(clazz)) {
-			return (T) newRadarData();
-		}
-		// fallback to fully generated instance
-		return generatedInstance(clazz);
-	}
-
 	private static <T> T generatedInstance(Class<T> clazz) {
 		T t = null;
 		try {
 			t = clazz.newInstance();
 			for (Method method : clazz.getMethods()) {
-				if (method.getName().startsWith("set")) {
+				if (method.getName().startsWith("set") && !"setData".equals(method.getName())) {
 					method.setAccessible(true);
 					for (Class<?> clazzz : method.getParameterTypes()) {
 						try {

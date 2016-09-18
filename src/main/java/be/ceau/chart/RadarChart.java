@@ -51,16 +51,18 @@ public class RadarChart implements Chart {
 		return data;
 	}
 
-	public void setData(RadarData data) {
+	public RadarChart setData(RadarData data) {
 		this.data = data;
+		return this;
 	}
 
 	public RadarOptions getOptions() {
 		return options;
 	}
 
-	public void setOptions(RadarOptions options) {
+	public RadarChart setOptions(RadarOptions options) {
 		this.options = options;
+		return this;
 	}
 
 	@Override

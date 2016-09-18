@@ -50,16 +50,18 @@ public class BubbleChart implements Chart {
 		return data;
 	}
 
-	public void setData(BubbleData data) {
+	public BubbleChart setData(BubbleData data) {
 		this.data = data;
+		return this;
 	}
 
 	public BubbleOptions getOptions() {
 		return options;
 	}
 
-	public void setOptions(BubbleOptions options) {
+	public BubbleChart setOptions(BubbleOptions options) {
 		this.options = options;
+		return this;
 	}
 
 	@Override

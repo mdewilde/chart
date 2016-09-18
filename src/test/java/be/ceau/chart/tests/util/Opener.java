@@ -20,21 +20,31 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import be.ceau.chart.Chart;
+
 public class Opener {
 
-	public static void toBrowser(String type, String json) throws IOException {
+	/**
+	 * Serialize the given chart, create a HTML page for it, open the HTML file
+	 * in the default browser
+	 * 
+	 * @param chart
+	 *            a Chart implementation, not {@code null}
+	 * @throws IOException
+	 */
+	public static void inBrowser(Chart chart) throws IOException {
 		
 		File tmp = File.createTempFile("chart_test_", ".html");
 		
 		PrintWriter out = new PrintWriter(tmp);
-		out.write(createWebPage(type, json));
+		out.write(createWebPage(chart.getType(), chart.toJson()));
 		out.close();
 
 		Desktop.getDesktop().browse(tmp.toURI());
 
 	}
-	
-	public static String createWebPage(String type, String json) {
+
+	private static String createWebPage(String type, String json) {
 		String line = System.getProperty("line.separator");
 		return new StringBuilder()
 				.append("<!DOCTYPE html>")

@@ -31,8 +31,7 @@ public abstract class ChartTest {
 
 	@Test
 	public void chartTest() throws IOException {
-		Chart chart = createChart();
-		Opener.toBrowser(chart.getType(), chart.toJson());
+		Opener.inBrowser(createChart());
 	}
 
 }

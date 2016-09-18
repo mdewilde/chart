@@ -19,7 +19,7 @@ import be.ceau.chart.BubbleChart;
 import be.ceau.chart.Chart;
 import be.ceau.chart.color.Color;
 import be.ceau.chart.data.BubbleData;
-import be.ceau.chart.dataset.BubbleDataPoint;
+import be.ceau.chart.datapoint.BubbleDataPoint;
 import be.ceau.chart.dataset.BubbleDataset;
 import be.ceau.chart.options.BubbleOptions;
 import be.ceau.chart.tests.util.Generator;

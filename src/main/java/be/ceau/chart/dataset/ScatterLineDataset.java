@@ -15,7 +15,10 @@
 */
 package be.ceau.chart.dataset;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
@@ -24,18 +27,35 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import be.ceau.chart.color.Color;
+import be.ceau.chart.datapoint.ScatterDataPoint;
 import be.ceau.chart.enums.BorderCapStyle;
 import be.ceau.chart.enums.BorderJoinStyle;
 import be.ceau.chart.enums.PointStyle;
+import be.ceau.chart.objects.OptionalArray;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
-public class RadarDataset extends Dataset<RadarDataset> {
+public class ScatterLineDataset {
 
+	/**
+	 * @see #setData(BigDecimal)
+	 */
+	private final List<ScatterDataPoint> data = new ArrayList<ScatterDataPoint>();
+	
 	/**
 	 * @see #setLabel(String)
 	 */
 	private String label;
+
+	/**
+	 * @see #setXAxisID(String)
+	 */
+	private String xAxisID;
+
+	/**
+	 * @see #setYAxisID(String)
+	 */
+	private String yAxisID;
 
 	/**
 	 * @see #setFill(Boolean)
@@ -85,52 +105,133 @@ public class RadarDataset extends Dataset<RadarDataset> {
 	/**
 	 * @see #setPointBorderColor(List)
 	 */
-	private final List<Color> pointBorderColor = new ArrayList<Color>();
+	private final List<Color> pointBorderColor = new OptionalArray<Color>();
 
 	/**
 	 * @see #setPointBackgroundColor(List)
 	 */
-	private final List<Color> pointBackgroundColor = new ArrayList<Color>();
+	private final List<Color> pointBackgroundColor = new OptionalArray<Color>();
 
 	/**
 	 * @see #setPointBorderWidth(List)
 	 */
-	private final List<Integer> pointBorderWidth = new ArrayList<Integer>();
+	private final List<Integer> pointBorderWidth = new OptionalArray<Integer>();
 
 	/**
 	 * @see #setPointRadius(List)
 	 */
-	private final List<Integer> pointRadius = new ArrayList<Integer>();
+	private final List<Integer> pointRadius = new OptionalArray<Integer>();
 
 	/**
 	 * @see #setPointHoverRadius(List)
 	 */
-	private final List<Integer> pointHoverRadius = new ArrayList<Integer>();
+	private final List<Integer> pointHoverRadius = new OptionalArray<Integer>();
 
 	/**
-	 * @see #setHitRadius(List)
+	 * @see #setPointHitRadius(List)
 	 */
-	private final List<Integer> hitRadius = new ArrayList<Integer>();
+	private final List<Integer> pointHitRadius = new OptionalArray<Integer>();
 
 	/**
 	 * @see #setPointHoverBackgroundColor(List)
 	 */
-	private final List<Color> pointHoverBackgroundColor = new ArrayList<Color>();
+	private final List<Color> pointHoverBackgroundColor = new OptionalArray<Color>();
 
 	/**
 	 * @see #setPointHoverBorderColor(List)
 	 */
-	private final List<Color> pointHoverBorderColor = new ArrayList<Color>();
+	private final List<Color> pointHoverBorderColor = new OptionalArray<Color>();
 
 	/**
 	 * @see #setPointHoverBorderWidth(List)
 	 */
-	private final List<Integer> pointHoverBorderWidth = new ArrayList<Integer>();
+	private final List<Integer> pointHoverBorderWidth = new OptionalArray<Integer>();
 
 	/**
 	 * @see #setPointStyle(List)
 	 */
-	private final List<PointStyle> pointStyle = new ArrayList<PointStyle>();
+	private final List<PointStyle> pointStyle = new OptionalArray<PointStyle>();
+
+	/**
+	 * @see #setShowLine(Boolean)
+	 */
+	private Boolean showLine;
+
+	/**
+	 * @see #setSpanGaps(Boolean)
+	 */
+	private Boolean spanGaps;
+
+	/**
+	 * @see #setSteppedLine(Boolean)
+	 */
+	private Boolean steppedLine;
+
+	/**
+	 * @return an unmodifiable view of the data held in this {@code ScatterLineDataset},
+	 *         never {@code null}
+	 */
+	public List<ScatterDataPoint> getData() {
+		return Collections.unmodifiableList(this.data);
+	}
+
+	/**
+	 * Sets the backing data list to the argument, replacing any data already
+	 * added or set
+	 * 
+	 * @param data
+	 *            The data to plot in a line
+	 * @return this {@code ScatterLineDataset} to allow method chaining
+	 */
+	public ScatterLineDataset setData(List<ScatterDataPoint> data) {
+		this.data.clear();
+		if (data != null) {
+			this.data.addAll(data);
+		}
+		return this;
+	}
+
+	/**
+	 * Sets the backing data list to the argument, replacing any data already
+	 * added or set
+	 * 
+	 * @param data
+	 *            The data to plot in a line
+	 * @return this {@code ScatterLineDataset} to allow method chaining
+	 */
+	public ScatterLineDataset setData(ScatterDataPoint... data) {
+		this.data.clear();
+		if (data != null) {
+			this.data.addAll(Arrays.asList(data));
+		}
+		return this;
+	}
+
+	/**
+	 * Adds the data points to this {@code ScatterLineDataset}
+	 * 
+	 * @return this {@code ScatterLineDataset} to allow method chaining
+	 * @see #setData(List)
+	 */
+	public ScatterLineDataset addData(ScatterDataPoint... data) {
+		if (data != null) {
+			for (int i = 0; i < data.length; i++) {
+				this.data.add(data[i]);
+			}
+		}
+		return this;
+	}
+
+	/**
+	 * Add {@code null} to the {@code Dataset} to signify the absence of data
+	 * for a point
+	 * 
+	 * @return this {@code ScatterLineDataset} to allow method chaining
+	 */
+	public ScatterLineDataset addNullData() {
+		this.data.add(null);
+		return this;
+	}
 
 	/**
 	 * @see #setLabel(String)
@@ -142,8 +243,40 @@ public class RadarDataset extends Dataset<RadarDataset> {
 	/**
 	 * The label for the dataset which appears in the legend and tooltips
 	 */
-	public RadarDataset setLabel(String label) {
+	public ScatterLineDataset setLabel(String label) {
 		this.label = label;
+		return this;
+	}
+
+	/**
+	 * @see #setXAxisID(String)
+	 */
+	public String getXAxisID() {
+		return this.xAxisID;
+	}
+
+	/**
+	 * The ID of the x axis to plot this dataset on. The value for this property
+	 * should equal the ID set at {@code chart.options.scales.xAxes.id}
+	 */
+	public ScatterLineDataset setXAxisID(String xAxisID) {
+		this.xAxisID = xAxisID;
+		return this;
+	}
+
+	/**
+	 * @see #setYAxisID(String)
+	 */
+	public String getYAxisID() {
+		return this.yAxisID;
+	}
+
+	/**
+	 * The ID of the y axis to plot this dataset on. The value for this property
+	 * should equal the ID set at {@code chart.options.scales.yAxes.id}
+	 */
+	public ScatterLineDataset setYAxisID(String yAxisID) {
+		this.yAxisID = yAxisID;
 		return this;
 	}
 
@@ -157,13 +290,13 @@ public class RadarDataset extends Dataset<RadarDataset> {
 	/**
 	 * If true, fill the area under the line
 	 */
-	public RadarDataset setFill(Boolean fill) {
+	public ScatterLineDataset setFill(Boolean fill) {
 		this.fill = fill;
 		return this;
 	}
 
 	/**
-	 * @see #setLineTension(Float)
+	 * @see #setLineTension(BigDecimal)
 	 */
 	public Float getLineTension() {
 		return this.lineTension;
@@ -172,7 +305,7 @@ public class RadarDataset extends Dataset<RadarDataset> {
 	/**
 	 * Bezier curve tension of the line. Set to 0 to draw straightlines.
 	 */
-	public RadarDataset setLineTension(Float lineTension) {
+	public ScatterLineDataset setLineTension(Float lineTension) {
 		this.lineTension = lineTension;
 		return this;
 	}
@@ -187,7 +320,7 @@ public class RadarDataset extends Dataset<RadarDataset> {
 	/**
 	 * The fill color under the line. See Colors
 	 */
-	public RadarDataset setBackgroundColor(Color backgroundColor) {
+	public ScatterLineDataset setBackgroundColor(Color backgroundColor) {
 		this.backgroundColor = backgroundColor;
 		return this;
 	}
@@ -202,7 +335,7 @@ public class RadarDataset extends Dataset<RadarDataset> {
 	/**
 	 * The width of the line in pixels
 	 */
-	public RadarDataset setBorderWidth(Integer borderWidth) {
+	public ScatterLineDataset setBorderWidth(Integer borderWidth) {
 		this.borderWidth = borderWidth;
 		return this;
 	}
@@ -217,7 +350,7 @@ public class RadarDataset extends Dataset<RadarDataset> {
 	/**
 	 * The color of the line.
 	 */
-	public RadarDataset setBorderColor(Color borderColor) {
+	public ScatterLineDataset setBorderColor(Color borderColor) {
 		this.borderColor = borderColor;
 		return this;
 	}
@@ -234,11 +367,11 @@ public class RadarDataset extends Dataset<RadarDataset> {
 	 * <ul>
 	 * <li>{@code butt} The ends of lines are squared off at the endpoints.
 	 * <li>{@code round} The ends of lines are rounded.
-	 * <li>{@code square} The ends of lines are squared off by adding a box with an
-	 * equal width and half the height of the line's thickness.
+	 * <li>{@code square} The ends of lines are squared off by adding a box with
+	 * an equal width and half the height of the line's thickness.
 	 * </ul>
 	 */
-	public RadarDataset setBorderCapStyle(BorderCapStyle borderCapStyle) {
+	public ScatterLineDataset setBorderCapStyle(BorderCapStyle borderCapStyle) {
 		this.borderCapStyle = borderCapStyle;
 		return this;
 	}
@@ -253,7 +386,7 @@ public class RadarDataset extends Dataset<RadarDataset> {
 	/**
 	 * @see #setBorderDash(List)
 	 */
-	public RadarDataset addBorderDash(Integer borderDash) {
+	public ScatterLineDataset addBorderDash(Integer borderDash) {
 		this.borderDash.add(borderDash);
 		return this;
 	}
@@ -265,7 +398,7 @@ public class RadarDataset extends Dataset<RadarDataset> {
 	 * copied and concatenated. For example, [5, 15, 25] will become [5, 15, 25,
 	 * 5, 15, 25].
 	 */
-	public RadarDataset setBorderDash(List<Integer> borderDash) {
+	public ScatterLineDataset setBorderDash(List<Integer> borderDash) {
 		this.borderDash.clear();
 		if (borderDash != null) {
 			this.borderDash.addAll(borderDash);
@@ -281,10 +414,10 @@ public class RadarDataset extends Dataset<RadarDataset> {
 	}
 
 	/**
-	 * Default line dash offset. A float specifying the amount of
-	 * the offset. Initially 0.0.
+	 * Default line dash offset. A float specifying the amount of the offset.
+	 * Initially 0.0.
 	 */
-	public RadarDataset setBorderDashOffset(Float borderDashOffset) {
+	public ScatterLineDataset setBorderDashOffset(Float borderDashOffset) {
 		this.borderDashOffset = borderDashOffset;
 		return this;
 	}
@@ -301,18 +434,20 @@ public class RadarDataset extends Dataset<RadarDataset> {
 	 * Default line join style.
 	 * </p>
 	 * <ul>
-	 * <li>{@code round} Rounds off the corners of a shape by filling an additional
-	 * sector of disc centered at the common endpoint of connected segments. The
-	 * radius for these rounded corners is equal to the line width.
-	 * <li>{@code bevel} Fills an additional triangular area between the common endpoint
-	 * of connected segments, and the separate outside rectangular corners of
-	 * each segment.
-	 * <li>{@code miter} Connected segments are joined by extending their outside edges
-	 * to connect at a single point, with the effect of filling an additional
-	 * lozenge-shaped area. This setting is effected by the miterLimit property.
+	 * <li>{@code round} Rounds off the corners of a shape by filling an
+	 * additional sector of disc centered at the common endpoint of connected
+	 * segments. The radius for these rounded corners is equal to the line
+	 * width.
+	 * <li>{@code bevel} Fills an additional triangular area between the common
+	 * endpoint of connected segments, and the separate outside rectangular
+	 * corners of each segment.
+	 * <li>{@code miter} Connected segments are joined by extending their
+	 * outside edges to connect at a single point, with the effect of filling an
+	 * additional lozenge-shaped area. This setting is effected by the
+	 * miterLimit property.
 	 * </ul>
 	 */
-	public RadarDataset setBorderJoinStyle(BorderJoinStyle borderJoinStyle) {
+	public ScatterLineDataset setBorderJoinStyle(BorderJoinStyle borderJoinStyle) {
 		this.borderJoinStyle = borderJoinStyle;
 		return this;
 	}
@@ -327,7 +462,7 @@ public class RadarDataset extends Dataset<RadarDataset> {
 	/**
 	 * @see #setPointBorderColor(List)
 	 */
-	public RadarDataset addPointBorderColor(Color pointBorderColor) {
+	public ScatterLineDataset addPointBorderColor(Color pointBorderColor) {
 		this.pointBorderColor.add(pointBorderColor);
 		return this;
 	}
@@ -335,7 +470,7 @@ public class RadarDataset extends Dataset<RadarDataset> {
 	/**
 	 * The border color for points.
 	 */
-	public RadarDataset setPointBorderColor(List<Color> pointBorderColor) {
+	public ScatterLineDataset setPointBorderColor(List<Color> pointBorderColor) {
 		this.pointBorderColor.clear();
 		if (pointBorderColor != null) {
 			this.pointBorderColor.addAll(pointBorderColor);
@@ -353,7 +488,7 @@ public class RadarDataset extends Dataset<RadarDataset> {
 	/**
 	 * @see #setPointBackgroundColor(List)
 	 */
-	public RadarDataset addPointBackgroundColor(Color pointBackgroundColor) {
+	public ScatterLineDataset addPointBackgroundColor(Color pointBackgroundColor) {
 		this.pointBackgroundColor.add(pointBackgroundColor);
 		return this;
 	}
@@ -361,7 +496,7 @@ public class RadarDataset extends Dataset<RadarDataset> {
 	/**
 	 * The fill color for points
 	 */
-	public RadarDataset setPointBackgroundColor(List<Color> pointBackgroundColor) {
+	public ScatterLineDataset setPointBackgroundColor(List<Color> pointBackgroundColor) {
 		this.pointBackgroundColor.clear();
 		if (pointBackgroundColor != null) {
 			this.pointBackgroundColor.addAll(pointBackgroundColor);
@@ -375,11 +510,11 @@ public class RadarDataset extends Dataset<RadarDataset> {
 	public List<Integer> getPointBorderWidth() {
 		return this.pointBorderWidth;
 	}
-	
+
 	/**
 	 * @see #setPointBorderWidth(List)
 	 */
-	public RadarDataset addPointBorderWidth(Integer pointBorderWidth) {
+	public ScatterLineDataset addPointBorderWidth(Integer pointBorderWidth) {
 		this.pointBorderWidth.add(pointBorderWidth);
 		return this;
 	}
@@ -387,7 +522,7 @@ public class RadarDataset extends Dataset<RadarDataset> {
 	/**
 	 * The width of the point border in pixels
 	 */
-	public RadarDataset setPointBorderWidth(List<Integer> pointBorderWidth) {
+	public ScatterLineDataset setPointBorderWidth(List<Integer> pointBorderWidth) {
 		this.pointBorderWidth.clear();
 		if (pointBorderWidth != null) {
 			this.pointBorderWidth.addAll(pointBorderWidth);
@@ -405,7 +540,7 @@ public class RadarDataset extends Dataset<RadarDataset> {
 	/**
 	 * @see #setPointRadius(List)
 	 */
-	public RadarDataset getPointRadius(Integer pointRadius) {
+	public ScatterLineDataset addPointRadius(Integer pointRadius) {
 		this.pointRadius.add(pointRadius);
 		return this;
 	}
@@ -413,7 +548,7 @@ public class RadarDataset extends Dataset<RadarDataset> {
 	/**
 	 * The radius of the point shape. If set to 0, nothing is rendered.
 	 */
-	public RadarDataset setPointRadius(List<Integer> pointRadius) {
+	public ScatterLineDataset setPointRadius(List<Integer> pointRadius) {
 		this.pointRadius.clear();
 		if (pointRadius != null) {
 			this.pointRadius.addAll(pointRadius);
@@ -431,7 +566,7 @@ public class RadarDataset extends Dataset<RadarDataset> {
 	/**
 	 * @see #setPointHoverRadius(List)
 	 */
-	public RadarDataset addPointHoverRadius(Integer pointHoverRadius) {
+	public ScatterLineDataset addPointHoverRadius(Integer pointHoverRadius) {
 		this.pointHoverRadius.add(pointHoverRadius);
 		return this;
 	}
@@ -439,7 +574,7 @@ public class RadarDataset extends Dataset<RadarDataset> {
 	/**
 	 * The radius of the point when hovered
 	 */
-	public RadarDataset setPointHoverRadius(List<Integer> pointHoverRadius) {
+	public ScatterLineDataset setPointHoverRadius(List<Integer> pointHoverRadius) {
 		this.pointHoverRadius.clear();
 		if (pointHoverRadius != null) {
 			this.pointHoverRadius.addAll(pointHoverRadius);
@@ -448,27 +583,27 @@ public class RadarDataset extends Dataset<RadarDataset> {
 	}
 
 	/**
-	 * @see #setHitRadius(List)
+	 * @see #setPointHitRadius(List)
 	 */
-	public List<Integer> getHitRadius() {
-		return this.hitRadius;
+	public List<Integer> getPointHitRadius() {
+		return this.pointHitRadius;
 	}
 
 	/**
-	 * @see #setHitRadius(List)
+	 * @see #setPointHitRadius(List)
 	 */
-	public RadarDataset addHitRadius(Integer hitRadius) {
-		this.hitRadius.add(hitRadius);
+	public ScatterLineDataset addPointHitRadius(Integer pointHitRadius) {
+		this.pointHitRadius.add(pointHitRadius);
 		return this;
 	}
 
 	/**
 	 * The pixel size of the non-displayed point that reacts to mouse events
 	 */
-	public RadarDataset setHitRadius(List<Integer> hitRadius) {
-		this.hitRadius.clear();
-		if (hitRadius != null) {
-			this.hitRadius.addAll(hitRadius);
+	public ScatterLineDataset setPointHitRadius(List<Integer> pointHitRadius) {
+		this.pointHitRadius.clear();
+		if (pointHitRadius != null) {
+			this.pointHitRadius.addAll(pointHitRadius);
 		}
 		return this;
 	}
@@ -483,7 +618,7 @@ public class RadarDataset extends Dataset<RadarDataset> {
 	/**
 	 * @see #setPointHoverBackgroundColor(List)
 	 */
-	public RadarDataset addPointHoverBackgroundColor(Color pointHoverBackgroundColor) {
+	public ScatterLineDataset addPointHoverBackgroundColor(Color pointHoverBackgroundColor) {
 		this.pointHoverBackgroundColor.add(pointHoverBackgroundColor);
 		return this;
 	}
@@ -491,7 +626,7 @@ public class RadarDataset extends Dataset<RadarDataset> {
 	/**
 	 * Point background color when hovered
 	 */
-	public RadarDataset setPointHoverBackgroundColor(List<Color> pointHoverBackgroundColor) {
+	public ScatterLineDataset setPointHoverBackgroundColor(List<Color> pointHoverBackgroundColor) {
 		this.pointHoverBackgroundColor.clear();
 		if (pointHoverBackgroundColor != null) {
 			this.pointHoverBackgroundColor.addAll(pointHoverBackgroundColor);
@@ -509,7 +644,7 @@ public class RadarDataset extends Dataset<RadarDataset> {
 	/**
 	 * @see #setPointHoverBorderColor(List)
 	 */
-	public RadarDataset getPointHoverBorderColor(Color pointHoverBorderColor) {
+	public ScatterLineDataset addPointHoverBorderColor(Color pointHoverBorderColor) {
 		this.pointHoverBorderColor.add(pointHoverBorderColor);
 		return this;
 	}
@@ -517,7 +652,7 @@ public class RadarDataset extends Dataset<RadarDataset> {
 	/**
 	 * Point border color when hovered
 	 */
-	public RadarDataset setPointHoverBorderColor(List<Color> pointHoverBorderColor) {
+	public ScatterLineDataset setPointHoverBorderColor(List<Color> pointHoverBorderColor) {
 		this.pointHoverBorderColor.clear();
 		if (pointHoverBorderColor != null) {
 			this.pointHoverBorderColor.addAll(pointHoverBorderColor);
@@ -535,7 +670,7 @@ public class RadarDataset extends Dataset<RadarDataset> {
 	/**
 	 * @see #setPointHoverBorderWidth(List)
 	 */
-	public RadarDataset addPointHoverBorderWidth(Integer pointHoverBorderWidth) {
+	public ScatterLineDataset addPointHoverBorderWidth(Integer pointHoverBorderWidth) {
 		this.pointHoverBorderWidth.add(pointHoverBorderWidth);
 		return this;
 	}
@@ -543,7 +678,7 @@ public class RadarDataset extends Dataset<RadarDataset> {
 	/**
 	 * Border width of point when hovered
 	 */
-	public RadarDataset setPointHoverBorderWidth(List<Integer> pointHoverBorderWidth) {
+	public ScatterLineDataset setPointHoverBorderWidth(List<Integer> pointHoverBorderWidth) {
 		this.pointHoverBorderWidth.clear();
 		if (pointHoverBorderWidth != null) {
 			this.pointHoverBorderWidth.addAll(pointHoverBorderWidth);
@@ -557,24 +692,71 @@ public class RadarDataset extends Dataset<RadarDataset> {
 	public List<PointStyle> getPointStyle() {
 		return this.pointStyle;
 	}
-	
+
 	/**
 	 * @see #setPointStyle(List)
 	 */
-	public RadarDataset addPointStyle(PointStyle pointStyle) {
+	public ScatterLineDataset addPointStyle(PointStyle pointStyle) {
 		this.pointStyle.add(pointStyle);
 		return this;
 	}
 
 	/**
-	 * The style of point. Options include 'circle', 'triangle', 'rect',
-	 * 'rectRot', 'cross', 'crossRot', 'star', 'line', and 'dash'
+	 * The style of point. Options are 'circle', 'triangle', 'rect', 'rectRot',
+	 * 'cross', 'crossRot', 'star', 'line', and 'dash'. If the option is an
+	 * image, that image is drawn on the canvas using drawImage.
 	 */
-	public RadarDataset setPointStyle(List<PointStyle> pointStyle) {
+	public ScatterLineDataset setPointStyle(List<PointStyle> pointStyle) {
 		this.pointStyle.clear();
 		if (pointStyle != null) {
 			this.pointStyle.addAll(pointStyle);
 		}
+		return this;
+	}
+
+	/**
+	 * @see #setShowLine(Boolean)
+	 */
+	public Boolean getShowLine() {
+		return this.showLine;
+	}
+
+	/**
+	 * If false, the line is not drawn for this dataset
+	 */
+	public ScatterLineDataset setShowLine(Boolean showLine) {
+		this.showLine = showLine;
+		return this;
+	}
+
+	/**
+	 * @see #setSpanGaps(Boolean)
+	 */
+	public Boolean getSpanGaps() {
+		return this.spanGaps;
+	}
+
+	/**
+	 * If true, lines will be drawn between points with no or null data
+	 */
+	public ScatterLineDataset setSpanGaps(Boolean spanGaps) {
+		this.spanGaps = spanGaps;
+		return this;
+	}
+
+	/**
+	 * @see #setSteppedLine(Boolean)
+	 */
+	public Boolean getSteppedLine() {
+		return this.steppedLine;
+	}
+
+	/**
+	 * If true, the line is shown as a steeped line and 'lineTension' will be
+	 * ignored
+	 */
+	public ScatterLineDataset setSteppedLine(Boolean steppedLine) {
+		this.steppedLine = steppedLine;
 		return this;
 	}
 
