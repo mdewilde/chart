@@ -15,11 +15,6 @@
 */
 package be.ceau.chart.data;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -29,50 +24,6 @@ import be.ceau.chart.dataset.PieDataset;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
-public class PieData {
-
-	private final List<String> labels = new ArrayList<String>();
-	private final List<PieDataset> datasets = new ArrayList<PieDataset>();
-
-	/**
-	 * @return unmodifiable list of all labels, never {@code null}
-	 */
-	public List<String> getLabels() {
-		return Collections.unmodifiableList(labels);
-	}
-
-	public PieData setLabels(Collection<String> labels) {
-		this.labels.clear();
-		if (labels != null) {
-			this.labels.addAll(labels);
-		}
-		return this;
-	}
-
-	public PieData addLabel(String label) {
-		this.labels.add(label);
-		return this;
-	}
-
-	/**
-	 * @return unmodifiable list of all {@link PieDataset} objects, never
-	 *         {@code null}
-	 */
-	public List<PieDataset> getDatasets() {
-		return Collections.unmodifiableList(datasets);
-	}
-
-	public PieData setDatasets(Collection<PieDataset> datasets) {
-		this.datasets.clear();
-		if (datasets != null) {
-			this.datasets.addAll(datasets);
-		}
-		return this;
-	}
-
-	public PieData addDataset(PieDataset dataset) {
-		this.datasets.add(dataset);
-		return this;
-	}
+public class PieData extends Data<PieData, PieDataset> {
 
 }

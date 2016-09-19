@@ -15,11 +15,6 @@
 */
 package be.ceau.chart.data;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -29,50 +24,6 @@ import be.ceau.chart.dataset.BarDataset;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
-public class BarData {
-
-	private final List<String> labels = new ArrayList<String>();
-	private final List<BarDataset> datasets = new ArrayList<BarDataset>();
-
-	/**
-	 * @return unmodifiable list of all labels, never {@code null}
-	 */
-	public List<String> getLabels() {
-		return Collections.unmodifiableList(labels);
-	}
-
-	public BarData setLabels(Collection<String> labels) {
-		this.labels.clear();
-		if (labels != null) {
-			this.labels.addAll(labels);
-		}
-		return this;
-	}
-
-	public BarData addLabel(String label) {
-		this.labels.add(label);
-		return this;
-	}
-
-	/**
-	 * @return unmodifiable list of all {@link BarDataset} objects, never
-	 *         {@code null}
-	 */
-	public List<BarDataset> getDatasets() {
-		return Collections.unmodifiableList(datasets);
-	}
-
-	public BarData setDatasets(Collection<BarDataset> datasets) {
-		this.datasets.clear();
-		if (datasets != null) {
-			this.datasets.addAll(datasets);
-		}
-		return this;
-	}
-
-	public BarData addDataset(BarDataset dataset) {
-		this.datasets.add(dataset);
-		return this;
-	}
+public class BarData extends Data<BarData, BarDataset> {
 
 }

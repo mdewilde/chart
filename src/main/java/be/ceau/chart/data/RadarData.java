@@ -15,11 +15,6 @@
 */
 package be.ceau.chart.data;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -29,50 +24,6 @@ import be.ceau.chart.dataset.RadarDataset;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
-public class RadarData {
-
-	private final List<String> labels = new ArrayList<String>();
-	private final List<RadarDataset> datasets = new ArrayList<RadarDataset>();
-
-	/**
-	 * @return unmodifiable list of all labels, never {@code null}
-	 */
-	public List<String> getLabels() {
-		return Collections.unmodifiableList(labels);
-	}
-
-	public RadarData setLabels(Collection<String> labels) {
-		this.labels.clear();
-		if (labels != null) {
-			this.labels.addAll(labels);
-		}
-		return this;
-	}
-
-	public RadarData addLabel(String label) {
-		this.labels.add(label);
-		return this;
-	}
-
-	/**
-	 * @return unmodifiable list of all {@link RadarDataset} objects, never
-	 *         {@code null}
-	 */
-	public List<RadarDataset> getDatasets() {
-		return Collections.unmodifiableList(datasets);
-	}
-
-	public RadarData setDatasets(Collection<RadarDataset> datasets) {
-		this.datasets.clear();
-		if (datasets != null) {
-			this.datasets.addAll(datasets);
-		}
-		return this;
-	}
-
-	public RadarData addDataset(RadarDataset dataset) {
-		this.datasets.add(dataset);
-		return this;
-	}
+public class RadarData extends Data<RadarData, RadarDataset> {
 
 }

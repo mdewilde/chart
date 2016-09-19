@@ -27,10 +27,11 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import be.ceau.chart.dataset.LineDataset;
+import be.ceau.chart.dataset.ScatterLineDataset;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
-public class LineData {
+public class LineData extends Data<LineData, LineDataset> {
 
 	private final List<String> labels = new ArrayList<String>();
 
