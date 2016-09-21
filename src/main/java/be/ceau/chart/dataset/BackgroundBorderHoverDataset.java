@@ -20,7 +20,7 @@ import java.util.List;
 import be.ceau.chart.color.Color;
 import be.ceau.chart.objects.OptionalArray;
 
-public class BackgroundBorderHoverDataset<T extends BackgroundBorderHoverDataset<T>> extends Dataset<T> {
+public abstract class BackgroundBorderHoverDataset<T extends BackgroundBorderHoverDataset<T, O>, O> extends Dataset<T, O> {
 
 	/**
 	 * @see #setBackgroundColor(List)

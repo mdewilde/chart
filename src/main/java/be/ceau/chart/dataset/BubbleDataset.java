@@ -15,7 +15,6 @@
 */
 package be.ceau.chart.dataset;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
@@ -40,110 +39,12 @@ import be.ceau.chart.objects.OptionalArray;
  */
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
-public class BubbleDataset {
-
-	/**
-	 * @see #setData(List)
-	 */
-	private final List<BubbleDataPoint> data = new ArrayList<BubbleDataPoint>();
-
-	/**
-	 * @see #setLabel(String)
-	 */
-	private String label;
-
-	/**
-	 * @see #setBackgroundColor(List)
-	 */
-	private final List<Color> backgroundColor = new OptionalArray<Color>();
-
-	/**
-	 * @see #setBorderColor(List)
-	 */
-	private final List<Color> borderColor = new OptionalArray<Color>();
-
-	/**
-	 * @see #setBorderWidth(List)
-	 */
-	private final List<Integer> borderWidth = new OptionalArray<Integer>();
-
-	/**
-	 * @see #setHoverBackgroundColor(List)
-	 */
-	private final List<Color> hoverBackgroundColor = new OptionalArray<Color>();
-
-	/**
-	 * @see #setHoverBorderColor(List)
-	 */
-	private final List<Color> hoverBorderColor = new OptionalArray<Color>();
-
-	/**
-	 * @see #setHoverBorderWidth(List)
-	 */
-	private final List<Integer> hoverBorderWidth = new OptionalArray<Integer>();
+public class BubbleDataset extends RoundDataset<BubbleDataset, BubbleDataPoint> {
 
 	/**
 	 * @see #setHoverRadius(List)
 	 */
 	private final List<Integer> hoverRadius = new OptionalArray<Integer>();
-
-	/**
-	 * @see #setData(List)
-	 */
-	public List<BubbleDataPoint> getData() {
-		return this.data;
-	}
-
-	/**
-	 * @see #setData(List)
-	 */
-	public BubbleDataset addData(BubbleDataPoint point) {
-		this.data.add(point);
-		return this;
-	}
-
-	/**
-	 * The data to plot as bubbles.
-	 */
-	public BubbleDataset setData(List<BubbleDataPoint> data) {
-		this.data.clear();
-		if (data != null) {
-			this.data.addAll(data);
-		}
-		return this;
-	}
-
-	/**
-	 * @see #setLabel(String)
-	 */
-	public String getLabel() {
-		return this.label;
-	}
-
-	/**
-	 * <p>
-	 * The label for the dataset which appears in the legend and tooltips
-	 * </p>
-	 */
-	public BubbleDataset setLabel(String label) {
-		this.label = label;
-		return this;
-	}
-
-	/**
-	 * @see #setBackgroundColor(List)
-	 */
-	public List<Color> getBackgroundColor() {
-		return this.backgroundColor;
-	}
-
-	/**
-	 * @see #setBackgroundColor(List)
-	 */
-	public BubbleDataset addBackgroundColor(Color backgroundColor) {
-		this.backgroundColor.add(backgroundColor);
-		return this;
-	}
 
 	/**
 	 * <p>
@@ -152,30 +53,11 @@ public class BubbleDataset {
 	 * 
 	 * <p>
 	 * Each BubbleDataPoint in this BubbleDataset uses the backgroundColor at
-	 * the corresponding index.
+	 * its corresponding index.
 	 * </p>
 	 */
 	public BubbleDataset setBackgroundColor(List<Color> backgroundColor) {
-		this.backgroundColor.clear();
-		if (backgroundColor != null) {
-			this.backgroundColor.addAll(backgroundColor);
-		}
-		return this;
-	}
-
-	/**
-	 * @see #setBorderColor(List)
-	 */
-	public List<Color> getBorderColor() {
-		return this.borderColor;
-	}
-
-	/**
-	 * @see #setBorderColor(List)
-	 */
-	public BubbleDataset addBorderColor(Color borderColor) {
-		this.borderColor.add(borderColor);
-		return this;
+		return super.setBackgroundColor(backgroundColor);
 	}
 
 	/**
@@ -184,31 +66,12 @@ public class BubbleDataset {
 	 * </p>
 	 * 
 	 * <p>
-	 * Each BubbleDataPoint in this BubbleDataset uses the borderColor at the
+	 * Each BubbleDataPoint in this BubbleDataset uses the borderColor at its
 	 * corresponding index.
 	 * </p>
 	 */
 	public BubbleDataset setBorderColor(List<Color> borderColor) {
-		this.borderColor.clear();
-		if (borderColor != null) {
-			this.borderColor.addAll(borderColor);
-		}
-		return this;
-	}
-
-	/**
-	 * @see #setBorderWidth(List)
-	 */
-	public List<Integer> getBorderWidth() {
-		return this.borderWidth;
-	}
-
-	/**
-	 * @see #setBorderWidth(List)
-	 */
-	public BubbleDataset addBorderWidth(Integer borderWidth) {
-		this.borderWidth.add(borderWidth);
-		return this;
+		return super.setBorderColor(borderColor);
 	}
 
 	/**
@@ -218,30 +81,11 @@ public class BubbleDataset {
 	 * 
 	 * <p>
 	 * Each BubbleDataPoint in this BubbleDataset uses the borderWidth at the
-	 * corresponding index.
+	 * its corresponding index.
 	 * </p>
 	 */
 	public BubbleDataset setBorderWidth(List<Integer> borderWidth) {
-		this.borderWidth.clear();
-		if (borderWidth != null) {
-			this.borderWidth.addAll(borderWidth);
-		}
-		return this;
-	}
-
-	/**
-	 * @see #setHoverBackgroundColor(List)
-	 */
-	public List<Color> getHoverBackgroundColor() {
-		return this.hoverBackgroundColor;
-	}
-
-	/**
-	 * @see #setHoverBackgroundColor(List)
-	 */
-	public BubbleDataset addHoverBackgroundColor(Color hoverBackgroundColor) {
-		this.hoverBackgroundColor.add(hoverBackgroundColor);
-		return this;
+		return super.setBorderWidth(borderWidth);
 	}
 
 	/**
@@ -251,30 +95,11 @@ public class BubbleDataset {
 	 * 
 	 * <p>
 	 * Each BubbleDataPoint in this BubbleDataset uses the hoverBackgroundColor
-	 * at the corresponding index.
+	 * at its corresponding index.
 	 * </p>
 	 */
 	public BubbleDataset setHoverBackgroundColor(List<Color> hoverBackgroundColor) {
-		this.hoverBackgroundColor.clear();
-		if (hoverBackgroundColor != null) {
-			this.hoverBackgroundColor.addAll(hoverBackgroundColor);
-		}
-		return this;
-	}
-
-	/**
-	 * @see #setHoverBorderColor(List)
-	 */
-	public List<Color> getHoverBorderColor() {
-		return this.hoverBorderColor;
-	}
-
-	/**
-	 * @see #setHoverBorderColor(List)
-	 */
-	public BubbleDataset addHoverBorderColor(Color hoverBorderColor) {
-		this.hoverBorderColor.add(hoverBorderColor);
-		return this;
+		return super.setHoverBackgroundColor(hoverBackgroundColor);
 	}
 
 	/**
@@ -284,30 +109,11 @@ public class BubbleDataset {
 	 * 
 	 * <p>
 	 * Each BubbleDataPoint in this BubbleDataset uses the hoverBorderColor at
-	 * the corresponding index.
+	 * its corresponding index.
 	 * </p>
 	 */
 	public BubbleDataset setHoverBorderColor(List<Color> hoverBorderColor) {
-		this.hoverBorderColor.clear();
-		if (hoverBorderColor != null) {
-			this.hoverBorderColor.addAll(hoverBorderColor);
-		}
-		return this;
-	}
-
-	/**
-	 * @see #setHoverBorderWidth(List)
-	 */
-	public List<Integer> getHoverBorderWidth() {
-		return this.hoverBorderWidth;
-	}
-
-	/**
-	 * @see #setHoverBorderWidth(List)
-	 */
-	public BubbleDataset addHoverBorderWidth(Integer hoverBorderWidth) {
-		this.hoverBorderWidth.add(hoverBorderWidth);
-		return this;
+		return super.setHoverBorderColor(hoverBorderColor);
 	}
 
 	/**
@@ -317,30 +123,11 @@ public class BubbleDataset {
 	 * 
 	 * <p>
 	 * Each BubbleDataPoint in this BubbleDataset uses the hoverBorderWidth at
-	 * the corresponding index.
+	 * its corresponding index.
 	 * </p>
 	 */
 	public BubbleDataset setHoverBorderWidth(List<Integer> hoverBorderWidth) {
-		this.hoverBorderWidth.clear();
-		if (hoverBorderWidth != null) {
-			this.hoverBorderWidth.addAll(hoverBorderWidth);
-		}
-		return this;
-	}
-
-	/**
-	 * @see #setHoverRadius(List)
-	 */
-	public List<Integer> getHoverRadius() {
-		return this.hoverRadius;
-	}
-
-	/**
-	 * @see #setHoverRadius(List)
-	 */
-	public BubbleDataset addHoverRadius(Integer hoverRadius) {
-		this.hoverRadius.add(hoverRadius);
-		return this;
+		return super.setHoverBorderWidth(hoverBorderWidth);
 	}
 
 	/**
@@ -349,7 +136,7 @@ public class BubbleDataset {
 	 * </p>
 	 * 
 	 * <p>
-	 * Each BubbleDataPoint in this BubbleDataset uses the hoverRadius at the
+	 * Each BubbleDataPoint in this BubbleDataset uses the hoverRadius at its
 	 * corresponding index.
 	 * </p>
 	 */
@@ -358,6 +145,14 @@ public class BubbleDataset {
 		if (hoverRadius != null) {
 			this.hoverRadius.addAll(hoverRadius);
 		}
+		return this;
+	}
+	
+	/**
+	 * @see BubbleDataset#setHoverRadius(List)
+	 */
+	public BubbleDataset addHoverRadius(Integer hoverRadius) {
+		this.hoverRadius.add(hoverRadius);
 		return this;
 	}
 

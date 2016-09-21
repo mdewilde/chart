@@ -15,6 +15,8 @@
 */
 package be.ceau.chart.data;
 
+import java.math.BigDecimal;
+
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -24,6 +26,6 @@ import be.ceau.chart.dataset.BarDataset;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
-public class BarData extends Data<BarData, BarDataset> {
+public class BarData extends Data<BarData, BarDataset, BigDecimal> {
 
 }

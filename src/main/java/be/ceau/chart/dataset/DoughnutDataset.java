@@ -15,6 +15,9 @@
 */
 package be.ceau.chart.dataset;
 
+import java.math.BigDecimal;
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -22,6 +25,60 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
-public class DoughnutDataset extends AbstractRoundDataset<DoughnutDataset> {
+public class DoughnutDataset extends RoundDataset<DoughnutDataset, BigDecimal> {
+
+	/**
+	 * Sets the backing data list to the argument, replacing any data already
+	 * added or set
+	 * 
+	 * @param data
+	 *            The data to plot in a line
+	 */
+	public DoughnutDataset setData(int... data) {
+		clearData();
+		if (data != null) {
+			for (int i = 0; i < data.length; i++) {
+				this.data.add(new BigDecimal(data[i]));
+			}
+		}
+		return this;
+	}
+
+	/**
+	 * Sets the backing data list to the argument, replacing any data already
+	 * added or set
+	 * 
+	 * @param data
+	 *            The data to plot in a line
+	 */
+	public DoughnutDataset setData(double... data) {
+		clearData();
+		if (data != null) {
+			for (int i = 0; i < data.length; i++) {
+				this.data.add(new BigDecimal(String.valueOf(data[i])));
+			}
+		}
+		return this;
+	}
+
+	/**
+	 * Add the data point to this {@code Dataset}
+	 * 
+	 * @see #setDataPoints(List)
+	 */
+	public DoughnutDataset addData(int data) {
+		this.data.add(new BigDecimal(data));
+		return this;
+	}
+
+	/**
+	 * Add the data point to this {@code Dataset}
+	 *
+	 * @see #setDataPoints(List)
+	 */
+	public DoughnutDataset addData(double data) {
+		this.data.add(new BigDecimal(String.valueOf(data)));
+		return this;
+	}
 
 }

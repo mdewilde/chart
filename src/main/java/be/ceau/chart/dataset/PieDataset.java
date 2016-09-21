@@ -15,6 +15,8 @@
 */
 package be.ceau.chart.dataset;
 
+import java.math.BigDecimal;
+
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -22,6 +24,60 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
-public class PieDataset extends AbstractRoundDataset<PieDataset> {
+public class PieDataset extends RoundDataset<PieDataset, BigDecimal> {
 
+	/**
+	 * Sets the backing data list to the argument, replacing any data already
+	 * added or set
+	 * 
+	 * @param data
+	 *            The data to plot in a line
+	 */
+	public PieDataset setData(int... data) {
+		clearData();
+		if (data != null) {
+			for (int i = 0; i < data.length; i++) {
+				this.data.add(new BigDecimal(data[i]));
+			}
+		}
+		return this;
+	}
+
+	/**
+	 * Sets the backing data list to the argument, replacing any data already
+	 * added or set
+	 * 
+	 * @param data
+	 *            The data to plot in a line
+	 */
+	public PieDataset setData(double... data) {
+		clearData();
+		if (data != null) {
+			for (int i = 0; i < data.length; i++) {
+				this.data.add(new BigDecimal(String.valueOf(data[i])));
+			}
+		}
+		return this;
+	}
+
+	/**
+	 * Add the data point to this {@code Dataset}
+	 * 
+	 * @see #setDataPoints(List)
+	 */
+	public PieDataset addData(int data) {
+		this.data.add(new BigDecimal(data));
+		return this;
+	}
+
+	/**
+	 * Add the data point to this {@code Dataset}
+	 *
+	 * @see #setDataPoints(List)
+	 */
+	public PieDataset addData(double data) {
+		this.data.add(new BigDecimal(String.valueOf(data)));
+		return this;
+	}
+	
 }

@@ -49,6 +49,24 @@ public class BubbleData {
 		return this;
 	}
 
+	public BubbleData setDatasets(BubbleDataset... datasets) {
+		this.datasets.clear();
+		if (datasets != null) {
+			for (int i = 0; i < datasets.length; i++) {
+				this.datasets.add(datasets[i]);
+			}
+		}
+		return this;
+	}
+
+	public BubbleData clearDatasets() {
+		this.datasets.clear();
+		if (datasets != null) {
+			this.datasets.addAll(datasets);
+		}
+		return this;
+	}
+
 	public BubbleData addDataset(BubbleDataset dataset) {
 		this.datasets.add(dataset);
 		return this;

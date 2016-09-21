@@ -15,6 +15,7 @@
 */
 package be.ceau.chart.dataset;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
@@ -27,7 +28,7 @@ import be.ceau.chart.objects.OptionalArray;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
-public class BarDataset extends BackgroundBorderHoverDataset<BarDataset> {
+public class BarDataset extends BackgroundBorderHoverDataset<BarDataset, BigDecimal> {
 
 	/**
 	 * @see #setLabel(String)
@@ -117,6 +118,60 @@ public class BarDataset extends BackgroundBorderHoverDataset<BarDataset> {
 	    if (borderSkipped != null) {
 	    	this.borderSkipped.addAll(borderSkipped);
 	    }
+		return this;
+	}
+
+	/**
+	 * Sets the backing data list to the argument, replacing any data already
+	 * added or set
+	 * 
+	 * @param data
+	 *            The data to plot in a line
+	 */
+	public BarDataset setData(int... data) {
+		clearData();
+		if (data != null) {
+			for (int i = 0; i < data.length; i++) {
+				this.data.add(new BigDecimal(data[i]));
+			}
+		}
+		return this;
+	}
+
+	/**
+	 * Sets the backing data list to the argument, replacing any data already
+	 * added or set
+	 * 
+	 * @param data
+	 *            The data to plot in a line
+	 */
+	public BarDataset setData(double... data) {
+		clearData();
+		if (data != null) {
+			for (int i = 0; i < data.length; i++) {
+				this.data.add(new BigDecimal(String.valueOf(data[i])));
+			}
+		}
+		return this;
+	}
+
+	/**
+	 * Add the data point to this {@code Dataset}
+	 * 
+	 * @see #setDataPoints(List)
+	 */
+	public BarDataset addData(int data) {
+		this.data.add(new BigDecimal(data));
+		return this;
+	}
+
+	/**
+	 * Add the data point to this {@code Dataset}
+	 *
+	 * @see #setDataPoints(List)
+	 */
+	public BarDataset addData(double data) {
+		this.data.add(new BigDecimal(String.valueOf(data)));
 		return this;
 	}
 

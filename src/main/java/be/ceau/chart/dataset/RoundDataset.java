@@ -13,19 +13,29 @@
 	See the License for the specific language governing permissions and
 	limitations under the License.
 */
-package be.ceau.chart.data;
+package be.ceau.chart.dataset;
 
-import java.math.BigDecimal;
+public abstract class RoundDataset<T extends RoundDataset<T, O>, O> extends BackgroundBorderHoverDataset<T, O> {
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
+	/**
+	 * @see #setLabel(String)
+	 */
+	protected String label;
 
-import be.ceau.chart.dataset.DoughnutDataset;
+	/**
+	 * @see #setLabel(String)
+	 */
+	public String getLabel() {
+		return this.label;
+	}
 
-@JsonInclude(Include.NON_EMPTY)
-@JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
-public class DoughnutData extends Data<DoughnutData, DoughnutDataset, BigDecimal> {
-
+	/**
+	 * The label for the dataset which appears in the legend and tooltips
+	 */
+	@SuppressWarnings("unchecked")
+	public T setLabel(String label) {
+		this.label = label;
+	    return (T) this;
+	}
+	
 }
