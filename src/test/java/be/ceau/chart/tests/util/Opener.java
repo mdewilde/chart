@@ -34,6 +34,10 @@ public class Opener {
 	 */
 	public static void inBrowser(Chart chart) throws IOException {
 		
+		if (!chart.isDrawable()) {
+			throw new IllegalArgumentException("chart is not drawable");
+		}
+		
 		File tmp = File.createTempFile("chart_test_", ".html");
 		
 		PrintWriter out = new PrintWriter(tmp);
