@@ -9,7 +9,6 @@ Chart.java enables integration with the excellent [Chart.js](http://www.chartjs.
 In Java:
 
 ```Java
-
 return new BubbleChart(data, options).toJson();
 ```
 
@@ -33,11 +32,8 @@ See example charts by running the included unit tests:
 mvn clean compile test
 ```
 
-###	Source code
-Source code is available on [GitHub](https://github.com/mdewilde/chart).
-
 ### Javadoc
-Browse this project's [Javadoc](https://www.ceau.be/chart/apidocs/index.html).
+Browse this project's javadoc at [javadoc.io](https://javadoc.io/doc/be.ceau/chart).
 
 ### Maven Central
 Include this project directly from Maven Central
@@ -48,15 +44,10 @@ Include this project directly from Maven Central
 ```
 
 ### Download
-Download this project
-* [chart-2.0.1-javadoc.jar](https://www.ceau.be/chart/chart-2.0.1-javadoc.jar)
-* [chart-2.0.1-javadoc.jar.asc](https://www.ceau.be/chart/chart-2.0.1-javadoc.jar.asc)
-* [chart-2.0.1-sources.jar](https://www.ceau.be/chart/chart-2.0.1-sources.jar)
-* [chart-2.0.1-sources.jar.asc](https://www.ceau.be/chart/chart-2.0.1-sources.jar.asc)
-* [chart-2.0.1.jar](https://www.ceau.be/chart/chart-2.0.1.jar)
-* [chart-2.0.1.jar.asc](https://www.ceau.be/chart/chart-2.0.1.jar.asc)
-* [chart-2.0.1.pom](https://www.ceau.be/chart/chart-2.0.1.pom)
-* [chart-2.0.1.pom.asc](https://www.ceau.be/chart/chart-2.0.1.pom.asc)
+Downloads for this project at [Maven Central](https://repo1.maven.org/maven2/be/ceau/chart/).
+
+### Other resources
+The [docs for Chart.js](http://www.chartjs.org/docs/) is a helpful source of information on what's possible and how to achieve it. 
 
 ### GnuPG public key
 Verify signature files with my [GnuPG public key](https://www.ceau.be/pubkey.gpg).
