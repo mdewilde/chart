@@ -135,15 +135,22 @@ public class BarChart implements Chart {
 	 * {@inheritDoc}
 	 * 
 	 * <p>
-	 * {@code BarChart} is drawable if at least one dataset has at least one
-	 * data point.<br>
-	 * If an xAxisID is set on a dataset, an xAxis scale must exist with that
-	 * id. <br>
-	 * If an yAxisID is set on a dataset, a yAxis scale must exist with that id.
+	 * A {@code BarChart} is drawable if:
 	 * </p>
+	 * <ul>
+	 * <li>at least one dataset has at least one data point
+	 * <li>an xAxis scale exists with the id of the xAxisID set on a
+	 * dataset, if such an id set
+	 * <li>a yAxis scale exists with the id of the yAxisID set on a dataset,
+	 * if such an id is set
+	 * <li>there is at least one label in the {@link BarData}
+	 * </ul>
 	 */
 	@Override
 	public boolean isDrawable() {
+		if (data.getLabels().isEmpty()) {
+			return false;
+		}
 		boolean sufficientData = false;
 		for (BarDataset dataset : data.getDatasets()) {
 			if (dataset.getXAxisID() != null && !hasXAxisWithId(dataset.getXAxisID())) {

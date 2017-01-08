@@ -18,7 +18,7 @@ package be.ceau.chart;
 public interface Chart {
 
 	/**
-	 * @return type of this Chart implementation for proper drawing in
+	 * @return type of this {@link Chart} implementation for proper drawing in
 	 *         JavaScript.
 	 */
 	public String getType();
@@ -34,11 +34,17 @@ public interface Chart {
 
 	/**
 	 * <p>
-	 * Optional check to determine whether the current state of {@code this}
-	 * object will generate a drawable JSON string.
+	 * Optional check to determine whether the current state of this
+	 * {@link Chart} implementation instance will generate a drawable JSON
+	 * string.
+	 * </p>
+	 * <p>
+	 * Implementations provide a best-effort evaluation, and can not guarantee
+	 * that the serialized chart will be rendered correctly.
 	 * </p>
 	 * 
-	 * @return true if {@code this} component is drawable in its current state
+	 * @return true if {@code this} {@link Chart} is drawable in its current
+	 *         state
 	 */
 	public boolean isDrawable();
 
