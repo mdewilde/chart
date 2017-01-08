@@ -17,6 +17,7 @@ package be.ceau.chart.dataset;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
@@ -96,7 +97,7 @@ public class RadarDataset extends PointDataset<RadarDataset, BigDecimal> {
 	/**
 	 * Add the data point to this {@code Dataset}
 	 * 
-	 * @see #setDataPoints(List)
+	 * @see #setData(Collection)
 	 */
 	public RadarDataset addData(int data) {
 		this.data.add(new BigDecimal(data));
@@ -106,7 +107,7 @@ public class RadarDataset extends PointDataset<RadarDataset, BigDecimal> {
 	/**
 	 * Add the data point to this {@code Dataset}
 	 *
-	 * @see #setDataPoints(List)
+	 * @see #setData(Collection)
 	 */
 	public RadarDataset addData(double data) {
 		this.data.add(new BigDecimal(String.valueOf(data)));

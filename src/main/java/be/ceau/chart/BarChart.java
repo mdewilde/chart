@@ -78,6 +78,7 @@ public class BarChart implements Chart {
 	 * Default is to draw a vertical {@code BarChart}.
 	 * </p>
 	 * 
+	 * @return this {@link BarChart} for method chaining
 	 * @see #setVertical()
 	 */
 	public BarChart setHorizontal() {
@@ -101,6 +102,7 @@ public class BarChart implements Chart {
 	 * Vertical drawing is the default for {@code BarChart}.
 	 * </p>
 	 * 
+	 * @return this {@link BarChart} for method chaining
 	 * @see #setHorizontal()
 	 */
 	public BarChart setVertical() {
@@ -139,12 +141,13 @@ public class BarChart implements Chart {
 	 * </p>
 	 * <ul>
 	 * <li>at least one dataset has at least one data point
-	 * <li>an xAxis scale exists with the id of the xAxisID set on a
-	 * dataset, if such an id set
-	 * <li>a yAxis scale exists with the id of the yAxisID set on a dataset,
-	 * if such an id is set
+	 * <li>an xAxis scale exists with the id of the xAxisID set on a dataset, if
+	 * such an id set
+	 * <li>a yAxis scale exists with the id of the yAxisID set on a dataset, if
+	 * such an id is set
 	 * <li>there is at least one label in the {@link BarData}
 	 * </ul>
+	 * @return true if this {@link BarChart} is drawable in its current state
 	 */
 	@Override
 	public boolean isDrawable() {

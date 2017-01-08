@@ -39,7 +39,7 @@ public class PolarAnimation extends Animation<PolarAnimation> {
 	private Boolean animateScale;
 
 	/**
-	 * @see #setAnimateRotate(Boolean animation.animateRotate)
+	 * @see #setAnimateRotate(Boolean)
 	 */
 	public Boolean getAnimateRotate() {
 	    return this.animateRotate;

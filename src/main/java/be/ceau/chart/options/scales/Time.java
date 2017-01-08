@@ -29,68 +29,68 @@ public class Time {
 	/**
 	 * Default {@code -}
 	 * 
-	 * @see #setDisplayFormats(DisplayFormats displayFormats)
+	 * @see #setDisplayFormats(DisplayFormats)
 	 */
 	private DisplayFormats displayFormats;
 
 	/**
 	 * Default {@code false}
 	 * 
-	 * @see #setIsoWeekday(Boolean isoWeekday)
+	 * @see #setIsoWeekday(Boolean)
 	 */
 	private Boolean isoWeekday;
 
 	/**
 	 * Default {@code -}
 	 * 
-	 * @see #setMax(Time max)
+	 * @see #setMax(Time)
 	 */
 	private Time max;
 
 	/**
 	 * Default {@code -}
 	 * 
-	 * @see #setMin(Time min)
+	 * @see #setMin(Time)
 	 */
 	private Time min;
 
 	/**
 	 * Default {@code -}
 	 * 
-	 * @see #setParser(String or Function parser)
+	 * @see #setParser(String)
 	 */
 	private String parser;
 
 	/**
 	 * Default {@code -}
 	 * 
-	 * @see #setRound(String round)
+	 * @see #setRound(String)
 	 */
 	private String round;
 
 	/**
 	 * Default {@code ''}
 	 * 
-	 * @see #setTooltipFormat(String tooltipFormat)
+	 * @see #setTooltipFormat(String)
 	 */
 	private String tooltipFormat;
 
 	/**
 	 * Default {@code -}
 	 * 
-	 * @see #setUnit(String unit)
+	 * @see #setUnit(String)
 	 */
 	private String unit;
 
 	/**
 	 * Default {@code 1}
 	 * 
-	 * @see #setUnitStepSize(BigDecimal unitStepSize)
+	 * @see #setUnitStepSize(BigDecimal)
 	 */
 	private BigDecimal unitStepSize;
 
 	/**
-	 * @see #setDisplayFormats(DisplayFormats displayFormats)
+	 * @see #setDisplayFormats(DisplayFormats)
 	 */
 	public DisplayFormats getDisplayFormats() {
 		return this.displayFormats;
@@ -105,7 +105,7 @@ public class Time {
 	}
 
 	/**
-	 * @see #setIsoWeekday(Boolean isoWeekday)
+	 * @see #setIsoWeekday(Boolean)
 	 */
 	public Boolean getIsoWeekday() {
 		return this.isoWeekday;
@@ -120,7 +120,7 @@ public class Time {
 	}
 
 	/**
-	 * @see #setMax(Time max)
+	 * @see #setMax(Time)
 	 */
 	public Time getMax() {
 		return this.max;
@@ -135,7 +135,7 @@ public class Time {
 	}
 
 	/**
-	 * @see #setMin(Time min)
+	 * @see #setMin(Time)
 	 */
 	public Time getMin() {
 		return this.min;
@@ -150,7 +150,7 @@ public class Time {
 	}
 
 	/**
-	 * @see #setParser(String or Function parser)
+	 * @see #setParser(String)
 	 */
 	public String getParser() {
 		return this.parser;
@@ -167,7 +167,7 @@ public class Time {
 	}
 
 	/**
-	 * @see #setRound(String round)
+	 * @see #setRound(String)
 	 */
 	public String getRound() {
 		return this.round;
@@ -183,7 +183,7 @@ public class Time {
 	}
 
 	/**
-	 * @see #setTooltipFormat(String tooltipFormat)
+	 * @see #setTooltipFormat(String)
 	 */
 	public String getTooltipFormat() {
 		return this.tooltipFormat;
@@ -198,7 +198,7 @@ public class Time {
 	}
 
 	/**
-	 * @see #setUnit(String unit)
+	 * @see #setUnit(String)
 	 */
 	public String getUnit() {
 		return this.unit;
@@ -214,7 +214,7 @@ public class Time {
 	}
 
 	/**
-	 * @see #setUnitStepSize(BigDecimal unitStepSize)
+	 * @see #setUnitStepSize(BigDecimal)
 	 */
 	public BigDecimal getUnitStepSize() {
 		return this.unitStepSize;

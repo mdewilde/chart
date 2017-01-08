@@ -145,7 +145,7 @@ public abstract class PointDataset<T extends Dataset<T, O>, O> extends Dataset<T
 	}
 
 	/**
-	 * @see #setLineTension(BigDecimal)
+	 * @see #setLineTension(Float)
 	 */
 	public Float getLineTension() {
 		return this.lineTension;
@@ -168,7 +168,7 @@ public abstract class PointDataset<T extends Dataset<T, O>, O> extends Dataset<T
 	}
 
 	/**
-	 * The fill color under the line. See Colors
+	 * The fill color under the line.
 	 */
 	@SuppressWarnings("unchecked")
 	public T setBackgroundColor(Color backgroundColor) {

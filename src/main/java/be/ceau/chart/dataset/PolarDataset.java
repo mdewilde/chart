@@ -16,6 +16,7 @@
 package be.ceau.chart.dataset;
 
 import java.math.BigDecimal;
+import java.util.Collection;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
@@ -63,7 +64,7 @@ public class PolarDataset extends RoundDataset<PolarDataset, BigDecimal> {
 	/**
 	 * Add the data point to this {@code Dataset}
 	 * 
-	 * @see #setDataPoints(List)
+	 * @see #setData(Collection)
 	 */
 	public PolarDataset addData(int data) {
 		this.data.add(new BigDecimal(data));
@@ -73,7 +74,7 @@ public class PolarDataset extends RoundDataset<PolarDataset, BigDecimal> {
 	/**
 	 * Add the data point to this {@code Dataset}
 	 *
-	 * @see #setDataPoints(List)
+	 * @see #setData(Collection)
 	 */
 	public PolarDataset addData(double data) {
 		this.data.add(new BigDecimal(String.valueOf(data)));

@@ -16,6 +16,7 @@
 package be.ceau.chart.dataset;
 
 import java.math.BigDecimal;
+import java.util.Collection;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
@@ -64,7 +65,7 @@ public class DoughnutDataset extends RoundDataset<DoughnutDataset, BigDecimal> {
 	/**
 	 * Add the data point to this {@code Dataset}
 	 * 
-	 * @see #setDataPoints(List)
+	 * @see #setData(Collection)
 	 */
 	public DoughnutDataset addData(int data) {
 		this.data.add(new BigDecimal(data));
@@ -74,7 +75,7 @@ public class DoughnutDataset extends RoundDataset<DoughnutDataset, BigDecimal> {
 	/**
 	 * Add the data point to this {@code Dataset}
 	 *
-	 * @see #setDataPoints(List)
+	 * @see #setData(Collection)
 	 */
 	public DoughnutDataset addData(double data) {
 		this.data.add(new BigDecimal(String.valueOf(data)));

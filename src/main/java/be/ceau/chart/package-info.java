@@ -14,6 +14,7 @@
 	limitations under the License.
 */
 /**
- * Base package, containing models and logic for constructing and building {@link be.ceau.chart.v1.Chart Chart} instances.
+ * Base package, containing models and logic for constructing and building
+ * {@link be.ceau.chart.Chart} instances.
  */
 package be.ceau.chart;

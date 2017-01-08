@@ -19,7 +19,7 @@
  * different than those of v1.0.
  * </p>
  * <ul>
- * <li>Multiple X & Y axes are supported.
+ * <li>Multiple X and Y axes are supported.
  * <li>A built-in label auto-skip feature detects would-be overlapping ticks and
  * labels and removes every nth label to keep things displaying normally.
  * <li>Scale titles are supported

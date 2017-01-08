@@ -16,6 +16,7 @@
 package be.ceau.chart.dataset;
 
 import java.math.BigDecimal;
+import java.util.Collection;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
@@ -158,7 +159,7 @@ public class BarDataset extends BackgroundBorderHoverDataset<BarDataset, BigDeci
 	/**
 	 * Add the data point to this {@code Dataset}
 	 * 
-	 * @see #setDataPoints(List)
+	 * @see #setData(Collection)
 	 */
 	public BarDataset addData(int data) {
 		this.data.add(new BigDecimal(data));
@@ -168,7 +169,7 @@ public class BarDataset extends BackgroundBorderHoverDataset<BarDataset, BigDeci
 	/**
 	 * Add the data point to this {@code Dataset}
 	 *
-	 * @see #setDataPoints(List)
+	 * @see #setData(Collection)
 	 */
 	public BarDataset addData(double data) {
 		this.data.add(new BigDecimal(String.valueOf(data)));

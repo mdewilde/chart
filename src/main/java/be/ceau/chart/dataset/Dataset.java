@@ -15,7 +15,6 @@
 */
 package be.ceau.chart.dataset;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -25,7 +24,7 @@ import java.util.List;
 public abstract class Dataset<T extends Dataset<T, O>, O> {
 
 	/**
-	 * @see #setData(O)
+	 * @see #setData(Collection)
 	 */
 	protected final List<O> data = new ArrayList<O>();
 
@@ -84,7 +83,7 @@ public abstract class Dataset<T extends Dataset<T, O>, O> {
 	 * @param data
 	 *            a {@code O}, can be {@code null} to signify absence of data
 	 *            for a given point
-	 * @see #setDataPoints(List)
+	 * @see #setData(Collection)
 	 */
 	@SuppressWarnings("unchecked")
 	public T addData(O data) {
