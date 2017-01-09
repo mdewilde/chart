@@ -23,14 +23,38 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 
+import be.ceau.chart.data.Data;
 import be.ceau.chart.data.DoughnutData;
 import be.ceau.chart.options.DoughnutOptions;
+import be.ceau.chart.options.Options;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE, isGetterVisibility = Visibility.NONE)
 public class DoughnutChart implements Chart {
 
-	private static final ObjectWriter WRITER = new ObjectMapper().writerWithDefaultPrettyPrinter().forType(DoughnutChart.class);
+	private static final ObjectWriter WRITER = new ObjectMapper()
+			.writerWithDefaultPrettyPrinter()
+			.forType(DoughnutChart.class);
+
+	/**
+	 * Static factory, constructs an {@link Data} implementation appropriate
+	 * for a {@link DoughnutChart}.
+	 * 
+	 * @return a new {@link DoughnutData} instance
+	 */
+	public static DoughnutData data() {
+		return new DoughnutData();
+	}
+
+	/**
+	 * Static factory, constructs an {@link Options} implementation appropriate
+	 * for a {@link DoughnutChart}.
+	 * 
+	 * @return a new {@link DoughnutOptions} instance
+	 */
+	public static DoughnutOptions options() {
+		return new DoughnutOptions();
+	}
 
 	private final String type = "doughnut";
 

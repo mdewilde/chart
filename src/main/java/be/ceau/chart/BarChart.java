@@ -28,6 +28,7 @@ import com.fasterxml.jackson.databind.ObjectWriter;
 import be.ceau.chart.data.BarData;
 import be.ceau.chart.dataset.BarDataset;
 import be.ceau.chart.options.BarOptions;
+import be.ceau.chart.options.Options;
 import be.ceau.chart.options.scales.XAxis;
 import be.ceau.chart.options.scales.YAxis;
 
@@ -35,7 +36,29 @@ import be.ceau.chart.options.scales.YAxis;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE, isGetterVisibility = Visibility.NONE)
 public class BarChart implements Chart {
 
-	private static final ObjectWriter WRITER = new ObjectMapper().writerWithDefaultPrettyPrinter().forType(BarChart.class);
+	private static final ObjectWriter WRITER = new ObjectMapper()
+			.writerWithDefaultPrettyPrinter()
+			.forType(BarChart.class);
+
+	/**
+	 * Static factory, constructs an {@link Data} implementation appropriate for
+	 * a {@link BarChart}.
+	 * 
+	 * @return a new {@link BarData} instance
+	 */
+	public static BarData data() {
+		return new BarData();
+	}
+
+	/**
+	 * Static factory, constructs an {@link Options} implementation appropriate
+	 * for a {@link BarChart}.
+	 * 
+	 * @return a new {@link BarOptions} instance
+	 */
+	public static BarOptions options() {
+		return new BarOptions();
+	}
 
 	@JsonIgnore
 	private boolean vertical = true;
@@ -147,6 +170,7 @@ public class BarChart implements Chart {
 	 * such an id is set
 	 * <li>there is at least one label in the {@link BarData}
 	 * </ul>
+	 * 
 	 * @return true if this {@link BarChart} is drawable in its current state
 	 */
 	@Override

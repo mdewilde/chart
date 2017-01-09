@@ -23,15 +23,39 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 
+import be.ceau.chart.data.Data;
 import be.ceau.chart.data.RadarData;
 import be.ceau.chart.dataset.RadarDataset;
+import be.ceau.chart.options.Options;
 import be.ceau.chart.options.RadarOptions;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE, isGetterVisibility = Visibility.NONE)
 public class RadarChart implements Chart {
 
-	private static final ObjectWriter WRITER = new ObjectMapper().writerWithDefaultPrettyPrinter().forType(RadarChart.class);
+	private static final ObjectWriter WRITER = new ObjectMapper()
+			.writerWithDefaultPrettyPrinter()
+			.forType(RadarChart.class);
+
+	/**
+	 * Static factory, constructs an {@link Data} implementation appropriate for
+	 * a {@link RadarChart}.
+	 * 
+	 * @return a new {@link RadarData} instance
+	 */
+	public static RadarData data() {
+		return new RadarData();
+	}
+
+	/**
+	 * Static factory, constructs an {@link Options} implementation appropriate
+	 * for a {@link RadarChart}.
+	 * 
+	 * @return a new {@link RadarOptions} instance
+	 */
+	public static RadarOptions options() {
+		return new RadarOptions();
+	}
 
 	private final String type = "radar";
 

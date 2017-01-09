@@ -24,13 +24,37 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 
 import be.ceau.chart.data.BubbleData;
+import be.ceau.chart.data.Data;
 import be.ceau.chart.options.BubbleOptions;
+import be.ceau.chart.options.Options;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE, isGetterVisibility = Visibility.NONE)
 public class BubbleChart implements Chart {
 
-	private static final ObjectWriter WRITER = new ObjectMapper().writerWithDefaultPrettyPrinter().forType(BubbleChart.class);
+	private static final ObjectWriter WRITER = new ObjectMapper()
+			.writerWithDefaultPrettyPrinter()
+			.forType(BubbleChart.class);
+
+	/**
+	 * Static factory, constructs an {@link Data} implementation appropriate for
+	 * a {@link BubbleChart}.
+	 * 
+	 * @return a new {@link BubbleData} instance
+	 */
+	public static BubbleData data() {
+		return new BubbleData();
+	}
+
+	/**
+	 * Static factory, constructs an {@link Options} implementation appropriate
+	 * for a {@link BubbleChart}.
+	 * 
+	 * @return a new {@link BubbleOptions} instance
+	 */
+	public static BubbleOptions options() {
+		return new BubbleOptions();
+	}
 
 	private final String type = "bubble";
 

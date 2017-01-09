@@ -23,16 +23,40 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 
+import be.ceau.chart.data.Data;
 import be.ceau.chart.data.ScatterLineData;
 import be.ceau.chart.dataset.ScatterLineDataset;
 import be.ceau.chart.options.LineOptions;
+import be.ceau.chart.options.Options;
 import be.ceau.chart.options.scales.LinearScale;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE, isGetterVisibility = Visibility.NONE)
 public class ScatterLineChart implements Chart {
 
-	private static final ObjectWriter WRITER = new ObjectMapper().writerWithDefaultPrettyPrinter().forType(ScatterLineChart.class);
+	private static final ObjectWriter WRITER = new ObjectMapper()
+			.writerWithDefaultPrettyPrinter()
+			.forType(ScatterLineChart.class);
+
+	/**
+	 * Static factory, constructs an {@link Data} implementation appropriate
+	 * for a {@link ScatterLineChart}.
+	 * 
+	 * @return a new {@link ScatterLineData} instance
+	 */
+	public static ScatterLineData data() {
+		return new ScatterLineData();
+	}
+
+	/**
+	 * Static factory, constructs an {@link Options} implementation appropriate
+	 * for a {@link ScatterLineChart}.
+	 * 
+	 * @return a new {@link LineOptions} instance
+	 */
+	public static LineOptions options() {
+		return new LineOptions();
+	}
 
 	private final String type = "line";
 

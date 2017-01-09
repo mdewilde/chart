@@ -23,15 +23,39 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 
+import be.ceau.chart.data.Data;
 import be.ceau.chart.data.PolarData;
 import be.ceau.chart.dataset.PolarDataset;
+import be.ceau.chart.options.Options;
 import be.ceau.chart.options.PolarOptions;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE, isGetterVisibility = Visibility.NONE)
 public class PolarChart implements Chart {
 
-	private static final ObjectWriter WRITER = new ObjectMapper().writerWithDefaultPrettyPrinter().forType(PolarChart.class);
+	private static final ObjectWriter WRITER = new ObjectMapper()
+			.writerWithDefaultPrettyPrinter()
+			.forType(PolarChart.class);
+
+	/**
+	 * Static factory, constructs an {@link Data} implementation appropriate
+	 * for a {@link PolarChart}.
+	 * 
+	 * @return a new {@link PolarData} instance
+	 */
+	public static PolarData data() {
+		return new PolarData();
+	}
+
+	/**
+	 * Static factory, constructs an {@link Options} implementation appropriate
+	 * for a {@link PolarChart}.
+	 * 
+	 * @return a new {@link PolarOptions} instance
+	 */
+	public static PolarOptions options() {
+		return new PolarOptions();
+	}
 
 	private final String type = "polarArea";
 

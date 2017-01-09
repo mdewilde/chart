@@ -23,15 +23,39 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 
+import be.ceau.chart.data.Data;
 import be.ceau.chart.data.PieData;
 import be.ceau.chart.dataset.PieDataset;
+import be.ceau.chart.options.Options;
 import be.ceau.chart.options.PieOptions;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE, isGetterVisibility = Visibility.NONE)
 public class PieChart implements Chart {
 
-	private static final ObjectWriter WRITER = new ObjectMapper().writerWithDefaultPrettyPrinter().forType(PieChart.class);
+	private static final ObjectWriter WRITER = new ObjectMapper()
+			.writerWithDefaultPrettyPrinter()
+			.forType(PieChart.class);
+
+	/**
+	 * Static factory, constructs an {@link Data} implementation appropriate
+	 * for a {@link PieChart}.
+	 * 
+	 * @return a new {@link PieData} instance
+	 */
+	public static PieData data() {
+		return new PieData();
+	}
+
+	/**
+	 * Static factory, constructs an {@link Options} implementation appropriate
+	 * for a {@link PieChart}.
+	 * 
+	 * @return a new {@link PieOptions} instance
+	 */
+	public static PieOptions options() {
+		return new PieOptions();
+	}
 
 	private final String type = "pie";
 

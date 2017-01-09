@@ -23,16 +23,40 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 
+import be.ceau.chart.data.Data;
 import be.ceau.chart.data.LineData;
 import be.ceau.chart.dataset.LineDataset;
 import be.ceau.chart.options.LineOptions;
+import be.ceau.chart.options.Options;
 import be.ceau.chart.options.scales.LinearScale;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE, isGetterVisibility = Visibility.NONE)
 public class LineChart implements Chart {
 
-	private static final ObjectWriter WRITER = new ObjectMapper().writerWithDefaultPrettyPrinter().forType(LineChart.class);
+	private static final ObjectWriter WRITER = new ObjectMapper()
+			.writerWithDefaultPrettyPrinter()
+			.forType(LineChart.class);
+
+	/**
+	 * Static factory, constructs an {@link Data} implementation appropriate
+	 * for a {@link LineChart}.
+	 * 
+	 * @return a new {@link LineData} instance
+	 */
+	public static LineData data() {
+		return new LineData();
+	}
+
+	/**
+	 * Static factory, constructs an {@link Options} implementation appropriate
+	 * for a {@link LineChart}.
+	 * 
+	 * @return a new {@link LineOptions} instance
+	 */
+	public static LineOptions options() {
+		return new LineOptions();
+	}
 
 	private final String type = "line";
 
