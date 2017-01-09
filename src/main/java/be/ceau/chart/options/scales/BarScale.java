@@ -23,31 +23,53 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
+import be.ceau.chart.options.ticks.LinearTicks;
+
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
-public class BarScale extends CategoryScale<BarScale> {
+public class BarScale extends CategoryScale {
 
+	/**
+	 * Static factory, constructs an {@link XAxis} implementation appropriate for
+	 * a {@link BarScale}.
+	 * 
+	 * @return a new {@link XAxis} instance
+	 */
+	public static XAxis<LinearTicks> xAxis() {
+		return new XAxis<LinearTicks>();
+	}
+	
+	/**
+	 * Static factory, constructs an {@link YAxis} implementation appropriate for
+	 * a {@link BarScale}.
+	 * 
+	 * @return a new {@link YAxis} instance
+	 */
+	public static YAxis<LinearTicks> yAxis() {
+		return new YAxis<LinearTicks>();
+	}
+	
 	/**
 	 * @see #setxAxes(List)
 	 */
-	private final List<XAxis> xAxes = new ArrayList<XAxis>();
+	private final List<XAxis<LinearTicks>> xAxes = new ArrayList<XAxis<LinearTicks>>();
 
 	/**
 	 * @see #setyAxes(List)
 	 */
-	private final List<YAxis> yAxes = new ArrayList<YAxis>();
+	private final List<YAxis<LinearTicks>> yAxes = new ArrayList<YAxis<LinearTicks>>();
 
 	/**
 	 * @see #setxAxes(List)
 	 */
-	public List<XAxis> getxAxes() {
+	public List<XAxis<LinearTicks>> getxAxes() {
 		return xAxes;
 	}
 
 	/**
 	 * @see #setxAxes(List)
 	 */
-	public BarScale addxAxes(XAxis xAxis) {
+	public BarScale addxAxes(XAxis<LinearTicks> xAxis) {
 		if (xAxis != null) {
 			this.xAxes.clear();
 			this.xAxes.add(xAxis);
@@ -65,7 +87,7 @@ public class BarScale extends CategoryScale<BarScale> {
 	 * be stored if a list containing more than one instance is passed.
 	 * </p>
 	 */
-	public BarScale setxAxes(List<XAxis> xAxes) {
+	public BarScale setxAxes(List<XAxis<LinearTicks>> xAxes) {
 		this.xAxes.clear();
 		if (xAxes != null && !xAxes.isEmpty()) {
 			addxAxes(xAxes.get(0));
@@ -76,14 +98,14 @@ public class BarScale extends CategoryScale<BarScale> {
 	/**
 	 * @see #setyAxes(List)
 	 */
-	public List<YAxis> getyAxes() {
+	public List<YAxis<LinearTicks>> getyAxes() {
 		return yAxes;
 	}
 
 	/**
 	 * @see #setyAxes(List)
 	 */
-	public BarScale addyAxes(YAxis yAxis) {
+	public BarScale addyAxes(YAxis<LinearTicks> yAxis) {
 		if (yAxis != null) {
 			this.yAxes.add(yAxis);
 		}
@@ -93,7 +115,7 @@ public class BarScale extends CategoryScale<BarScale> {
 	/**
 	 * The Y axis for this bar chart
 	 */
-	public BarScale setyAxes(List<YAxis> yAxes) {
+	public BarScale setyAxes(List<YAxis<LinearTicks>> yAxes) {
 		this.yAxes.clear();
 		if (yAxes != null) {
 			this.yAxes.addAll(yAxes);

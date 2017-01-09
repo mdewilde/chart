@@ -33,7 +33,7 @@ public class TimeScale extends Scale<TimeScale> {
 
 	private final String type = "time";
 
-	private Ticks ticks;
+	private Ticks<?> ticks;
 	
 	private Time time;
 
@@ -51,11 +51,11 @@ public class TimeScale extends Scale<TimeScale> {
 	}
 
 	@Override
-	public Ticks getTicks() {
+	public Ticks<?> getTicks() {
 		return ticks;
 	}
 
-	public TimeScale setTicks(Ticks ticks) {
+	public TimeScale setTicks(Ticks<?> ticks) {
 		this.ticks = ticks;
 	    return this;
 	}

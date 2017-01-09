@@ -71,6 +71,9 @@
 				<configuration>
 					<source>1.6</source>
 					<target>1.6</target>
+					<showWarnings>true</showWarnings>
+					<showDeprecation>true</showDeprecation>
+					<compilerArgs><compilerArg>-Xlint:all</compilerArg></compilerArgs>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -155,6 +158,7 @@
 				<configuration>
 					<parallel>methods</parallel>
 					<threadCount>4</threadCount>
+					<skipTests>true</skipTests>
 				</configuration>
 			</plugin>
 		</plugins>

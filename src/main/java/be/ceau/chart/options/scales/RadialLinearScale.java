@@ -20,6 +20,7 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
+import be.ceau.chart.options.ticks.RadialLinearTicks;
 import be.ceau.chart.options.ticks.Ticks;
 
 /**
@@ -29,7 +30,7 @@ import be.ceau.chart.options.ticks.Ticks;
  */
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
-public class RadialLinearScale extends Scale {
+public class RadialLinearScale extends Scale<RadialLinearScale> {
 
 	private final String type = "radialLinear";
 
@@ -51,7 +52,7 @@ public class RadialLinearScale extends Scale {
 	/**
 	 * @see #setTicks(Ticks)
 	 */
-	private Ticks ticks;
+	private Ticks<RadialLinearTicks> ticks;
 
 	public String getType() {
 		return type;
@@ -123,7 +124,7 @@ public class RadialLinearScale extends Scale {
 	/**
 	 * @see #setTicks(Ticks)
 	 */
-	public Ticks getTicks() {
+	public Ticks<RadialLinearTicks> getTicks() {
 	    return this.ticks;
 	}
 
@@ -136,7 +137,7 @@ public class RadialLinearScale extends Scale {
 	 * Default {@code -}
 	 * </p>
 	 */
-	public RadialLinearScale setTicks(Ticks ticks) {
+	public RadialLinearScale setTicks(Ticks<RadialLinearTicks> ticks) {
 	    this.ticks = ticks;
 	    return this;
 	}

@@ -42,11 +42,15 @@ public class LogarithmicTicks extends Ticks<LogarithmicTicks> {
 	}
 
 	/**
-	 * The minimum item to display. Must be a value in the labels array
+	 * The minimum item to display. Must be a value in the labels array.
+	 * 
+	 * @param min
+	 *            a {@link String} or {@code null}
+	 * @return this {@link LogarithmicTicks} instance for chaining
 	 */
 	public LogarithmicTicks setMin(String min) {
 		this.min = min;
-	    return this;
+		return this;
 	}
 
 	/**
@@ -58,10 +62,14 @@ public class LogarithmicTicks extends Ticks<LogarithmicTicks> {
 
 	/**
 	 * The maximum item to display. Must be a value in the labels array
+	 * 
+	 * @param max
+	 *            a {@link String} or {@code null}
+	 * @return this {@link LogarithmicTicks} instance for chaining
 	 */
 	public LogarithmicTicks setMax(String max) {
 		this.max = max;
-	    return this;
+		return this;
 	}
 
 }

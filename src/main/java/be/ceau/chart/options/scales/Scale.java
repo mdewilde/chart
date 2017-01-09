@@ -560,6 +560,6 @@ public abstract class Scale<T extends Scale<T>> {
 	    return (T) this;
 	}
 
-	public abstract Ticks getTicks();
+	public abstract Ticks<?> getTicks();
 
 }

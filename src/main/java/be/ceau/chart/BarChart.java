@@ -26,11 +26,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 
 import be.ceau.chart.data.BarData;
+import be.ceau.chart.data.Data;
 import be.ceau.chart.dataset.BarDataset;
 import be.ceau.chart.options.BarOptions;
 import be.ceau.chart.options.Options;
 import be.ceau.chart.options.scales.XAxis;
 import be.ceau.chart.options.scales.YAxis;
+import be.ceau.chart.options.ticks.LinearTicks;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE, isGetterVisibility = Visibility.NONE)
@@ -195,7 +197,7 @@ public class BarChart implements Chart {
 
 	private boolean hasXAxisWithId(String id) {
 		if (options != null && options.getScales() != null && options.getScales().getxAxes() != null) {
-			for (XAxis xAxis : options.getScales().getxAxes()) {
+			for (XAxis<LinearTicks> xAxis : options.getScales().getxAxes()) {
 				if (id.equals(xAxis.getId())) {
 					return true;
 				}
@@ -206,7 +208,7 @@ public class BarChart implements Chart {
 
 	private boolean hasYAxisWithId(String id) {
 		if (options != null && options.getScales() != null && options.getScales().getyAxes() != null) {
-			for (YAxis yAxis : options.getScales().getyAxes()) {
+			for (YAxis<LinearTicks> yAxis : options.getScales().getyAxes()) {
 				if (id.equals(yAxis.getId())) {
 					return true;
 				}

@@ -33,8 +33,8 @@ import be.ceau.chart.options.ticks.CategoryTicks;
  */
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
-public class CategoryScale<T extends CategoryScale<T>> extends Scale<T> {
-	
+public class CategoryScale extends Scale<CategoryScale> {
+
 	private CategoryTicks ticks;
 
 	@Override
@@ -42,10 +42,9 @@ public class CategoryScale<T extends CategoryScale<T>> extends Scale<T> {
 		return ticks;
 	}
 
-	@SuppressWarnings("unchecked")
-	public T setTicks(CategoryTicks ticks) {
+	public CategoryScale setTicks(CategoryTicks ticks) {
 		this.ticks = ticks;
-		return (T) this;
+		return this;
 	}
 
 }

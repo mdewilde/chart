@@ -18,15 +18,15 @@ package be.ceau.chart.options.ticks;
 import java.math.BigDecimal;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import be.ceau.chart.color.Color;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
-public class RadialLinearTicks extends Ticks {
+public class RadialLinearTicks extends Ticks<RadialLinearTicks> {
 
 	/**
 	 * Default {@code 'rgba(255, 255, 255, 0.75)'}

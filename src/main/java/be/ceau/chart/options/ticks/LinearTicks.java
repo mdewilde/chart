@@ -95,6 +95,14 @@ public class LinearTicks extends Ticks<LinearTicks> {
 	}
 
 	/**
+	 * @see #setMin(BigDecimal)
+	 */
+	public LinearTicks setMin(int min) {
+		this.min = new BigDecimal(min);
+		return this;
+	}
+
+	/**
 	 * <p>
 	 * User defined minimum number for the scale, overrides minimum value from
 	 * data.
@@ -114,6 +122,14 @@ public class LinearTicks extends Ticks<LinearTicks> {
 	 */
 	public BigDecimal getMax() {
 		return this.max;
+	}
+
+	/**
+	 * @see #setMax(BigDecimal)
+	 */
+	public LinearTicks setMax(int max) {
+		this.max = new BigDecimal(max);
+		return this;
 	}
 
 	/**
@@ -184,6 +200,22 @@ public class LinearTicks extends Ticks<LinearTicks> {
 		return this.stepSize;
 	}
 
+	/**
+	 * @see #setStepSize(BigDecimal)
+	 */
+	public LinearTicks setStepSize(double stepSize) {
+		this.stepSize = new BigDecimal(String.valueOf(stepSize));
+		return this;
+	}
+	
+	/**
+	 * @see #setStepSize(BigDecimal)
+	 */
+	public LinearTicks setStepSize(int stepSize) {
+		this.stepSize = new BigDecimal(stepSize);
+		return this;
+	}
+	
 	/**
 	 * <p>
 	 * if defined, it can be used along with the min and the max to give a

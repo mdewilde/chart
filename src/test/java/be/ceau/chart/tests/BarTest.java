@@ -26,8 +26,8 @@ import be.ceau.chart.data.BarData;
 import be.ceau.chart.dataset.BarDataset;
 import be.ceau.chart.options.BarOptions;
 import be.ceau.chart.options.scales.BarScale;
-import be.ceau.chart.options.scales.XAxis;
 import be.ceau.chart.options.scales.YAxis;
+import be.ceau.chart.options.ticks.LinearTicks;
 import be.ceau.chart.tests.util.Opener;
 import be.ceau.chart.tests.util.TestFactory;
 
@@ -53,7 +53,7 @@ public class BarTest extends ChartTest {
 	public void createExampleChart() throws IOException {
 		Opener.inBrowser(createExampleBarChart());
 	}
-	
+
 	/**
 	 * Create the example chart found at
 	 * <a href="http://www.chartjs.org/docs/#bar-chart-example-usage">Chart.js
@@ -70,50 +70,52 @@ public class BarTest extends ChartTest {
 
 	private BarChart createExampleBarChart() {
 		BarDataset dataset = new BarDataset()
-							.setLabel("My First dataset")
-							.addData(65)
-							.addBackgroundColor(new Color(255, 99, 132, 0.2))
-							.addBorderColor(new Color(255, 99, 132, 1))
-							.addData(59)
-							.addBackgroundColor(new Color(54, 162, 235, 0.2))
-							.addBorderColor(new Color(54, 162, 235, 1))
-							.addData(80)
-							.addBackgroundColor(new Color(255, 206, 86, 0.2))
-							.addBorderColor(new Color(255, 206, 86, 1))
-							.addData(81)
-							.addBackgroundColor(new Color(75, 192, 192, 0.2))
-							.addBorderColor(new Color(75, 192, 192, 1))
-							.addData(56)
-							.addBackgroundColor(new Color(153, 102, 255, 0.2))
-							.addBorderColor(new Color(153, 102, 255, 1))
-							.addData(55)
-							.addBackgroundColor(new Color(255, 159, 64, 0.2))
-							.addBorderColor(new Color(255, 159, 64, 1))
-							.addData(40)
-							.addBackgroundColor(new Color(Color.CYAN, 0.2))
-							.addBorderColor(new Color(Color.DARK_CYAN, 0.2))
-							.setBorderWidth(1);
+				.setLabel("My First dataset")
+				.addData(65)
+				.addBackgroundColor(new Color(255, 99, 132, 0.2))
+				.addBorderColor(new Color(255, 99, 132, 1))
+				.addData(59)
+				.addBackgroundColor(new Color(54, 162, 235, 0.2))
+				.addBorderColor(new Color(54, 162, 235, 1))
+				.addData(80)
+				.addBackgroundColor(new Color(255, 206, 86, 0.2))
+				.addBorderColor(new Color(255, 206, 86, 1))
+				.addData(81)
+				.addBackgroundColor(new Color(75, 192, 192, 0.2))
+				.addBorderColor(new Color(75, 192, 192, 1))
+				.addData(56)
+				.addBackgroundColor(new Color(153, 102, 255, 0.2))
+				.addBorderColor(new Color(153, 102, 255, 1))
+				.addData(55)
+				.addBackgroundColor(new Color(255, 159, 64, 0.2))
+				.addBorderColor(new Color(255, 159, 64, 1))
+				.addData(40)
+				.addBackgroundColor(new Color(Color.CYAN, 0.2))
+				.addBorderColor(new Color(Color.DARK_CYAN, 0.2))
+				.setBorderWidth(1);
 
 		BarData data = new BarData()
-						.setLabels("January")
-						.addLabel("February")
-						.addLabel("March")
-						.addLabel("April")
-						.addLabel("May")
-						.addLabel("June")
-						.addLabel("July")
-						.addDataset(dataset);
+				.setLabels("January")
+				.addLabel("February")
+				.addLabel("March")
+				.addLabel("April")
+				.addLabel("May")
+				.addLabel("June")
+				.addLabel("July")
+				.addDataset(dataset);
 
 		BarOptions options = new BarOptions();
 
-		XAxis xAxis = new XAxis();
-		xAxis.setStacked(true);
+		LinearTicks ticks = new LinearTicks()
+				.setMin(20)
+				.setMax(100)
+				.setStepSize(5);
 
-		YAxis yAxis = new YAxis();
-		yAxis.setStacked(true);
+		YAxis<LinearTicks> yAxis = BarScale
+				.yAxis()
+				.setTicks(ticks);
 
 		BarScale barScale = new BarScale();
-		barScale.addxAxes(xAxis);
 		barScale.addyAxes(yAxis);
 
 		options.setScales(barScale);

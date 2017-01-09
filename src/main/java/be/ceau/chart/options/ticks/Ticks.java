@@ -41,6 +41,11 @@ public class Ticks<T extends Ticks<T>> {
 	private Boolean autoSkip;
 
 	/**
+	 * @see #setAutoSkipPadding(BigDecimal)
+	 */
+	private BigDecimal autoSkipPadding;
+
+	/**
 	 * @see #setCallback(JavaScriptFunction)
 	 */
 	private JavaScriptFunction callback;
@@ -104,12 +109,13 @@ public class Ticks<T extends Ticks<T>> {
 	 * @see #setAutoSkip(Boolean)
 	 */
 	public Boolean getAutoSkip() {
-	    return this.autoSkip;
+		return this.autoSkip;
 	}
 
 	/**
 	 * <p>
-	 * If true, automatically calculates how many labels that can be shown and hides labels accordingly. Turn it off to show all labels no matter what
+	 * If true, automatically calculates how many labels that can be shown and
+	 * hides labels accordingly. Turn it off to show all labels no matter what
 	 * </p>
 	 * 
 	 * <p>
@@ -118,37 +124,62 @@ public class Ticks<T extends Ticks<T>> {
 	 */
 	@SuppressWarnings("unchecked")
 	public T setAutoSkip(Boolean autoSkip) {
-	    this.autoSkip = autoSkip;
-	    return (T) this;
+		this.autoSkip = autoSkip;
+		return (T) this;
+	}
+
+	/**
+	 * @see #setAutoSkipPadding(BigDecimal)
+	 */
+	public BigDecimal getAutoSkipPadding() {
+		return autoSkipPadding;
+	}
+
+	/**
+	 * <p>
+	 * Padding between the ticks on the horizontal axis when {@code autoSkip} is
+	 * enabled.
+	 * </p>
+	 * 
+	 * <p>
+	 * Note: Only applicable to horizontal scales.
+	 * </p>
+	 */
+	@SuppressWarnings("unchecked")
+	public T setAutoSkipPadding(BigDecimal autoSkipPadding) {
+		this.autoSkipPadding = autoSkipPadding;
+		return (T) this;
 	}
 
 	/**
 	 * @see #setCallback(JavaScriptFunction)
 	 */
 	public JavaScriptFunction getCallback() {
-	    return this.callback;
+		return this.callback;
 	}
 
 	/**
 	 * <p>
-	 * Returns the string representation of the tick value as it should be displayed on the chart. See callback section below.
+	 * Returns the string representation of the tick value as it should be
+	 * displayed on the chart. See callback section below.
 	 * </p>
 	 * 
 	 * <p>
-	 * Default {@code function(value) { return helpers.isArray(value) ? value : '' + value; }}
+	 * Default {@code function(value) { return helpers.isArray(value) ? value :
+	 * '' + value; }}
 	 * </p>
 	 */
 	@SuppressWarnings("unchecked")
 	public T setCallback(JavaScriptFunction callback) {
-	    this.callback = callback;
-	    return (T) this;
+		this.callback = callback;
+		return (T) this;
 	}
 
 	/**
 	 * @see #setDisplay(Boolean)
 	 */
 	public Boolean getDisplay() {
-	    return this.display;
+		return this.display;
 	}
 
 	/**
@@ -162,15 +193,15 @@ public class Ticks<T extends Ticks<T>> {
 	 */
 	@SuppressWarnings("unchecked")
 	public T setDisplay(Boolean display) {
-	    this.display = display;
-	    return (T) this;
+		this.display = display;
+		return (T) this;
 	}
 
 	/**
 	 * @see #setFontColor(Color)
 	 */
 	public Color getFontColor() {
-	    return this.fontColor;
+		return this.fontColor;
 	}
 
 	/**
@@ -184,15 +215,15 @@ public class Ticks<T extends Ticks<T>> {
 	 */
 	@SuppressWarnings("unchecked")
 	public T setFontColor(Color fontColor) {
-	    this.fontColor = fontColor;
-	    return (T) this;
+		this.fontColor = fontColor;
+		return (T) this;
 	}
 
 	/**
 	 * @see #setFontFamily(String)
 	 */
 	public String getFontFamily() {
-	    return this.fontFamily;
+		return this.fontFamily;
 	}
 
 	/**
@@ -206,15 +237,15 @@ public class Ticks<T extends Ticks<T>> {
 	 */
 	@SuppressWarnings("unchecked")
 	public T setFontFamily(String fontFamily) {
-	    this.fontFamily = fontFamily;
-	    return (T) this;
+		this.fontFamily = fontFamily;
+		return (T) this;
 	}
 
 	/**
 	 * @see #setFontSize(BigDecimal)
 	 */
 	public BigDecimal getFontSize() {
-	    return this.fontSize;
+		return this.fontSize;
 	}
 
 	/**
@@ -228,20 +259,21 @@ public class Ticks<T extends Ticks<T>> {
 	 */
 	@SuppressWarnings("unchecked")
 	public T setFontSize(BigDecimal fontSize) {
-	    this.fontSize = fontSize;
-	    return (T) this;
+		this.fontSize = fontSize;
+		return (T) this;
 	}
 
 	/**
 	 * @see #setFontStyle(FontStyle)
 	 */
 	public FontStyle getFontStyle() {
-	    return this.fontStyle;
+		return this.fontStyle;
 	}
 
 	/**
 	 * <p>
-	 * Font style for the tick labels, follows CSS font-style options (i.e. normal, italic, oblique, initial, inherit).
+	 * Font style for the tick labels, follows CSS font-style options (i.e.
+	 * normal, italic, oblique, initial, inherit).
 	 * </p>
 	 * 
 	 * <p>
@@ -250,20 +282,23 @@ public class Ticks<T extends Ticks<T>> {
 	 */
 	@SuppressWarnings("unchecked")
 	public T setFontStyle(FontStyle fontStyle) {
-	    this.fontStyle = fontStyle;
-	    return (T) this;
+		this.fontStyle = fontStyle;
+		return (T) this;
 	}
 
 	/**
 	 * @see #setLabelOffset(BigDecimal)
 	 */
 	public BigDecimal getLabelOffset() {
-	    return this.labelOffset;
+		return this.labelOffset;
 	}
 
 	/**
 	 * <p>
-	 * Distance in pixels to offset the label from the centre point of the tick (in the y direction for the x axis, and the x direction for the y axis). Note: this can cause labels at the edges to be cropped by the edge of the canvas
+	 * Distance in pixels to offset the label from the centre point of the tick
+	 * (in the y direction for the x axis, and the x direction for the y axis).
+	 * Note: this can cause labels at the edges to be cropped by the edge of the
+	 * canvas
 	 * </p>
 	 * 
 	 * <p>
@@ -272,20 +307,22 @@ public class Ticks<T extends Ticks<T>> {
 	 */
 	@SuppressWarnings("unchecked")
 	public T setLabelOffset(BigDecimal labelOffset) {
-	    this.labelOffset = labelOffset;
-	    return (T) this;
+		this.labelOffset = labelOffset;
+		return (T) this;
 	}
 
 	/**
 	 * @see #setMaxRotation(BigDecimal)
 	 */
 	public BigDecimal getMaxRotation() {
-	    return this.maxRotation;
+		return this.maxRotation;
 	}
 
 	/**
 	 * <p>
-	 * Maximum rotation for tick labels when rotating to condense labels. Note: Rotation doesn't occur until necessary. Note: Only applicable to horizontal scales.
+	 * Maximum rotation for tick labels when rotating to condense labels. Note:
+	 * Rotation doesn't occur until necessary. Note: Only applicable to
+	 * horizontal scales.
 	 * </p>
 	 * 
 	 * <p>
@@ -294,20 +331,21 @@ public class Ticks<T extends Ticks<T>> {
 	 */
 	@SuppressWarnings("unchecked")
 	public T setMaxRotation(BigDecimal maxRotation) {
-	    this.maxRotation = maxRotation;
-	    return (T) this;
+		this.maxRotation = maxRotation;
+		return (T) this;
 	}
 
 	/**
 	 * @see #setMinRotation(BigDecimal)
 	 */
 	public BigDecimal getMinRotation() {
-	    return this.minRotation;
+		return this.minRotation;
 	}
 
 	/**
 	 * <p>
-	 * Minimum rotation for tick labels. Note: Only applicable to horizontal scales.
+	 * Minimum rotation for tick labels. Note: Only applicable to horizontal
+	 * scales.
 	 * </p>
 	 * 
 	 * <p>
@@ -316,20 +354,21 @@ public class Ticks<T extends Ticks<T>> {
 	 */
 	@SuppressWarnings("unchecked")
 	public T setMinRotation(BigDecimal minRotation) {
-	    this.minRotation = minRotation;
-	    return (T) this;
+		this.minRotation = minRotation;
+		return (T) this;
 	}
 
 	/**
 	 * @see #setMirror(Boolean)
 	 */
 	public Boolean getMirror() {
-	    return this.mirror;
+		return this.mirror;
 	}
 
 	/**
 	 * <p>
-	 * Flips tick labels around axis, displaying the labels inside the chart instead of outside. Note: Only applicable to vertical scales.
+	 * Flips tick labels around axis, displaying the labels inside the chart
+	 * instead of outside. Note: Only applicable to vertical scales.
 	 * </p>
 	 * 
 	 * <p>
@@ -338,20 +377,21 @@ public class Ticks<T extends Ticks<T>> {
 	 */
 	@SuppressWarnings("unchecked")
 	public T setMirror(Boolean mirror) {
-	    this.mirror = mirror;
-	    return (T) this;
+		this.mirror = mirror;
+		return (T) this;
 	}
 
 	/**
 	 * @see #setPadding(BigDecimal)
 	 */
 	public BigDecimal getPadding() {
-	    return this.padding;
+		return this.padding;
 	}
 
 	/**
 	 * <p>
-	 * Padding between the tick label and the axis. Note: Only applicable to horizontal scales.
+	 * Padding between the tick label and the axis. Note: Only applicable to
+	 * horizontal scales.
 	 * </p>
 	 * 
 	 * <p>
@@ -360,15 +400,15 @@ public class Ticks<T extends Ticks<T>> {
 	 */
 	@SuppressWarnings("unchecked")
 	public T setPadding(BigDecimal padding) {
-	    this.padding = padding;
-	    return (T) this;
+		this.padding = padding;
+		return (T) this;
 	}
 
 	/**
 	 * @see #setReverse(Boolean)
 	 */
 	public Boolean getReverse() {
-	    return this.reverse;
+		return this.reverse;
 	}
 
 	/**
@@ -382,8 +422,8 @@ public class Ticks<T extends Ticks<T>> {
 	 */
 	@SuppressWarnings("unchecked")
 	public T setReverse(Boolean reverse) {
-	    this.reverse = reverse;
-	    return (T) this;
+		this.reverse = reverse;
+		return (T) this;
 	}
 
 }
