@@ -22,10 +22,19 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import be.ceau.chart.color.Color;
 
+/**
+ * <p>
+ * Arcs are used in the polar area, doughnut and pie charts.
+ * </p>
+ * <p>
+ * When set, these options apply to all objects of that type unless specifically
+ * overridden by the configuration attached to a dataset.
+ * </p>
+ */
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 public class Arc {
-	
+
 	/**
 	 * @see #setBackgroundColor(Color)
 	 */
@@ -45,7 +54,7 @@ public class Arc {
 	 * @see #setBackgroundColor(Color)
 	 */
 	public Color getBackgroundColor() {
-	    return this.backgroundColor;
+		return this.backgroundColor;
 	}
 
 	/**
@@ -58,15 +67,15 @@ public class Arc {
 	 * </p>
 	 */
 	public Arc setBackgroundColor(Color backgroundColor) {
-	    this.backgroundColor = backgroundColor;
-	    return this;
+		this.backgroundColor = backgroundColor;
+		return this;
 	}
 
 	/**
 	 * @see #setBorderColor(Color)
 	 */
 	public Color getBorderColor() {
-	    return this.borderColor;
+		return this.borderColor;
 	}
 
 	/**
@@ -79,15 +88,15 @@ public class Arc {
 	 * </p>
 	 */
 	public Arc setBorderColor(Color borderColor) {
-	    this.borderColor = borderColor;
-	    return this;
+		this.borderColor = borderColor;
+		return this;
 	}
 
 	/**
 	 * @see #setBorderWidth(Integer)
 	 */
 	public Integer getBorderWidth() {
-	    return this.borderWidth;
+		return this.borderWidth;
 	}
 
 	/**
@@ -100,8 +109,8 @@ public class Arc {
 	 * </p>
 	 */
 	public Arc setBorderWidth(Integer borderWidth) {
-	    this.borderWidth = borderWidth;
-	    return this;
+		this.borderWidth = borderWidth;
+		return this;
 	}
 
 }

@@ -26,6 +26,15 @@ import be.ceau.chart.color.Color;
 import be.ceau.chart.enums.BorderCapStyle;
 import be.ceau.chart.enums.BorderJoinStyle;
 
+/**
+ * <p>
+ * Line elements are used to represent the line in a line chart.
+ * </p>
+ * <p>
+ * When set, these options apply to all objects of that type unless specifically
+ * overridden by the configuration attached to a dataset.
+ * </p>
+ */
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 public class Line {
@@ -103,7 +112,7 @@ public class Line {
 	 */
 	public Line setTension(Float tension) {
 		this.tension = tension;
-	    return this;
+		return this;
 	}
 
 	/**
@@ -124,7 +133,7 @@ public class Line {
 	 */
 	public Line setBackgroundColor(Color backgroundColor) {
 		this.backgroundColor = backgroundColor;
-	    return this;
+		return this;
 	}
 
 	/**
@@ -145,7 +154,7 @@ public class Line {
 	 */
 	public Line setBorderWidth(Integer borderWidth) {
 		this.borderWidth = borderWidth;
-	    return this;
+		return this;
 	}
 
 	/**
@@ -166,7 +175,7 @@ public class Line {
 	 */
 	public Line setBorderColor(Color borderColor) {
 		this.borderColor = borderColor;
-	    return this;
+		return this;
 	}
 
 	/**
@@ -194,7 +203,7 @@ public class Line {
 	 */
 	public Line setBorderCapStyle(BorderCapStyle borderCapStyle) {
 		this.borderCapStyle = borderCapStyle;
-	    return this;
+		return this;
 	}
 
 	/**
@@ -222,7 +231,7 @@ public class Line {
 	 */
 	public Line setBorderDash(List<Integer> borderDash) {
 		this.borderDash = borderDash;
-	    return this;
+		return this;
 	}
 
 	/**
@@ -244,7 +253,7 @@ public class Line {
 	 */
 	public Line setBorderDashOffset(Float borderDashOffset) {
 		this.borderDashOffset = borderDashOffset;
-	    return this;
+		return this;
 	}
 
 	/**
@@ -278,7 +287,7 @@ public class Line {
 	 */
 	public Line setBorderJoinStyle(BorderJoinStyle borderJoinStyle) {
 		this.borderJoinStyle = borderJoinStyle;
-	    return this;
+		return this;
 	}
 
 	/**
@@ -300,7 +309,7 @@ public class Line {
 	 */
 	public Line setCapBezierPoints(Boolean capBezierPoints) {
 		this.capBezierPoints = capBezierPoints;
-	    return this;
+		return this;
 	}
 
 	/**
@@ -321,7 +330,7 @@ public class Line {
 	 */
 	public Line setFill(Boolean fill) {
 		this.fill = fill;
-	    return this;
+		return this;
 	}
 
 	/**
@@ -343,7 +352,7 @@ public class Line {
 	 */
 	public Line setStepped(Boolean stepped) {
 		this.stepped = stepped;
-	    return this;
+		return this;
 	}
 
 }

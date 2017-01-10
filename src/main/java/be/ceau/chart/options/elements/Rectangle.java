@@ -23,6 +23,15 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import be.ceau.chart.color.Color;
 import be.ceau.chart.enums.BorderSkipped;
 
+/**
+ * <p>
+ * Rectangle elements are used to represent the bars in a bar chart.
+ * </p>
+ * <p>
+ * When set, these options apply to all objects of that type unless specifically
+ * overridden by the configuration attached to a dataset.
+ * </p>
+ */
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 public class Rectangle {
@@ -65,7 +74,7 @@ public class Rectangle {
 	 */
 	public Rectangle setBackgroundColor(Color backgroundColor) {
 		this.backgroundColor = backgroundColor;
-	    return this;
+		return this;
 	}
 
 	/**
@@ -86,7 +95,7 @@ public class Rectangle {
 	 */
 	public Rectangle setBorderWidth(Integer borderWidth) {
 		this.borderWidth = borderWidth;
-	    return this;
+		return this;
 	}
 
 	/**
@@ -107,7 +116,7 @@ public class Rectangle {
 	 */
 	public Rectangle setBorderColor(Color borderColor) {
 		this.borderColor = borderColor;
-	    return this;
+		return this;
 	}
 
 	/**
@@ -129,7 +138,7 @@ public class Rectangle {
 	 */
 	public Rectangle setBorderSkipped(BorderSkipped borderSkipped) {
 		this.borderSkipped = borderSkipped;
-	    return this;
+		return this;
 	}
 
 }

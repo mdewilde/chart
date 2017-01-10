@@ -48,6 +48,7 @@ public class Animation<T extends Animation<T>> {
 	private JavaScriptFunction onComplete;
 
 	/**
+	 * @return duration as {@link Integer} or {@code null}
 	 * @see #setDuration(Integer)
 	 */
 	public Integer getDuration() {
@@ -70,6 +71,7 @@ public class Animation<T extends Animation<T>> {
 	}
 
 	/**
+	 * @return {@link Easing} or {@code null}
 	 * @see #setEasing(Easing)
 	 */
 	public Easing getEasing() {
@@ -97,6 +99,7 @@ public class Animation<T extends Animation<T>> {
 	}
 
 	/**
+	 * @return {@link JavaScriptFunction} or {@code null}
 	 * @see #setOnProgress(JavaScriptFunction onProgress)
 	 */
 	public JavaScriptFunction getOnProgress() {
@@ -121,6 +124,7 @@ public class Animation<T extends Animation<T>> {
 	}
 
 	/**
+	 * @return {@link JavaScriptFunction} or {@code null}
 	 * @see #setOnComplete(JavaScriptFunction)
 	 */
 	public JavaScriptFunction getOnComplete() {

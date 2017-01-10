@@ -23,10 +23,20 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import be.ceau.chart.color.Color;
 import be.ceau.chart.enums.PointStyle;
 
+/**
+ * <p>
+ * Point elements are used to represent the points in a line chart or a bubble
+ * chart.
+ * </p>
+ * <p>
+ * When set, these options apply to all objects of that type unless specifically
+ * overridden by the configuration attached to a dataset.
+ * </p>
+ */
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 public class Point {
-	
+
 	/**
 	 * @see #setRadius(Integer)
 	 */
@@ -71,7 +81,7 @@ public class Point {
 	 * @see #setRadius(Integer)
 	 */
 	public Integer getRadius() {
-	    return this.radius;
+		return this.radius;
 	}
 
 	/**
@@ -84,15 +94,15 @@ public class Point {
 	 * </p>
 	 */
 	public Point setRadius(Integer radius) {
-	    this.radius = radius;
-	    return this;
+		this.radius = radius;
+		return this;
 	}
 
 	/**
 	 * @see #setPointStyle(PointStyle)
 	 */
 	public PointStyle getPointStyle() {
-	    return this.pointStyle;
+		return this.pointStyle;
 	}
 
 	/**
@@ -105,15 +115,15 @@ public class Point {
 	 * </p>
 	 */
 	public Point setPointStyle(PointStyle pointStyle) {
-	    this.pointStyle = pointStyle;
-	    return this;
+		this.pointStyle = pointStyle;
+		return this;
 	}
 
 	/**
 	 * @see #setBackgroundColor(Color)
 	 */
 	public Color getBackgroundColor() {
-	    return this.backgroundColor;
+		return this.backgroundColor;
 	}
 
 	/**
@@ -126,15 +136,15 @@ public class Point {
 	 * </p>
 	 */
 	public Point setBackgroundColor(Color backgroundColor) {
-	    this.backgroundColor = backgroundColor;
-	    return this;
+		this.backgroundColor = backgroundColor;
+		return this;
 	}
 
 	/**
 	 * @see #setBorderWidth(Integer)
 	 */
 	public Integer getBorderWidth() {
-	    return this.borderWidth;
+		return this.borderWidth;
 	}
 
 	/**
@@ -147,15 +157,15 @@ public class Point {
 	 * </p>
 	 */
 	public Point setBorderWidth(Integer borderWidth) {
-	    this.borderWidth = borderWidth;
-	    return this;
+		this.borderWidth = borderWidth;
+		return this;
 	}
 
 	/**
 	 * @see #setBorderColor(Color)
 	 */
 	public Color getBorderColor() {
-	    return this.borderColor;
+		return this.borderColor;
 	}
 
 	/**
@@ -168,15 +178,15 @@ public class Point {
 	 * </p>
 	 */
 	public Point setBorderColor(Color borderColor) {
-	    this.borderColor = borderColor;
-	    return this;
+		this.borderColor = borderColor;
+		return this;
 	}
 
 	/**
 	 * @see #setHitRadius(Integer)
 	 */
 	public Integer getHitRadius() {
-	    return this.hitRadius;
+		return this.hitRadius;
 	}
 
 	/**
@@ -189,15 +199,15 @@ public class Point {
 	 * </p>
 	 */
 	public Point setHitRadius(Integer hitRadius) {
-	    this.hitRadius = hitRadius;
-	    return this;
+		this.hitRadius = hitRadius;
+		return this;
 	}
 
 	/**
 	 * @see #setHoverRadius(Integer)
 	 */
 	public Integer getHoverRadius() {
-	    return this.hoverRadius;
+		return this.hoverRadius;
 	}
 
 	/**
@@ -210,15 +220,15 @@ public class Point {
 	 * </p>
 	 */
 	public Point setHoverRadius(Integer hoverRadius) {
-	    this.hoverRadius = hoverRadius;
-	    return this;
+		this.hoverRadius = hoverRadius;
+		return this;
 	}
 
 	/**
 	 * @see #setHoverBorderWidth(Integer)
 	 */
 	public Integer getHoverBorderWidth() {
-	    return this.hoverBorderWidth;
+		return this.hoverBorderWidth;
 	}
 
 	/**
@@ -231,8 +241,8 @@ public class Point {
 	 * </p>
 	 */
 	public Point setHoverBorderWidth(Integer hoverBorderWidth) {
-	    this.hoverBorderWidth = hoverBorderWidth;
-	    return this;
+		this.hoverBorderWidth = hoverBorderWidth;
+		return this;
 	}
 
 }

@@ -63,8 +63,9 @@ public class BarOptions extends Options<BarOptions> {
 		return scales;
 	}
 
-	public void setScales(BarScale scales) {
+	public BarOptions setScales(BarScale scales) {
 		this.scales = scales;
+		return this;
 	}
 
 }
