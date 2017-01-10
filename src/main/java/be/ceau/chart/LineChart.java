@@ -67,6 +67,10 @@ public class LineChart implements Chart {
 	public LineChart() {
 	}
 
+	public LineChart(LineData data) {
+		this.data = data;
+	}
+
 	public LineChart(LineData data, LineOptions options) {
 		this.data = data;
 		this.options = options;

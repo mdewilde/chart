@@ -65,6 +65,10 @@ public class BubbleChart implements Chart {
 	public BubbleChart() {
 	}
 
+	public BubbleChart(BubbleData data) {
+		this.data = data;
+	}
+
 	public BubbleChart(BubbleData data, BubbleOptions options) {
 		this.data = data;
 		this.options = options;

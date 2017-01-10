@@ -66,6 +66,10 @@ public class PieChart implements Chart {
 	public PieChart() {
 	}
 
+	public PieChart(PieData data) {
+		this.data = data;
+	}
+
 	public PieChart(PieData data, PieOptions options) {
 		this.data = data;
 		this.options = options;

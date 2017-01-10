@@ -72,6 +72,10 @@ public class BarChart implements Chart {
 	public BarChart() {
 	}
 
+	public BarChart(BarData data) {
+		this.data = data;
+	}
+
 	public BarChart(BarData data, BarOptions options) {
 		this.data = data;
 		this.options = options;

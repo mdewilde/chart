@@ -9,7 +9,17 @@ Chart.java enables integration with the excellent [Chart.js](http://www.chartjs.
 In Java:
 
 ```Java
-return new BubbleChart(data, options).toJson();
+BarDataset dataset = new BarDataset()
+		.setLabel("sample chart")
+		.setData(65, 59, 80, 81, 56, 55, 40)
+		.addBackgroundColors(Color.RED, Color.GREEN, Color.BLUE, Color.YELLOW, Color.ORANGE, Color.GRAY, Color.BLACK)
+		.setBorderWidth(2);
+
+BarData data = new BarData()
+		.addLabels("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")
+		.addDataset(dataset);
+
+return new BarChart(data).toJson();
 ```
 
 In JavaScript:

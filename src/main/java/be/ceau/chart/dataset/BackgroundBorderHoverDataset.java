@@ -15,6 +15,7 @@
 */
 package be.ceau.chart.dataset;
 
+import java.util.Arrays;
 import java.util.List;
 
 import be.ceau.chart.color.Color;
@@ -74,6 +75,17 @@ public abstract class BackgroundBorderHoverDataset<T extends BackgroundBorderHov
 	 * @see #setBackgroundColor(List)
 	 */
 	@SuppressWarnings("unchecked")
+	public T addBackgroundColors(Color... backgroundColors) {
+	    if (backgroundColors != null) {
+	    	this.backgroundColor.addAll(Arrays.asList(backgroundColors));
+	    }
+	    return (T) this;
+	}
+
+	/**
+	 * @see #setBackgroundColor(List)
+	 */
+	@SuppressWarnings("unchecked")
 	public T setBackgroundColor(Color backgroundColor) {
 	    this.backgroundColor.clear();
 	    addBackgroundColor(backgroundColor);
@@ -106,6 +118,17 @@ public abstract class BackgroundBorderHoverDataset<T extends BackgroundBorderHov
 	public T addBorderColor(Color borderColor) {
 	    if (borderColor != null) {
 	    	this.borderColor.add(borderColor);
+	    }
+	    return (T) this;
+	}
+
+	/**
+	 * @see #setBorderColor(List)
+	 */
+	@SuppressWarnings("unchecked")
+	public T addBorderColors(Color... borderColors) {
+	    if (borderColors != null) {
+	    	this.borderColor.addAll(Arrays.asList(borderColors));
 	    }
 	    return (T) this;
 	}

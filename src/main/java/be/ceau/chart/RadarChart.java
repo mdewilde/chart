@@ -66,6 +66,10 @@ public class RadarChart implements Chart {
 	public RadarChart() {
 	}
 
+	public RadarChart(RadarData data) {
+		this.data = data;
+	}
+
 	public RadarChart(RadarData data, RadarOptions options) {
 		this.data = data;
 		this.options = options;

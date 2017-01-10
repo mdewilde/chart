@@ -67,6 +67,10 @@ public class ScatterLineChart implements Chart {
 	public ScatterLineChart() {
 	}
 
+	public ScatterLineChart(ScatterLineData data) {
+		this.data = data;
+	}
+
 	public ScatterLineChart(ScatterLineData data, LineOptions options) {
 		this.data = data;
 		this.options = options;

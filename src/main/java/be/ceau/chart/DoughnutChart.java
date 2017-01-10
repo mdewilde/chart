@@ -65,6 +65,10 @@ public class DoughnutChart implements Chart {
 	public DoughnutChart() {
 	}
 
+	public DoughnutChart(DoughnutData data) {
+		this.data = data;
+	}
+
 	public DoughnutChart(DoughnutData data, DoughnutOptions options) {
 		this.data = data;
 		this.options = options;

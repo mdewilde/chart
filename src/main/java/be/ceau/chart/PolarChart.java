@@ -66,6 +66,10 @@ public class PolarChart implements Chart {
 	public PolarChart() {
 	}
 
+	public PolarChart(PolarData data) {
+		this.data = data;
+	}
+
 	public PolarChart(PolarData data, PolarOptions options) {
 		this.data = data;
 		this.options = options;
