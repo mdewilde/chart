@@ -14,7 +14,6 @@
 	limitations under the License.
 */
 /**
- * @author marceau
- *
+ * Models for tick marks along axes.
  */
 package be.ceau.chart.options.ticks;
