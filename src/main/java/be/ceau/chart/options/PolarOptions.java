@@ -22,11 +22,23 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import be.ceau.chart.javascript.JavaScriptFunction;
 import be.ceau.chart.options.animation.PolarAnimation;
+import be.ceau.chart.options.elements.ArcElements;
 import be.ceau.chart.options.scales.RadialLinearScale;
+import be.ceau.chart.options.scales.Scale;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 public class PolarOptions extends Options<PolarOptions> {
+
+	/**
+	 * Static factory, constructs a {@link Scale} implementation appropriate
+	 * for a {@link PolarOptions} instance.
+	 * 
+	 * @return a new {@link RadialLinearScale} instance
+	 */
+	public static RadialLinearScale scales() {
+		return new RadialLinearScale();
+	}
 
 	/**
 	 * @see #setScale(RadialLinearScale scale)
@@ -46,6 +58,8 @@ public class PolarOptions extends Options<PolarOptions> {
 	 * @see #setLegendCallback(JavaScriptFunction legendCallback)
 	 */
 	private JavaScriptFunction legendCallback;
+
+	private ArcElements elements;
 
 	/**
 	 * @see #setScale(RadialLinearScale)
@@ -90,6 +104,23 @@ public class PolarOptions extends Options<PolarOptions> {
 	 */
 	public PolarOptions setLegendCallback(JavaScriptFunction legendCallback) {
 		this.legendCallback = legendCallback;
+		return this;
+	}
+
+	/**
+	 * @return {@link ArcElements} instance, or {@code null} if not set
+	 */
+	public ArcElements getElements() {
+		return elements;
+	}
+
+	/**
+	 * @param elements
+	 *            an {@link ArcElements} instance, or {@code null}
+	 * @return this instance for method chaining
+	 */
+	public PolarOptions setElements(ArcElements elements) {
+		this.elements = elements;
 		return this;
 	}
 

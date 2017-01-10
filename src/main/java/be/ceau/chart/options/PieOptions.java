@@ -23,6 +23,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import be.ceau.chart.options.animation.PieAnimation;
+import be.ceau.chart.options.elements.ArcElements;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
@@ -56,6 +57,8 @@ public class PieOptions extends Options<PieOptions> {
 	 */
 	private PieAnimation animation;
 
+	private ArcElements elements;
+	
 	/**
 	 * @see #setCutoutPercentage(BigDecimal cutoutPercentage)
 	 */
@@ -115,6 +118,23 @@ public class PieOptions extends Options<PieOptions> {
 	public PieOptions setAnimation(PieAnimation animation) {
 	    this.animation = animation;
 	    return this;
+	}
+
+	/**
+	 * @return {@link ArcElements} instance, or {@code null} if not set
+	 */
+	public ArcElements getElements() {
+		return elements;
+	}
+
+	/**
+	 * @param elements
+	 *            an {@link ArcElements} instance, or {@code null}
+	 * @return this instance for method chaining
+	 */
+	public PieOptions setElements(ArcElements elements) {
+		this.elements = elements;
+		return this;
 	}
 
 }

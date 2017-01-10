@@ -20,11 +20,23 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
+import be.ceau.chart.options.elements.LineElements;
 import be.ceau.chart.options.scales.LinearScales;
+import be.ceau.chart.options.scales.Scale;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 public class LineOptions extends Options<LineOptions> {
+	
+	/**
+	 * Static factory, constructs a {@link Scale} implementation appropriate
+	 * for a {@link LineOptions} instance.
+	 * 
+	 * @return a new {@link LinearScales} instance
+	 */
+	public static LinearScales scales() {
+		return new LinearScales();
+	}
 
 	/**
 	 * @see #setShowLines(Boolean)
@@ -41,6 +53,8 @@ public class LineOptions extends Options<LineOptions> {
 	 */
 	private LinearScales scales;
 
+	private LineElements elements;
+	
 	/**
 	 * @see #setShowLines(Boolean)
 	 */
@@ -95,6 +109,23 @@ public class LineOptions extends Options<LineOptions> {
 	 */
 	public LineOptions setScales(LinearScales scales) {
 		this.scales = scales;
+		return this;
+	}
+
+	/**
+	 * @return {@link LineElements} instance, or {@code null} if not set
+	 */
+	public LineElements getElements() {
+		return elements;
+	}
+
+	/**
+	 * @param elements
+	 *            an {@link LineElements} instance, or {@code null}
+	 * @return this instance for method chaining
+	 */
+	public LineOptions setElements(LineElements elements) {
+		this.elements = elements;
 		return this;
 	}
 

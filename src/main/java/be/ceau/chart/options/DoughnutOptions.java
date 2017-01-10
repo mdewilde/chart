@@ -23,6 +23,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import be.ceau.chart.options.animation.DoughnutAnimation;
+import be.ceau.chart.options.elements.ArcElements;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
@@ -55,6 +56,8 @@ public class DoughnutOptions extends Options<DoughnutOptions> {
 	 * @see #setAnimation(DoughnutAnimation)
 	 */
 	private DoughnutAnimation animation;
+
+	private ArcElements elements;
 
 	/**
 	 * @see #setCutoutPercentage(BigDecimal cutoutPercentage)
@@ -113,6 +116,23 @@ public class DoughnutOptions extends Options<DoughnutOptions> {
 	 */
 	public DoughnutOptions setAnimation(DoughnutAnimation animation) {
 		this.animation = animation;
+		return this;
+	}
+
+	/**
+	 * @return {@link ArcElements} instance, or {@code null} if not set
+	 */
+	public ArcElements getElements() {
+		return elements;
+	}
+
+	/**
+	 * @param elements
+	 *            an {@link ArcElements} instance, or {@code null}
+	 * @return this instance for method chaining
+	 */
+	public DoughnutOptions setElements(ArcElements elements) {
+		this.elements = elements;
 		return this;
 	}
 

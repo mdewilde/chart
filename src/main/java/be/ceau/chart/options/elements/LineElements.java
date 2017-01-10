@@ -1,0 +1,89 @@
+/*
+	Copyright 2017 Marceau Dewilde <m@ceau.be>
+
+	Licensed under the Apache License, Version 2.0 (the "License");
+	you may not use this file except in compliance with the License.
+	You may obtain a copy of the License at
+
+		http://www.apache.org/licenses/LICENSE-2.0
+
+	Unless required by applicable law or agreed to in writing, software
+	distributed under the License is distributed on an "AS IS" BASIS,
+	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	See the License for the specific language governing permissions and
+	limitations under the License.
+*/
+package be.ceau.chart.options.elements;
+
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
+/**
+ * Line elements are used to represent the line in a line chart.
+ */
+@JsonInclude(Include.NON_EMPTY)
+@JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
+public class LineElements {
+
+	private Line line;
+	private Point point;
+
+	/**
+	 * Constructor
+	 * 
+	 * @param line
+	 *            {@link Line} instance or {@code null}
+	 */
+	public LineElements(Line line) {
+		this.line = line;
+	}
+
+	/**
+	 * Constructor
+	 * 
+	 * @param point
+	 *            {@link Point} instance or {@code null}
+	 */
+	public LineElements(Point point) {
+		this.point = point;
+	}
+
+	/**
+	 * @return {@link Line} instance or {@code null} if not set
+	 * @see #setLine(Line)
+	 */
+	public Line getLine() {
+		return line;
+	}
+
+	/**
+	 * @param line
+	 *            {@link Line} instance or {@code null}
+	 * @return this {@link LineElements} instance for chaining
+	 */
+	public LineElements setLine(Line line) {
+		this.line = line;
+		return this;
+	}
+
+	/**
+	 * @return {@link Point} instance or {@code null} if not set
+	 * @see #setPoint(Point)
+	 */
+	public Point getPoint() {
+		return point;
+	}
+
+	/**
+	 * @param point
+	 *            {@link Point} instance or {@code null}
+	 * @return this {@link LineElements} instance for chaining
+	 */
+	public LineElements setPoint(Point point) {
+		this.point = point;
+		return this;
+	}
+
+}

@@ -20,27 +20,30 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
+import be.ceau.chart.options.elements.RectangleElements;
 import be.ceau.chart.options.scales.BarScale;
+import be.ceau.chart.options.scales.Scale;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 public class BarOptions extends Options<BarOptions> {
 
 	/**
-	 * Default {@code "label"}
+	 * Static factory, constructs a {@link Scale} implementation appropriate for
+	 * a {@link BarOptions} instance.
 	 * 
-	 * @see #setHover(Hover)
+	 * @return a new {@link BarScale} instance
 	 */
+	public static BarScale scales() {
+		return new BarScale();
+	}
+
 	private Hover hover;
-
-	/**
-	 * Default {@code -}
-	 * 
-	 * @see #setScales(BarScale)
-	 */
 	private BarScale scales;
-
+	private RectangleElements elements;
+	
 	/**
+	 * @return {@link Hover} instance or {@code null}
 	 * @see #setHover(Hover)
 	 */
 	public Hover getHover() {
@@ -48,8 +51,17 @@ public class BarOptions extends Options<BarOptions> {
 	}
 
 	/**
+	 * <p>
 	 * Label's hover mode. "label" is used since the x axis displays data by the
 	 * index in the dataset.
+	 * </p>
+	 * <p>
+	 * Default {@code "label"}
+	 * </p>
+	 * 
+	 * @param hover
+	 *            {@link Hover} instance or {@code null}
+	 * @return this {@link BarOptions} instance for method chaining
 	 */
 	public BarOptions setHover(Hover hover) {
 		this.hover = hover;
@@ -57,14 +69,41 @@ public class BarOptions extends Options<BarOptions> {
 	}
 
 	/**
+	 * @return {@link BarScale} instance or {@code null}
 	 * @see #setScales(BarScale)
 	 */
 	public BarScale getScales() {
 		return scales;
 	}
 
+	/**
+	 * <p>
+	 * Default {@code -}
+	 * </p>
+	 * 
+	 * @param scales
+	 *            {@link BarScale} instance or {@code null}
+	 * @return this {@link BarOptions} instance for method chaining
+	 */
 	public BarOptions setScales(BarScale scales) {
 		this.scales = scales;
+		return this;
+	}
+
+	/**
+	 * @return {@link RectangleElements} instance, or {@code null} if not set
+	 */
+	public RectangleElements getElements() {
+		return elements;
+	}
+
+	/**
+	 * @param elements
+	 *            an {@link RectangleElements} instance, or {@code null}
+	 * @return this instance for method chaining
+	 */
+	public BarOptions setElements(RectangleElements elements) {
+		this.elements = elements;
 		return this;
 	}
 

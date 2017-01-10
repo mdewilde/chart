@@ -15,7 +15,6 @@
 */
 package be.ceau.chart.options;
 
-import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.EnumSet;
 import java.util.Set;
@@ -33,67 +32,17 @@ import be.ceau.chart.options.animation.Animation;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 public class Options<T extends Options<T>> {
 
-	/**
-	 * Default {@code true}
-	 * 
-	 * @see #setResponsive(Boolean)
-	 */
 	private Boolean responsive;
-
-	/**
-	 * Default {@code 0}
-	 * 
-	 * @see #setResponsiveAnimationDuration(BigDecimal)
-	 */
 	private Integer responsiveAnimationDuration;
-
-	/**
-	 * Default {@code true}
-	 * 
-	 * @see #setMaintainAspectRatio(Boolean)
-	 */
 	private Boolean maintainAspectRatio;
-
-	/**
-	 * Default
-	 * {@code ["mousemove", "mouseout", "click", "touchstart", "touchmove", "touchend"]}
-	 * 
-	 * @see #setEvents(Collection)
-	 */
 	private final Set<Event> events = EnumSet.noneOf(Event.class);
-
-	/**
-	 * Default {@code null}
-	 * 
-	 * @see #setOnClick(JavaScriptFunction)
-	 */
 	private JavaScriptFunction onClick;
-
-	/**
-	 * Default {@code function (chart) { }}
-	 * 
-	 * @see #setLegendCallback(JavaScriptFunction)
-	 */
 	private JavaScriptFunction legendCallback;
-
-	/**
-	 * Default {@code null}
-	 * 
-	 * @see #setOnResize(JavaScriptFunction)
-	 */
 	private JavaScriptFunction onResize;
-
-	/**
-	 * @see #setTitle(Title)
-	 */
 	private Title title;
-
 	private Legend legend;
-
 	private Tooltips tooltips;
-
 	private Hover hover;
-
 	private Animation<?> animation;
 
 	/**
@@ -104,12 +53,12 @@ public class Options<T extends Options<T>> {
 	}
 
 	/**
-	 * Resizes when the canvas container does.
+	 * Default {@code true} Resizes when the canvas container does.
 	 */
 	@SuppressWarnings("unchecked")
 	public T setResponsive(Boolean responsive) {
 		this.responsive = responsive;
-	    return (T) this;
+		return (T) this;
 	}
 
 	/**
@@ -120,13 +69,13 @@ public class Options<T extends Options<T>> {
 	}
 
 	/**
-	 * Duration in milliseconds it takes to animate to new size after a resize
-	 * event.
+	 * Default {@code 0} Duration in milliseconds it takes to animate to new
+	 * size after a resize event.
 	 */
 	@SuppressWarnings("unchecked")
 	public T setResponsiveAnimationDuration(Integer responsiveAnimationDuration) {
 		this.responsiveAnimationDuration = responsiveAnimationDuration;
-	    return (T) this;
+		return (T) this;
 	}
 
 	/**
@@ -137,12 +86,13 @@ public class Options<T extends Options<T>> {
 	}
 
 	/**
-	 * Maintain the original canvas aspect ratio (width / height) when resizing
+	 * Default {@code true} Maintain the original canvas aspect ratio (width /
+	 * height) when resizing
 	 */
 	@SuppressWarnings("unchecked")
 	public T setMaintainAspectRatio(Boolean maintainAspectRatio) {
 		this.maintainAspectRatio = maintainAspectRatio;
-	    return (T) this;
+		return (T) this;
 	}
 
 	/**
@@ -153,6 +103,8 @@ public class Options<T extends Options<T>> {
 	}
 
 	/**
+	 * Default
+	 * {@code ["mousemove", "mouseout", "click", "touchstart", "touchmove", "touchend"]}
 	 * Events that the chart should listen to for tooltips and hovering
 	 */
 	@SuppressWarnings("unchecked")
@@ -161,7 +113,7 @@ public class Options<T extends Options<T>> {
 		if (events != null) {
 			this.events.addAll(events);
 		}
-	    return (T) this;
+		return (T) this;
 	}
 
 	/**
@@ -172,13 +124,13 @@ public class Options<T extends Options<T>> {
 	}
 
 	/**
-	 * Called if the event is of type 'mouseup' or 'click'. Called in the
-	 * context of the chart and passed an array of active elements
+	 * Default {@code null} Called if the event is of type 'mouseup' or 'click'.
+	 * Called in the context of the chart and passed an array of active arcElements
 	 */
 	@SuppressWarnings("unchecked")
 	public T setOnClick(JavaScriptFunction onClick) {
 		this.onClick = onClick;
-	    return (T) this;
+		return (T) this;
 	}
 
 	/**
@@ -189,13 +141,14 @@ public class Options<T extends Options<T>> {
 	}
 
 	/**
-	 * Function to generate a legend. Receives the chart object to generate a
-	 * legend from. Default implementation returns an HTML string.
+	 * Default {@code function (chart) { }} Function to generate a legend.
+	 * Receives the chart object to generate a legend from. Default
+	 * implementation returns an HTML string.
 	 */
 	@SuppressWarnings("unchecked")
 	public T setLegendCallback(JavaScriptFunction legendCallback) {
 		this.legendCallback = legendCallback;
-	    return (T) this;
+		return (T) this;
 	}
 
 	/**
@@ -206,13 +159,13 @@ public class Options<T extends Options<T>> {
 	}
 
 	/**
-	 * Called when a resize occurs. Gets passed two arguemnts: the chart
-	 * instance and the new size.
+	 * Default {@code null} Called when a resize occurs. Gets passed two
+	 * arguemnts: the chart instance and the new size.
 	 */
 	@SuppressWarnings("unchecked")
 	public T setOnResize(JavaScriptFunction onResize) {
 		this.onResize = onResize;
-	    return (T) this;
+		return (T) this;
 	}
 
 	/**
@@ -230,7 +183,7 @@ public class Options<T extends Options<T>> {
 	@SuppressWarnings("unchecked")
 	public T setTitle(Title title) {
 		this.title = title;
-	    return (T) this;
+		return (T) this;
 	}
 
 	/**
@@ -248,7 +201,7 @@ public class Options<T extends Options<T>> {
 	@SuppressWarnings("unchecked")
 	public T setLegend(Legend legend) {
 		this.legend = legend;
-	    return (T) this;
+		return (T) this;
 	}
 
 	/**
@@ -272,7 +225,7 @@ public class Options<T extends Options<T>> {
 	@SuppressWarnings("unchecked")
 	public T setTooltips(Tooltips tooltips) {
 		this.tooltips = tooltips;
-	    return (T) this;
+		return (T) this;
 	}
 
 	/**
@@ -289,7 +242,7 @@ public class Options<T extends Options<T>> {
 	@SuppressWarnings("unchecked")
 	public T setHover(Hover hover) {
 		this.hover = hover;
-	    return (T) this;
+		return (T) this;
 	}
 
 	/**
@@ -306,7 +259,7 @@ public class Options<T extends Options<T>> {
 	@SuppressWarnings("unchecked")
 	public T setAnimation(Animation<?> animation) {
 		this.animation = animation;
-	    return (T) this;
+		return (T) this;
 	}
 
 }

@@ -22,10 +22,21 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import be.ceau.chart.options.elements.RadarElements;
 import be.ceau.chart.options.scales.RadialLinearScale;
+import be.ceau.chart.options.scales.Scale;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 public class RadarOptions extends Options<RadarOptions> {
+
+	/**
+	 * Static factory, constructs a {@link Scale} implementation appropriate
+	 * for a {@link RadarOptions} instance.
+	 * 
+	 * @return a new {@link RadialLinearScale} instance
+	 */
+	public static RadialLinearScale scales() {
+		return new RadialLinearScale();
+	}
 
 	/**
 	 * @see #setScale(RadialLinearScale)
@@ -50,13 +61,13 @@ public class RadarOptions extends Options<RadarOptions> {
 	 */
 	public RadarOptions setScale(RadialLinearScale scale) {
 		this.scale = scale;
-	    return this;
+		return this;
 	}
 
 	/**
-	 * @see #setRadarElements(RadarElements)
+	 * @see #setElements(RadarElements)
 	 */
-	public RadarElements getRadarElements() {
+	public RadarElements getElements() {
 		return this.elements;
 	}
 
@@ -64,9 +75,9 @@ public class RadarOptions extends Options<RadarOptions> {
 	 * Options for all line elements used on the chart, as defined in the global
 	 * elements, duplicated here to show Radar chart specific defaults.
 	 */
-	public RadarOptions setRadarElements(RadarElements elements) {
+	public RadarOptions setElements(RadarElements elements) {
 		this.elements = elements;
-	    return this;
+		return this;
 	}
 
 }
