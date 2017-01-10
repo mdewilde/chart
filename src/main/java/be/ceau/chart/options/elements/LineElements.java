@@ -51,6 +51,19 @@ public class LineElements {
 	}
 
 	/**
+	 * Constructor
+	 * 
+	 * @param line
+	 *            {@link Line} instance or {@code null}
+	 * @param point
+	 *            {@link Point} instance or {@code null}
+	 */
+	public LineElements(Line line, Point point) {
+		this.line = line;
+		this.point = point;
+	}
+
+	/**
 	 * @return {@link Line} instance or {@code null} if not set
 	 * @see #setLine(Line)
 	 */
