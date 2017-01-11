@@ -29,7 +29,7 @@ var ctx = document.getElementById('canvasId'));
 new Chart(ctx, json);
 ```
 
-### Compatibility chart
+### Compatibility
 
 Chart.js | Chart.java
 ------------ | -------------
@@ -50,14 +50,14 @@ Include this project directly from Maven Central
 ```XML
 <groupId>be.ceau</groupId>
 <artifactId>chart</artifactId>
-<version>${project.version}</version>
+<version>2.2.0</version>
 ```
 
 ### Download
 Downloads for this project at [Maven Central](https://repo1.maven.org/maven2/be/ceau/chart/).
 
 ### Other resources
-The [docs for Chart.js](http://www.chartjs.org/docs/) is a helpful source of information on what's possible and how to achieve it. 
+The [docs for Chart.js](http://www.chartjs.org/docs/) are a helpful source of info on what's possible and how to achieve it. 
 
 ### GnuPG public key
 Verify signature files with my [GnuPG public key](https://www.ceau.be/pubkey.gpg).
