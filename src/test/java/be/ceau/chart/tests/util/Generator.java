@@ -47,14 +47,38 @@ public class Generator {
 		
 	}
 	
+	public static char nextChar() {
+		return (char) RANDOM.nextInt(127 + 1);
+	}
+	
+	public static byte nextByte() {
+		return (byte) RANDOM.nextInt(127 + 1);
+	}
+
+	public static short nextShort() {
+		return (short) RANDOM.nextInt(32767 + 1);
+	}
+	
 	public static int nextInt(int bound) {
 		return RANDOM.nextInt(bound);
 	}
 	
-	public static float nextFloat(float bound) {
+	public static int nextInt() {
+		return RANDOM.nextInt();
+	}
+
+	public static long nextLong() {
+		return RANDOM.nextLong();
+	}
+
+	public static float nextFloat() {
 		return RANDOM.nextFloat();
 	}
 	
+	public static double nextDouble() {
+		return RANDOM.nextDouble();
+	}
+
 	public static BigDecimal nextBigDecimal(int bound) {
 		return new BigDecimal(RANDOM.nextInt(bound));
 	}

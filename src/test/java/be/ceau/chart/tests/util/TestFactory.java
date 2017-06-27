@@ -132,6 +132,9 @@ public class TestFactory {
 		if (t == null) {
 			return null;
 		}
+		if (t.isPrimitive()) {
+			return randomPrimitive(t);
+		}
 		if (Boolean.class.equals(t)) {
 			return maybe();
 		}
@@ -151,7 +154,7 @@ public class TestFactory {
 			return Generator.nextInt(10);
 		}
 		if (Float.class.equals(t)) {
-			return Generator.nextFloat(10f);
+			return Generator.nextFloat();
 		}
 		if (String.class.equals(t)) {
 			if ("setLabel".equals(label)) {
@@ -195,6 +198,37 @@ public class TestFactory {
 			return Collections.emptyList();
 		}
 		return t.newInstance();
+	}
+	
+	private static <T> Object randomPrimitive(Class<T> t) {
+		if ("boolean".equals(t.getName())) {
+			return maybe();
+		}
+		if ("char".equals(t.getName())) {
+			return Generator.nextChar();
+		}
+		if ("byte".equals(t.getName())) {
+			return Generator.nextByte();
+		}
+		if ("short".equals(t.getName())) {
+			return Generator.nextShort();
+		}
+		if ("int".equals(t.getName())) {
+			return Generator.nextInt();
+		}
+		if ("long".equals(t.getName())) {
+			return Generator.nextLong();
+		}
+		if ("float".equals(t.getName())) {
+			return Generator.nextFloat();
+		}
+		if ("double".equals(t.getName())) {
+			return Generator.nextDouble();
+		}
+		if ("void".equals(t.getName())) {
+			return null;
+		}
+		return null;
 	}
 	
 	private static LineData newLineData() {

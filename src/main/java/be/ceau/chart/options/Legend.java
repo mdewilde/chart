@@ -20,6 +20,7 @@ import java.util.Locale;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import be.ceau.chart.javascript.JavaScriptFunction;
@@ -150,6 +151,7 @@ public class Legend {
 		}
 
 		@Override
+		@JsonValue
 		public String toString() {
 			return this.serialized;
 		}
