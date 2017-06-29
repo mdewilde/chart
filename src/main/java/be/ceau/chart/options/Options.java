@@ -267,7 +267,6 @@ public class Options<T extends Options<T>> {
 
 	/**
 	 * @return {@link Layout} instance or {@code null}
-	 * @see {@link Layout}
 	 */
 	public Layout getLayout() {
 		return layout;
@@ -276,7 +275,7 @@ public class Options<T extends Options<T>> {
 	/**
 	 * @param layout
 	 *            {@link Layout} instance or {@code null}
-	 * @see {@link Layout}
+	 * @return {@code this} instance for chaining
 	 */
 	@SuppressWarnings("unchecked")
 	public T setLayout(Layout layout) {
