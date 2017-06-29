@@ -145,6 +145,9 @@ public class TestFactory {
 			return Color.random();
 		}
 		if (JavaScriptFunction.class.equals(t)) {
+			if ("setGenerateLabels".equals(label)) {
+				return null;
+			}
 			return new JavaScriptFunction("function(){console.log('" + label + "');}");
 		}
 		if (Integer.class.equals(t)) {
