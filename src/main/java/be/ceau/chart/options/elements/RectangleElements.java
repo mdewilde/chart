@@ -30,6 +30,13 @@ public class RectangleElements {
 	private Rectangle rectangle;
 
 	/**
+	 * No-arg constructor
+	 */
+	public RectangleElements() {
+		
+	}
+
+	/**
 	 * Constructor
 	 * 
 	 * @param rectangle

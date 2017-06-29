@@ -30,6 +30,13 @@ public class ArcElements {
 	private Arc arc;
 
 	/**
+	 * No-arg constructor
+	 */
+	public ArcElements() {
+		
+	}
+	
+	/**
 	 * Constructor
 	 * 
 	 * @param arc

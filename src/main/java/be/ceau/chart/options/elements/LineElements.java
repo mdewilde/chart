@@ -31,6 +31,13 @@ public class LineElements {
 	private Point point;
 
 	/**
+	 * No-arg constructor
+	 */
+	public LineElements() {
+		
+	}
+
+	/**
 	 * Constructor
 	 * 
 	 * @param line
