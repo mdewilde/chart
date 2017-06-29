@@ -4,7 +4,7 @@
 	<packaging>jar</packaging>
 	<groupId>be.ceau</groupId>
 	<artifactId>chart</artifactId>
-	<version>2.2.2</version>
+	<version>2.3.0</version>
 	<name>Chart</name>
 	<description>Java library for use with Chart.js javascript</description>
 	<url>https://www.ceau.be/chart.html</url>

@@ -27,6 +27,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import be.ceau.chart.enums.Event;
 import be.ceau.chart.javascript.JavaScriptFunction;
 import be.ceau.chart.options.animation.Animation;
+import be.ceau.chart.options.layout.Layout;
 
 @JsonInclude(Include.NON_EMPTY)
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
@@ -44,6 +45,7 @@ public class Options<T extends Options<T>> {
 	private Tooltips tooltips;
 	private Hover hover;
 	private Animation<?> animation;
+	private Layout layout;
 
 	/**
 	 * @see #setResponsive(Boolean)
@@ -125,7 +127,8 @@ public class Options<T extends Options<T>> {
 
 	/**
 	 * Default {@code null} Called if the event is of type 'mouseup' or 'click'.
-	 * Called in the context of the chart and passed an array of active arcElements
+	 * Called in the context of the chart and passed an array of active
+	 * arcElements
 	 */
 	@SuppressWarnings("unchecked")
 	public T setOnClick(JavaScriptFunction onClick) {
@@ -259,6 +262,25 @@ public class Options<T extends Options<T>> {
 	@SuppressWarnings("unchecked")
 	public T setAnimation(Animation<?> animation) {
 		this.animation = animation;
+		return (T) this;
+	}
+
+	/**
+	 * @return {@link Layout} instance or {@code null}
+	 * @see {@link Layout}
+	 */
+	public Layout getLayout() {
+		return layout;
+	}
+
+	/**
+	 * @param layout
+	 *            {@link Layout} instance or {@code null}
+	 * @see {@link Layout}
+	 */
+	@SuppressWarnings("unchecked")
+	public T setLayout(Layout layout) {
+		this.layout = layout;
 		return (T) this;
 	}
 

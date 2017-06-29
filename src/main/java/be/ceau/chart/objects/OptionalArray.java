@@ -26,7 +26,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 /**
  * {@link ArrayList} subclass with special serialization behavior: if only one
- * item contained, the item will be serialized as a single value.
+ * item is contained, the item will be serialized as a single value.
  */
 @JsonSerialize(using = OptionalArray.Serializer.class)
 public class OptionalArray<E> extends ArrayList<E> {

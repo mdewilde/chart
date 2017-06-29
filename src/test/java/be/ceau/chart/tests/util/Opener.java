@@ -29,7 +29,7 @@ public class Opener {
 	 * in the default browser
 	 * 
 	 * @param chart
-	 *            a Chart implementation, not {@code null}
+	 *            a {@link Chart} implementation, not {@code null}
 	 * @throws IOException
 	 */
 	public static void inBrowser(Chart chart) throws IOException {
@@ -73,7 +73,7 @@ public class Opener {
 				.append(line)
 				.append("<body>")
 				.append(line)
-				.append("<canvas id='c'></canvas>")
+				.append("<canvas id='c' style='border:1px solid #555;'></canvas>")
 				.append(line)
 				.append("<div><pre>").append(json).append("</pre></div>")
 				.append(line)
