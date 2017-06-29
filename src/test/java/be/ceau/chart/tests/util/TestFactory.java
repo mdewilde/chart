@@ -133,7 +133,7 @@ public class TestFactory {
 			return null;
 		}
 		if (t.isPrimitive()) {
-			return randomPrimitive(t);
+			return randomPrimitive(t, label);
 		}
 		if (Boolean.class.equals(t)) {
 			return maybe();
@@ -200,7 +200,7 @@ public class TestFactory {
 		return t.newInstance();
 	}
 	
-	private static <T> Object randomPrimitive(Class<T> t) {
+	private static <T> Object randomPrimitive(Class<T> t, String label) {
 		if ("boolean".equals(t.getName())) {
 			return maybe();
 		}
@@ -214,6 +214,9 @@ public class TestFactory {
 			return Generator.nextShort();
 		}
 		if ("int".equals(t.getName())) {
+			if (label.contains("Left") || label.contains("Top") || label.contains("Right") || label.contains("Bottom")) {
+				return Generator.nextInt(200);
+			}
 			return Generator.nextInt();
 		}
 		if ("long".equals(t.getName())) {
