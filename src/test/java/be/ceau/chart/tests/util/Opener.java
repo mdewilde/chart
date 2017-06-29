@@ -63,7 +63,7 @@ public class Opener {
 				.append(line)
 				.append("<meta name='author' content='Marceau Dewilde'>")
 				.append(line)
-				.append("<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.1/Chart.js'></script>")
+				.append("<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.js'></script>")
 				.append(line)
 				.append("<script>")
 				.append("function r(e,t){new Chart(document.getElementById(e).getContext('2d'),t)}")
