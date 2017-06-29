@@ -218,7 +218,7 @@ public class TestFactory {
 		}
 		if ("int".equals(t.getName())) {
 			if (label.contains("Left") || label.contains("Top") || label.contains("Right") || label.contains("Bottom")) {
-				return Generator.nextInt(200);
+				return Generator.nextInt(25);
 			}
 			return Generator.nextInt();
 		}
