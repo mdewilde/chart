@@ -2,3 +2,7 @@
 
 * Support for options.layout.padding
 * chart.js compatibility target 2.6
+
+2.2.1 [2017-06-28]
+
+* proper serialization of legend.position
