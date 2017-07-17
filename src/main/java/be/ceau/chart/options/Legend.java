@@ -142,7 +142,9 @@ public class Legend {
 	public static enum Position {
 
 		TOP,
-		BOTTOM;
+		BOTTOM,
+		LEFT,
+		RIGHT;
 
 		private final String serialized;
 

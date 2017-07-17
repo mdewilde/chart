@@ -64,4 +64,36 @@ public class LegendPositionTest extends ChartTest {
 		Opener.inBrowser(createChart());
 	}
 
+	@Test
+	public void leftLegend() throws IOException {
+		PieDataset dataset = new PieDataset()
+				.addData(12).addBackgroundColor(Color.RED)
+				.addData(19).addBackgroundColor(Color.GREEN)
+				.addData(1).addBackgroundColor(Color.BLUE);
+		
+		PieData data = new PieData()
+				.addDataset(dataset)
+				.addLabels("first", "second", "third");
+		
+		
+		Legend legend = new Legend()
+				.setDisplay(true)
+				.setPosition(Position.LEFT);
+
+		PieChart chart = new PieChart(data,
+				new PieOptions().setLegend(legend));
+		
+		Opener.inBrowser(chart);
+		
+		legend = new Legend()
+				.setDisplay(true)
+				.setPosition(Position.RIGHT);
+
+		chart = new PieChart(data,
+				new PieOptions().setLegend(legend));
+
+		Opener.inBrowser(chart);
+
+	}
+	
 }
