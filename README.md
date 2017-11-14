@@ -48,9 +48,11 @@ Browse this project's javadoc at [javadoc.io](https://javadoc.io/doc/be.ceau/cha
 ### Maven Central
 Include this project directly from Maven Central
 ```XML
-<groupId>be.ceau</groupId>
-<artifactId>chart</artifactId>
-<version>2.2.0</version>
+<dependency>
+	<groupId>be.ceau</groupId>
+	<artifactId>chart</artifactId>
+	<version>2.3.1</version>
+</dependency>
 ```
 
 ### Download
