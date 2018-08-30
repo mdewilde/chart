@@ -46,6 +46,7 @@ public class Options<T extends Options<T>> {
 	private Hover hover;
 	private Animation<?> animation;
 	private Layout layout;
+	private Plugins plugins;
 
 	/**
 	 * @see #setResponsive(Boolean)
@@ -280,6 +281,25 @@ public class Options<T extends Options<T>> {
 	@SuppressWarnings("unchecked")
 	public T setLayout(Layout layout) {
 		this.layout = layout;
+		return (T) this;
+	}
+	
+	/**
+	 * @see #setPlugins(Object)
+	 */
+	public Object getPlugins() {
+		return plugins;
+	}
+
+	/**
+	 * A placeholder in which configuration options for plugins may be passed.
+	 *
+	 * @param plugins {@link Object} or {@code null}
+	 * @return {@code this} instance for chaining
+	 */
+	@SuppressWarnings("unchecked")
+	public T setPlugins(Object plugins) {
+		this.plugins = plugins;
 		return (T) this;
 	}
 
