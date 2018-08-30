@@ -46,7 +46,7 @@ public class Options<T extends Options<T>> {
 	private Hover hover;
 	private Animation<?> animation;
 	private Layout layout;
-	private Plugins plugins;
+	private Object plugins;
 
 	/**
 	 * @see #setResponsive(Boolean)
