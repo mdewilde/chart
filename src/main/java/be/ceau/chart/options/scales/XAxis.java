@@ -75,6 +75,10 @@ public class XAxis<T extends Ticks<T>> {
 	 */
 	private BigDecimal barPercentage;
 
+	private BigDecimal barThickness;
+
+	private BigDecimal maxBarThickness;
+
 	/**
 	 * Default {@code offsetGridLines == true}
 	 * 
@@ -83,7 +87,7 @@ public class XAxis<T extends Ticks<T>> {
 	private GridLines gridLines;
 
 	/**
-//	 * @see #setTicks(T)
+	 * @see #setTicks(T)
 	 */
 	public T getTicks() {
 		return ticks;
@@ -165,8 +169,8 @@ public class XAxis<T extends Ticks<T>> {
 	}
 
 	/**
-	 * Percent (0-1) of the available width (the space between the gridlines for
-	 * small datasets) for each data-point to use for the bars. Read More
+	 * Percent (0-1) of the available width (the space between the gridlines for small datasets) for
+	 * each data-point to use for the bars.
 	 */
 	public XAxis<T> setCategoryPercentage(BigDecimal categoryPercentage) {
 		this.categoryPercentage = categoryPercentage;
@@ -181,13 +185,42 @@ public class XAxis<T extends Ticks<T>> {
 	}
 
 	/**
-	 * Percent (0-1) of the available width each bar should be within the
-	 * category percentage. 1.0 will take the whole category width and put the
-	 * bars right next to each other. Read More
+	 * Percent (0-1) of the available width each bar should be within the category percentage. 1.0 will
+	 * take the whole category width and put the bars right next to each other.
 	 */
 	public XAxis<T> setBarPercentage(BigDecimal barPercentage) {
 		this.barPercentage = barPercentage;
 		return this;
+	}
+
+	/**
+	 * @see #setBarThickness(BigDecimal)
+	 */
+	public BigDecimal getBarThickness() {
+		return barThickness;
+	}
+
+	/**
+	 * Manually set width of each bar in pixels. If not set, the base sample widths are calculated
+	 * automatically so that they take the full available widths without overlap. Then, the bars are
+	 * sized using barPercentage and categoryPercentage.
+	 */
+	public void setBarThickness(BigDecimal barThickness) {
+		this.barThickness = barThickness;
+	}
+
+	/**
+	 * @see #setGridLines(GridLines gridLines)
+	 */
+	public BigDecimal getMaxBarThickness() {
+		return maxBarThickness;
+	}
+
+	/**
+	 * Set this to ensure that bars are not sized thicker than this.
+	 */
+	public void setMaxBarThickness(BigDecimal maxBarThickness) {
+		this.maxBarThickness = maxBarThickness;
 	}
 
 	/**
@@ -198,7 +231,9 @@ public class XAxis<T extends Ticks<T>> {
 	}
 
 	/**
-	 * 
+	 * If true, the bars for a particular data point fall between the grid lines. The grid line will
+	 * move to the left by one half of the tick interval. If false, the grid line will go right down the
+	 * middle of the bars.
 	 */
 	public XAxis<T> setGridLines(GridLines gridLines) {
 		this.gridLines = gridLines;

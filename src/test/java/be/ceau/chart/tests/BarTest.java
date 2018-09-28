@@ -16,6 +16,7 @@
 package be.ceau.chart.tests;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 
 import org.junit.Test;
 
@@ -26,6 +27,7 @@ import be.ceau.chart.data.BarData;
 import be.ceau.chart.dataset.BarDataset;
 import be.ceau.chart.options.BarOptions;
 import be.ceau.chart.options.scales.BarScale;
+import be.ceau.chart.options.scales.XAxis;
 import be.ceau.chart.options.ticks.LinearTicks;
 import be.ceau.chart.tests.util.Opener;
 import be.ceau.chart.tests.util.TestFactory;
@@ -84,7 +86,11 @@ public class BarTest extends ChartTest {
 				.setMax(100)
 				.setStepSize(5);
 
+		XAxis<LinearTicks> xAxis = BarScale.xAxis();
+		xAxis.setBarThickness(new BigDecimal(50));
+
 		BarScale scale = new BarScale()
+				.addxAxes(xAxis)
 				.addyAxes(BarScale.yAxis().setTicks(ticks));
 
 		BarOptions options = new BarOptions()
