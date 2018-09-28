@@ -60,7 +60,7 @@ public class YAxis<T extends Ticks<T>> {
 	private Boolean stacked;
 
 	/**
-//	 * @see #setTicks(T)
+	 * @see #setTicks(T)
 	 */
 	public T getTicks() {
 		return ticks;
