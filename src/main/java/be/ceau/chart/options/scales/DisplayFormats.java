@@ -16,22 +16,21 @@
 package be.ceau.chart.options.scales;
 
 /**
- * Display formats are used to configure how different time units are formed
- * into strings for the axis tick marks. See
- * <a href="http://momentjs.com/docs/#/displaying/format/">moment.js</a> for the
- * allowable format strings.
+ * Display formats are used to configure how different time units are formed into strings for the
+ * axis tick marks. See <a href="http://momentjs.com/docs/#/displaying/format/">moment.js</a> for
+ * the allowable format strings.
  */
 public class DisplayFormats {
 
 	private String millisecond;
-	private String second; 
-	private String minute; 
-	private String hour; 
-	private String day; 
+	private String second;
+	private String minute;
+	private String hour;
+	private String day;
 	private String week;
-	private String month; 
+	private String month;
 	private String quarter;
-	private String year; 
+	private String year;
 
 	/**
 	 * @return a {@link String} or {@code null} if not set
@@ -47,8 +46,9 @@ public class DisplayFormats {
 	 * @param millisecond
 	 *            a {@code String} or {@code null}
 	 */
-	public void setMillisecond(String millisecond) {
+	public DisplayFormats setMillisecond(String millisecond) {
 		this.millisecond = millisecond;
+		return this;
 	}
 
 	/**
@@ -65,8 +65,9 @@ public class DisplayFormats {
 	 * @param second
 	 *            a {@code String} or {@code null}
 	 */
-	public void setSecond(String second) {
+	public DisplayFormats setSecond(String second) {
 		this.second = second;
+		return this;
 	}
 
 	/**
@@ -83,8 +84,9 @@ public class DisplayFormats {
 	 * @param minute
 	 *            a {@code String} or {@code null}
 	 */
-	public void setMinute(String minute) {
+	public DisplayFormats setMinute(String minute) {
 		this.minute = minute;
+		return this;
 	}
 
 	/**
@@ -101,8 +103,9 @@ public class DisplayFormats {
 	 * @param hour
 	 *            a {@code String} or {@code null}
 	 */
-	public void setHour(String hour) {
+	public DisplayFormats setHour(String hour) {
 		this.hour = hour;
+		return this;
 	}
 
 	/**
@@ -119,8 +122,9 @@ public class DisplayFormats {
 	 * @param day
 	 *            a {@code String} or {@code null}
 	 */
-	public void setDay(String day) {
+	public DisplayFormats setDay(String day) {
 		this.day = day;
+		return this;
 	}
 
 	/**
@@ -137,8 +141,9 @@ public class DisplayFormats {
 	 * @param week
 	 *            a {@code String} or {@code null}
 	 */
-	public void setWeek(String week) {
+	public DisplayFormats setWeek(String week) {
 		this.week = week;
+		return this;
 	}
 
 	/**
@@ -155,8 +160,9 @@ public class DisplayFormats {
 	 * @param month
 	 *            a {@code String} or {@code null}
 	 */
-	public void setMonth(String month) {
+	public DisplayFormats setMonth(String month) {
 		this.month = month;
+		return this;
 	}
 
 	/**
@@ -173,8 +179,9 @@ public class DisplayFormats {
 	 * @param quarter
 	 *            a {@code String} or {@code null}
 	 */
-	public void setQuarter(String quarter) {
+	public DisplayFormats setQuarter(String quarter) {
 		this.quarter = quarter;
+		return this;
 	}
 
 	/**
@@ -191,8 +198,9 @@ public class DisplayFormats {
 	 * @param year
 	 *            a {@code String} or {@code null}
 	 */
-	public void setYear(String year) {
+	public DisplayFormats setYear(String year) {
 		this.year = year;
+		return this;
 	}
 
 }
