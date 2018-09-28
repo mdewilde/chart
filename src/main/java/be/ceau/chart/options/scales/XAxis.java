@@ -205,8 +205,9 @@ public class XAxis<T extends Ticks<T>> {
 	 * automatically so that they take the full available widths without overlap. Then, the bars are
 	 * sized using barPercentage and categoryPercentage.
 	 */
-	public void setBarThickness(BigDecimal barThickness) {
+	public XAxis<T> setBarThickness(BigDecimal barThickness) {
 		this.barThickness = barThickness;
+		return this;
 	}
 
 	/**
@@ -219,8 +220,9 @@ public class XAxis<T extends Ticks<T>> {
 	/**
 	 * Set this to ensure that bars are not sized thicker than this.
 	 */
-	public void setMaxBarThickness(BigDecimal maxBarThickness) {
+	public XAxis<T> setMaxBarThickness(BigDecimal maxBarThickness) {
 		this.maxBarThickness = maxBarThickness;
+		return this;
 	}
 
 	/**
