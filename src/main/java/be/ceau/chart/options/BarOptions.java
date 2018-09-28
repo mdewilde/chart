@@ -46,6 +46,7 @@ public class BarOptions extends Options<BarOptions> {
 	 * @return {@link Hover} instance or {@code null}
 	 * @see #setHover(Hover)
 	 */
+	@Override
 	public Hover getHover() {
 		return hover;
 	}
@@ -63,6 +64,7 @@ public class BarOptions extends Options<BarOptions> {
 	 *            {@link Hover} instance or {@code null}
 	 * @return this {@link BarOptions} instance for method chaining
 	 */
+	@Override
 	public BarOptions setHover(Hover hover) {
 		this.hover = hover;
 		return this;
