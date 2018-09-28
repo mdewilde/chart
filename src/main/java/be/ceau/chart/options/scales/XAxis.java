@@ -87,7 +87,7 @@ public class XAxis<T extends Ticks<T>> {
 	private GridLines gridLines;
 
 	/**
-	 * @see #setTicks(T)
+	 * @see #setTicks(Ticks)
 	 */
 	public T getTicks() {
 		return ticks;

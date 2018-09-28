@@ -27,7 +27,7 @@ import be.ceau.chart.options.ticks.Ticks;
 public class YAxis<T extends Ticks<T>> {
 
 	/**
-	 * @see #setTicks(T)
+	 * @see #setTicks(Ticks)
 	 */
 	private T ticks;
 
@@ -60,7 +60,7 @@ public class YAxis<T extends Ticks<T>> {
 	private Boolean stacked;
 
 	/**
-	 * @see #setTicks(T)
+	 * @see #setTicks(Ticks)
 	 */
 	public T getTicks() {
 		return ticks;
