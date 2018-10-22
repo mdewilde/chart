@@ -163,10 +163,10 @@ public class Tooltips {
 	 */
 	private Color multiKeyBackground;
 
-//	/**
-//	 * @see #setCallbacks(Callbacks)
-//	 */
-//	private Callbacks callbacks;
+	/**
+	 * @see #setCallbacks(Callbacks)
+	 */
+	private Callbacks callbacks;
 
 	/**
 	 * @see #setEnabled(Boolean)
@@ -734,26 +734,26 @@ public class Tooltips {
 	    this.multiKeyBackground = multiKeyBackground;
 	    return this;
 	}
-//
-//	/**
-//	 * @see #setCallbacks(Callbacks)
-//	 */
-//	public Callbacks getCallbacks() {
-//	    return this.callbacks;
-//	}
-//
-//	/**
-//	 * <p>
-//	 * See the callbacks section below
-//	 * </p>
-//	 * 
-//	 * <p>
-//	 * Default {@code }
-//	 * </p>
-//	 */
-//	public Tooltips setCallbacks(Callbacks callbacks) {
-//	    this.callbacks = callbacks;
-//	}
 
+	/**
+	 * @see #setCallbacks(Callbacks)
+	 */
+	public Callbacks getCallbacks() {
+	    return this.callbacks;
+	}
+
+	/**
+	 * <p>
+	 * See the callbacks section below
+	 * </p>
+	 *
+	 * <p>
+	 * Default {@code }
+	 * </p>
+	 */
+	public Tooltips setCallbacks(Callbacks callbacks) {
+	    this.callbacks = callbacks;
+	    return this;
+	}
 
 }

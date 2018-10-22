@@ -9,6 +9,7 @@ import be.ceau.chart.enums.BorderCapStyle;
 import be.ceau.chart.enums.BorderJoinStyle;
 import be.ceau.chart.enums.PointStyle;
 import be.ceau.chart.objects.OptionalArray;
+import be.ceau.chart.options.elements.Fill;
 
 public abstract class PointDataset<T extends Dataset<T, O>, O> extends Dataset<T, O> {
 
@@ -18,9 +19,9 @@ public abstract class PointDataset<T extends Dataset<T, O>, O> extends Dataset<T
 	private String label;
 
 	/**
-	 * @see #setFill(Boolean)
+	 * @see #setFill(Fill)
 	 */
-	private Boolean fill;
+	private Fill fill;
 
 	/**
 	 * @see #setLineTension(Float)
@@ -129,9 +130,9 @@ public abstract class PointDataset<T extends Dataset<T, O>, O> extends Dataset<T
 	}
 
 	/**
-	 * @see #setFill(Boolean)
+	 * @see #setFill(Fill)
 	 */
-	public Boolean getFill() {
+	public Fill getFill() {
 		return this.fill;
 	}
 
@@ -139,7 +140,7 @@ public abstract class PointDataset<T extends Dataset<T, O>, O> extends Dataset<T
 	 * If true, fill the area under the line
 	 */
 	@SuppressWarnings("unchecked")
-	public T setFill(Boolean fill) {
+	public T setFill(Fill fill) {
 		this.fill = fill;
 		return (T) this;
 	}

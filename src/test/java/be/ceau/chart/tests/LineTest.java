@@ -17,6 +17,7 @@ package be.ceau.chart.tests;
 
 import java.io.IOException;
 
+import be.ceau.chart.options.elements.Fill;
 import org.junit.Test;
 
 import be.ceau.chart.Chart;
@@ -131,7 +132,7 @@ public class LineTest extends ChartTest {
 	private LineDataset createLineDataset() {
 		return new LineDataset()
 				.setLabel("My First dataset")
-				.setFill(false)
+				.setFill(new Fill(true))
 				.setLineTension(0.1f)
 				.setBackgroundColor(new Color(75, 192, 192, 0.4))
 				.setBorderColor(new Color(75,192,192,1))
