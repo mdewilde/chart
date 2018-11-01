@@ -29,7 +29,7 @@ import be.ceau.chart.options.ticks.Ticks;
 public class XAxis<T extends Ticks<T>> {
 
 	/**
-	 * @see #setTicks(T)
+	 * @see #setTicks(Ticks)
 	 */
 	private T ticks;
 
@@ -87,7 +87,7 @@ public class XAxis<T extends Ticks<T>> {
 	private GridLines gridLines;
 
 	/**
-	 * @see #setTicks(T)
+	 * @see #setTicks(Ticks)
 	 */
 	public T getTicks() {
 		return ticks;
