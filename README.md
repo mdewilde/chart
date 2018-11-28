@@ -25,7 +25,7 @@ return new BarChart(data).toJson();
 In JavaScript:
 
 ```JavaScript
-var ctx = document.getElementById('canvasId'));
+var ctx = document.getElementById('canvasId');
 new Chart(ctx, json);
 ```
 
