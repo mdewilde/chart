@@ -58,6 +58,14 @@ public class YAxis<T extends Ticks<T>> {
 	 * @see #setStacked(Boolean stacked)
 	 */
 	private Boolean stacked;
+	
+	
+	/**
+	 * Default {@code offsetGridLines == true}
+	 * 
+	 * @see #setGridLines(GridLines gridLines)
+	 */
+	private GridLines gridLines;
 
 	/**
 	 * @see #setTicks(Ticks)
@@ -131,6 +139,24 @@ public class YAxis<T extends Ticks<T>> {
 	 */
 	public YAxis<T> setStacked(Boolean stacked) {
 		this.stacked = stacked;
+		return this;
+	}
+	
+	
+	/**
+	 * @see #setGridLines(GridLines gridLines)
+	 */
+	public GridLines getGridLines() {
+		return this.gridLines;
+	}
+
+	/**
+	 * If true, the bars for a particular data point fall between the grid lines. The grid line will
+	 * move to the left by one half of the tick interval. If false, the grid line will go right down the
+	 * middle of the bars.
+	 */
+	public YAxis<T> setGridLines(GridLines gridLines) {
+		this.gridLines = gridLines;
 		return this;
 	}
 
