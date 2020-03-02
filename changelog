@@ -1,3 +1,9 @@
+2.6.0 [2020-02]
+
+* Java baseline bump to 1.7
+* dependency updates (Jackson CVEs)
+* default constructor for object Fill
+
 2.5.0 [2018-11]
 
 * added support for tooltips callbacks and modified fill to support more fill settings [thanks Tomáš Jochec]
