@@ -1,6 +1,6 @@
 # Chart.java
 
-[![Maven Central badge](https://maven-badges.herokuapp.com/maven-central/be.ceau/chart/badge.svg)](https://mvnrepository.com/artifact/be.ceau/chart)  [![Javadocs](https://javadoc.io/badge/be.ceau/chart.svg)](https://javadoc.io/doc/be.ceau/chart)  [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0.txt)
+[![Maven Central badge](https://maven-badges.herokuapp.com/maven-central/be.ceau/chart/badge.svg)](https://search.maven.org/artifact/be.ceau/chart)  [![Javadocs](https://javadoc.io/badge/be.ceau/chart.svg)](https://javadoc.io/doc/be.ceau/chart)  [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0.txt)
 
 Chart.java enables integration with the excellent [Chart.js](http://www.chartjs.org/) library from within a Java application.
 
@@ -51,7 +51,7 @@ Include this project directly from Maven Central
 <dependency>
 	<groupId>be.ceau</groupId>
 	<artifactId>chart</artifactId>
-	<version>2.3.1</version>
+	<version>2.6.0</version>
 </dependency>
 ```
 
