@@ -87,6 +87,11 @@ public class XAxis<T extends Ticks<T>> {
 	private GridLines gridLines;
 
 	/**
+	 * @see #setScaleLabel(ScaleLabel)
+	 */
+	private ScaleLabel scaleLabel;
+
+	/**
 	 * @see #setTicks(Ticks)
 	 */
 	public T getTicks() {
@@ -240,6 +245,27 @@ public class XAxis<T extends Ticks<T>> {
 	public XAxis<T> setGridLines(GridLines gridLines) {
 		this.gridLines = gridLines;
 		return this;
+	}
+
+	/**
+	 * @see #setScaleLabel(ScaleLabel)
+	 */
+	public ScaleLabel getScaleLabel() {
+		return this.scaleLabel;
+	}
+
+	/**
+	 * <p>
+	 * See scale title configuration section.
+	 * </p>
+	 * 
+	 * <p>
+	 * Default {@code }
+	 * </p>
+	 */
+	public XAxis<T> setScaleLabel(ScaleLabel scaleLabel) {
+		this.scaleLabel = scaleLabel;
+	  return this;
 	}
 
 }
