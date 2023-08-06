@@ -1,5 +1,5 @@
 /*
-	Copyright 2020 Marceau Dewilde <m@ceau.be>
+	Copyright 2023 Marceau Dewilde <m@ceau.be>
 
 	Licensed under the Apache License, Version 2.0 (the "License");
 	you may not use this file except in compliance with the License.
@@ -17,7 +17,6 @@ package be.ceau.chart.dataset;
 
 import java.math.BigDecimal;
 import java.util.Collection;
-import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;

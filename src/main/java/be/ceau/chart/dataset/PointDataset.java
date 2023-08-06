@@ -1,5 +1,5 @@
 /*
-	Copyright 2020 Marceau Dewilde <m@ceau.be>
+	Copyright 2023 Marceau Dewilde <m@ceau.be>
 
 	Licensed under the Apache License, Version 2.0 (the "License");
 	you may not use this file except in compliance with the License.
@@ -35,7 +35,7 @@ public abstract class PointDataset<T extends Dataset<T, O>, O> extends Dataset<T
 	/**
 	 * @see #setFill(Fill)
 	 */
-	private Fill fill;
+	private Fill<T> fill;
 
 	/**
 	 * @see #setLineTension(Float)
@@ -146,7 +146,7 @@ public abstract class PointDataset<T extends Dataset<T, O>, O> extends Dataset<T
 	/**
 	 * @see #setFill(Fill)
 	 */
-	public Fill getFill() {
+	public Fill<T> getFill() {
 		return this.fill;
 	}
 
@@ -154,7 +154,7 @@ public abstract class PointDataset<T extends Dataset<T, O>, O> extends Dataset<T
 	 * If true, fill the area under the line
 	 */
 	@SuppressWarnings("unchecked")
-	public T setFill(Fill fill) {
+	public T setFill(Fill<T> fill) {
 		this.fill = fill;
 		return (T) this;
 	}
@@ -235,8 +235,8 @@ public abstract class PointDataset<T extends Dataset<T, O>, O> extends Dataset<T
 	 * <ul>
 	 * <li>{@code butt} The ends of lines are squared off at the endpoints.
 	 * <li>{@code round} The ends of lines are rounded.
-	 * <li>{@code square} The ends of lines are squared off by adding a box with
-	 * an equal width and half the height of the line's thickness.
+	 * <li>{@code square} The ends of lines are squared off by adding a box with an
+	 * equal width and half the height of the line's thickness.
 	 * </ul>
 	 */
 	@SuppressWarnings("unchecked")
@@ -262,11 +262,10 @@ public abstract class PointDataset<T extends Dataset<T, O>, O> extends Dataset<T
 	}
 
 	/**
-	 * Default line dash. A list of numbers that specifies distances to
-	 * alternately draw a line and a gap (in coordinate space units). If the
-	 * number of elements in the array is odd, the elements of the array get
-	 * copied and concatenated. For example, [5, 15, 25] will become [5, 15, 25,
-	 * 5, 15, 25].
+	 * Default line dash. A list of numbers that specifies distances to alternately
+	 * draw a line and a gap (in coordinate space units). If the number of elements
+	 * in the array is odd, the elements of the array get copied and concatenated.
+	 * For example, [5, 15, 25] will become [5, 15, 25, 5, 15, 25].
 	 */
 	@SuppressWarnings("unchecked")
 	public T setBorderDash(List<Integer> borderDash) {
@@ -306,17 +305,15 @@ public abstract class PointDataset<T extends Dataset<T, O>, O> extends Dataset<T
 	 * Default line join style.
 	 * </p>
 	 * <ul>
-	 * <li>{@code round} Rounds off the corners of a shape by filling an
-	 * additional sector of disc centered at the common endpoint of connected
-	 * segments. The radius for these rounded corners is equal to the line
-	 * width.
+	 * <li>{@code round} Rounds off the corners of a shape by filling an additional
+	 * sector of disc centered at the common endpoint of connected segments. The
+	 * radius for these rounded corners is equal to the line width.
 	 * <li>{@code bevel} Fills an additional triangular area between the common
-	 * endpoint of connected segments, and the separate outside rectangular
-	 * corners of each segment.
-	 * <li>{@code miter} Connected segments are joined by extending their
-	 * outside edges to connect at a single point, with the effect of filling an
-	 * additional lozenge-shaped area. This setting is effected by the
-	 * miterLimit property.
+	 * endpoint of connected segments, and the separate outside rectangular corners
+	 * of each segment.
+	 * <li>{@code miter} Connected segments are joined by extending their outside
+	 * edges to connect at a single point, with the effect of filling an additional
+	 * lozenge-shaped area. This setting is effected by the miterLimit property.
 	 * </ul>
 	 */
 	@SuppressWarnings("unchecked")
@@ -595,8 +592,8 @@ public abstract class PointDataset<T extends Dataset<T, O>, O> extends Dataset<T
 
 	/**
 	 * The style of point. Options are 'circle', 'triangle', 'rect', 'rectRot',
-	 * 'cross', 'crossRot', 'star', 'line', and 'dash'. If the option is an
-	 * image, that image is drawn on the canvas using drawImage.
+	 * 'cross', 'crossRot', 'star', 'line', and 'dash'. If the option is an image,
+	 * that image is drawn on the canvas using drawImage.
 	 */
 	@SuppressWarnings("unchecked")
 	public T setPointStyle(List<PointStyle> pointStyle) {

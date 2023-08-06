@@ -1,5 +1,5 @@
 /*
-	Copyright 2020 Marceau Dewilde <m@ceau.be>
+	Copyright 2023 Marceau Dewilde <m@ceau.be>
 
 	Licensed under the Apache License, Version 2.0 (the "License");
 	you may not use this file except in compliance with the License.
@@ -16,6 +16,7 @@
 package be.ceau.chart.tests.util;
 
 import java.awt.Desktop;
+import java.awt.GraphicsEnvironment;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -25,26 +26,29 @@ import be.ceau.chart.Chart;
 public class Opener {
 
 	/**
-	 * Serialize the given chart, create a HTML page for it, open the HTML file
-	 * in the default browser
+	 * Serialize the given chart, create a HTML page for it, open the HTML file in
+	 * the default browser
 	 * 
-	 * @param chart
-	 *            a {@link Chart} implementation, not {@code null}
+	 * @param chart a {@link Chart} implementation, not {@code null}
 	 * @throws IOException
 	 */
 	public static void inBrowser(Chart chart) throws IOException {
-		
+
 		if (!chart.isDrawable()) {
 			throw new IllegalArgumentException("chart is not drawable");
 		}
-		
+
 		File tmp = File.createTempFile("chart_test_", ".html");
-		
+
 		PrintWriter out = new PrintWriter(tmp);
 		out.write(createWebPage(chart.getType(), chart.toJson()));
 		out.close();
 
-		Desktop.getDesktop().browse(tmp.toURI());
+		if (!GraphicsEnvironment.isHeadless()) {
+			Desktop.getDesktop().browse(tmp.toURI());
+		} else {
+			System.err.println("cannot open chart in browser because running tests in headless environment - test chart webpage created @ " + tmp);
+		}
 
 	}
 

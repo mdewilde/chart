@@ -1,5 +1,5 @@
 /*
-	Copyright 2020 Marceau Dewilde <m@ceau.be>
+	Copyright 2023 Marceau Dewilde <m@ceau.be>
 
 	Licensed under the Apache License, Version 2.0 (the "License");
 	you may not use this file except in compliance with the License.
@@ -87,7 +87,7 @@ public class Line {
 	/**
 	 * @see #setFill(Fill)
 	 */
-	private Fill fill;
+	private Fill<Line> fill;
 
 	/**
 	 * @see #setStepped(Boolean)
@@ -193,8 +193,8 @@ public class Line {
 	 * <ul>
 	 * <li>{@code butt} The ends of lines are squared off at the endpoints.
 	 * <li>{@code round} The ends of lines are rounded.
-	 * <li>{@code square} The ends of lines are squared off by adding a box with
-	 * an equal width and half the height of the line's thickness.
+	 * <li>{@code square} The ends of lines are squared off by adding a box with an
+	 * equal width and half the height of the line's thickness.
 	 * </ul>
 	 * 
 	 * <p>
@@ -219,10 +219,10 @@ public class Line {
 	 * </p>
 	 *
 	 * <p>
-	 * A list of numbers that specifies distances to alternately draw a line and
-	 * a gap (in coordinate space units). If the number of elements in the array
-	 * is odd, the elements of the array get copied and concatenated. For
-	 * example, [5, 15, 25] will become [5, 15, 25, 5, 15, 25].
+	 * A list of numbers that specifies distances to alternately draw a line and a
+	 * gap (in coordinate space units). If the number of elements in the array is
+	 * odd, the elements of the array get copied and concatenated. For example, [5,
+	 * 15, 25] will become [5, 15, 25, 5, 15, 25].
 	 * </p>
 	 * 
 	 * <p>
@@ -268,17 +268,15 @@ public class Line {
 	 * Default line join style.
 	 * </p>
 	 * <ul>
-	 * <li>{@code round} Rounds off the corners of a shape by filling an
-	 * additional sector of disc centered at the common endpoint of connected
-	 * segments. The radius for these rounded corners is equal to the line
-	 * width.
+	 * <li>{@code round} Rounds off the corners of a shape by filling an additional
+	 * sector of disc centered at the common endpoint of connected segments. The
+	 * radius for these rounded corners is equal to the line width.
 	 * <li>{@code bevel} Fills an additional triangular area between the common
-	 * endpoint of connected segments, and the separate outside rectangular
-	 * corners of each segment.
-	 * <li>{@code miter} Connected segments are joined by extending their
-	 * outside edges to connect at a single point, with the effect of filling an
-	 * additional lozenge-shaped area. This setting is effected by the
-	 * miterLimit property.
+	 * endpoint of connected segments, and the separate outside rectangular corners
+	 * of each segment.
+	 * <li>{@code miter} Connected segments are joined by extending their outside
+	 * edges to connect at a single point, with the effect of filling an additional
+	 * lozenge-shaped area. This setting is effected by the miterLimit property.
 	 * </ul>
 	 * 
 	 * <p>
@@ -315,7 +313,7 @@ public class Line {
 	/**
 	 * @see #setFill(Fill)
 	 */
-	public Fill getFill() {
+	public Fill<Line> getFill() {
 		return this.fill;
 	}
 
@@ -328,7 +326,7 @@ public class Line {
 	 * Default {@code true}
 	 * </p>
 	 */
-	public Line setFill(Fill fill) {
+	public Line setFill(Fill<Line> fill) {
 		this.fill = fill;
 		return this;
 	}
@@ -342,8 +340,7 @@ public class Line {
 
 	/**
 	 * <p>
-	 * If true, the line is shown as a steeped line and 'tension' will be
-	 * ignored
+	 * If true, the line is shown as a steeped line and 'tension' will be ignored
 	 * </p>
 	 * 
 	 * <p>

@@ -1,5 +1,5 @@
 /*
-	Copyright 2020 Marceau Dewilde <m@ceau.be>
+	Copyright 2023 Marceau Dewilde <m@ceau.be>
 
 	Licensed under the Apache License, Version 2.0 (the "License");
 	you may not use this file except in compliance with the License.
@@ -22,7 +22,8 @@ import be.ceau.chart.enums.FillMode;
 
 /**
  * <p>
- * Option on the dataset object which can be used to create area between two datasets or a dataset and a boundary.
+ * Option on the dataset object which can be used to create area between two
+ * datasets or a dataset and a boundary.
  * </p>
  */
 public class Fill<T> {
@@ -33,12 +34,12 @@ public class Fill<T> {
 	/**
 	 * Default constructor
 	 */
-	public Fill() {
-	}
+	public Fill() {}
 
 	/**
 	 * @param fill - If true, fill the area under the line
 	 */
+	@SuppressWarnings("unchecked")
 	public Fill(Boolean fill) {
 		this.fill = (T) fill;
 	}
@@ -46,6 +47,7 @@ public class Fill<T> {
 	/**
 	 * @param index - Absolute dataset index
 	 */
+	@SuppressWarnings("unchecked")
 	public Fill(String index) {
 		this.fill = (T) index;
 	}
@@ -54,6 +56,7 @@ public class Fill<T> {
 	 *
 	 * @param index - Relative dataset index
 	 */
+	@SuppressWarnings("unchecked")
 	public Fill(Integer index) {
 		this.fill = (T) index;
 	}
@@ -61,18 +64,19 @@ public class Fill<T> {
 	/**
 	 * @param boundary
 	 */
+	@SuppressWarnings("unchecked")
 	public Fill(FillMode boundary) {
 		this.fill = (T) boundary;
 	}
-	
+
 	@JsonIgnore
 	public T getFill() {
 		return fill;
 	}
-	
+
 	@JsonIgnore
 	public void setFill(T fill) {
 		this.fill = fill;
 	}
-	
+
 }

@@ -1,5 +1,5 @@
 /*
-	Copyright 2020 Marceau Dewilde <m@ceau.be>
+	Copyright 2023 Marceau Dewilde <m@ceau.be>
 
 	Licensed under the Apache License, Version 2.0 (the "License");
 	you may not use this file except in compliance with the License.
@@ -55,7 +55,7 @@ import be.ceau.chart.options.scales.LinearScales;
  * Factory for randomized test instances of common Chart objects.
  */
 public class TestFactory {
-	
+
 	@SuppressWarnings("unchecked")
 	public static <T> T randomInstance(Class<T> clazz) {
 		// custom handlers
@@ -85,12 +85,13 @@ public class TestFactory {
 
 	public static List<BubbleDataPoint> generateBubbleDataPoints() {
 		List<BubbleDataPoint> list = new ArrayList<BubbleDataPoint>();
-		
-		// first choose random number of points we will generate - 4 minimum - more than 20 is overkill
+
+		// first choose random number of points we will generate - 4 minimum - more than
+		// 20 is overkill
 		int datapoints = Generator.nextInt(20) + 5;
-		
+
 		for (int i = 4; i <= datapoints; i++) {
-			
+
 			BubbleDataPoint point = new BubbleDataPoint();
 			point.setX(new BigDecimal(Generator.nextInt(500)));
 			point.setY(new BigDecimal(Generator.nextInt(500)));
@@ -105,7 +106,7 @@ public class TestFactory {
 	private static <T> T generatedInstance(Class<T> clazz) {
 		T t = null;
 		try {
-			t = clazz.newInstance();
+			t = clazz.getDeclaredConstructor().newInstance();
 			for (Method method : clazz.getMethods()) {
 				if (method.getName().startsWith("set") && !"setData".equals(method.getName())) {
 					method.setAccessible(true);
@@ -120,15 +121,13 @@ public class TestFactory {
 					}
 				}
 			}
-		} catch (InstantiationException e) {
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
+		} catch (ReflectiveOperationException | IllegalArgumentException | SecurityException e) {
 			e.printStackTrace();
 		}
 		return t;
 	}
-	
-	private static <T> Object instance(Class<T> t, String className, String label) throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+
+	private static <T> Object instance(Class<T> t, String className, String label) throws ReflectiveOperationException {
 		if (t == null) {
 			return null;
 		}
@@ -200,9 +199,9 @@ public class TestFactory {
 		if (Collection.class.equals(t)) {
 			return Collections.emptyList();
 		}
-		return t.newInstance();
+		return t.getDeclaredConstructor().newInstance();
 	}
-	
+
 	private static <T> Object randomPrimitive(Class<T> t, String label) {
 		if ("boolean".equals(t.getName())) {
 			return maybe();
@@ -236,7 +235,7 @@ public class TestFactory {
 		}
 		return null;
 	}
-	
+
 	private static LineData newLineData() {
 		LineData data = new LineData();
 		LineDataset dataset = randomInstance(LineDataset.class);
@@ -249,10 +248,10 @@ public class TestFactory {
 	}
 
 	private static LinearScales newLinearScales() {
-		 LinearScales scales = new LinearScales();
-		 scales.setxAxes(Collections.singletonList(randomInstance(LinearScale.class)));
-		 scales.setyAxes(Collections.singletonList(randomInstance(LinearScale.class)));
-		 return scales;
+		LinearScales scales = new LinearScales();
+		scales.setxAxes(Collections.singletonList(randomInstance(LinearScale.class)));
+		scales.setyAxes(Collections.singletonList(randomInstance(LinearScale.class)));
+		return scales;
 	}
 
 	private static PieData newPieData() {
